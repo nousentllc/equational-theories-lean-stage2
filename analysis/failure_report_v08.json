@@ -1,0 +1,1541 @@
+{
+  "inputs": {
+    "v08_results": "pipeline/results/arcf_sample200_v08.json",
+    "v07_results": "pipeline/results/arcf_sample200_v07.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "total_unsolved_no_judge_attempt": 28,
+    "true_labeled_unsolved": 27,
+    "false_labeled_unsolved": 1,
+    "newly_solved_vs_v07": [
+      {
+        "problem_id": "true_3291_3304",
+        "expected_answer": true,
+        "eq1_id": 3291,
+        "eq2_id": 3304,
+        "route": "derived_rewrite_edge",
+        "verdict": "true"
+      },
+      {
+        "problem_id": "true_4561_4566",
+        "expected_answer": true,
+        "eq1_id": 4561,
+        "eq2_id": 4566,
+        "route": "derived_rewrite_edge",
+        "verdict": "true"
+      }
+    ],
+    "regressions_vs_v07": [],
+    "count_by_cluster": {
+      "likely_projection_or_absorption": 25,
+      "likely_congruence_context_gap": 2,
+      "likely_false_missing_countermodel": 1
+    },
+    "count_by_next_likely_fix": {
+      "missing_nested_absorption_edge": 19,
+      "missing_rotation/context-shift": 6,
+      "missing_context_bridge": 2,
+      "likely_false_missing_countermodel": 1
+    },
+    "derived_edge_stop_reasons": {
+      "node_cap_400": 33
+    },
+    "recommendations": [
+      "Add a nested-absorption schema prover for a = b ◇ (... ◇ a) and a = (... ◇ a) ◇ b, then expose those as derived rewrite edges before bidirectional endpoint search.",
+      "Add a second context-bridge pass for two-level/mixed contexts, reusing the v0.8 bidirectional edge search on inner pairs and allowing one explicit common-midpoint lemma."
+    ]
+  },
+  "remaining_unsolved": [
+    {
+      "problem_id": "true_2942_5",
+      "expected_answer": true,
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis_equation": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal_equation": "x = y ◇ x",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a ◇ b = b",
+        "a = b ◇ a"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 376,
+            "backward_expanded": 24,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ x)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_3108_4642",
+      "expected_answer": true,
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis_equation": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal_equation": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a ◇ b = b"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 2,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 2
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 360,
+            "backward_expanded": 40,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 40,
+            "path": "root",
+            "lhs": "((x ◇ y) ◇ x)",
+            "rhs": "((z ◇ x) ◇ x)",
+            "skipped": false
+          },
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 376,
+            "backward_expanded": 24,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 24,
+            "path": "L",
+            "lhs": "(x ◇ y)",
+            "rhs": "(z ◇ x)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_1167_2000",
+      "expected_answer": true,
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis_equation": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal_equation": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((y ◇ (z ◇ z)) ◇ (z ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_1698_555",
+      "expected_answer": true,
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis_equation": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal_equation": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 334,
+            "backward_expanded": 66,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ (z ◇ (y ◇ (x ◇ y))))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_1604_1822",
+      "expected_answer": true,
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis_equation": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal_equation": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((y ◇ z) ◇ ((w ◇ w) ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2111_1755",
+      "expected_answer": true,
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis_equation": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal_equation": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((y ◇ z) ◇ ((x ◇ x) ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_3083_3094",
+      "expected_answer": true,
+      "eq1_id": 3083,
+      "eq2_id": 3094,
+      "hypothesis_equation": "x = (((x ◇ y) ◇ y) ◇ z) ◇ z",
+      "goal_equation": "x = (((x ◇ y) ◇ z) ◇ z) ◇ y",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ a",
+        "a = a ◇ b",
+        "nested absorption depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 330,
+            "backward_expanded": 70,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((((x ◇ y) ◇ z) ◇ z) ◇ y)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_1022_99",
+      "expected_answer": true,
+      "eq1_id": 1022,
+      "eq2_id": 99,
+      "hypothesis_equation": "x = x ◇ ((x ◇ (x ◇ y)) ◇ x)",
+      "goal_equation": "x = x ◇ ((x ◇ x) ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a ◇ b = a",
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 90,
+            "backward_expanded": 310,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 2,
+            "max_frontier": 26,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(x ◇ ((x ◇ x) ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 20,
+        "edge_count": 1312,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": false,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_425_1630",
+      "expected_answer": true,
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis_equation": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "goal_equation": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a ◇ b = a",
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 330,
+            "backward_expanded": 70,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((x ◇ x) ◇ ((x ◇ x) ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2860_3458",
+      "expected_answer": true,
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis_equation": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal_equation": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ a",
+        "a = a ◇ b",
+        "nested absorption depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 2,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 2
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 344,
+            "backward_expanded": 56,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 24,
+            "path": "root",
+            "lhs": "(x ◇ x)",
+            "rhs": "(x ◇ ((x ◇ y) ◇ x))",
+            "skipped": false
+          },
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 360,
+            "backward_expanded": 40,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "R",
+            "lhs": "x",
+            "rhs": "((x ◇ y) ◇ x)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_130_1759",
+      "expected_answer": true,
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis_equation": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal_equation": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((y ◇ z) ◇ ((x ◇ y) ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2061_307",
+      "expected_answer": true,
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis_equation": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal_equation": "x ◇ x = x ◇ (x ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 2,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 2
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 385,
+            "backward_expanded": 15,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 9,
+            "path": "root",
+            "lhs": "(x ◇ x)",
+            "rhs": "(x ◇ (x ◇ x))",
+            "skipped": false
+          },
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 230,
+            "backward_expanded": 170,
+            "partial_path_found": true,
+            "best_forward_depth": 3,
+            "best_backward_depth": 2,
+            "max_frontier": 48,
+            "path": "R",
+            "lhs": "x",
+            "rhs": "(x ◇ x)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 12,
+        "edge_count": 450,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": false,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_1738_1258",
+      "expected_answer": true,
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis_equation": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal_equation": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3",
+        "a ◇ b = a"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 334,
+            "backward_expanded": 66,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(x ◇ (((y ◇ z) ◇ x) ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2654_2864",
+      "expected_answer": true,
+      "eq1_id": 2654,
+      "eq2_id": 2864,
+      "hypothesis_equation": "x = ((x ◇ x) ◇ (y ◇ y)) ◇ z",
+      "goal_equation": "x = ((x ◇ (y ◇ x)) ◇ x) ◇ z",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(((x ◇ (y ◇ x)) ◇ x) ◇ z)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2789_898",
+      "expected_answer": true,
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis_equation": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal_equation": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3",
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ ((x ◇ z) ◇ (z ◇ y)))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_2135_2128",
+      "expected_answer": true,
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis_equation": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal_equation": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3",
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(((y ◇ y) ◇ x) ◇ (y ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 6272,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": false,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_428_3725",
+      "expected_answer": true,
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis_equation": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "goal_equation": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a ◇ b = a"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 344,
+            "backward_expanded": 56,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 24,
+            "path": "root",
+            "lhs": "(x ◇ y)",
+            "rhs": "((x ◇ y) ◇ (y ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_1500_498",
+      "expected_answer": true,
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis_equation": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal_equation": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 334,
+            "backward_expanded": 66,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ (x ◇ (z ◇ (w ◇ w))))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_691_1976",
+      "expected_answer": true,
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis_equation": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal_equation": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 330,
+            "backward_expanded": 70,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((y ◇ (z ◇ y)) ◇ (x ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_2074_2082",
+      "expected_answer": true,
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis_equation": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal_equation": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(((x ◇ y) ◇ z) ◇ (w ◇ x))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_4082_4109",
+      "expected_answer": true,
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis_equation": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal_equation": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "likely_cluster": "likely_congruence_context_gap",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ a",
+        "a = a ◇ b",
+        "nested absorption depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 318,
+            "backward_expanded": 82,
+            "partial_path_found": true,
+            "best_forward_depth": 3,
+            "best_backward_depth": 3,
+            "max_frontier": 81,
+            "path": "root",
+            "lhs": "(x ◇ x)",
+            "rhs": "(((y ◇ z) ◇ z) ◇ y)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_context_bridge"
+    },
+    {
+      "problem_id": "true_2771_2775",
+      "expected_answer": true,
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis_equation": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal_equation": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "false_1682_411",
+      "expected_answer": false,
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis_equation": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal_equation": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "likely_cluster": "likely_false_missing_countermodel",
+      "candidate_missing_lemma_schemas": [],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 352,
+            "backward_expanded": 48,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 2,
+            "max_frontier": 43,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(x ◇ (x ◇ (x ◇ (x ◇ x))))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 30,
+        "edge_count": 2450,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": false,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "likely_false_missing_countermodel"
+    },
+    {
+      "problem_id": "true_1874_4357",
+      "expected_answer": true,
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis_equation": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal_equation": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "likely_cluster": "likely_congruence_context_gap",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 3,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 3
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 360,
+            "backward_expanded": 40,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 40,
+            "path": "root",
+            "lhs": "(x ◇ (y ◇ z))",
+            "rhs": "(x ◇ (y ◇ w))",
+            "skipped": false
+          },
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 376,
+            "backward_expanded": 24,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 24,
+            "path": "R",
+            "lhs": "(y ◇ z)",
+            "rhs": "(y ◇ w)",
+            "skipped": false
+          },
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 392,
+            "backward_expanded": 8,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "RR",
+            "lhs": "z",
+            "rhs": "w",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_context_bridge"
+    },
+    {
+      "problem_id": "true_2055_2656",
+      "expected_answer": true,
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis_equation": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal_equation": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = (... ◇ a) ◇ b depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(((x ◇ x) ◇ (y ◇ z)) ◇ y)",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    },
+    {
+      "problem_id": "true_689_1350",
+      "expected_answer": true,
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis_equation": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal_equation": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ a",
+        "a = a ◇ b",
+        "nested absorption depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 334,
+            "backward_expanded": 66,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ (((z ◇ x) ◇ x) ◇ y))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_674_668",
+      "expected_answer": true,
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis_equation": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal_equation": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ a",
+        "a = a ◇ b",
+        "nested absorption depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 340,
+            "backward_expanded": 60,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "(y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_rotation/context-shift"
+    },
+    {
+      "problem_id": "true_1636_1839",
+      "expected_answer": true,
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis_equation": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal_equation": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "likely_cluster": "likely_projection_or_absorption",
+      "candidate_missing_lemma_schemas": [
+        "a = b ◇ (... ◇ a) depth<=3"
+      ],
+      "derived_rewrite_edge": {
+        "candidate_edge_targets_found": true,
+        "edge_target_count": 1,
+        "any_partial_path": true,
+        "any_meet_found": false,
+        "failure_mode": "cap_gate_failed_no_meet",
+        "stop_reasons": {
+          "node_cap_400": 1
+        },
+        "targets": [
+          {
+            "found_meet": false,
+            "stop_reason": "node_cap_400",
+            "expanded_nodes": 400,
+            "forward_expanded": 328,
+            "backward_expanded": 72,
+            "partial_path_found": true,
+            "best_forward_depth": 2,
+            "best_backward_depth": 1,
+            "max_frontier": 8,
+            "path": "root",
+            "lhs": "x",
+            "rhs": "((x ◇ (x ◇ y)) ◇ (x ◇ z))",
+            "skipped": false
+          }
+        ]
+      },
+      "proof_graph": {
+        "candidate_term_count": 64,
+        "edge_count": 10000,
+        "lhs_appeared": true,
+        "rhs_appeared": true,
+        "lhs_rhs_disconnected_under_depth6": true,
+        "disconnected_at_edge_cap": true,
+        "shortest_path_length_under_depth6": null,
+        "reverse_path_length_under_depth6": null
+      },
+      "next_likely_fix": "missing_nested_absorption_edge"
+    }
+  ]
+}

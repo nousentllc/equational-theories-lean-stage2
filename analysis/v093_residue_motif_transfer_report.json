@@ -1,0 +1,1251 @@
+{
+  "inputs": {
+    "v093_results": "pipeline/results/arcf_sample200_v093.json",
+    "v092_results": "pipeline/results/arcf_sample200_v092.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py",
+    "claude_notes": [
+      "claude_attempt/notes/handoff_to_justin.md",
+      "claude_attempt/v08_solver/ARCHITECTURE.md",
+      "claude_attempt/handproofs/true_2942_5.lean",
+      "claude_attempt/handproofs/true_130_1759.lean",
+      "claude_attempt/handproofs/true_2061_307.lean"
+    ]
+  },
+  "summary": {
+    "v092": {
+      "accepted": 175,
+      "true_proofs": 76,
+      "false_countermodels": 99,
+      "no_judge_attempt": 25,
+      "judge_errors": [],
+      "judge_status_counts": {
+        "accepted": 175
+      }
+    },
+    "v093": {
+      "accepted": 178,
+      "true_proofs": 79,
+      "false_countermodels": 99,
+      "no_judge_attempt": 22,
+      "judge_errors": [],
+      "judge_status_counts": {
+        "accepted": 178
+      }
+    },
+    "delta": {
+      "accepted": 3,
+      "true_proofs": 3,
+      "false_countermodels": 0,
+      "no_judge_attempt": -3,
+      "judge_errors": 0
+    },
+    "newly_solved_cases": [
+      "true_2942_5",
+      "true_130_1759",
+      "true_2061_307"
+    ],
+    "regressions": [],
+    "remaining_unsolved_total": 22,
+    "remaining_true_failures": 21,
+    "remaining_false_failures": 1
+  },
+  "newly_solved_details": [
+    {
+      "id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal": "x = y ◇ x",
+      "proof_motif": "true_2942_5 style repeated-anchor collapse",
+      "category": "collapse/absorption",
+      "key_local_equalities": [
+        "hByyy : ((y ◇ (y ◇ y)) ◇ y) ◇ y = y",
+        "collapse : ((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ y) = y",
+        "L_A : y = (y ◇ (y ◇ x)) ◇ y",
+        "hT : x = ((y ◇ (y ◇ x)) ◇ y) ◇ x"
+      ],
+      "route": "true_claude_hand_proof"
+    },
+    {
+      "id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "proof_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "category": "rotation bridge",
+      "key_local_equalities": [
+        "step_xy : x ◇ y = (y ◇ z) ◇ (((y ◇ z) ◇ z) ◇ (x ◇ y))",
+        "step_x : x = (y ◇ z) ◇ (((y ◇ z) ◇ (((y ◇ z) ◇ z) ◇ (x ◇ y))) ◇ x)",
+        "final lift by congrArg (fun t => (y ◇ z) ◇ (t ◇ x)) step_xy.symm"
+      ],
+      "route": "true_claude_hand_proof"
+    },
+    {
+      "id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x ◇ x = x ◇ (x ◇ x)",
+      "proof_motif": "true_2061_307 style multi-local-edge calc composition",
+      "category": "multi-edge calc composition",
+      "key_local_equalities": [
+        "A : x = ((x ◇ x) ◇ x) ◇ (x ◇ x)",
+        "L1 : (x ◇ x) ◇ x = (x ◇ (x ◇ x)) ◇ x",
+        "C : x ◇ x = (((x ◇ x) ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)",
+        "E : x ◇ (x ◇ x) = (((x ◇ (x ◇ x)) ◇ x) ◇ x) ◇ ((x ◇ (x ◇ x)) ◇ x)",
+        "middle calc via congrArg (fun t => (t ◇ x) ◇ t) L1"
+      ],
+      "route": "true_claude_hand_proof"
+    }
+  ],
+  "motifs": {
+    "true_2942_5": {
+      "name": "true_2942_5 style repeated-anchor collapse",
+      "category": "collapse/absorption",
+      "proof_class": "repeated-anchor collapse",
+      "key_equalities": [
+        "hByyy : ((y ◇ (y ◇ y)) ◇ y) ◇ y = y",
+        "collapse : ((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ y) = y",
+        "L_A : y = (y ◇ (y ◇ x)) ◇ y",
+        "hT : x = ((y ◇ (y ◇ x)) ◇ y) ◇ x"
+      ],
+      "transfer_signal": "Goal is a direct or shallow absorption/projection, and proof needs a composed h-substitution plus one collapse lemma."
+    },
+    "true_130_1759": {
+      "name": "true_130_1759 style two-h expansion + contextual lift",
+      "category": "rotation bridge",
+      "proof_class": "two-h contextual lift",
+      "key_equalities": [
+        "step_xy : x ◇ y = (y ◇ z) ◇ (((y ◇ z) ◇ z) ◇ (x ◇ y))",
+        "step_x : x = (y ◇ z) ◇ (((y ◇ z) ◇ (((y ◇ z) ◇ z) ◇ (x ◇ y))) ◇ x)",
+        "final lift by congrArg (fun t => (y ◇ z) ◇ (t ◇ x)) step_xy.symm"
+      ],
+      "transfer_signal": "Goal is x = C[x] with a nested prefix/context shift, and a second h-instance can build the exact inner replacement."
+    },
+    "true_2061_307": {
+      "name": "true_2061_307 style multi-local-edge calc composition",
+      "category": "multi-edge calc composition",
+      "proof_class": "self-expansion calc with two-hole congrArg",
+      "key_equalities": [
+        "A : x = ((x ◇ x) ◇ x) ◇ (x ◇ x)",
+        "L1 : (x ◇ x) ◇ x = (x ◇ (x ◇ x)) ◇ x",
+        "C : x ◇ x = (((x ◇ x) ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)",
+        "E : x ◇ (x ◇ x) = (((x ◇ (x ◇ x)) ◇ x) ◇ x) ◇ ((x ◇ (x ◇ x)) ◇ x)",
+        "middle calc via congrArg (fun t => (t ◇ x) ◇ t) L1"
+      ],
+      "transfer_signal": "Goal is a composite equality between anchor-preserving terms, usually needing a local edge plus a two-hole congrArg calc."
+    }
+  },
+  "remaining_true_ranked": [
+    {
+      "id": "true_428_3725",
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "goal": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "scores": {
+        "true_2942_5": 17,
+        "true_130_1759": 30,
+        "true_2061_307": 52
+      },
+      "closest_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_motif_id": "true_2061_307",
+      "closest_score": 52,
+      "reasons": [
+        "goal contains composite terms",
+        "goal is composite equality",
+        "goal sides share anchor-preserving substructure",
+        "goal repeats an anchor enough for two-hole congrArg",
+        "hypothesis repeats anchor like self-expansion source",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "direct h expansion midpoint found",
+          "exact outer context can be extracted",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal is composite equality",
+          "goal sides share anchor-preserving substructure",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "example_midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ y)))))",
+      "goal_depths": [
+        1,
+        2
+      ],
+      "goal_op_counts": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "scores": {
+        "true_2942_5": 45,
+        "true_130_1759": 46,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 46,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "exact outer context can be extracted",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal has right-anchored absorption shape",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "exact outer context can be extracted",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "example_midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "scores": {
+        "true_2942_5": 35,
+        "true_130_1759": 46,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 46,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "exact outer context can be extracted",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "exact outer context can be extracted",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "example_midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "scores": {
+        "true_2942_5": 35,
+        "true_130_1759": 46,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 46,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "exact outer context can be extracted",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "exact outer context can be extracted",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "example_midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+      "goal_depths": [
+        0,
+        4
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "scores": {
+        "true_2942_5": 45,
+        "true_130_1759": 36,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 45,
+      "reasons": [
+        "goal is anchor = context containing anchor",
+        "goal has right-anchored absorption shape",
+        "hypothesis repeats its anchor",
+        "goal target is compact enough for a local collapse lemma",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal has right-anchored absorption shape",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((y ◇ y) ◇ ((z ◇ x) ◇ x))",
+      "goal_depths": [
+        0,
+        4
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "scores": {
+        "true_2942_5": 45,
+        "true_130_1759": 36,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 45,
+      "reasons": [
+        "goal is anchor = context containing anchor",
+        "goal has right-anchored absorption shape",
+        "hypothesis repeats its anchor",
+        "goal target is compact enough for a local collapse lemma",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal has right-anchored absorption shape",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(((y ◇ x) ◇ z) ◇ (y ◇ x))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "scores": {
+        "true_2942_5": 17,
+        "true_130_1759": 20,
+        "true_2061_307": 42
+      },
+      "closest_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_motif_id": "true_2061_307",
+      "closest_score": 42,
+      "reasons": [
+        "goal contains composite terms",
+        "goal is composite equality",
+        "goal repeats an anchor enough for two-hole congrArg",
+        "hypothesis repeats anchor like self-expansion source",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal is composite equality",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (x ◇ x))",
+      "goal_depths": [
+        1,
+        3
+      ],
+      "goal_op_counts": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "scores": {
+        "true_2942_5": 17,
+        "true_130_1759": 20,
+        "true_2061_307": 42
+      },
+      "closest_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_motif_id": "true_2061_307",
+      "closest_score": 42,
+      "reasons": [
+        "goal contains composite terms",
+        "goal is composite equality",
+        "goal repeats an anchor enough for two-hole congrArg",
+        "hypothesis repeats anchor like self-expansion source",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal is composite equality",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((((((x ◇ y) ◇ x) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x))",
+      "goal_depths": [
+        2,
+        2
+      ],
+      "goal_op_counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "true_1167_2000",
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "scores": {
+        "true_2942_5": 37,
+        "true_130_1759": 36,
+        "true_2061_307": 16
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 37,
+      "reasons": [
+        "goal is anchor = context containing anchor",
+        "goal has right-anchored absorption shape",
+        "goal target is compact enough for a local collapse lemma",
+        "direct h midpoint exists"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal has right-anchored absorption shape",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(y ◇ ((z ◇ (y ◇ y)) ◇ x))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "scores": {
+        "true_2942_5": 35,
+        "true_130_1759": 36,
+        "true_2061_307": 17
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((y ◇ x) ◇ (z ◇ (x ◇ z)))",
+      "goal_depths": [
+        0,
+        4
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "scores": {
+        "true_2942_5": 35,
+        "true_130_1759": 36,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((x ◇ x) ◇ ((y ◇ x) ◇ z))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "scores": {
+        "true_2942_5": 27,
+        "true_130_1759": 36,
+        "true_2061_307": 16
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "((y ◇ x) ◇ ((y ◇ z) ◇ y))",
+      "goal_depths": [
+        0,
+        4
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "scores": {
+        "true_2942_5": 35,
+        "true_130_1759": 36,
+        "true_2061_307": 24
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(((x ◇ y) ◇ x) ◇ (y ◇ z))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "scores": {
+        "true_2942_5": 27,
+        "true_130_1759": 36,
+        "true_2061_307": 16
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(((y ◇ y) ◇ y) ◇ (x ◇ y))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "scores": {
+        "true_2942_5": 27,
+        "true_130_1759": 36,
+        "true_2061_307": 9
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(((y ◇ z) ◇ (y ◇ x)) ◇ z)",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "scores": {
+        "true_2942_5": 27,
+        "true_130_1759": 36,
+        "true_2061_307": 16
+      },
+      "closest_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_motif_id": "true_130_1759",
+      "closest_score": 36,
+      "reasons": [
+        "goal is nested anchor-preserving context",
+        "direct h expansion midpoint found",
+        "hypothesis has small-arity anchor-preserving h instances",
+        "goal sides share subterms for contextual lift"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "goal target is compact enough for a local collapse lemma",
+          "direct h midpoint exists"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "direct h expansion midpoint found",
+          "hypothesis has small-arity anchor-preserving h instances",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "direct h midpoint exists"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "example_midpoint": "(y ◇ (x ◇ ((z ◇ y) ◇ y)))",
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_1874_4357",
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "scores": {
+        "true_2942_5": 5,
+        "true_130_1759": 4,
+        "true_2061_307": 33
+      },
+      "closest_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_motif_id": "true_2061_307",
+      "closest_score": 33,
+      "reasons": [
+        "goal contains composite terms",
+        "goal is composite equality",
+        "goal sides share anchor-preserving substructure"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal target is compact enough for a local collapse lemma"
+        ],
+        "true_130_1759": [
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal is composite equality",
+          "goal sides share anchor-preserving substructure"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "example_midpoint": null,
+      "goal_depths": [
+        2,
+        2
+      ],
+      "goal_op_counts": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "true_425_1630",
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "goal": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "scores": {
+        "true_2942_5": 31,
+        "true_130_1759": 20,
+        "true_2061_307": 20
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 31,
+      "reasons": [
+        "goal is anchor = context containing anchor",
+        "hypothesis repeats its anchor",
+        "goal target is compact enough for a local collapse lemma"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "example_midpoint": null,
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "scores": {
+        "true_2942_5": 31,
+        "true_130_1759": 20,
+        "true_2061_307": 20
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 31,
+      "reasons": [
+        "goal is anchor = context containing anchor",
+        "hypothesis repeats its anchor",
+        "goal target is compact enough for a local collapse lemma"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal is anchor = context containing anchor",
+          "hypothesis repeats its anchor",
+          "goal target is compact enough for a local collapse lemma"
+        ],
+        "true_130_1759": [
+          "goal is nested anchor-preserving context",
+          "goal sides share subterms for contextual lift"
+        ],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal repeats an anchor enough for two-hole congrArg",
+          "hypothesis repeats anchor like self-expansion source"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "example_midpoint": null,
+      "goal_depths": [
+        0,
+        4
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "scores": {
+        "true_2942_5": 5,
+        "true_130_1759": 0,
+        "true_2061_307": 23
+      },
+      "closest_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_motif_id": "true_2061_307",
+      "closest_score": 23,
+      "reasons": [
+        "goal contains composite terms",
+        "goal is composite equality"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal target is compact enough for a local collapse lemma"
+        ],
+        "true_130_1759": [],
+        "true_2061_307": [
+          "goal contains composite terms",
+          "goal is composite equality"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "example_midpoint": null,
+      "goal_depths": [
+        1,
+        3
+      ],
+      "goal_op_counts": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "scores": {
+        "true_2942_5": 5,
+        "true_130_1759": 0,
+        "true_2061_307": 5
+      },
+      "closest_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_motif_id": "true_2942_5",
+      "closest_score": 5,
+      "reasons": [
+        "goal target is compact enough for a local collapse lemma"
+      ],
+      "all_reasons": {
+        "true_2942_5": [
+          "goal target is compact enough for a local collapse lemma"
+        ],
+        "true_130_1759": [],
+        "true_2061_307": [
+          "goal contains composite terms"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "example_midpoint": null,
+      "goal_depths": [
+        0,
+        3
+      ],
+      "goal_op_counts": [
+        0,
+        4
+      ]
+    }
+  ],
+  "remaining_true_by_closest_motif": {
+    "true_2942_5": [
+      "true_1738_1258",
+      "true_2111_1755",
+      "true_1167_2000",
+      "true_425_1630",
+      "true_689_1350",
+      "true_1604_1822"
+    ],
+    "true_130_1759": [
+      "true_2074_2082",
+      "true_2771_2775",
+      "true_674_668",
+      "true_1500_498",
+      "true_1636_1839",
+      "true_1698_555",
+      "true_2055_2656",
+      "true_2135_2128",
+      "true_2789_898",
+      "true_691_1976"
+    ],
+    "true_2061_307": [
+      "true_428_3725",
+      "true_2860_3458",
+      "true_3108_4642",
+      "true_1874_4357",
+      "true_4082_4109"
+    ]
+  },
+  "remaining_false": [
+    {
+      "id": "false_1682_411",
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "note": "Keep separate: targeted countermodel search has not been run in this v0.9.3 motif-transfer pass."
+    }
+  ],
+  "recommendation_v094": {
+    "target": "implement a narrowly gated intermediate-lemma miner for true_2942_5-style repeated-anchor collapse, then reuse it inside the recursive inner-context bridge.",
+    "why": "The new hand proofs show that composed h-substitutions plus a one-step collapse are enough to prove stable local lemmas. Several remaining cases are near nested absorption or direct projection but lack this deterministic local lemma synthesis.",
+    "first_cases_to_test": [
+      "true_2860_3458",
+      "true_2789_898",
+      "true_428_3725",
+      "true_2771_2775",
+      "true_674_668"
+    ],
+    "caps": [
+      "at most two h instances inside a local lemma",
+      "at most one congrArg collapse before the final lift",
+      "no global graph cap increases",
+      "one emitted lemma per route attempt"
+    ],
+    "false_case_note": "false_1682_411 should stay in a separate offline countermodel workflow; the targeted search described in Claude notes has not been rerun here."
+  }
+}

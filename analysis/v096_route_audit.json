@@ -1,0 +1,898 @@
+{
+  "inputs": {
+    "v096_results": "pipeline/results/arcf_sample200_v096.json",
+    "v095_results": "pipeline/results/arcf_sample200_v095.json",
+    "sample_200": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "v095": {
+      "accepted_count": 180,
+      "true_proofs": 81,
+      "false_countermodels": 99,
+      "no_judge_attempt": 20,
+      "judge_errors": 0
+    },
+    "v096": {
+      "accepted_count": 180,
+      "true_proofs": 81,
+      "false_countermodels": 99,
+      "no_judge_attempt": 20,
+      "judge_errors": 0
+    },
+    "newly_solved_cases": [],
+    "regressions": []
+  },
+  "route_audit": {
+    "remaining_true_cases": 19,
+    "remaining_false_cases": 1,
+    "cases_with_direct_h_midpoint": 16,
+    "cases_activated_route_exact_context": 5,
+    "total_extracted_exact_contexts": 13,
+    "cases_with_supported_inner_edge_shape": 3,
+    "total_supported_inner_edges": 6,
+    "cases_with_candidate_erasure_lemma": 3,
+    "total_candidate_erasure_lemmas": 6,
+    "cases_with_proved_lemma_block": 0,
+    "total_proved_lemma_blocks": 0,
+    "cases_with_inner_lemma_proof": 0,
+    "total_inner_lemma_proofs": 0,
+    "cases_failed_at_lemma_proof": 3,
+    "cases_failed_at_final_lift": 0,
+    "cases_blocked_by_code_size": 0,
+    "first_failure_point_counts": {
+      "no exact context extracted": 11,
+      "route not attempted": 3,
+      "inner edge shape unsupported": 2,
+      "candidate lemma generated but proof failed": 3
+    }
+  },
+  "case_audits": [
+    {
+      "id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "expected_answer": true,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "rotation_targets": 2,
+      "direct_h_midpoints": 6,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 6
+    },
+    {
+      "id": "true_1167_2000",
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 4,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 4
+    },
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 4,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 4
+    },
+    {
+      "id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "rotation_targets": 0,
+      "direct_h_midpoints": 0,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "route not attempted",
+      "closeness_score": 0
+    },
+    {
+      "id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 5
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "rotation_targets": 2,
+      "direct_h_midpoints": 22,
+      "exact_contexts": 3,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "((((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x))",
+          "context": "(q ◇ ((x ◇ y) ◇ x))",
+          "inner_lhs": "(((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x))",
+          "inner_rhs": "x"
+        },
+        {
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ x) ◇ x)",
+          "context": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        },
+        {
+          "midpoint": "(((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ◇ x)",
+          "context": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        }
+      ],
+      "sample_supported_edges": [],
+      "first_failure_point": "inner edge shape unsupported",
+      "closeness_score": 28
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 4,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 4
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 1,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(((x ◇ ((x ◇ z) ◇ (z ◇ y))) ◇ (x ◇ x)) ◇ ((x ◇ z) ◇ (z ◇ y)))",
+          "context": "(q ◇ ((x ◇ z) ◇ (z ◇ y)))",
+          "inner_lhs": "((x ◇ ((x ◇ z) ◇ (z ◇ y))) ◇ (x ◇ x))",
+          "inner_rhs": "y"
+        }
+      ],
+      "sample_supported_edges": [],
+      "first_failure_point": "inner edge shape unsupported",
+      "closeness_score": 7
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 8,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 8
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 1,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 1
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 4,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 4
+    },
+    {
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 1,
+      "exact_contexts": 2,
+      "supported_inner_edges": 1,
+      "candidate_erasure_lemmas": 1,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "context": "(((x ◇ y) ◇ z) ◇ (q ◇ x))",
+          "inner_lhs": "y",
+          "inner_rhs": "w"
+        },
+        {
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "context": "(((x ◇ y) ◇ z) ◇ q)",
+          "inner_lhs": "(y ◇ x)",
+          "inner_rhs": "(w ◇ x)"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseL",
+          "reverse": false,
+          "inner_lhs": "(y ◇ x)",
+          "inner_rhs": "(w ◇ x)",
+          "context": "(((x ◇ y) ◇ z) ◇ q)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 18
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "expected_answer": true,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "rotation_targets": 0,
+      "direct_h_midpoints": 0,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "route not attempted",
+      "closeness_score": 0
+    },
+    {
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 3,
+      "supported_inner_edges": 2,
+      "candidate_erasure_lemmas": 2,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(((y ◇ z) ◇ (x ◇ q)) ◇ y)",
+          "inner_lhs": "x",
+          "inner_rhs": "y"
+        },
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(((y ◇ z) ◇ q) ◇ y)",
+          "inner_lhs": "(x ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        },
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(q ◇ y)",
+          "inner_lhs": "((y ◇ z) ◇ (x ◇ x))",
+          "inner_rhs": "((y ◇ z) ◇ (x ◇ y))"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ x)",
+          "inner_rhs": "(x ◇ y)",
+          "context": "(((y ◇ z) ◇ q) ◇ y)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "((y ◇ z) ◇ (x ◇ x))",
+          "inner_rhs": "((y ◇ z) ◇ (x ◇ y))",
+          "context": "(q ◇ y)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 37
+    },
+    {
+      "id": "false_1682_411",
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "expected_answer": false,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "rotation_targets": 0,
+      "direct_h_midpoints": 0,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "route not attempted",
+      "note": "false-labeled case kept separate from proof-side route"
+    },
+    {
+      "id": "true_1874_4357",
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "expected_answer": true,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "rotation_targets": 2,
+      "direct_h_midpoints": 0,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "route not attempted",
+      "closeness_score": 0
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 5
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 5
+    },
+    {
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 3,
+      "exact_contexts": 4,
+      "supported_inner_edges": 3,
+      "candidate_erasure_lemmas": 3,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ ((x ◇ q) ◇ z)))",
+          "inner_lhs": "z",
+          "inner_rhs": "x"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ (q ◇ z)))",
+          "inner_lhs": "(x ◇ z)",
+          "inner_rhs": "(x ◇ x)"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ q))",
+          "inner_lhs": "((x ◇ z) ◇ z)",
+          "inner_rhs": "((x ◇ x) ◇ z)"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ q)",
+          "inner_lhs": "(x ◇ ((x ◇ z) ◇ z))",
+          "inner_rhs": "(x ◇ ((x ◇ x) ◇ z))"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ z)",
+          "inner_rhs": "(x ◇ x)",
+          "context": "(y ◇ (x ◇ (q ◇ z)))",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseL",
+          "reverse": false,
+          "inner_lhs": "((x ◇ z) ◇ z)",
+          "inner_rhs": "((x ◇ x) ◇ z)",
+          "context": "(y ◇ (x ◇ q))",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ ((x ◇ z) ◇ z))",
+          "inner_rhs": "(x ◇ ((x ◇ x) ◇ z))",
+          "context": "(y ◇ q)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 50
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "expected_answer": true,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 5
+    }
+  ],
+  "top_5_closest_cases": [
+    {
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 3,
+      "exact_contexts": 4,
+      "supported_inner_edges": 3,
+      "candidate_erasure_lemmas": 3,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ ((x ◇ q) ◇ z)))",
+          "inner_lhs": "z",
+          "inner_rhs": "x"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ (q ◇ z)))",
+          "inner_lhs": "(x ◇ z)",
+          "inner_rhs": "(x ◇ x)"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ (x ◇ q))",
+          "inner_lhs": "((x ◇ z) ◇ z)",
+          "inner_rhs": "((x ◇ x) ◇ z)"
+        },
+        {
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "context": "(y ◇ q)",
+          "inner_lhs": "(x ◇ ((x ◇ z) ◇ z))",
+          "inner_rhs": "(x ◇ ((x ◇ x) ◇ z))"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ z)",
+          "inner_rhs": "(x ◇ x)",
+          "context": "(y ◇ (x ◇ (q ◇ z)))",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseL",
+          "reverse": false,
+          "inner_lhs": "((x ◇ z) ◇ z)",
+          "inner_rhs": "((x ◇ x) ◇ z)",
+          "context": "(y ◇ (x ◇ q))",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ ((x ◇ z) ◇ z))",
+          "inner_rhs": "(x ◇ ((x ◇ x) ◇ z))",
+          "context": "(y ◇ q)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 50
+    },
+    {
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 5,
+      "exact_contexts": 3,
+      "supported_inner_edges": 2,
+      "candidate_erasure_lemmas": 2,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(((y ◇ z) ◇ (x ◇ q)) ◇ y)",
+          "inner_lhs": "x",
+          "inner_rhs": "y"
+        },
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(((y ◇ z) ◇ q) ◇ y)",
+          "inner_lhs": "(x ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        },
+        {
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "context": "(q ◇ y)",
+          "inner_lhs": "((y ◇ z) ◇ (x ◇ x))",
+          "inner_rhs": "((y ◇ z) ◇ (x ◇ y))"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "(x ◇ x)",
+          "inner_rhs": "(x ◇ y)",
+          "context": "(((y ◇ z) ◇ q) ◇ y)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        },
+        {
+          "family": "eraseR",
+          "reverse": false,
+          "inner_lhs": "((y ◇ z) ◇ (x ◇ x))",
+          "inner_rhs": "((y ◇ z) ◇ (x ◇ y))",
+          "context": "(q ◇ y)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 37
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "rotation_targets": 2,
+      "direct_h_midpoints": 22,
+      "exact_contexts": 3,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "((((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x))",
+          "context": "(q ◇ ((x ◇ y) ◇ x))",
+          "inner_lhs": "(((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x))",
+          "inner_rhs": "x"
+        },
+        {
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ x) ◇ x)",
+          "context": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        },
+        {
+          "midpoint": "(((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ◇ x)",
+          "context": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x)",
+          "inner_rhs": "(x ◇ y)"
+        }
+      ],
+      "sample_supported_edges": [],
+      "first_failure_point": "inner edge shape unsupported",
+      "closeness_score": 28
+    },
+    {
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 1,
+      "exact_contexts": 2,
+      "supported_inner_edges": 1,
+      "candidate_erasure_lemmas": 1,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [
+        {
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "context": "(((x ◇ y) ◇ z) ◇ (q ◇ x))",
+          "inner_lhs": "y",
+          "inner_rhs": "w"
+        },
+        {
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "context": "(((x ◇ y) ◇ z) ◇ q)",
+          "inner_lhs": "(y ◇ x)",
+          "inner_rhs": "(w ◇ x)"
+        }
+      ],
+      "sample_supported_edges": [
+        {
+          "family": "eraseL",
+          "reverse": false,
+          "inner_lhs": "(y ◇ x)",
+          "inner_rhs": "(w ◇ x)",
+          "context": "(((x ◇ y) ◇ z) ◇ q)",
+          "candidate_lemma_family_selected": true,
+          "lemma_block_generated": false,
+          "inner_proof_generated": false,
+          "proof_length": null
+        }
+      ],
+      "first_failure_point": "candidate lemma generated but proof failed",
+      "closeness_score": 18
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "rotation_targets": 1,
+      "direct_h_midpoints": 8,
+      "exact_contexts": 0,
+      "supported_inner_edges": 0,
+      "candidate_erasure_lemmas": 0,
+      "proved_lemma_blocks": 0,
+      "inner_lemma_proofs": 0,
+      "code_size_blocks": 0,
+      "final_lift_candidates": 0,
+      "sample_contexts": [],
+      "sample_supported_edges": [],
+      "first_failure_point": "no exact context extracted",
+      "closeness_score": 8
+    }
+  ],
+  "recommendation": {
+    "recommended_v097_target": "add two-lemma local-theory composition before expanding erasure shapes",
+    "rationale": [
+      "The route reaches exact contexts in 5 true failures and selects supported erasure lemma families in 3, but no selected erasure lemma is provable under the current one-lemma/two-h limits.",
+      "The bottleneck is proving the local projection/erasure seed; broadening shape recognition would not address that bottleneck.",
+      "A two-lemma composer can first derive a local projection/absorption fact and then use it to prove the erasure lemma under the already extracted context.",
+      "The false case false_1682_411 remains separate; targeted countermodel search should be run independently from proof-side route work."
+    ],
+    "first_tests": [
+      "true_674_668",
+      "true_2771_2775",
+      "true_2860_3458",
+      "true_2074_2082",
+      "true_2135_2128"
+    ],
+    "safe_scope": [
+      "only after exact context extraction",
+      "at most two local lemmas",
+      "calc length <= 3",
+      "no global graph cap increase"
+    ]
+  }
+}

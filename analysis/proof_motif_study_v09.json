@@ -1,0 +1,746 @@
+{
+  "inputs": [
+    "pipeline/results/arcf_sample200_v082.json",
+    "pipeline/results/arcf_sample200_v081.json",
+    "examples/problems/sample_200.json",
+    "submissions/arcf_prover/solver.py",
+    "analysis/failure_report_v08.json",
+    "analysis/nested_absorption_similarity_v081.md"
+  ],
+  "summary": {
+    "solver_state": "v0.8.2",
+    "accepted": 173,
+    "true_proofs": 74,
+    "false_countermodels": 99,
+    "no_judge_attempt": 27,
+    "judge_errors": 0,
+    "remaining_unsolved": 27,
+    "true_labeled_failures": 26,
+    "false_labeled_failures": 1,
+    "newly_solved_vs_v081": [],
+    "regressions_vs_v081": []
+  },
+  "remaining_unsolved_cases": [
+    "true_2942_5",
+    "true_3108_4642",
+    "true_1167_2000",
+    "true_1698_555",
+    "true_1604_1822",
+    "true_2111_1755",
+    "true_3083_3094",
+    "true_425_1630",
+    "true_2860_3458",
+    "true_130_1759",
+    "true_2061_307",
+    "true_1738_1258",
+    "true_2654_2864",
+    "true_2789_898",
+    "true_2135_2128",
+    "true_428_3725",
+    "true_1500_498",
+    "true_691_1976",
+    "true_2074_2082",
+    "true_4082_4109",
+    "true_2771_2775",
+    "false_1682_411",
+    "true_1874_4357",
+    "true_2055_2656",
+    "true_689_1350",
+    "true_674_668",
+    "true_1636_1839"
+  ],
+  "true_labeled_failures": [
+    {
+      "problem_id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis_equation": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+      "goal_equation": "x = y \u25c7 x",
+      "likely_missing_equality_edge": "x = y \u25c7 x",
+      "edge_type": "direct_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "right-anchored absorption",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis_equation": "x = (((y \u25c7 x) \u25c7 x) \u25c7 z) \u25c7 x",
+      "goal_equation": "(x \u25c7 y) \u25c7 x = (z \u25c7 x) \u25c7 x",
+      "likely_missing_equality_edge": "x \u25c7 y = z \u25c7 x",
+      "edge_type": "context_bridge",
+      "motif_group": "context_bridge_or_projection",
+      "classification_note": "right-anchor context bridge under (_ \u25c7 x)",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 2
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1167_2000",
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis_equation": "x = y \u25c7 ((z \u25c7 (y \u25c7 y)) \u25c7 x)",
+      "goal_equation": "x = (y \u25c7 (z \u25c7 z)) \u25c7 (z \u25c7 x)",
+      "likely_missing_equality_edge": "x = (y \u25c7 (z \u25c7 z)) \u25c7 (z \u25c7 x)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "prefix plus right-anchored nested absorption",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis_equation": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+      "goal_equation": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "likely_missing_equality_edge": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "anchor moved inside mixed right-nested context",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis_equation": "x = (y \u25c7 z) \u25c7 (w \u25c7 (x \u25c7 y))",
+      "goal_equation": "x = (y \u25c7 z) \u25c7 ((w \u25c7 w) \u25c7 y)",
+      "likely_missing_equality_edge": "x = (y \u25c7 z) \u25c7 ((w \u25c7 w) \u25c7 y)",
+      "edge_type": "two-lemma chain",
+      "motif_group": "collapse_projection_chain",
+      "classification_note": "target loses visible x anchor; likely collapse then absorption",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis_equation": "x = ((y \u25c7 x) \u25c7 z) \u25c7 (y \u25c7 x)",
+      "goal_equation": "x = (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+      "likely_missing_equality_edge": "x = (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "prefix plus true_1022-style self tail",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_3083_3094",
+      "eq1_id": 3083,
+      "eq2_id": 3094,
+      "hypothesis_equation": "x = (((x \u25c7 y) \u25c7 y) \u25c7 z) \u25c7 z",
+      "goal_equation": "x = (((x \u25c7 y) \u25c7 z) \u25c7 z) \u25c7 y",
+      "likely_missing_equality_edge": "x = (((x \u25c7 y) \u25c7 z) \u25c7 z) \u25c7 y",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "rotate trailing y across repeated z context",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_425_1630",
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis_equation": "x = x \u25c7 (x \u25c7 (y \u25c7 (z \u25c7 w)))",
+      "goal_equation": "x = (x \u25c7 x) \u25c7 ((x \u25c7 x) \u25c7 y)",
+      "likely_missing_equality_edge": "x = (x \u25c7 x) \u25c7 ((x \u25c7 x) \u25c7 y)",
+      "edge_type": "nested_absorption",
+      "motif_group": "self_idempotent_expansion",
+      "classification_note": "self-square prefix and self-square context",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis_equation": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+      "goal_equation": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "likely_missing_equality_edge": "x = (x \u25c7 y) \u25c7 x under context x \u25c7 _",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "right-anchor inner absorption under left context",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 2
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis_equation": "x = y \u25c7 ((y \u25c7 z) \u25c7 x)",
+      "goal_equation": "x = (y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "likely_missing_equality_edge": "x = (y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "prefix plus right-anchored nested absorption",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis_equation": "x = ((x \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal_equation": "x \u25c7 x = x \u25c7 (x \u25c7 x)",
+      "likely_missing_equality_edge": "x = x \u25c7 x under context x \u25c7 _",
+      "edge_type": "direct_absorption",
+      "motif_group": "self_idempotent_expansion",
+      "classification_note": "idempotent/self-absorption expansion",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 450,
+      "disconnected_at_edge_cap": false,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 2
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis_equation": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+      "goal_equation": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "likely_missing_equality_edge": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "left-self prefix plus right-anchored nested absorption",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2654_2864",
+      "eq1_id": 2654,
+      "eq2_id": 2864,
+      "hypothesis_equation": "x = ((x \u25c7 x) \u25c7 (y \u25c7 y)) \u25c7 z",
+      "goal_equation": "x = ((x \u25c7 (y \u25c7 x)) \u25c7 x) \u25c7 z",
+      "likely_missing_equality_edge": "x = ((x \u25c7 (y \u25c7 x)) \u25c7 x) \u25c7 z",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "anchor-preserving left-nested tail with extra suffix",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis_equation": "x = ((y \u25c7 z) \u25c7 (y \u25c7 x)) \u25c7 z",
+      "goal_equation": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "likely_missing_equality_edge": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "mixed rotation with anchor inside left branch",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis_equation": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal_equation": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "likely_missing_equality_edge": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "move repeated y-block around x anchor",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 6272,
+      "disconnected_at_edge_cap": false,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_428_3725",
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis_equation": "x = x \u25c7 (y \u25c7 (x \u25c7 (x \u25c7 z)))",
+      "goal_equation": "x \u25c7 y = (x \u25c7 y) \u25c7 (y \u25c7 y)",
+      "likely_missing_equality_edge": "x \u25c7 y = (x \u25c7 y) \u25c7 (y \u25c7 y)",
+      "edge_type": "direct_absorption",
+      "motif_group": "self_idempotent_expansion",
+      "classification_note": "term-level absorption T = T \u25c7 filler",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis_equation": "x = (y \u25c7 x) \u25c7 (z \u25c7 (x \u25c7 z))",
+      "goal_equation": "x = y \u25c7 (x \u25c7 (z \u25c7 (w \u25c7 w)))",
+      "likely_missing_equality_edge": "x = y \u25c7 (x \u25c7 (z \u25c7 (w \u25c7 w)))",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "prefix plus anchor in second position",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis_equation": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+      "goal_equation": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+      "likely_missing_equality_edge": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "prefix plus anchor-pair tail",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis_equation": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+      "goal_equation": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+      "likely_missing_equality_edge": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+      "edge_type": "nested_absorption",
+      "motif_group": "anchor_preserving_nested_absorption",
+      "classification_note": "anchor at both left prefix and right tail",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis_equation": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+      "goal_equation": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+      "likely_missing_equality_edge": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+      "edge_type": "context_bridge",
+      "motif_group": "context_bridge_or_projection",
+      "classification_note": "bridge self-square to unrelated repeated-y/z block",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis_equation": "x = ((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y",
+      "goal_equation": "x = ((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y",
+      "likely_missing_equality_edge": "x = ((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "right suffix y around anchor-pair subterm",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1874_4357",
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis_equation": "x = (x \u25c7 (y \u25c7 z)) \u25c7 (y \u25c7 w)",
+      "goal_equation": "x \u25c7 (y \u25c7 z) = x \u25c7 (y \u25c7 w)",
+      "likely_missing_equality_edge": "z = w under context x \u25c7 (y \u25c7 _)",
+      "edge_type": "context_bridge",
+      "motif_group": "context_bridge_or_projection",
+      "classification_note": "deep congruence bridge / local collapse",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 3
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis_equation": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+      "goal_equation": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "likely_missing_equality_edge": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "self-square prefix plus trailing y shift",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis_equation": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+      "goal_equation": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+      "likely_missing_equality_edge": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "rotate x through nested z/x/y context",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis_equation": "x = y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z))",
+      "goal_equation": "x = y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z))",
+      "likely_missing_equality_edge": "x = y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z))",
+      "edge_type": "rotation/context-shift",
+      "motif_group": "rotation_context_shift",
+      "classification_note": "prefix plus self-tail with foreign suffix",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    },
+    {
+      "problem_id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis_equation": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+      "goal_equation": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "likely_missing_equality_edge": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "edge_type": "nested_absorption",
+      "motif_group": "self_idempotent_expansion",
+      "classification_note": "two x-anchored branches",
+      "lhs_rhs_present_in_proof_graph": true,
+      "proof_graph_edge_count": 10000,
+      "disconnected_at_edge_cap": true,
+      "partial_derived_edge_path_found": true,
+      "derived_edge_stop_reasons": {
+        "node_cap_400": 1
+      },
+      "source_diagnostic": "analysis/failure_report_v08.json"
+    }
+  ],
+  "false_labeled_failures": [
+    {
+      "problem_id": "false_1682_411",
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis_equation": "x = (y \u25c7 x) \u25c7 ((x \u25c7 x) \u25c7 y)",
+      "goal_equation": "x = x \u25c7 (x \u25c7 (x \u25c7 (x \u25c7 x)))",
+      "likely_issue": "remaining false case; solver has not found a finite countermodel witness",
+      "partial_derived_edge_path_found": true,
+      "proof_graph_lhs_rhs_present": true
+    }
+  ],
+  "anti_unification_motif_groups": [
+    {
+      "id": "anchor_preserving_nested_absorption",
+      "generalized_motif": "A = C[A] where C is a small nested magma context with A occurring as a right or paired anchor, e.g. A = P \u25c7 (... \u25c7 A) or A = P \u25c7 ((A \u25c7 F) \u25c7 A)",
+      "cases": [
+        "true_2942_5",
+        "true_1167_2000",
+        "true_2111_1755",
+        "true_130_1759",
+        "true_1738_1258",
+        "true_1500_498",
+        "true_691_1976",
+        "true_2074_2082"
+      ],
+      "anti_unification": "A = HOLE1 \u25c7 HOLE2[A], with HOLE2 preserving A near the right spine",
+      "solved_precedents": [
+        "v0.6 absorption/projection cases",
+        "true_1022_99 only as a one-anchor special case"
+      ],
+      "candidate_local_lemma": "have abs : \u2200 (a p q : G), a = p \u25c7 (q \u25c7 a) := by ... or a goal-extracted specialization with p/q as compact subterms",
+      "lean_skeleton": "derive one or two local absorption edges with h; close by calc: lhs = mid := lemma1; _ = rhs := lemma2/congrArg",
+      "requires": "usually two lemmas or one lemma plus nested congrArg",
+      "implementation_difficulty": "high",
+      "judge_error_risk": "medium unless each candidate is fully judge-gated and goal-extracted",
+      "expected_coverage": "6-10 cases if anti-unification is precise; broad schemas risk false positives"
+    },
+    {
+      "id": "rotation_context_shift",
+      "generalized_motif": "A = C1[A] should imply A = C2[A] where C2 is a rotation or context shift of repeated blocks already present in the hypothesis",
+      "cases": [
+        "true_1698_555",
+        "true_3083_3094",
+        "true_2860_3458",
+        "true_2654_2864",
+        "true_2789_898",
+        "true_2135_2128",
+        "true_2771_2775",
+        "true_2055_2656",
+        "true_689_1350",
+        "true_674_668"
+      ],
+      "anti_unification": "A = L[(R[A] \u25c7 S)]  ==>  A = L[(S \u25c7 R[A])] or sibling movement across one/two nested \u25c7 nodes",
+      "solved_precedents": [
+        "true_2935_3138 goal-directed rotation",
+        "true_3291_3304 / true_4561_4566 derived rewrite edges"
+      ],
+      "candidate_local_lemma": "have rot : \u2200 a b c, C1 a b c = C2 a b c := by exact <2 h uses + nested congrArg>",
+      "lean_skeleton": "prove a local context-shift edge, then exact rot ... or congrArg (fun t => outer_context[t]) rot",
+      "requires": "nested congrArg or short calc length 2-3",
+      "implementation_difficulty": "medium",
+      "judge_error_risk": "low-medium if restricted to exact extracted contexts",
+      "expected_coverage": "4-6 cases"
+    },
+    {
+      "id": "self_idempotent_expansion",
+      "generalized_motif": "T = T \u25c7 F(T) or A = A \u25c7 A under a shallow context",
+      "cases": [
+        "true_425_1630",
+        "true_2061_307",
+        "true_428_3725",
+        "true_1636_1839"
+      ],
+      "anti_unification": "T = T \u25c7 HOLE where T is a goal subterm and HOLE is built from repeated variables/subterms",
+      "solved_precedents": [
+        "true_1022_99 nested_self_absorption",
+        "v0.6 direct absorption/projection cases"
+      ],
+      "candidate_local_lemma": "have grow : \u2200 t u : G, t = t \u25c7 u := by ... when h gives a matching expansion",
+      "lean_skeleton": "one local lemma, then direct exact or congrArg under one context",
+      "requires": "one lemma; sometimes one congrArg",
+      "implementation_difficulty": "medium",
+      "judge_error_risk": "low if target is exactly goal-extracted; low coverage observed after v0.8.2",
+      "expected_coverage": "1-3 cases"
+    },
+    {
+      "id": "context_bridge_or_projection",
+      "generalized_motif": "C[s] = C[t] where s/t are small variables or anchored terms but the required edge is not directly an h instance",
+      "cases": [
+        "true_3108_4642",
+        "true_4082_4109",
+        "true_1874_4357"
+      ],
+      "anti_unification": "C[S] = C[T], requiring a derived bridge S = T under a shared one/two-level context",
+      "solved_precedents": [
+        "true_3291_3304 / true_4561_4566 derived rewrite edge cases",
+        "v0.8 derived_context_bridge"
+      ],
+      "candidate_local_lemma": "have bridge : s = t := by calc s = m := edge1; _ = t := edge2",
+      "lean_skeleton": "two-lemma calc composer, then congrArg over exact extracted context",
+      "requires": "two lemmas plus congrArg; no broad graph expansion",
+      "implementation_difficulty": "medium",
+      "judge_error_risk": "low if each bridge edge is independently judge-gated",
+      "expected_coverage": "2-3 cases directly, plus support for rotation/nested motifs"
+    },
+    {
+      "id": "collapse_projection_chain",
+      "generalized_motif": "A = term not visibly containing A; likely requires collapse/projection lemma before absorption",
+      "cases": [
+        "true_1604_1822"
+      ],
+      "anti_unification": "A = C[B] with A absent from C[B], requiring a projection/collapse edge to reintroduce or erase a variable",
+      "solved_precedents": [
+        "v0.6 projection/collapse lemmas"
+      ],
+      "candidate_local_lemma": "have proj : \u2200 a b, a \u25c7 b = a / b, or have collapse : \u2200 a b, a = b",
+      "lean_skeleton": "derive projection/collapse locally; then close target by direct lemma or one calc step",
+      "requires": "one strong lemma; possibly singleton-like collapse",
+      "implementation_difficulty": "high",
+      "judge_error_risk": "medium-high because overgeneral projection/collapse lemmas are fragile",
+      "expected_coverage": "1-2 cases"
+    }
+  ],
+  "ranked_motifs": [
+    {
+      "rank": 1,
+      "motif_id": "rotation_context_shift",
+      "reason": "Best balance: ten listed cases with 4-6 realistic immediate targets, direct solved precedent true_2935_3138, compact certificates, and exact-context gating can preserve zero judge errors.",
+      "likely_cases": [
+        "true_1698_555",
+        "true_3083_3094",
+        "true_2860_3458",
+        "true_2654_2864",
+        "true_2789_898",
+        "true_2135_2128",
+        "true_2771_2775",
+        "true_2055_2656",
+        "true_689_1350",
+        "true_674_668"
+      ]
+    },
+    {
+      "rank": 2,
+      "motif_id": "context_bridge_or_projection",
+      "reason": "Only three direct cases, but the two-lemma bridge composer is reusable by rotation/nested motifs and can be judge-gated edge-by-edge.",
+      "likely_cases": [
+        "true_3108_4642",
+        "true_4082_4109",
+        "true_1874_4357"
+      ]
+    },
+    {
+      "rank": 3,
+      "motif_id": "anchor_preserving_nested_absorption",
+      "reason": "Largest nominal coverage, but v0.8.2 showed blind generalization is weak; needs anti-unified exact contexts rather than more schemas.",
+      "likely_cases": [
+        "true_2942_5",
+        "true_1167_2000",
+        "true_2111_1755",
+        "true_130_1759",
+        "true_1738_1258",
+        "true_1500_498",
+        "true_691_1976",
+        "true_2074_2082"
+      ]
+    },
+    {
+      "rank": 4,
+      "motif_id": "self_idempotent_expansion",
+      "reason": "Compact certificates and low risk, but v0.8.2 already exhausted the obvious one-anchor form and expected coverage is small.",
+      "likely_cases": [
+        "true_425_1630",
+        "true_2061_307",
+        "true_428_3725",
+        "true_1636_1839"
+      ]
+    },
+    {
+      "rank": 5,
+      "motif_id": "collapse_projection_chain",
+      "reason": "Potentially useful for no-anchor/collapse cases, but proof obligations are stronger and higher-risk.",
+      "likely_cases": [
+        "true_1604_1822"
+      ]
+    }
+  ],
+  "recommendation": {
+    "v09_target": "generalized rotation/context-shift bridge backed by a two-lemma calc composer",
+    "why": "It has solved precedent, moderate coverage, compact certificates, and lower judge-error risk than broad nested absorption anti-unification. The bridge composer also supports context_bridge and some anchor-preserving nested absorption cases without raising graph caps.",
+    "implementation_shape": [
+      "Extract exact shared contexts and candidate midpoints around goal lhs/rhs.",
+      "Prove at most two local edges using existing deterministic engines or specialized h+congrArg skeletons.",
+      "Compose calc length <= 3, then apply congrArg over the extracted context if needed.",
+      "Run before broad derived_rewrite_edge; keep all candidates judge-gated and abstain on uncertainty."
+    ],
+    "countermodel_search_recommendation": "Yes. Run a separate targeted finite countermodel search for false_1682_411 offline, including n=4/5 random/idempotent/commutative tables and a small backtracking search, then embed only a compact witness if found. Do not mix this with true-proof route changes."
+  }
+}

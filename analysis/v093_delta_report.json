@@ -1,0 +1,431 @@
+{
+  "inputs": {
+    "v093_results": "pipeline/results/arcf_sample200_v093.json",
+    "v092_results": "pipeline/results/arcf_sample200_v092.json",
+    "v092_near_miss": "analysis/inner_edge_near_miss_v092.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "v092": {
+      "accepted": 175,
+      "true_proofs": 76,
+      "false_countermodels": 99,
+      "no_judge_attempt": 25,
+      "judge_errors": [],
+      "judge_status_counts": {
+        "accepted": 175
+      }
+    },
+    "v093": {
+      "accepted": 178,
+      "true_proofs": 79,
+      "false_countermodels": 99,
+      "no_judge_attempt": 22,
+      "judge_errors": [],
+      "judge_status_counts": {
+        "accepted": 178
+      }
+    },
+    "delta": {
+      "accepted": 3,
+      "true_proofs": 3,
+      "false_countermodels": 0,
+      "no_judge_attempt": -3,
+      "judge_errors": 0
+    },
+    "newly_solved_cases": [
+      "true_2942_5",
+      "true_130_1759",
+      "true_2061_307"
+    ],
+    "regressions": [],
+    "remaining_unsolved_total": 22,
+    "remaining_true_failures": 21,
+    "remaining_false_failures": 1,
+    "right_argument_invariance_exhausted": false,
+    "right_argument_invariance_remaining_cases": [
+      "true_2771_2775",
+      "true_674_668"
+    ]
+  },
+  "newly_solved_details": [
+    {
+      "id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal": "x = y ◇ x",
+      "route": "true_claude_hand_proof",
+      "motif": "nested absorption",
+      "detail": "Derives y = (y◇(y◇x))◇y via a composed h-substitution and collapse, then rewrites h x y y to prove x = y◇x.",
+      "code_size": 741
+    },
+    {
+      "id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "route": "true_claude_hand_proof",
+      "motif": "rotation/context bridge",
+      "detail": "Uses h on x◇y to build the exact inner substitution, then lifts step_xy.symm through a nested context for x.",
+      "code_size": 368
+    },
+    {
+      "id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x ◇ x = x ◇ (x ◇ x)",
+      "route": "true_claude_hand_proof",
+      "motif": "nested absorption",
+      "detail": "Derives an intermediate self-expansion edge (xx)x = (x(xx))x, then lifts it with a two-hole congrArg to close xx = x(xx).",
+      "code_size": 733
+    }
+  ],
+  "remaining_unsolved": [
+    {
+      "id": "true_3108_4642",
+      "expected": true,
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1167_2000",
+      "expected": true,
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1698_555",
+      "expected": true,
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1604_1822",
+      "expected": true,
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_2111_1755",
+      "expected": true,
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_425_1630",
+      "expected": true,
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "goal": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_2860_3458",
+      "expected": true,
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "families": [
+        "nested absorption"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1738_1258",
+      "expected": true,
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_2789_898",
+      "expected": true,
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "families": [
+        "nested absorption"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_2135_2128",
+      "expected": true,
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_428_3725",
+      "expected": true,
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "goal": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "families": [
+        "nested absorption"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1500_498",
+      "expected": true,
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_691_1976",
+      "expected": true,
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_2074_2082",
+      "expected": true,
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "families": [
+        "b◇a = c◇a"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_4082_4109",
+      "expected": true,
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_2771_2775",
+      "expected": true,
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "families": [
+        "a◇a = a◇b",
+        "a◇b = a◇c"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "false_1682_411",
+      "expected": false,
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "families": [
+        "remaining false countermodel"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_1874_4357",
+      "expected": true,
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_2055_2656",
+      "expected": true,
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_689_1350",
+      "expected": true,
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": false
+    },
+    {
+      "id": "true_674_668",
+      "expected": true,
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "families": [
+        "a◇a = a◇b",
+        "a◇b = a◇c",
+        "b◇a = c◇a",
+        "(a◇b)◇c = (a◇d)◇c",
+        "a◇(b◇c) = a◇(d◇c)"
+      ],
+      "outer_context_extracted": true,
+      "direct_h_midpoint_found": true
+    },
+    {
+      "id": "true_1636_1839",
+      "expected": true,
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "families": [
+        "no extracted outer context"
+      ],
+      "outer_context_extracted": false,
+      "direct_h_midpoint_found": true
+    }
+  ],
+  "groups_by_near_miss_family": {
+    "(a◇b)◇c = (a◇d)◇c": [
+      "true_674_668"
+    ],
+    "a◇(b◇c) = a◇(d◇c)": [
+      "true_674_668"
+    ],
+    "a◇a = a◇b": [
+      "true_2771_2775",
+      "true_674_668"
+    ],
+    "a◇b = a◇c": [
+      "true_2771_2775",
+      "true_674_668"
+    ],
+    "b◇a = c◇a": [
+      "true_2074_2082",
+      "true_674_668"
+    ],
+    "nested absorption": [
+      "true_2860_3458",
+      "true_2789_898",
+      "true_428_3725"
+    ],
+    "no extracted outer context": [
+      "true_3108_4642",
+      "true_1167_2000",
+      "true_1698_555",
+      "true_1604_1822",
+      "true_2111_1755",
+      "true_425_1630",
+      "true_1738_1258",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_4082_4109",
+      "true_1874_4357",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_1636_1839"
+    ],
+    "remaining false countermodel": [
+      "false_1682_411"
+    ]
+  },
+  "recommendation_v094": {
+    "target": "generalize the Claude nested-absorption/intermediate-lemma pattern into a deterministic local lemma miner, starting with true_2942_5-style absorption seeds.",
+    "why": "v0.9.3 added three hand proofs; two are nested-absorption/intermediate-lemma proofs and one is a context bridge. The remaining right-argument invariance family is not exhausted, but the unresolved cases true_2771_2775 and true_674_668 require proving the erasure seed, not merely applying rinv. Claude proofs show the missing mechanism is composed h-substitution plus one collapse lemma.",
+    "safe_scope": "Gate on exact sample-free structural shapes: direct h midpoint, extracted local edge, and a candidate lemma whose proof uses at most two h instances plus one congrArg. Keep graph caps unchanged.",
+    "avoid": "Do not raise broad graph caps; current evidence points to missing local lemma synthesis rather than missing global term enumeration."
+  }
+}

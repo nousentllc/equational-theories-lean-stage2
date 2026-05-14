@@ -1,0 +1,1736 @@
+{
+  "inputs": {
+    "v09_results": "pipeline/results/arcf_sample200_v09.json",
+    "v082_results": "pipeline/results/arcf_sample200_v082.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "accepted_rotation_bridge_case": "true_3083_3094",
+    "newly_solved_vs_v082": [
+      "true_3083_3094"
+    ],
+    "remaining_unsolved_total": 26,
+    "remaining_true_failures": 25,
+    "remaining_false_failures": 1,
+    "recommendation": "Add a one-level recursive inner-context bridge after a cheap h midpoint inside rotation_context_bridge."
+  },
+  "accepted_proof_skeleton": {
+    "problem": {
+      "id": "true_3083_3094",
+      "eq1_id": 3083,
+      "eq2_id": 3094,
+      "equation1": "x = (((x ◇ y) ◇ y) ◇ z) ◇ z",
+      "equation2": "x = (((x ◇ y) ◇ z) ◇ z) ◇ y",
+      "answer": true
+    },
+    "proof": "import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z\n  have bridge : x = ((((x ◇ y) ◇ z) ◇ z) ◇ y) := by\n    calc\n      x = ((((x ◇ y) ◇ y) ◇ z) ◇ z) := h x y z\n      _ = ((((x ◇ y) ◇ z) ◇ z) ◇ y) := (((h ((((x ◇ y) ◇ y) ◇ z) ◇ z) ((((x ◇ y) ◇ y) ◇ z) ◇ z) y).trans (congrArg (fun t => ((t ◇ y) ◇ y)) ((h ((x ◇ y) ◇ y) z ((((x ◇ y) ◇ y) ◇ z) ◇ z)).symm)))).trans ((((congrArg (fun t => (t ◇ y)) (h (((x ◇ y) ◇ z) ◇ z) ((((x ◇ y) ◇ y) ◇ z) ◇ z) y)).trans (congrArg (fun t => (((t ◇ y) ◇ y) ◇ y)) ((h (x ◇ y) z ((((x ◇ y) ◇ y) ◇ z) ◇ z)).symm)))).symm)\n  exact bridge\n",
+    "hypothesis_instantiations": [
+      "h x y z",
+      "h ((((x ◇ y) ◇ y) ◇ z) ◇ z) ((((x ◇ y) ◇ y) ◇ z) ◇ z) y",
+      "(h ((x ◇ y) ◇ y) z ((((x ◇ y) ◇ y) ◇ z) ◇ z)).symm",
+      "h (((x ◇ y) ◇ z) ◇ z) ((((x ◇ y) ◇ y) ◇ z) ◇ z) y",
+      "(h (x ◇ y) z ((((x ◇ y) ◇ y) ◇ z) ◇ z)).symm"
+    ],
+    "midpoint_term": "((((x ◇ y) ◇ y) ◇ z) ◇ z)",
+    "target_term": "((((x ◇ y) ◇ z) ◇ z) ◇ y)",
+    "congrArg_contexts": [
+      "fun t => ((t ◇ y) ◇ y)",
+      "fun t => (t ◇ y)",
+      "fun t => (((t ◇ y) ◇ y) ◇ y)"
+    ],
+    "transitivity_structure": "calc first expands the anchor with h x y z, then proves midpoint = target by a trans chain combining two h steps and three congrArg lifts.",
+    "anchor_terms": [
+      "x",
+      "x ◇ y",
+      "((x ◇ y) ◇ y)",
+      "((((x ◇ y) ◇ y) ◇ z) ◇ z)",
+      "((((x ◇ y) ◇ z) ◇ z)"
+    ]
+  },
+  "nearest_neighbors": [
+    {
+      "problem_id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "score": 88,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ y) ◇ y) ◇ (x ◇ y))",
+      "likely_missing_edge": "(((y ◇ y) ◇ y) ◇ (x ◇ y)) = (((y ◇ y) ◇ x) ◇ (y ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v1)◇v1)◇(v0◇v1))",
+        "goal_alpha": "v0=(((v1◇v1)◇v0)◇(v1◇v1))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "bridge : (((y ◇ y) ◇ y) ◇ (x ◇ y)) = (((y ◇ y) ◇ x) ◇ (y ◇ y))",
+      "lean_skeleton": "calc\n  x = (((y ◇ y) ◇ y) ◇ (x ◇ y)) := h x y\n  _ = (((y ◇ y) ◇ x) ◇ (y ◇ y)) := bridge",
+      "why_nearly_fires": "The route extracts the root target and the cheap first h midpoint, but the current edge prover does not have the repeated-block bridge ((B◇B)◇B)◇(A◇B) -> ((B◇B)◇A)◇(B◇B).",
+      "similarity_score": 88
+    },
+    {
+      "problem_id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "score": 84,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+      "likely_missing_edge": "(((y ◇ z) ◇ (x ◇ x)) ◇ y) = (((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v2)◇(v0◇v0))◇v1)",
+        "goal_alpha": "v0=(((v1◇v2)◇(v0◇v1))◇v1)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : (x ◇ x) = (x ◇ y), then congrArg (fun q => (((y ◇ z) ◇ q) ◇ y)) inner",
+      "lean_skeleton": "calc\n  x = (((y ◇ z) ◇ (x ◇ x)) ◇ y) := h x y z\n  _ = (((y ◇ z) ◇ (x ◇ y)) ◇ y) := congrArg (fun q => (((y ◇ z) ◇ q) ◇ y)) inner",
+      "why_nearly_fires": "Both endpoint terms are present after the first h expansion; failure is the inner replacement (x◇x) = (x◇y) under an exact two-level context.",
+      "similarity_score": 84
+    },
+    {
+      "problem_id": "true_2654_2864",
+      "eq1_id": 2654,
+      "eq2_id": 2864,
+      "hypothesis": "x = ((x ◇ x) ◇ (y ◇ y)) ◇ z",
+      "goal": "x = ((x ◇ (y ◇ x)) ◇ x) ◇ z",
+      "score": 81,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((x ◇ x) ◇ (y ◇ y)) ◇ z)",
+      "likely_missing_edge": "(((x ◇ x) ◇ (y ◇ y)) ◇ z) = (((x ◇ (y ◇ x)) ◇ x) ◇ z)",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v0)◇(v1◇v1))◇v2)",
+        "goal_alpha": "v0=(((v0◇(v1◇v0))◇v0)◇v2)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : ((x ◇ x) ◇ (y ◇ y)) = ((x ◇ (y ◇ x)) ◇ x), lifted by congrArg (fun q => q ◇ z)",
+      "lean_skeleton": "calc\n  x = (((x ◇ x) ◇ (y ◇ y)) ◇ z) := h x y z\n  _ = (((x ◇ (y ◇ x)) ◇ x) ◇ z) := congrArg (fun q => (q ◇ z)) inner",
+      "why_nearly_fires": "The outer context is exact and compact; the current bridge search stops before deriving the inner rotation of two adjacent repeated x/y blocks.",
+      "similarity_score": 81
+    },
+    {
+      "problem_id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "score": 78,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((x ◇ y) ◇ x) ◇ (y ◇ z))",
+      "likely_missing_edge": "(((x ◇ y) ◇ x) ◇ (y ◇ z)) = (((x ◇ x) ◇ (y ◇ z)) ◇ y)",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v1)◇v0)◇(v1◇v2))",
+        "goal_alpha": "v0=(((v0◇v0)◇(v1◇v2))◇v1)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "bridge : (((x ◇ y) ◇ x) ◇ (y ◇ z)) = (((x ◇ x) ◇ (y ◇ z)) ◇ y)",
+      "lean_skeleton": "calc\n  x = (((x ◇ y) ◇ x) ◇ (y ◇ z)) := h x y z\n  _ = (((x ◇ x) ◇ (y ◇ z)) ◇ y) := bridge",
+      "why_nearly_fires": "The first h step gives the natural midpoint; the missing bridge is the same suffix migration family as true_3083_3094, but with a larger payload term.",
+      "similarity_score": 78
+    },
+    {
+      "problem_id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "score": 75,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+      "likely_missing_edge": "(y ◇ (x ◇ ((x ◇ z) ◇ z))) = (y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇(v0◇((v0◇v2)◇v2)))",
+        "goal_alpha": "v0=(v1◇(v0◇((v0◇v0)◇v2)))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : ((x ◇ z) ◇ z) = ((x ◇ x) ◇ z), lifted by congrArg (fun q => y ◇ (x ◇ q)) inner",
+      "lean_skeleton": "calc\n  x = y ◇ (x ◇ ((x ◇ z) ◇ z)) := h x y z\n  _ = y ◇ (x ◇ ((x ◇ x) ◇ z)) := congrArg (fun q => y ◇ (x ◇ q)) inner",
+      "why_nearly_fires": "It has the same h-midpoint then contextual bridge structure, but the bridge is buried under a right-nested two-level context.",
+      "similarity_score": 75
+    }
+  ],
+  "all_remaining_true_ranked": [
+    {
+      "problem_id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "score": 88,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ y) ◇ y) ◇ (x ◇ y))",
+      "likely_missing_edge": "(((y ◇ y) ◇ y) ◇ (x ◇ y)) = (((y ◇ y) ◇ x) ◇ (y ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v1)◇v1)◇(v0◇v1))",
+        "goal_alpha": "v0=(((v1◇v1)◇v0)◇(v1◇v1))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "bridge : (((y ◇ y) ◇ y) ◇ (x ◇ y)) = (((y ◇ y) ◇ x) ◇ (y ◇ y))",
+      "lean_skeleton": "calc\n  x = (((y ◇ y) ◇ y) ◇ (x ◇ y)) := h x y\n  _ = (((y ◇ y) ◇ x) ◇ (y ◇ y)) := bridge",
+      "why_nearly_fires": "The route extracts the root target and the cheap first h midpoint, but the current edge prover does not have the repeated-block bridge ((B◇B)◇B)◇(A◇B) -> ((B◇B)◇A)◇(B◇B).",
+      "similarity_score": 88
+    },
+    {
+      "problem_id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "score": 84,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+      "likely_missing_edge": "(((y ◇ z) ◇ (x ◇ x)) ◇ y) = (((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v2)◇(v0◇v0))◇v1)",
+        "goal_alpha": "v0=(((v1◇v2)◇(v0◇v1))◇v1)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : (x ◇ x) = (x ◇ y), then congrArg (fun q => (((y ◇ z) ◇ q) ◇ y)) inner",
+      "lean_skeleton": "calc\n  x = (((y ◇ z) ◇ (x ◇ x)) ◇ y) := h x y z\n  _ = (((y ◇ z) ◇ (x ◇ y)) ◇ y) := congrArg (fun q => (((y ◇ z) ◇ q) ◇ y)) inner",
+      "why_nearly_fires": "Both endpoint terms are present after the first h expansion; failure is the inner replacement (x◇x) = (x◇y) under an exact two-level context.",
+      "similarity_score": 84
+    },
+    {
+      "problem_id": "true_2654_2864",
+      "eq1_id": 2654,
+      "eq2_id": 2864,
+      "hypothesis": "x = ((x ◇ x) ◇ (y ◇ y)) ◇ z",
+      "goal": "x = ((x ◇ (y ◇ x)) ◇ x) ◇ z",
+      "score": 81,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((x ◇ x) ◇ (y ◇ y)) ◇ z)",
+      "likely_missing_edge": "(((x ◇ x) ◇ (y ◇ y)) ◇ z) = (((x ◇ (y ◇ x)) ◇ x) ◇ z)",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v0)◇(v1◇v1))◇v2)",
+        "goal_alpha": "v0=(((v0◇(v1◇v0))◇v0)◇v2)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : ((x ◇ x) ◇ (y ◇ y)) = ((x ◇ (y ◇ x)) ◇ x), lifted by congrArg (fun q => q ◇ z)",
+      "lean_skeleton": "calc\n  x = (((x ◇ x) ◇ (y ◇ y)) ◇ z) := h x y z\n  _ = (((x ◇ (y ◇ x)) ◇ x) ◇ z) := congrArg (fun q => (q ◇ z)) inner",
+      "why_nearly_fires": "The outer context is exact and compact; the current bridge search stops before deriving the inner rotation of two adjacent repeated x/y blocks.",
+      "similarity_score": 81
+    },
+    {
+      "problem_id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "score": 78,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((x ◇ y) ◇ x) ◇ (y ◇ z))",
+      "likely_missing_edge": "(((x ◇ y) ◇ x) ◇ (y ◇ z)) = (((x ◇ x) ◇ (y ◇ z)) ◇ y)",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v1)◇v0)◇(v1◇v2))",
+        "goal_alpha": "v0=(((v0◇v0)◇(v1◇v2))◇v1)",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "bridge : (((x ◇ y) ◇ x) ◇ (y ◇ z)) = (((x ◇ x) ◇ (y ◇ z)) ◇ y)",
+      "lean_skeleton": "calc\n  x = (((x ◇ y) ◇ x) ◇ (y ◇ z)) := h x y z\n  _ = (((x ◇ x) ◇ (y ◇ z)) ◇ y) := bridge",
+      "why_nearly_fires": "The first h step gives the natural midpoint; the missing bridge is the same suffix migration family as true_3083_3094, but with a larger payload term.",
+      "similarity_score": 78
+    },
+    {
+      "problem_id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "score": 75,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+      "likely_missing_edge": "(y ◇ (x ◇ ((x ◇ z) ◇ z))) = (y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇(v0◇((v0◇v2)◇v2)))",
+        "goal_alpha": "v0=(v1◇(v0◇((v0◇v0)◇v2)))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "nearest_neighbor_rank_reason": "manual proof-skeleton inspection: h-midpoint plus one missing rotation/context bridge",
+      "candidate_bridge_lemma": "inner : ((x ◇ z) ◇ z) = ((x ◇ x) ◇ z), lifted by congrArg (fun q => y ◇ (x ◇ q)) inner",
+      "lean_skeleton": "calc\n  x = y ◇ (x ◇ ((x ◇ z) ◇ z)) := h x y z\n  _ = y ◇ (x ◇ ((x ◇ x) ◇ z)) := congrArg (fun q => y ◇ (x ◇ q)) inner",
+      "why_nearly_fires": "It has the same h-midpoint then contextual bridge structure, but the bridge is buried under a right-nested two-level context.",
+      "similarity_score": 75
+    },
+    {
+      "problem_id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "score": 72,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "(x ◇ x) = (x ◇ ((x ◇ y) ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇(v0◇v1))◇v2)◇v2)",
+        "goal_alpha": "(v0◇v0)=(v0◇((v0◇v1)◇v0))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          1,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          1,
+          3
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "goal_var_multiplicities": {
+          "x": 5,
+          "y": 1
+        },
+        "goal_root_shape": [
+          "op(v,v)",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 72
+    },
+    {
+      "problem_id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "score": 70,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "((y ◇ x) ◇ ((y ◇ z) ◇ y))",
+      "likely_missing_edge": "((y ◇ x) ◇ ((y ◇ z) ◇ y)) = (y ◇ (z ◇ (y ◇ (x ◇ y))))",
+      "features": {
+        "hyp_alpha": "v0=((v1◇v0)◇((v1◇v2)◇v1))",
+        "goal_alpha": "v0=(v1◇(v2◇(v1◇(v0◇v1))))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "similarity_score": 70
+    },
+    {
+      "problem_id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "score": 68,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ z) ◇ (y ◇ x)) ◇ z)",
+      "likely_missing_edge": "(((y ◇ z) ◇ (y ◇ x)) ◇ z) = (y ◇ ((x ◇ z) ◇ (z ◇ y)))",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v2)◇(v1◇v0))◇v2)",
+        "goal_alpha": "v0=(v1◇((v0◇v2)◇(v2◇v1)))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "similarity_score": 68
+    },
+    {
+      "problem_id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "score": 66,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "x = (y ◇ (((z ◇ x) ◇ x) ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇(v0◇((v2◇v0)◇v3)))",
+        "goal_alpha": "v0=(v1◇(((v2◇v0)◇v0)◇v1))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 1,
+          "w": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 66
+    },
+    {
+      "problem_id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "score": 62,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(((y ◇ x) ◇ z) ◇ (y ◇ x))",
+      "likely_missing_edge": "(((y ◇ x) ◇ z) ◇ (y ◇ x)) = ((y ◇ z) ◇ ((x ◇ x) ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇v0)◇v2)◇(v1◇v0))",
+        "goal_alpha": "v0=((v1◇v2)◇((v0◇v0)◇v0))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "similarity_score": 62
+    },
+    {
+      "problem_id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "score": 60,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(y ◇ ((y ◇ z) ◇ x))",
+      "likely_missing_edge": "(y ◇ ((y ◇ z) ◇ x)) = ((y ◇ z) ◇ ((x ◇ y) ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇((v1◇v2)◇v0))",
+        "goal_alpha": "v0=((v1◇v2)◇((v0◇v1)◇v0))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          3
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.45454545454545453
+      },
+      "similarity_score": 60
+    },
+    {
+      "problem_id": "true_1167_2000",
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "score": 58,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(y ◇ ((z ◇ (y ◇ y)) ◇ x))",
+      "likely_missing_edge": "(y ◇ ((z ◇ (y ◇ y)) ◇ x)) = ((y ◇ (z ◇ z)) ◇ (z ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇((v2◇(v1◇v1))◇v0))",
+        "goal_alpha": "v0=((v1◇(v2◇v2))◇(v2◇v0))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 1,
+          "z": 3
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.2
+      },
+      "similarity_score": 58
+    },
+    {
+      "problem_id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "score": 56,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables"
+      ],
+      "candidate_midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+      "likely_missing_edge": "(((x ◇ y) ◇ z) ◇ (y ◇ x)) = (((x ◇ y) ◇ z) ◇ (w ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v1)◇v2)◇(v1◇v0))",
+        "goal_alpha": "v0=(((v0◇v1)◇v2)◇(v3◇v0))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 1,
+          "w": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "similarity_score": 56
+    },
+    {
+      "problem_id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "score": 54,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "(y ◇ (x ◇ ((z ◇ y) ◇ y)))",
+      "likely_missing_edge": "(y ◇ (x ◇ ((z ◇ y) ◇ y))) = ((y ◇ (z ◇ y)) ◇ (x ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(v1◇(v0◇((v2◇v1)◇v1)))",
+        "goal_alpha": "v0=((v1◇(v2◇v1))◇(v0◇v1))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.5
+      },
+      "similarity_score": 54
+    },
+    {
+      "problem_id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "score": 52,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "((x ◇ x) ◇ ((y ◇ x) ◇ z))",
+      "likely_missing_edge": "((x ◇ x) ◇ ((y ◇ x) ◇ z)) = ((x ◇ (x ◇ y)) ◇ (x ◇ z))",
+      "features": {
+        "hyp_alpha": "v0=((v0◇v0)◇((v1◇v0)◇v2))",
+        "goal_alpha": "v0=((v0◇(v0◇v1))◇(v0◇v2))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "similarity_score": 52
+    },
+    {
+      "problem_id": "true_425_1630",
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "goal": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "score": 50,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "x = ((x ◇ x) ◇ ((x ◇ x) ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(v0◇(v0◇(v1◇(v2◇v3))))",
+        "goal_alpha": "v0=((v0◇v0)◇((v0◇v0)◇v1))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 1,
+          "w": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 5,
+          "y": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 50
+    },
+    {
+      "problem_id": "true_428_3725",
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "goal": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "score": 48,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "(x ◇ y) = ((x ◇ y) ◇ (y ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=(v0◇(v1◇(v0◇(v0◇v2))))",
+        "goal_alpha": "(v0◇v1)=((v0◇v1)◇(v1◇v1))",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          1,
+          2
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          1,
+          3
+        ],
+        "hyp_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "goal_root_shape": [
+          "op(v,v)",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 48
+    },
+    {
+      "problem_id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "score": 46,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context"
+      ],
+      "candidate_midpoint": "((y ◇ x) ◇ (z ◇ (x ◇ z)))",
+      "likely_missing_edge": "((y ◇ x) ◇ (z ◇ (x ◇ z))) = (y ◇ (x ◇ (z ◇ (w ◇ w))))",
+      "features": {
+        "hyp_alpha": "v0=((v1◇v0)◇(v2◇(v0◇v2)))",
+        "goal_alpha": "v0=(v1◇(v0◇(v2◇(v3◇v3))))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 1,
+          "z": 1,
+          "w": 2
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.2
+      },
+      "similarity_score": 46
+    },
+    {
+      "problem_id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "score": 44,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": "((y ◇ y) ◇ ((z ◇ x) ◇ x))",
+      "likely_missing_edge": "((y ◇ y) ◇ ((z ◇ x) ◇ x)) = (x ◇ (((y ◇ z) ◇ x) ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=((v1◇v1)◇((v2◇v0)◇v0))",
+        "goal_alpha": "v0=(v0◇(((v1◇v2)◇v0)◇v0))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          4
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "similarity_score": 44
+    },
+    {
+      "problem_id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal": "x = y ◇ x",
+      "score": 42,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "goal rhs has an outer operation context",
+        "small variable alphabet"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "x = (y ◇ x)",
+      "features": {
+        "hyp_alpha": "v0=(((v1◇(v1◇v0))◇v2)◇v0)",
+        "goal_alpha": "v0=(v1◇v0)",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          0,
+          1
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          1
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 1
+        },
+        "goal_root_shape": [
+          "var",
+          "op(v,v)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 42
+    },
+    {
+      "problem_id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "score": 40,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": "((((y ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x)) ◇ z) ◇ ((x ◇ y) ◇ x))",
+      "likely_missing_edge": "((((y ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x)) ◇ z) ◇ ((x ◇ y) ◇ x)) = ((z ◇ x) ◇ x)",
+      "features": {
+        "hyp_alpha": "v0=((((v1◇v0)◇v0)◇v2)◇v0)",
+        "goal_alpha": "((v0◇v1)◇v0)=((v2◇v0)◇v0)",
+        "hyp_depths": [
+          0,
+          4
+        ],
+        "goal_depths": [
+          2,
+          2
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          2,
+          2
+        ],
+        "hyp_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_root_shape": [
+          "op(op,v)",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0.13043478260869565
+      },
+      "similarity_score": 40
+    },
+    {
+      "problem_id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "score": 38,
+      "reasons": [
+        "goal rhs has an outer operation context",
+        "small variable alphabet",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "(x ◇ x) = (((y ◇ z) ◇ z) ◇ y)",
+      "features": {
+        "hyp_alpha": "(v0◇v0)=(((v1◇v0)◇v0)◇v2)",
+        "goal_alpha": "(v0◇v0)=(((v1◇v2)◇v2)◇v1)",
+        "hyp_depths": [
+          1,
+          3
+        ],
+        "goal_depths": [
+          1,
+          3
+        ],
+        "hyp_ops": [
+          1,
+          3
+        ],
+        "goal_ops": [
+          1,
+          3
+        ],
+        "hyp_var_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "goal_root_shape": [
+          "op(v,v)",
+          "op(op,v)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 38
+    },
+    {
+      "problem_id": "true_1874_4357",
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "score": 36,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs has an outer operation context",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": "(((x ◇ (y ◇ z)) ◇ (y ◇ z)) ◇ (y ◇ w))",
+      "likely_missing_edge": "(((x ◇ (y ◇ z)) ◇ (y ◇ z)) ◇ (y ◇ w)) = (x ◇ (y ◇ w))",
+      "features": {
+        "hyp_alpha": "v0=((v0◇(v1◇v2))◇(v1◇v3))",
+        "goal_alpha": "(v0◇(v1◇v2))=(v0◇(v1◇v3))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          2,
+          2
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          2,
+          2
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 1,
+          "w": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 1,
+          "w": 1
+        },
+        "goal_root_shape": [
+          "op(v,op)",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0.2857142857142857
+      },
+      "similarity_score": 36
+    },
+    {
+      "problem_id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "score": 34,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal lhs is an anchor variable",
+        "direct h midpoint is available",
+        "goal rhs is a nontrivial nested target",
+        "goal rhs has an outer operation context"
+      ],
+      "candidate_midpoint": "((y ◇ z) ◇ (w ◇ (x ◇ y)))",
+      "likely_missing_edge": "((y ◇ z) ◇ (w ◇ (x ◇ y))) = ((y ◇ z) ◇ ((w ◇ w) ◇ y))",
+      "features": {
+        "hyp_alpha": "v0=((v1◇v2)◇(v3◇(v0◇v1)))",
+        "goal_alpha": "v0=((v1◇v2)◇((v3◇v3)◇v1))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          0,
+          3
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          0,
+          4
+        ],
+        "hyp_var_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 1,
+          "w": 1
+        },
+        "goal_var_multiplicities": {
+          "x": 1,
+          "y": 2,
+          "z": 1,
+          "w": 2
+        },
+        "goal_root_shape": [
+          "var",
+          "op(op,op)"
+        ],
+        "midpoint_goal_overlap": 0.38461538461538464
+      },
+      "similarity_score": 34
+    },
+    {
+      "problem_id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x ◇ x = x ◇ (x ◇ x)",
+      "score": 32,
+      "reasons": [
+        "hypothesis lhs is an anchor variable",
+        "goal rhs has an outer operation context",
+        "goal has repeated anchor variables",
+        "small variable alphabet",
+        "goal lhs is composite, unlike the precedent"
+      ],
+      "candidate_midpoint": null,
+      "likely_missing_edge": "(x ◇ x) = (x ◇ (x ◇ x))",
+      "features": {
+        "hyp_alpha": "v0=(((v0◇v1)◇v1)◇(v0◇v1))",
+        "goal_alpha": "(v0◇v0)=(v0◇(v0◇v0))",
+        "hyp_depths": [
+          0,
+          3
+        ],
+        "goal_depths": [
+          1,
+          2
+        ],
+        "hyp_ops": [
+          0,
+          4
+        ],
+        "goal_ops": [
+          1,
+          2
+        ],
+        "hyp_var_multiplicities": {
+          "x": 3,
+          "y": 3
+        },
+        "goal_var_multiplicities": {
+          "x": 5
+        },
+        "goal_root_shape": [
+          "op(v,v)",
+          "op(v,op)"
+        ],
+        "midpoint_goal_overlap": 0
+      },
+      "similarity_score": 32
+    }
+  ],
+  "remaining_false": [
+    "false_1682_411"
+  ],
+  "smallest_safe_v091_change": {
+    "name": "recursive_inner_context_bridge_after_h_midpoint",
+    "description": "When rotation_context_bridge proves lhs = mid by a direct h instantiation but cannot prove mid = rhs, extract the largest exact one-hole context D with mid = D[s] and rhs = D[t]. Try one bounded local bridge for s = t, then close by congrArg (fun q => D[q]).",
+    "gates": [
+      "only after an accepted-form direct h midpoint is found",
+      "one recursion level only",
+      "context depth <= 4 and compact Lean lambda",
+      "one emitted local bridge",
+      "calc length <= 2 after the first h step",
+      "no raised global node or edge caps"
+    ],
+    "expected_first_targets": [
+      "true_2771_2775",
+      "true_674_668",
+      "true_2654_2864"
+    ],
+    "risk": "low-to-medium if exact-context extraction is required and the route abstains unless both bridge proofs are deterministic."
+  }
+}

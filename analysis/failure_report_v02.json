@@ -1,0 +1,5923 @@
+{
+  "metadata": {
+    "analyzer": "tools/analyze_failures.py",
+    "target_solver_version": "ARCF-Prover v0.2",
+    "results_file": "pipeline/results/arcf_sample200_v02.json",
+    "problems_file": "examples/problems/sample_200.json",
+    "max_structured_n": 7,
+    "candidate_family": "v0.2 constants/projections/min/max/add/sub/affine plus exhaustive n=2,3"
+  },
+  "summary": {
+    "total_results": 200,
+    "total_problems": 200,
+    "no_judge_attempt_failures": 40,
+    "routes": {
+      "likely_collapse_or_projection_lemma": 29,
+      "likely_false_missing_countermodel": 2,
+      "likely_true_needs_multistep_proof": 9
+    },
+    "resemblance_labels": {
+      "absorption": 26,
+      "projection": 8
+    },
+    "finite_probe_counts": {
+      "all_hypothesis_models_satisfy_goal": 40,
+      "near_miss_violates_both": 40,
+      "vacuous_hypothesis_model_result": 8
+    }
+  },
+  "failures": [
+    {
+      "id": "true_2942_5",
+      "problem_name": "true_2942_5",
+      "answer": true,
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "equation1": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "equation2": "x = y ◇ x",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 2942,
+        "text": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇(v1◇v0))◇v2)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇(v0◇v1))◇v2)◇v1)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,op(var,var)),var),var)",
+          "pair": "var=op(op(op(var,op(var,var)),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 5,
+        "text": "x = y ◇ x",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 1,
+          "max": 1
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 1,
+          "total": 1
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇v1)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,var)",
+          "pair": "var=op(var,var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "right_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "right_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 6,
+        "goal_models_among_hypothesis_models": 6,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_3108_4642",
+      "problem_name": "true_3108_4642",
+      "answer": true,
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "equation1": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "equation2": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 3108,
+        "text": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((((v1◇v0)◇v0)◇v2)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "((((v0◇v1)◇v1)◇v2)◇v1)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(op(var,var),var),var),var)",
+          "pair": "var=op(op(op(op(var,var),var),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4642,
+        "text": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "((v0◇v1)◇v0)=((v2◇v0)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇v0)=((v2◇v0)◇v0)",
+        "root_shape": {
+          "lhs": "op(op(var,var),var)",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(op(var,var),var)=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "right_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 9,
+        "goal_models_among_hypothesis_models": 9,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1167_2000",
+      "problem_name": "true_1167_2000",
+      "answer": true,
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "equation1": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "equation2": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "result_elapsed_seconds": 0.13,
+      "hypothesis_fingerprint": {
+        "equation_id": 1167,
+        "text": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇((v2◇(v1◇v1))◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v1◇(v0◇v0))◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,op(var,var)),var))",
+          "pair": "var=op(var,op(op(var,op(var,var)),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2000,
+        "text": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 1,
+          "z": 3
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇(v2◇v2))◇(v2◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇(v1◇v1))◇(v1◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,op(var,var)),op(var,var))",
+          "pair": "var=op(op(var,op(var,var)),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 46,
+        "goal_models_among_hypothesis_models": 46,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_3291_3304",
+      "problem_name": "true_3291_3304",
+      "answer": true,
+      "eq1_id": 3291,
+      "eq2_id": 3304,
+      "equation1": "x ◇ x = y ◇ (z ◇ (x ◇ w))",
+      "equation2": "x ◇ x = y ◇ (z ◇ (w ◇ u))",
+      "result_elapsed_seconds": 0.23,
+      "hypothesis_fingerprint": {
+        "equation_id": 3291,
+        "text": "x ◇ x = y ◇ (z ◇ (x ◇ w))",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v1◇(v2◇(v0◇v3)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇(v2◇v3)))=(v2◇v2)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,op(var,op(var,var)))",
+          "pair": "op(var,var)=op(var,op(var,op(var,var)))",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3304,
+        "text": "x ◇ x = y ◇ (z ◇ (w ◇ u))",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v1◇(v2◇(v3◇v4)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇(v2◇v3)))=(v4◇v4)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,op(var,op(var,var)))",
+          "pair": "op(var,var)=op(var,op(var,op(var,var)))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 45,
+        "goal_models_among_hypothesis_models": 45,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_1698_555",
+      "problem_name": "true_1698_555",
+      "answer": true,
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "equation1": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "equation2": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 1698,
+        "text": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v0)◇((v1◇v2)◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇((v0◇v2)◇v0))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 555,
+        "text": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v2◇(v1◇(v0◇v1))))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇(v0◇(v2◇v0))))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(var,op(var,var))))",
+          "pair": "var=op(var,op(var,op(var,op(var,var))))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1604_1822",
+      "problem_name": "true_1604_1822",
+      "answer": true,
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "equation1": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "equation2": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 1604,
+        "text": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 2,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v2)◇(v3◇(v0◇v1)))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇(v2◇(v3◇v0)))=v3",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(var,op(var,var)))",
+          "pair": "var=op(op(var,var),op(var,op(var,var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1822,
+        "text": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 2,
+          "x": 1,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v2)◇((v3◇v3)◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇((v2◇v2)◇v0))=v3",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2111_1755",
+      "problem_name": "true_2111_1755",
+      "answer": true,
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "equation1": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "equation2": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 2111,
+        "text": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v0)◇v2)◇(v1◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v2)◇(v0◇v1))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1755,
+        "text": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v2)◇((v0◇v0)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇((v2◇v2)◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 34,
+        "goal_models_among_hypothesis_models": 34,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1120_714",
+      "problem_name": "true_1120_714",
+      "answer": true,
+      "eq1_id": 1120,
+      "eq2_id": 714,
+      "equation1": "x = y ◇ ((y ◇ (y ◇ x)) ◇ y)",
+      "equation2": "x = y ◇ (y ◇ ((y ◇ x) ◇ y))",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 1120,
+        "text": "x = y ◇ ((y ◇ (y ◇ x)) ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇((v1◇(v1◇v0))◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇(v0◇v1))◇v0))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,op(var,var)),var))",
+          "pair": "var=op(var,op(op(var,op(var,var)),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 714,
+        "text": "x = y ◇ (y ◇ ((y ◇ x) ◇ y))",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v1◇((v1◇v0)◇v1)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v0◇((v0◇v1)◇v0)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(op(var,var),var)))",
+          "pair": "var=op(var,op(var,op(op(var,var),var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 41,
+        "goal_models_among_hypothesis_models": 41,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_add_mod",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_3083_3094",
+      "problem_name": "true_3083_3094",
+      "answer": true,
+      "eq1_id": 3083,
+      "eq2_id": 3094,
+      "equation1": "x = (((x ◇ y) ◇ y) ◇ z) ◇ z",
+      "equation2": "x = (((x ◇ y) ◇ z) ◇ z) ◇ y",
+      "result_elapsed_seconds": 0.15,
+      "hypothesis_fingerprint": {
+        "equation_id": 3083,
+        "text": "x = (((x ◇ y) ◇ y) ◇ z) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((((v0◇v1)◇v1)◇v2)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "((((v0◇v1)◇v1)◇v2)◇v2)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(op(var,var),var),var),var)",
+          "pair": "var=op(op(op(op(var,var),var),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3094,
+        "text": "x = (((x ◇ y) ◇ z) ◇ z) ◇ y",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((((v0◇v1)◇v2)◇v2)◇v1)",
+        "canonical_alpha_normalized_symmetric_form": "((((v0◇v1)◇v2)◇v2)◇v1)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(op(var,var),var),var),var)",
+          "pair": "var=op(op(op(op(var,var),var),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 218,
+        "goal_models_among_hypothesis_models": 218,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_4616_4623",
+      "problem_name": "true_4616_4623",
+      "answer": true,
+      "eq1_id": 4616,
+      "eq2_id": 4623,
+      "equation1": "(x ◇ x) ◇ y = (z ◇ x) ◇ z",
+      "equation2": "(x ◇ x) ◇ y = (z ◇ z) ◇ w",
+      "result_elapsed_seconds": 0.12,
+      "hypothesis_fingerprint": {
+        "equation_id": 4616,
+        "text": "(x ◇ x) ◇ y = (z ◇ x) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "((v0◇v0)◇v1)=((v2◇v0)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v1)=((v2◇v0)◇v2)",
+        "root_shape": {
+          "lhs": "op(op(var,var),var)",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(op(var,var),var)=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4623,
+        "text": "(x ◇ x) ◇ y = (z ◇ z) ◇ w",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "((v0◇v0)◇v1)=((v2◇v2)◇v3)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v1)=((v2◇v2)◇v3)",
+        "root_shape": {
+          "lhs": "op(op(var,var),var)",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(op(var,var),var)=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 165,
+        "goal_models_among_hypothesis_models": 165,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_4530_4576",
+      "problem_name": "true_4530_4576",
+      "answer": true,
+      "eq1_id": 4530,
+      "eq2_id": 4576,
+      "equation1": "x ◇ (y ◇ z) = (y ◇ y) ◇ w",
+      "equation2": "x ◇ (y ◇ z) = (w ◇ w) ◇ u",
+      "result_elapsed_seconds": 0.19,
+      "hypothesis_fingerprint": {
+        "equation_id": 4530,
+        "text": "x ◇ (y ◇ z) = (y ◇ y) ◇ w",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 1,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇(v1◇v2))=((v1◇v1)◇v3)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v1)=(v2◇(v0◇v3))",
+        "root_shape": {
+          "lhs": "op(var,op(var,var))",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,op(var,var))=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4576,
+        "text": "x ◇ (y ◇ z) = (w ◇ w) ◇ u",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 2,
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇(v1◇v2))=((v3◇v3)◇v4)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v1)=(v2◇(v3◇v4))",
+        "root_shape": {
+          "lhs": "op(var,op(var,var))",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,op(var,var))=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 39,
+        "goal_models_among_hypothesis_models": 39,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_1022_99",
+      "problem_name": "true_1022_99",
+      "answer": true,
+      "eq1_id": 1022,
+      "eq2_id": 99,
+      "equation1": "x = x ◇ ((x ◇ (x ◇ y)) ◇ x)",
+      "equation2": "x = x ◇ ((x ◇ x) ◇ x)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 1022,
+        "text": "x = x ◇ ((x ◇ (x ◇ y)) ◇ x)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 5,
+          "y": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇((v0◇(v0◇v1))◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇(v0◇v1))◇v0))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,op(var,var)),var))",
+          "pair": "var=op(var,op(op(var,op(var,var)),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 99,
+        "text": "x = x ◇ ((x ◇ x) ◇ x)",
+        "variables": [
+          "x"
+        ],
+        "variable_count": 1,
+        "variable_multiplicities": {
+          "x": 5
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 3,
+          "total": 3
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇((v0◇v0)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇v0)◇v0))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,var),var))",
+          "pair": "var=op(var,op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 647,
+        "goal_models_among_hypothesis_models": 647,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_425_1630",
+      "problem_name": "true_425_1630",
+      "answer": true,
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "equation1": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "equation2": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "result_elapsed_seconds": 0.12,
+      "hypothesis_fingerprint": {
+        "equation_id": 425,
+        "text": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇(v0◇(v1◇(v2◇v3))))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v0◇(v1◇(v2◇v3))))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(var,op(var,var))))",
+          "pair": "var=op(var,op(var,op(var,op(var,var))))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1630,
+        "text": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 5,
+          "y": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v0◇v0)◇((v0◇v0)◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇((v0◇v0)◇v1))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection",
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 33,
+        "goal_models_among_hypothesis_models": 33,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2860_3458",
+      "problem_name": "true_2860_3458",
+      "answer": true,
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "equation1": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "equation2": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 2860,
+        "text": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇(v0◇v1))◇v2)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇(v0◇v1))◇v2)◇v2)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,op(var,var)),var),var)",
+          "pair": "var=op(op(op(var,op(var,var)),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3458,
+        "text": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 5,
+          "y": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v0◇((v0◇v1)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇v1)◇v0))=(v0◇v0)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,op(op(var,var),var))",
+          "pair": "op(var,var)=op(var,op(op(var,var),var))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 28,
+        "goal_models_among_hypothesis_models": 28,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_min",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_3829_41",
+      "problem_name": "true_3829_41",
+      "answer": true,
+      "eq1_id": 3829,
+      "eq2_id": 41,
+      "equation1": "x ◇ y = (z ◇ z) ◇ (z ◇ z)",
+      "equation2": "x ◇ x = y ◇ z",
+      "result_elapsed_seconds": 0.17,
+      "hypothesis_fingerprint": {
+        "equation_id": 3829,
+        "text": "x ◇ y = (z ◇ z) ◇ (z ◇ z)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 1,
+          "y": 1,
+          "z": 4
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=((v2◇v2)◇(v2◇v2))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇(v0◇v0))=(v1◇v2)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(var,var),op(var,var))",
+          "pair": "op(var,var)=op(op(var,var),op(var,var))",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 41,
+        "text": "x ◇ x = y ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 1,
+          "max": 1
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 1,
+          "total": 2
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v1◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇v0)=(v1◇v2)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,var)",
+          "pair": "op(var,var)=op(var,var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 27,
+        "goal_models_among_hypothesis_models": 27,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_130_1759",
+      "problem_name": "true_130_1759",
+      "answer": true,
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "equation1": "x = y ◇ ((y ◇ z) ◇ x)",
+      "equation2": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 130,
+        "text": "x = y ◇ ((y ◇ z) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 3,
+          "total": 3
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇((v1◇v2)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇v1)◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,var),var))",
+          "pair": "var=op(var,op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1759,
+        "text": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v2)◇((v0◇v1)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇((v2◇v0)◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 34,
+        "goal_models_among_hypothesis_models": 34,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2061_307",
+      "problem_name": "true_2061_307",
+      "answer": true,
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "equation1": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "equation2": "x ◇ x = x ◇ (x ◇ x)",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 2061,
+        "text": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 3
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v1)◇v1)◇(v0◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v1)◇(v0◇v1))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 307,
+        "text": "x ◇ x = x ◇ (x ◇ x)",
+        "variables": [
+          "x"
+        ],
+        "variable_count": 1,
+        "variable_multiplicities": {
+          "x": 5
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 2,
+          "total": 3
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v0◇(v0◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v0◇v0))=(v0◇v0)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,op(var,var))",
+          "pair": "op(var,var)=op(var,op(var,var))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 30,
+        "goal_models_among_hypothesis_models": 30,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_add_mod",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1738_1258",
+      "problem_name": "true_1738_1258",
+      "answer": true,
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "equation1": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "equation2": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "result_elapsed_seconds": 0.12,
+      "hypothesis_fingerprint": {
+        "equation_id": 1738,
+        "text": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v1)◇((v2◇v0)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇((v1◇v2)◇v2))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1258,
+        "text": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇(((v1◇v2)◇v0)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(((v1◇v2)◇v0)◇v0))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(op(var,var),var),var))",
+          "pair": "var=op(var,op(op(op(var,var),var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection",
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 43,
+        "goal_models_among_hypothesis_models": 43,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2654_2864",
+      "problem_name": "true_2654_2864",
+      "answer": true,
+      "eq1_id": 2654,
+      "eq2_id": 2864,
+      "equation1": "x = ((x ◇ x) ◇ (y ◇ y)) ◇ z",
+      "equation2": "x = ((x ◇ (y ◇ x)) ◇ x) ◇ z",
+      "result_elapsed_seconds": 0.09,
+      "hypothesis_fingerprint": {
+        "equation_id": 2654,
+        "text": "x = ((x ◇ x) ◇ (y ◇ y)) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v0)◇(v1◇v1))◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇(v1◇v1))◇v2)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),op(var,var)),var)",
+          "pair": "var=op(op(op(var,var),op(var,var)),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2864,
+        "text": "x = ((x ◇ (y ◇ x)) ◇ x) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇(v1◇v0))◇v0)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇(v1◇v0))◇v0)◇v2)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,op(var,var)),var),var)",
+          "pair": "var=op(op(op(var,op(var,var)),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 24,
+        "goal_models_among_hypothesis_models": 24,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_359_4065",
+      "problem_name": "true_359_4065",
+      "answer": true,
+      "eq1_id": 359,
+      "eq2_id": 4065,
+      "equation1": "x ◇ x = (x ◇ x) ◇ x",
+      "equation2": "x ◇ x = ((x ◇ x) ◇ x) ◇ x",
+      "result_elapsed_seconds": 0.09,
+      "hypothesis_fingerprint": {
+        "equation_id": 359,
+        "text": "x ◇ x = (x ◇ x) ◇ x",
+        "variables": [
+          "x"
+        ],
+        "variable_count": 1,
+        "variable_multiplicities": {
+          "x": 5
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 2,
+          "total": 3
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=((v0◇v0)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v0)=(v0◇v0)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,var)=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4065,
+        "text": "x ◇ x = ((x ◇ x) ◇ x) ◇ x",
+        "variables": [
+          "x"
+        ],
+        "variable_count": 1,
+        "variable_multiplicities": {
+          "x": 6
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(((v0◇v0)◇v0)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇v0)◇v0)=(v0◇v0)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 3553,
+        "goal_models_among_hypothesis_models": 3553,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n3_add_mod",
+          "n": 3,
+          "table_sample": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_2789_898",
+      "problem_name": "true_2789_898",
+      "answer": true,
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "equation1": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "equation2": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "result_elapsed_seconds": 0.09,
+      "hypothesis_fingerprint": {
+        "equation_id": 2789,
+        "text": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v2)◇(v1◇v0))◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇(v0◇v2))◇v1)=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),op(var,var)),var)",
+          "pair": "var=op(op(op(var,var),op(var,var)),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 898,
+        "text": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇((v0◇v2)◇(v2◇v1)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v1◇v2)◇(v2◇v0)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(var,var),op(var,var)))",
+          "pair": "var=op(var,op(op(var,var),op(var,var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 2,
+        "goal_models_among_hypothesis_models": 2,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_add_mod",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2935_3138",
+      "problem_name": "true_2935_3138",
+      "answer": true,
+      "eq1_id": 2935,
+      "eq2_id": 3138,
+      "equation1": "x = ((y ◇ (x ◇ z)) ◇ w) ◇ u",
+      "equation2": "x = (((y ◇ x) ◇ z) ◇ w) ◇ u",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 2935,
+        "text": "x = ((y ◇ (x ◇ z)) ◇ w) ◇ u",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇(v0◇v2))◇v3)◇v4)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇(v1◇v2))◇v3)◇v4)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,op(var,var)),var),var)",
+          "pair": "var=op(op(op(var,op(var,var)),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3138,
+        "text": "x = (((y ◇ x) ◇ z) ◇ w) ◇ u",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((((v1◇v0)◇v2)◇v3)◇v4)",
+        "canonical_alpha_normalized_symmetric_form": "((((v0◇v1)◇v2)◇v3)◇v4)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(op(var,var),var),var),var)",
+          "pair": "var=op(op(op(op(var,var),var),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2135_2128",
+      "problem_name": "true_2135_2128",
+      "answer": true,
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "equation1": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "equation2": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 2135,
+        "text": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v1)◇v1)◇(v0◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇v0)◇(v1◇v0))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2128,
+        "text": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v1)◇v0)◇(v1◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇v1)◇(v0◇v0))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 43,
+        "goal_models_among_hypothesis_models": 43,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_add_mod",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_428_3725",
+      "problem_name": "true_428_3725",
+      "answer": true,
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "equation1": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "equation2": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "result_elapsed_seconds": 0.09,
+      "hypothesis_fingerprint": {
+        "equation_id": 428,
+        "text": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇(v1◇(v0◇(v0◇v2))))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇(v0◇(v0◇v2))))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(var,op(var,var))))",
+          "pair": "var=op(var,op(var,op(var,op(var,var))))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3725,
+        "text": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=((v0◇v1)◇(v1◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇(v1◇v1))=(v0◇v1)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(var,var),op(var,var))",
+          "pair": "op(var,var)=op(op(var,var),op(var,var))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 9,
+        "goal_models_among_hypothesis_models": 9,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_affine_0_1_1",
+          "n": 2,
+          "table_sample": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1500_498",
+      "problem_name": "true_1500_498",
+      "answer": true,
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "equation1": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "equation2": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 1500,
+        "text": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v0)◇(v2◇(v0◇v2)))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇(v2◇(v1◇v2)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(var,op(var,var)))",
+          "pair": "var=op(op(var,var),op(var,op(var,var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 498,
+        "text": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 2,
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v0◇(v2◇(v3◇v3))))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇(v2◇(v3◇v3))))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(var,op(var,var))))",
+          "pair": "var=op(var,op(var,op(var,op(var,var))))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_2137_1325",
+      "problem_name": "true_2137_1325",
+      "answer": true,
+      "eq1_id": 2137,
+      "eq2_id": 1325,
+      "equation1": "x = ((y ◇ y) ◇ y) ◇ (y ◇ x)",
+      "equation2": "x = y ◇ (((y ◇ y) ◇ y) ◇ x)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 2137,
+        "text": "x = ((y ◇ y) ◇ y) ◇ (y ◇ x)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v1)◇v1)◇(v1◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇v0)◇(v0◇v1))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1325,
+        "text": "x = y ◇ (((y ◇ y) ◇ y) ◇ x)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 4
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(((v1◇v1)◇v1)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(((v0◇v0)◇v0)◇v1))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(op(var,var),var),var))",
+          "pair": "var=op(var,op(op(op(var,var),var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 139,
+        "goal_models_among_hypothesis_models": 139,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_691_1976",
+      "problem_name": "true_691_1976",
+      "answer": true,
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "equation1": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "equation2": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 691,
+        "text": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v0◇((v2◇v1)◇v1)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇((v2◇v0)◇v0)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(op(var,var),var)))",
+          "pair": "var=op(var,op(var,op(op(var,var),var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1976,
+        "text": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇(v2◇v1))◇(v0◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇(v1◇v0))◇(v2◇v0))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,op(var,var)),op(var,var))",
+          "pair": "var=op(op(var,op(var,var)),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_4151_4149",
+      "problem_name": "true_4151_4149",
+      "answer": true,
+      "eq1_id": 4151,
+      "eq2_id": 4149,
+      "equation1": "x ◇ y = ((x ◇ z) ◇ w) ◇ z",
+      "equation2": "x ◇ y = ((x ◇ z) ◇ w) ◇ x",
+      "result_elapsed_seconds": 0.21,
+      "hypothesis_fingerprint": {
+        "equation_id": 4151,
+        "text": "x ◇ y = ((x ◇ z) ◇ w) ◇ z",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=(((v0◇v2)◇v3)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v2)◇v1)=(v0◇v3)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4149,
+        "text": "x ◇ y = ((x ◇ z) ◇ w) ◇ x",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=(((v0◇v2)◇v3)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v2)◇v0)=(v0◇v3)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 87,
+        "goal_models_among_hypothesis_models": 87,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_2074_2082",
+      "problem_name": "true_2074_2082",
+      "answer": true,
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "equation1": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "equation2": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "result_elapsed_seconds": 0.14,
+      "hypothesis_fingerprint": {
+        "equation_id": 2074,
+        "text": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v1)◇v2)◇(v1◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v2)◇(v1◇v0))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2082,
+        "text": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v1)◇v2)◇(v3◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v2)◇(v3◇v0))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 68,
+        "goal_models_among_hypothesis_models": 68,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_4082_4109",
+      "problem_name": "true_4082_4109",
+      "answer": true,
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "equation1": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "equation2": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 4082,
+        "text": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(((v1◇v0)◇v0)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v1)◇v2)=(v1◇v1)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4109,
+        "text": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 2,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(((v1◇v2)◇v2)◇v1)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v1)◇v0)=(v2◇v2)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 60,
+        "goal_models_among_hypothesis_models": 60,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_2771_2775",
+      "problem_name": "true_2771_2775",
+      "answer": true,
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "equation1": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "equation2": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 2771,
+        "text": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v2)◇(v0◇v0))◇v1)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇(v2◇v2))◇v0)=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),op(var,var)),var)",
+          "pair": "var=op(op(op(var,var),op(var,var)),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2775,
+        "text": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 2,
+          "y": 3,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v1◇v2)◇(v0◇v1))◇v1)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇(v2◇v0))◇v0)=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),op(var,var)),var)",
+          "pair": "var=op(op(op(var,var),op(var,var)),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_4561_4566",
+      "problem_name": "true_4561_4566",
+      "answer": true,
+      "eq1_id": 4561,
+      "eq2_id": 4566,
+      "equation1": "x ◇ (y ◇ z) = (w ◇ x) ◇ u",
+      "equation2": "x ◇ (y ◇ z) = (w ◇ y) ◇ u",
+      "result_elapsed_seconds": 0.26,
+      "hypothesis_fingerprint": {
+        "equation_id": 4561,
+        "text": "x ◇ (y ◇ z) = (w ◇ x) ◇ u",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 1,
+          "x": 2,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇(v1◇v2))=((v3◇v0)◇v4)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇v2)=(v1◇(v3◇v4))",
+        "root_shape": {
+          "lhs": "op(var,op(var,var))",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,op(var,var))=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4566,
+        "text": "x ◇ (y ◇ z) = (w ◇ y) ◇ u",
+        "variables": [
+          "u",
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 5,
+        "variable_multiplicities": {
+          "u": 1,
+          "w": 1,
+          "x": 1,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇(v1◇v2))=((v3◇v1)◇v4)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇v2)=(v3◇(v1◇v4))",
+        "root_shape": {
+          "lhs": "op(var,op(var,var))",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,op(var,var))=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 33,
+        "goal_models_among_hypothesis_models": 33,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "false_1682_411",
+      "problem_name": "false_1682_411",
+      "answer": false,
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "equation1": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "equation2": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "result_elapsed_seconds": 0.12,
+      "hypothesis_fingerprint": {
+        "equation_id": 1682,
+        "text": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v1◇v0)◇((v0◇v0)◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v1)◇((v1◇v1)◇v0))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 411,
+        "text": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+        "variables": [
+          "x"
+        ],
+        "variable_count": 1,
+        "variable_multiplicities": {
+          "x": 6
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v0◇(v0◇(v0◇(v0◇v0))))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v0◇(v0◇(v0◇v0))))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(var,op(var,var))))",
+          "pair": "var=op(var,op(var,op(var,op(var,var))))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "left_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection",
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 28,
+        "goal_models_among_hypothesis_models": 28,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_add_mod",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_false_missing_countermodel",
+      "route_reason": "labeled false, but v0.2 generated probes found no countermodel",
+      "parse_error": null
+    },
+    {
+      "id": "true_1874_4357",
+      "problem_name": "true_1874_4357",
+      "answer": true,
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "equation1": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "equation2": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "result_elapsed_seconds": 0.21,
+      "hypothesis_fingerprint": {
+        "equation_id": 1874,
+        "text": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 2,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v0◇(v1◇v2))◇(v1◇v3))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇(v1◇v2))◇(v1◇v3))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,op(var,var)),op(var,var))",
+          "pair": "var=op(op(var,op(var,var)),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4357,
+        "text": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 2,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 2,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 2,
+          "rhs": 2,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇(v1◇v2))=(v0◇(v1◇v3))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇v2))=(v0◇(v1◇v3))",
+        "root_shape": {
+          "lhs": "op(var,op(var,var))",
+          "rhs": "op(var,op(var,var))",
+          "pair": "op(var,op(var,var))=op(var,op(var,var))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 46,
+        "goal_models_among_hypothesis_models": 46,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "false_3145_3481",
+      "problem_name": "false_3145_3481",
+      "answer": false,
+      "eq1_id": 3145,
+      "eq2_id": 3481,
+      "equation1": "x = (((y ◇ y) ◇ x) ◇ z) ◇ x",
+      "equation2": "x ◇ x = y ◇ ((y ◇ x) ◇ x)",
+      "result_elapsed_seconds": 0.13,
+      "hypothesis_fingerprint": {
+        "equation_id": 3145,
+        "text": "x = (((y ◇ y) ◇ x) ◇ z) ◇ x",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((((v1◇v1)◇v0)◇v2)◇v0)",
+        "canonical_alpha_normalized_symmetric_form": "((((v0◇v0)◇v1)◇v2)◇v1)=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(op(var,var),var),var),var)",
+          "pair": "var=op(op(op(op(var,var),var),var),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 3481,
+        "text": "x ◇ x = y ◇ ((y ◇ x) ◇ x)",
+        "variables": [
+          "x",
+          "y"
+        ],
+        "variable_count": 2,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 2
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v0)=(v1◇((v1◇v0)◇v0))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇((v0◇v1)◇v1))=(v1◇v1)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(var,op(op(var,var),var))",
+          "pair": "op(var,var)=op(var,op(op(var,var),var))",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "projection_kind": "right_projection",
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": true,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": [
+          "projection"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 20,
+        "goal_models_among_hypothesis_models": 20,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_right_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_false_missing_countermodel",
+      "route_reason": "labeled false, but v0.2 generated probes found no countermodel",
+      "parse_error": null
+    },
+    {
+      "id": "true_2055_2656",
+      "problem_name": "true_2055_2656",
+      "answer": true,
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "equation1": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "equation2": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 2055,
+        "text": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v1)◇v0)◇(v1◇v2))",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v1)◇v0)◇(v1◇v2))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),var),op(var,var))",
+          "pair": "var=op(op(op(var,var),var),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 2656,
+        "text": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(((v0◇v0)◇(v1◇v2))◇v1)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇(v1◇v2))◇v1)=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(op(var,var),op(var,var)),var)",
+          "pair": "var=op(op(op(var,var),op(var,var)),var)",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 28,
+        "goal_models_among_hypothesis_models": 28,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_689_1350",
+      "problem_name": "true_689_1350",
+      "answer": true,
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "equation1": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "equation2": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 689,
+        "text": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 3,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v0◇((v2◇v0)◇v3)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇((v2◇v1)◇v3)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(op(var,var),var)))",
+          "pair": "var=op(var,op(var,op(op(var,var),var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1350,
+        "text": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 2,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(((v2◇v0)◇v0)◇v1))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(((v1◇v2)◇v2)◇v0))=v2",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(op(op(var,var),var),var))",
+          "pair": "var=op(var,op(op(op(var,var),var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_404_4236",
+      "problem_name": "true_404_4236",
+      "answer": true,
+      "eq1_id": 404,
+      "eq2_id": 4236,
+      "equation1": "x ◇ y = (z ◇ z) ◇ z",
+      "equation2": "x ◇ y = ((z ◇ z) ◇ z) ◇ w",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 404,
+        "text": "x ◇ y = (z ◇ z) ◇ z",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 1,
+          "y": 1,
+          "z": 3
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 2,
+          "max": 2
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 2,
+          "total": 3
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=((v2◇v2)◇v2)",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇v0)=(v1◇v2)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(var,var),var)",
+          "pair": "op(var,var)=op(op(var,var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 4236,
+        "text": "x ◇ y = ((z ◇ z) ◇ z) ◇ w",
+        "variables": [
+          "w",
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 4,
+        "variable_multiplicities": {
+          "w": 1,
+          "x": 1,
+          "y": 1,
+          "z": 3
+        },
+        "term_depth": {
+          "lhs": 1,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 1,
+          "rhs": 3,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "(v0◇v1)=(((v2◇v2)◇v2)◇v3)",
+        "canonical_alpha_normalized_symmetric_form": "(((v0◇v0)◇v0)◇v1)=(v2◇v3)",
+        "root_shape": {
+          "lhs": "op(var,var)",
+          "rhs": "op(op(op(var,var),var),var)",
+          "pair": "op(var,var)=op(op(op(var,var),var),var)",
+          "root_pair": "op=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": false,
+          "constant_collapse": false
+        },
+        "labels": []
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 27,
+        "goal_models_among_hypothesis_models": 27,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_true_needs_multistep_proof",
+      "route_reason": "tested finite hypothesis models also satisfy the goal",
+      "parse_error": null
+    },
+    {
+      "id": "true_674_668",
+      "problem_name": "true_674_668",
+      "answer": true,
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "equation1": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "equation2": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "result_elapsed_seconds": 0.1,
+      "hypothesis_fingerprint": {
+        "equation_id": 674,
+        "text": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 3,
+          "y": 1,
+          "z": 2
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v0◇((v0◇v2)◇v2)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇((v1◇v2)◇v2)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(op(var,var),var)))",
+          "pair": "var=op(var,op(var,op(op(var,var),var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 668,
+        "text": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 4,
+          "max": 4
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=(v1◇(v0◇((v0◇v0)◇v2)))",
+        "canonical_alpha_normalized_symmetric_form": "(v0◇(v1◇((v1◇v1)◇v2)))=v1",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(var,op(var,op(op(var,var),var)))",
+          "pair": "var=op(var,op(var,op(op(var,var),var)))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 0,
+        "goal_models_among_hypothesis_models": 0,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": true,
+        "first_hypothesis_model": null
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    },
+    {
+      "id": "true_1636_1839",
+      "problem_name": "true_1636_1839",
+      "answer": true,
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "equation1": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "equation2": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "result_elapsed_seconds": 0.11,
+      "hypothesis_fingerprint": {
+        "equation_id": 1636,
+        "text": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v0◇v0)◇((v1◇v0)◇v2))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇v0)◇((v1◇v0)◇v2))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,var),op(op(var,var),var))",
+          "pair": "var=op(op(var,var),op(op(var,var),var))",
+          "root_pair": "var=op"
+        }
+      },
+      "goal_fingerprint": {
+        "equation_id": 1839,
+        "text": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+        "variables": [
+          "x",
+          "y",
+          "z"
+        ],
+        "variable_count": 3,
+        "variable_multiplicities": {
+          "x": 4,
+          "y": 1,
+          "z": 1
+        },
+        "term_depth": {
+          "lhs": 0,
+          "rhs": 3,
+          "max": 3
+        },
+        "operation_count": {
+          "lhs": 0,
+          "rhs": 4,
+          "total": 4
+        },
+        "canonical_alpha_normalized_form": "v0=((v0◇(v0◇v1))◇(v0◇v2))",
+        "canonical_alpha_normalized_symmetric_form": "((v0◇(v0◇v1))◇(v0◇v2))=v0",
+        "root_shape": {
+          "lhs": "var",
+          "rhs": "op(op(var,op(var,var)),op(var,var))",
+          "pair": "var=op(op(var,op(var,var)),op(var,var))",
+          "root_pair": "var=op"
+        }
+      },
+      "resemblance": {
+        "hypothesis": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "goal": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "projection_kind": null,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "combined": {
+          "commutativity": false,
+          "associativity": false,
+          "idempotence": false,
+          "projection": false,
+          "absorption": true,
+          "constant_collapse": false
+        },
+        "labels": [
+          "absorption"
+        ]
+      },
+      "finite_model_probe": {
+        "probe_family": "arcf_v0_2_generated_tables",
+        "max_structured_n": 7,
+        "tested_tables": 20455,
+        "hypothesis_models_tested": 37,
+        "goal_models_among_hypothesis_models": 37,
+        "existing_generated_countermodel": false,
+        "countermodel": null,
+        "near_miss_violates_both": true,
+        "near_miss": {
+          "name": "structured_n2_const_0",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        "all_tested_tables_satisfying_hypothesis_also_satisfy_goal": true,
+        "vacuous_hypothesis_model_result": false,
+        "first_hypothesis_model": {
+          "name": "structured_n2_left_projection",
+          "n": 2,
+          "table_sample": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        }
+      },
+      "likely_route": "likely_collapse_or_projection_lemma",
+      "route_reason": "true-looking collapse/projection/absorption structure",
+      "parse_error": null
+    }
+  ]
+}

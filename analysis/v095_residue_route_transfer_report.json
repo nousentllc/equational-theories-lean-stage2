@@ -1,0 +1,888 @@
+{
+  "inputs": {
+    "v095_results": "pipeline/results/arcf_sample200_v095.json",
+    "v094_results": "pipeline/results/arcf_sample200_v094.json",
+    "sample_200": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py",
+    "local_theory_report": "analysis/v094_local_theory_transfer_report.json",
+    "motif_transfer_report": "analysis/v093_residue_motif_transfer_report.json"
+  },
+  "summary": {
+    "v094": {
+      "accepted_count": 179,
+      "true_proofs": 80,
+      "false_countermodels": 99,
+      "no_judge_attempt": 21,
+      "judge_errors": 0
+    },
+    "v095": {
+      "accepted_count": 180,
+      "true_proofs": 81,
+      "false_countermodels": 99,
+      "no_judge_attempt": 20,
+      "judge_errors": 0
+    },
+    "newly_solved_cases": [
+      "true_425_1630"
+    ],
+    "regressions": []
+  },
+  "newly_solved_true_425_1630": {
+    "route_used": "anchored_projection_argument_erasure",
+    "route_note": "Route label is inferred from the generated proof and solver route; the JSON-lines protocol does not print route labels.",
+    "eq1_id": 425,
+    "eq2_id": 1630,
+    "hypothesis": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+    "goal": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+    "local_lemmas": [
+      {
+        "name": "idem",
+        "statement": "x = x ◇ x",
+        "role": "anchored self-square expansion derived from two h-instantiations and congrArg",
+        "motif": "anchored projection / local-theory transfer"
+      },
+      {
+        "name": "anchor_expand",
+        "statement": "y = y ◇ (y ◇ (y ◇ (y ◇ y)))",
+        "role": "reusable repeated-anchor expansion used as the erased tail",
+        "motif": "anchored expansion"
+      },
+      {
+        "name": "extend",
+        "statement": "(x ◇ x) = (x ◇ x) ◇ ((x ◇ x) ◇ (y ◇ (y ◇ (y ◇ (y ◇ y)))))",
+        "role": "local extension step from h at the self-square anchor",
+        "motif": "extension local theory"
+      },
+      {
+        "name": "step",
+        "statement": "(x ◇ x) = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+        "role": "argument-erases the expanded y-tail under an exact context via congrArg",
+        "motif": "argument erasure under anchored context"
+      }
+    ],
+    "motif_classification": [
+      "anchored projection / argument-erasure",
+      "idempotence/absorption/extension local theory",
+      "local-theory transfer"
+    ],
+    "proof_excerpt": "import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y\n  have idem : x = x ◇ x := by\n    have raw : x = x ◇ (x ◇ (x ◇ (x ◇ (x ◇ x)))) := h x x x (x ◇ x)\n    have collapse : x ◇ (x ◇ (x ◇ (x ◇ x))) = x := (h x x x x).symm\n    exact raw.trans (congrArg (fun t => x ◇ t) collapse)\n  have anchor_expand : y = y ◇ (y ◇ (y ◇ (y ◇ y))) := h y y y y\n  have extend : (x ◇ x) = (x ◇ x) ◇ ((x ◇ x) ◇ (y ◇ (y ◇ (y ◇ (y ◇ y))))) := h (x ◇ x) y y (y ◇ (y ◇ y))\n  have step : (x ◇ x) = (x ◇ x) ◇ ((x ◇ x) ◇ y) := by\n    exact extend.trans (congrArg (fun t => (x ◇ x) ◇ ((x ◇ x) ◇ t)) anchor_expand.symm)\n  have proof_core : x = ((x ◇ x) ◇ ((x ◇ x) ◇ y)) := by\n    exact idem.trans step\n  exact proof_core\n"
+  },
+  "remaining_unsolved_cases": [
+    "true_3108_4642",
+    "true_1167_2000",
+    "true_1698_555",
+    "true_1604_1822",
+    "true_2111_1755",
+    "true_2860_3458",
+    "true_1738_1258",
+    "true_2789_898",
+    "true_2135_2128",
+    "true_1500_498",
+    "true_691_1976",
+    "true_2074_2082",
+    "true_4082_4109",
+    "true_2771_2775",
+    "false_1682_411",
+    "true_1874_4357",
+    "true_2055_2656",
+    "true_689_1350",
+    "true_674_668",
+    "true_1636_1839"
+  ],
+  "remaining_true_failures": [
+    {
+      "id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "expected_answer": true,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 17,
+      "v093_two_h_contextual_lift_score": 20,
+      "v093_multi_local_edge_calc_score": 42,
+      "closest_v093_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_v093_score": 42,
+      "v094_local_theory_score": 38,
+      "v094_likely_requires": [
+        "absorption lemma",
+        "argument-erasure lemma",
+        "multi-local-edge calc"
+      ],
+      "v094_reasons": [
+        "hypothesis repeats its left anchor 3 times on the RHS",
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "composite equality likely needs a short calc over local edges",
+        "a direct h midpoint is available",
+        "an exact outer context can be extracted"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 3,
+        "reasons": [
+          "needs argument-erasure under a context",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_1167_2000",
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 37,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 16,
+      "closest_v093_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_v093_score": 37,
+      "v094_local_theory_score": 26,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near repeated-anchor collapse",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 4,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "previously closest to repeated-anchor collapse"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "idempotence/absorption/extension local theory"
+    },
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 27,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 16,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 17,
+      "v094_likely_requires": [
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 1,
+        "reasons": [
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    },
+    {
+      "id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 5,
+      "v093_two_h_contextual_lift_score": 0,
+      "v093_multi_local_edge_calc_score": 5,
+      "closest_v093_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_v093_score": 5,
+      "v094_local_theory_score": 21,
+      "v094_likely_requires": [
+        "idempotence lemma"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "previous motif ranking places it near repeated-anchor collapse",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 4,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "previously closest to repeated-anchor collapse"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "idempotence/absorption/extension local theory"
+    },
+    {
+      "id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 45,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_v093_score": 45,
+      "v094_local_theory_score": 26,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near repeated-anchor collapse",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 6,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "previously closest to repeated-anchor collapse",
+          "visible self-square in goal",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "idempotence/absorption/extension local theory"
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 17,
+      "v093_two_h_contextual_lift_score": 20,
+      "v093_multi_local_edge_calc_score": 42,
+      "closest_v093_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_v093_score": 42,
+      "v094_local_theory_score": 48,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "argument-erasure lemma",
+        "multi-local-edge calc"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "composite equality likely needs a short calc over local edges",
+        "cached near-miss family is nested absorption",
+        "a direct h midpoint is available",
+        "an exact outer context can be extracted"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "high",
+        "score": 7,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "needs argument-erasure under a context",
+          "goal contains self-square subterms",
+          "visible self-square in goal",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 45,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_v093_score": 45,
+      "v094_local_theory_score": 40,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "extension lemma"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "goal has the extension shape T = T ◇ U or its symmetric form",
+        "previous motif ranking places it near repeated-anchor collapse",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "high",
+        "score": 9,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "needs extension lemma like v0.9.5 extend",
+          "goal is extension-like",
+          "previously closest to repeated-anchor collapse",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "idempotence/absorption/extension local theory"
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 27,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 9,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 27,
+      "v094_likely_requires": [
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "cached near-miss family is nested absorption",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 1,
+        "reasons": [
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "rotation/context shift"
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 27,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 16,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 27,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 4,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "visible self-square in goal"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "expected_answer": true,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 35,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 17,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 27,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 4,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 27,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 16,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 17,
+      "v094_likely_requires": [
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 1,
+        "reasons": [
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    },
+    {
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 45,
+      "v093_two_h_contextual_lift_score": 46,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 46,
+      "v094_local_theory_score": 29,
+      "v094_likely_requires": [
+        "absorption lemma",
+        "argument-erasure lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "goal is an anchor equal to a context containing that anchor",
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 3,
+        "reasons": [
+          "needs argument-erasure under a context",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "expected_answer": true,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 5,
+      "v093_two_h_contextual_lift_score": 0,
+      "v093_multi_local_edge_calc_score": 23,
+      "closest_v093_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_v093_score": 23,
+      "v094_local_theory_score": 23,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "multi-local-edge calc"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "composite equality likely needs a short calc over local edges",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 5,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "visible self-square in goal",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "multi-local-edge calc"
+    },
+    {
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "expected_answer": true,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 35,
+      "v093_two_h_contextual_lift_score": 46,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 46,
+      "v094_local_theory_score": 39,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "argument-erasure lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 5,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "needs argument-erasure under a context",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_1874_4357",
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "expected_answer": true,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 5,
+      "v093_two_h_contextual_lift_score": 4,
+      "v093_multi_local_edge_calc_score": 33,
+      "closest_v093_motif": "true_2061_307 style multi-local-edge calc composition",
+      "closest_v093_score": 33,
+      "v094_local_theory_score": 23,
+      "v094_likely_requires": [
+        "argument-erasure lemma",
+        "multi-local-edge calc"
+      ],
+      "v094_reasons": [
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "composite equality likely needs a short calc over local edges",
+        "an exact outer context can be extracted"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 2,
+        "reasons": [
+          "needs argument-erasure under a context"
+        ]
+      },
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": true,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "expected_answer": true,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 35,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 27,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "medium",
+        "score": 5,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "goal contains self-square subterms",
+          "visible self-square in goal",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 31,
+      "v093_two_h_contextual_lift_score": 20,
+      "v093_multi_local_edge_calc_score": 20,
+      "closest_v093_motif": "true_2942_5 style repeated-anchor collapse",
+      "closest_v093_score": 31,
+      "v094_local_theory_score": 16,
+      "v094_likely_requires": [
+        "absorption lemma"
+      ],
+      "v094_reasons": [
+        "goal is an anchor equal to a context containing that anchor",
+        "previous motif ranking places it near repeated-anchor collapse",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 1,
+        "reasons": [
+          "previously closest to repeated-anchor collapse"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "idempotence/absorption/extension local theory"
+    },
+    {
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "expected_answer": true,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 35,
+      "v093_two_h_contextual_lift_score": 46,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 46,
+      "v094_local_theory_score": 39,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "argument-erasure lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "goal is an anchor equal to a context containing that anchor",
+        "goal or cached near-miss is an argument-erasure/context-invariance edge",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "high",
+        "score": 7,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "needs argument-erasure under a context",
+          "goal contains self-square subterms",
+          "visible self-square in goal",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "argument erasure"
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "expected_answer": true,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "judge_calls": 0,
+      "v093_repeated_anchor_collapse_score": 35,
+      "v093_two_h_contextual_lift_score": 36,
+      "v093_multi_local_edge_calc_score": 24,
+      "closest_v093_motif": "true_130_1759 style two-h expansion + contextual lift",
+      "closest_v093_score": 36,
+      "v094_local_theory_score": 32,
+      "v094_likely_requires": [
+        "idempotence lemma",
+        "absorption lemma",
+        "two-h contextual lift"
+      ],
+      "v094_reasons": [
+        "self-square/idempotent subterms appear in the goal or hypothesis",
+        "hypothesis repeats its left anchor 3 times on the RHS",
+        "previous motif ranking places it near the two-h contextual-lift proof",
+        "a direct h midpoint is available"
+      ],
+      "v095_anchored_projection_argument_erasure_similarity": {
+        "level": "low",
+        "score": 3,
+        "reasons": [
+          "needs idempotence/self-square local lemma",
+          "anchor equals context containing anchor"
+        ]
+      },
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "likely_next_proof_object": "two-lemma contextual lift"
+    }
+  ],
+  "remaining_false_cases": [
+    {
+      "id": "false_1682_411",
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "expected_answer": false,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "judge_calls": 0,
+      "cluster": "false case - separate countermodel work",
+      "proof_side_note": "Kept separate; targeted countermodel search is still not part of this proof-side route."
+    }
+  ],
+  "cluster_summary": {
+    "argument erasure": {
+      "count": 6,
+      "cases": [
+        "true_3108_4642",
+        "true_2860_3458",
+        "true_2074_2082",
+        "true_2771_2775",
+        "true_1874_4357",
+        "true_674_668"
+      ]
+    },
+    "idempotence/absorption/extension local theory": {
+      "count": 5,
+      "cases": [
+        "true_1167_2000",
+        "true_1604_1822",
+        "true_2111_1755",
+        "true_1738_1258",
+        "true_689_1350"
+      ]
+    },
+    "multi-local-edge calc": {
+      "count": 1,
+      "cases": [
+        "true_4082_4109"
+      ]
+    },
+    "rotation/context shift": {
+      "count": 1,
+      "cases": [
+        "true_2789_898"
+      ]
+    },
+    "two-lemma contextual lift": {
+      "count": 6,
+      "cases": [
+        "true_1698_555",
+        "true_2135_2128",
+        "true_1500_498",
+        "true_691_1976",
+        "true_2055_2656",
+        "true_1636_1839"
+      ]
+    },
+    "false case - separate countermodel work": {
+      "count": 1,
+      "cases": [
+        "false_1682_411"
+      ]
+    }
+  },
+  "recommendation_v096": {
+    "target": "argument-erasure inner-edge prover under exact extracted contexts",
+    "why": "v0.9.5 consumed the exact anchored self-square extension case. The highest-scoring remaining proof-side cases now share exact-context near misses where the missing inner edge is an argument-erasure/projection equality, e.g. a◇a = a◇b, a◇b = a◇c, or (a◇b)◇c = (a◇d)◇c.",
+    "first_structural_tests": [
+      "true_2771_2775",
+      "true_674_668",
+      "true_2860_3458",
+      "true_3108_4642",
+      "true_2074_2082"
+    ],
+    "safe_scope": [
+      "only activate after an exact outer context is extracted",
+      "prove one local erasure lemma at a time",
+      "at most two h instances plus one congrArg",
+      "no global proof graph cap increase",
+      "leave false_1682_411 to a separate targeted countermodel workflow"
+    ]
+  }
+}

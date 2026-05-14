@@ -1,0 +1,1389 @@
+{
+  "inputs": {
+    "v092_results": "pipeline/results/arcf_sample200_v092.json",
+    "v091_results": "pipeline/results/arcf_sample200_v091.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "remaining_unsolved_total": 25,
+    "remaining_true_failures": 24,
+    "remaining_false_failures": 1,
+    "newly_solved_vs_v091": [
+      "true_2654_2864"
+    ],
+    "regressions_vs_v091": [],
+    "new_case_route_used": "recursive_inner_context_bridge_after_h_midpoint + context_invariance_inner_edge (inferred from inv1/rinv proof)",
+    "true_failures_with_outer_context": 8,
+    "true_failures_with_direct_h_midpoint": 19,
+    "classification_counts": {
+      "unknown": 13,
+      "nested absorption": 11,
+      "argument-erasure left": 2,
+      "argument-erasure right": 4
+    },
+    "near_success_shape_counts": {
+      "b ◇ a = c ◇ a": 4,
+      "a ◇ a = a ◇ b": 4,
+      "a ◇ b = a ◇ c": 8,
+      "(a ◇ b) ◇ c = (a ◇ d) ◇ c": 2,
+      "a ◇ (b ◇ c) = a ◇ (d ◇ c)": 2
+    },
+    "family_counts": {
+      "left_argument_erasure_seed": 1,
+      "nested_absorption": 4,
+      "no extracted outer context": 16,
+      "remaining_false_countermodel_search": 1,
+      "right_argument_erasure_seed": 2,
+      "unknown": 1
+    }
+  },
+  "newly_solved_detail": {
+    "id": "true_2654_2864",
+    "route_used": "recursive_inner_context_bridge_after_h_midpoint + context_invariance_inner_edge (inferred from inv1/rinv proof)",
+    "proof_excerpt": "import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z\n  have bridge : x = (((x ◇ (y ◇ x)) ◇ x) ◇ z) := by\n    calc\n      x = (((x ◇ x) ◇ (y ◇ y)) ◇ z) := h x y z\n      _ = (((x ◇ (y ◇ x)) ◇ x) ◇ z) := congrArg (fun q => (q ◇ z)) ((by\n    have inv1 : ∀ (a b : G), (a ◇ a) = (a ◇ b) := by\n      intro a b\n      calc\n        (a ◇ a) = ((((a ◇ a) ◇ (a ◇ a)) ◇ ((a ◇ a) ◇ (a ◇ a))) ◇ b) := h (a ◇ a) (a ◇ a) b\n        _ = (a ◇ b) := (congrArg (fun t => (t ◇ b)) ((h a a ((a ◇ a) ◇ (a ◇ a))).symm))\n    have rinv : ∀ (a b c : G), (a ◇ b) = (a ◇ c) := by\n      intro a b c\n      exact ((inv1 a b).symm).trans (inv1 a c)\n    exact ((congrArg (fun q => (q ◇ (y ◇ y))) (rinv x x (y ◇ x))).trans (rinv (x ◇ (y ◇ x)) (y ◇ y) x))\n  ))\n  exact bridge\n"
+  },
+  "remaining_unsolved": [
+    {
+      "id": "true_2942_5",
+      "expected": true,
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal": "x = y ◇ x",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ x) ◇ x)",
+          "direct_h_step": "h x x x",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ x)",
+          "inner_rhs": "y",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            3,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ (y ◇ x)) ◇ x)",
+          "direct_h_step": "h x x (y ◇ x)",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ (y ◇ x))",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            4,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ y) ◇ x)",
+          "direct_h_step": "h x x y",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ y)",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            3,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 3,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ x))) ◇ x)",
+          "direct_h_step": "h x x (y ◇ (y ◇ x))",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ x)))",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            5,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 2
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ x)",
+          "direct_h_step": "h x x (x ◇ x)",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ (x ◇ x))",
+          "inner_rhs": "y",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            4,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 5
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ (x ◇ y)) ◇ x)",
+          "direct_h_step": "h x x (x ◇ y)",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ (x ◇ y))",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            4,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ (y ◇ y)) ◇ x)",
+          "direct_h_step": "h x x (y ◇ y)",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ (y ◇ y))",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            0
+          ],
+          "inner_op_counts": [
+            4,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 3,
+            "y": 2
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ x)",
+          "midpoint": "((((y ◇ x) ◇ ((y ◇ x) ◇ x)) ◇ x) ◇ x)",
+          "direct_h_step": "h x (y ◇ x) x",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "(((y ◇ x) ◇ ((y ◇ x) ◇ x)) ◇ x)",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            0
+          ],
+          "inner_op_counts": [
+            5,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "y": 2,
+            "x": 4
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        }
+      ],
+      "candidate_family": "nested_absorption"
+    },
+    {
+      "id": "true_3108_4642",
+      "expected": true,
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis": "x = (((y ◇ x) ◇ x) ◇ z) ◇ x",
+      "goal": "(x ◇ y) ◇ x = (z ◇ x) ◇ x",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_1167_2000",
+      "expected": true,
+      "eq1_id": 1167,
+      "eq2_id": 2000,
+      "hypothesis": "x = y ◇ ((z ◇ (y ◇ y)) ◇ x)",
+      "goal": "x = (y ◇ (z ◇ z)) ◇ (z ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_1698_555",
+      "expected": true,
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_1604_1822",
+      "expected": true,
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis": "x = (y ◇ z) ◇ (w ◇ (x ◇ y))",
+      "goal": "x = (y ◇ z) ◇ ((w ◇ w) ◇ y)",
+      "route_eligible": false,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "note": "rotation_context_bridge is gated to hypotheses with at most 3 variables",
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2111_1755",
+      "expected": true,
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis": "x = ((y ◇ x) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ x) ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_425_1630",
+      "expected": true,
+      "eq1_id": 425,
+      "eq2_id": 1630,
+      "hypothesis": "x = x ◇ (x ◇ (y ◇ (z ◇ w)))",
+      "goal": "x = (x ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "route_eligible": false,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "note": "rotation_context_bridge is gated to hypotheses with at most 3 variables",
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2860_3458",
+      "expected": true,
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ x)",
+          "target_rhs": "(x ◇ ((x ◇ y) ◇ x))",
+          "midpoint": "((((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x)) ◇ ((x ◇ y) ◇ x))",
+          "direct_h_step": "h (x ◇ x) (x ◇ x) ((x ◇ y) ◇ x)",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ ((x ◇ y) ◇ x))",
+          "inner_lhs": "(((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ y) ◇ x))",
+          "inner_rhs": "x",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            0
+          ],
+          "inner_op_counts": [
+            8,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 8,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "x": 1
+          }
+        },
+        {
+          "target_path": "R",
+          "target_lhs": "x",
+          "target_rhs": "((x ◇ y) ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ x)) ◇ x) ◇ x)",
+          "direct_h_step": "h x x x",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ x)) ◇ x)",
+          "inner_rhs": "(x ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            3,
+            1
+          ],
+          "inner_op_counts": [
+            3,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4
+          },
+          "inner_var_counts_rhs": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "target_path": "R",
+          "target_lhs": "x",
+          "target_rhs": "((x ◇ y) ◇ x)",
+          "midpoint": "(((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ◇ x)",
+          "direct_h_step": "h x ((x ◇ y) ◇ x) x",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ x)",
+          "inner_lhs": "((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x)",
+          "inner_rhs": "(x ◇ y)",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            5,
+            1
+          ],
+          "inner_op_counts": [
+            5,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 5,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "x": 1,
+            "y": 1
+          }
+        }
+      ],
+      "candidate_family": "nested_absorption"
+    },
+    {
+      "id": "true_130_1759",
+      "expected": true,
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "((y ◇ z) ◇ ((x ◇ y) ◇ x))",
+          "midpoint": "(x ◇ ((x ◇ y) ◇ x))",
+          "direct_h_step": "h x x y",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ ((x ◇ y) ◇ x))",
+          "inner_lhs": "x",
+          "inner_rhs": "(y ◇ z)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            0,
+            1
+          ],
+          "inner_op_counts": [
+            0,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1,
+            "z": 1
+          }
+        }
+      ],
+      "candidate_family": "unknown"
+    },
+    {
+      "id": "true_2061_307",
+      "expected": true,
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x ◇ x = x ◇ (x ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_1738_1258",
+      "expected": true,
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2789_898",
+      "expected": true,
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ ((x ◇ z) ◇ (z ◇ y)))",
+          "midpoint": "(((x ◇ ((x ◇ z) ◇ (z ◇ y))) ◇ (x ◇ x)) ◇ ((x ◇ z) ◇ (z ◇ y)))",
+          "direct_h_step": "h x x ((x ◇ z) ◇ (z ◇ y))",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ ((x ◇ z) ◇ (z ◇ y)))",
+          "inner_lhs": "((x ◇ ((x ◇ z) ◇ (z ◇ y))) ◇ (x ◇ x))",
+          "inner_rhs": "y",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            0
+          ],
+          "inner_op_counts": [
+            6,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "z": 2,
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        }
+      ],
+      "candidate_family": "nested_absorption"
+    },
+    {
+      "id": "true_2135_2128",
+      "expected": true,
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_428_3725",
+      "expected": true,
+      "eq1_id": 428,
+      "eq2_id": 3725,
+      "hypothesis": "x = x ◇ (y ◇ (x ◇ (x ◇ z)))",
+      "goal": "x ◇ y = (x ◇ y) ◇ (y ◇ y)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ y)))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) (x ◇ y)",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ y))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            7,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 4
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ x))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) x",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ x)))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            6,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 3
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ y))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) y",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ y)))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            6,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 3,
+            "y": 4
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ y))))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) ((x ◇ y) ◇ (y ◇ y))",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ y)))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            5,
+            1
+          ],
+          "inner_op_counts": [
+            9,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 6
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ y)))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) (y ◇ y)",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ y))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "nested absorption",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            7,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 3,
+            "y": 5
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ x)))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) (x ◇ x)",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ x))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            7,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 5,
+            "y": 3
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ x)))))",
+          "direct_h_step": "h (x ◇ y) (x ◇ y) (y ◇ x)",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "((x ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ x))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            7,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 4
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "(x ◇ y)",
+          "target_rhs": "((x ◇ y) ◇ (y ◇ y))",
+          "midpoint": "((x ◇ y) ◇ (x ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ y)))))",
+          "direct_h_step": "h (x ◇ y) x (x ◇ y)",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "((x ◇ y) ◇ q)",
+          "inner_lhs": "(x ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ y))))",
+          "inner_rhs": "(y ◇ y)",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            4,
+            1
+          ],
+          "inner_op_counts": [
+            6,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 4,
+            "y": 3
+          },
+          "inner_var_counts_rhs": {
+            "y": 2
+          }
+        }
+      ],
+      "candidate_family": "nested_absorption"
+    },
+    {
+      "id": "true_1500_498",
+      "expected": true,
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_691_1976",
+      "expected": true,
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2074_2082",
+      "expected": true,
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(((x ◇ y) ◇ z) ◇ (w ◇ x))",
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "RL",
+          "outer_context_lambda_body": "(((x ◇ y) ◇ z) ◇ (q ◇ x))",
+          "inner_lhs": "y",
+          "inner_rhs": "w",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            0,
+            0
+          ],
+          "inner_op_counts": [
+            0,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "y": 1
+          },
+          "inner_var_counts_rhs": {
+            "w": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(((x ◇ y) ◇ z) ◇ (w ◇ x))",
+          "midpoint": "(((x ◇ y) ◇ z) ◇ (y ◇ x))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "(((x ◇ y) ◇ z) ◇ q)",
+          "inner_lhs": "(y ◇ x)",
+          "inner_rhs": "(w ◇ x)",
+          "classification": "argument-erasure left",
+          "near_success_shapes": [
+            {
+              "shape": "b ◇ a = c ◇ a",
+              "orientation": "forward"
+            },
+            {
+              "shape": "b ◇ a = c ◇ a",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            1,
+            1
+          ],
+          "inner_op_counts": [
+            1,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "y": 1,
+            "x": 1
+          },
+          "inner_var_counts_rhs": {
+            "w": 1,
+            "x": 1
+          }
+        }
+      ],
+      "candidate_family": "left_argument_erasure_seed"
+    },
+    {
+      "id": "true_4082_4109",
+      "expected": true,
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "route_eligible": true,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2771_2775",
+      "expected": true,
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "LRR",
+          "outer_context_lambda_body": "(((y ◇ z) ◇ (x ◇ q)) ◇ y)",
+          "inner_lhs": "x",
+          "inner_rhs": "y",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            0,
+            0
+          ],
+          "inner_op_counts": [
+            0,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "x": 1
+          },
+          "inner_var_counts_rhs": {
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "LR",
+          "outer_context_lambda_body": "(((y ◇ z) ◇ q) ◇ y)",
+          "inner_lhs": "(x ◇ x)",
+          "inner_rhs": "(x ◇ y)",
+          "classification": "argument-erasure right",
+          "near_success_shapes": [
+            {
+              "shape": "a ◇ a = a ◇ b",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ a = a ◇ b",
+              "orientation": "reverse"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            1,
+            1
+          ],
+          "inner_op_counts": [
+            1,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 2
+          },
+          "inner_var_counts_rhs": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(((y ◇ z) ◇ (x ◇ y)) ◇ y)",
+          "midpoint": "(((y ◇ z) ◇ (x ◇ x)) ◇ y)",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "L",
+          "outer_context_lambda_body": "(q ◇ y)",
+          "inner_lhs": "((y ◇ z) ◇ (x ◇ x))",
+          "inner_rhs": "((y ◇ z) ◇ (x ◇ y))",
+          "classification": "argument-erasure right",
+          "near_success_shapes": [
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            2,
+            2
+          ],
+          "inner_op_counts": [
+            3,
+            3
+          ],
+          "inner_var_counts_lhs": {
+            "y": 1,
+            "z": 1,
+            "x": 2
+          },
+          "inner_var_counts_rhs": {
+            "y": 2,
+            "z": 1,
+            "x": 1
+          }
+        }
+      ],
+      "candidate_family": "right_argument_erasure_seed"
+    },
+    {
+      "id": "false_1682_411",
+      "expected": false,
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "route_eligible": false,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "remaining_false_countermodel_search"
+    },
+    {
+      "id": "true_1874_4357",
+      "expected": true,
+      "eq1_id": 1874,
+      "eq2_id": 4357,
+      "hypothesis": "x = (x ◇ (y ◇ z)) ◇ (y ◇ w)",
+      "goal": "x ◇ (y ◇ z) = x ◇ (y ◇ w)",
+      "route_eligible": false,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "note": "rotation_context_bridge is gated to hypotheses with at most 3 variables",
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_2055_2656",
+      "expected": true,
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_689_1350",
+      "expected": true,
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "route_eligible": false,
+      "direct_h_midpoint_found": false,
+      "outer_context_extracted": false,
+      "edges": [],
+      "note": "rotation_context_bridge is gated to hypotheses with at most 3 variables",
+      "candidate_family": "no extracted outer context"
+    },
+    {
+      "id": "true_674_668",
+      "expected": true,
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": true,
+      "edges": [
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "RRLR",
+          "outer_context_lambda_body": "(y ◇ (x ◇ ((x ◇ q) ◇ z)))",
+          "inner_lhs": "z",
+          "inner_rhs": "x",
+          "classification": "unknown",
+          "near_success_shapes": [],
+          "one_mutation_from_v092_shape": false,
+          "inner_depths": [
+            0,
+            0
+          ],
+          "inner_op_counts": [
+            0,
+            0
+          ],
+          "inner_var_counts_lhs": {
+            "z": 1
+          },
+          "inner_var_counts_rhs": {
+            "x": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "RRL",
+          "outer_context_lambda_body": "(y ◇ (x ◇ (q ◇ z)))",
+          "inner_lhs": "(x ◇ z)",
+          "inner_rhs": "(x ◇ x)",
+          "classification": "argument-erasure right",
+          "near_success_shapes": [
+            {
+              "shape": "a ◇ a = a ◇ b",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ a = a ◇ b",
+              "orientation": "reverse"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            1,
+            1
+          ],
+          "inner_op_counts": [
+            1,
+            1
+          ],
+          "inner_var_counts_lhs": {
+            "x": 1,
+            "z": 1
+          },
+          "inner_var_counts_rhs": {
+            "x": 2
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "RR",
+          "outer_context_lambda_body": "(y ◇ (x ◇ q))",
+          "inner_lhs": "((x ◇ z) ◇ z)",
+          "inner_rhs": "((x ◇ x) ◇ z)",
+          "classification": "argument-erasure left",
+          "near_success_shapes": [
+            {
+              "shape": "b ◇ a = c ◇ a",
+              "orientation": "forward"
+            },
+            {
+              "shape": "(a ◇ b) ◇ c = (a ◇ d) ◇ c",
+              "orientation": "forward"
+            },
+            {
+              "shape": "b ◇ a = c ◇ a",
+              "orientation": "reverse"
+            },
+            {
+              "shape": "(a ◇ b) ◇ c = (a ◇ d) ◇ c",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            2,
+            2
+          ],
+          "inner_op_counts": [
+            2,
+            2
+          ],
+          "inner_var_counts_lhs": {
+            "x": 1,
+            "z": 2
+          },
+          "inner_var_counts_rhs": {
+            "x": 2,
+            "z": 1
+          }
+        },
+        {
+          "target_path": "root",
+          "target_lhs": "x",
+          "target_rhs": "(y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+          "midpoint": "(y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+          "direct_h_step": "h x y z",
+          "outer_context_path": "R",
+          "outer_context_lambda_body": "(y ◇ q)",
+          "inner_lhs": "(x ◇ ((x ◇ z) ◇ z))",
+          "inner_rhs": "(x ◇ ((x ◇ x) ◇ z))",
+          "classification": "argument-erasure right",
+          "near_success_shapes": [
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ (b ◇ c) = a ◇ (d ◇ c)",
+              "orientation": "forward"
+            },
+            {
+              "shape": "a ◇ b = a ◇ c",
+              "orientation": "reverse"
+            },
+            {
+              "shape": "a ◇ (b ◇ c) = a ◇ (d ◇ c)",
+              "orientation": "reverse"
+            }
+          ],
+          "one_mutation_from_v092_shape": true,
+          "inner_depths": [
+            3,
+            3
+          ],
+          "inner_op_counts": [
+            3,
+            3
+          ],
+          "inner_var_counts_lhs": {
+            "x": 2,
+            "z": 2
+          },
+          "inner_var_counts_rhs": {
+            "x": 3,
+            "z": 1
+          }
+        }
+      ],
+      "candidate_family": "right_argument_erasure_seed"
+    },
+    {
+      "id": "true_1636_1839",
+      "expected": true,
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "route_eligible": true,
+      "direct_h_midpoint_found": true,
+      "outer_context_extracted": false,
+      "edges": [],
+      "candidate_family": "no extracted outer context"
+    }
+  ],
+  "groups_by_candidate_family": {
+    "left_argument_erasure_seed": [
+      "true_2074_2082"
+    ],
+    "nested_absorption": [
+      "true_2942_5",
+      "true_2860_3458",
+      "true_2789_898",
+      "true_428_3725"
+    ],
+    "no extracted outer context": [
+      "true_3108_4642",
+      "true_1167_2000",
+      "true_1698_555",
+      "true_1604_1822",
+      "true_2111_1755",
+      "true_425_1630",
+      "true_2061_307",
+      "true_1738_1258",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_4082_4109",
+      "true_1874_4357",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_1636_1839"
+    ],
+    "remaining_false_countermodel_search": [
+      "false_1682_411"
+    ],
+    "right_argument_erasure_seed": [
+      "true_2771_2775",
+      "true_674_668"
+    ],
+    "unknown": [
+      "true_130_1759"
+    ]
+  },
+  "recommendation_v093": {
+    "target": "derive right-argument erasure seeds beyond the v0.9.2 self-square seed",
+    "rationale": "The most direct remaining near miss is true_2771_2775, where the outer context is exact and the missing inner edge is (x ◇ x) = (x ◇ y), matching a◇a = a◇b / a◇b = a◇c. v0.9.2 can apply rinv once available, but cannot yet prove the seed under that hypothesis.",
+    "safe_shape": "Only attempt when recursive_inner_context_candidates extracts an exact context and the inner edge matches a◇a = a◇b or a◇b = a◇c directly; emit at most one local invariance lemma and keep the existing code-size gate.",
+    "do_not_do": "Do not raise global graph/node caps; the evidence points to missing local seed lemmas, not missing terms."
+  }
+}
