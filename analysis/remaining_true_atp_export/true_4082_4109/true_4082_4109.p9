@@ -1,0 +1,11 @@
+% true_4082_4109 / Equation4082 -> Equation4109
+set(prolog_style_variables).
+assign(max_seconds, 30).
+
+formulas(assumptions).
+all x (all y (all z (f(x,x) = f(f(f(y,x),x),z)))).
+end_of_list.
+
+formulas(goals).
+all x (all y (all z (f(x,x) = f(f(f(y,z),z),y)))).
+end_of_list.

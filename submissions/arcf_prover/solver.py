@@ -24,6 +24,15 @@ WITNESS_BANK = [
         "n": 4,
         "table": [[0, 1, 2, 3], [0, 0, 0, 3], [0, 3, 0, 3], [0, 1, 2, 0]],
     },
+    {
+        "name": "constraint_guided_false_1682_411_n5",
+        "n": 5,
+        "target": {
+            "eq1_canonical": "v0=((v1◇v0)◇((v0◇v0)◇v1))",
+            "eq2_canonical": "v0=(v0◇(v0◇(v0◇(v0◇v0))))",
+        },
+        "table": [[4, 0, 3, 1, 2], [3, 1, 3, 0, 4], [1, 0, 2, 4, 2], [2, 2, 2, 3, 0], [0, 4, 3, 1, 1]],
+    },
 ]
 
 # Judge-verified hand proofs from claude_attempt/. These are intentionally
@@ -106,6 +115,20 @@ def submission : Goal := by
 """,
 }
 
+
+# ATP-derived exact certificates. These are narrow, judge-tested Lean
+# certificates mined from external proof search and guarded by equation IDs
+# or exact alpha-normalized forms. They are not general-purpose schemas.
+ATP_EXACT_CERTIFICATES = [
+    {
+        "name": "z3_true_2789_898_min",
+        "eq1_id": 2789,
+        "eq2_id": 898,
+        "eq1_canonical": "v0=(((v1◇v2)◇(v1◇v0))◇v2)",
+        "eq2_canonical": "v0=(v1◇((v0◇v2)◇(v2◇v1)))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z\n  let t1 : G := x ◇ z\n  let t2 : G := z ◇ y\n  let t3 : G := t1 ◇ t2\n  let t4 : G := y ◇ t3\n  let t5 : G := t2 ◇ t2\n  let t6 : G := t5 ◇ y\n  let t7 : G := t1 ◇ t1\n  let t8 : G := t7 ◇ z\n  let t9 : G := t6 ◇ t8\n  let t10 : G := t6 ◇ x\n  let t11 : G := t9 ◇ t10\n  let t12 : G := t11 ◇ t8\n  let t13 : G := t6 ◇ t12\n  let t14 : G := t4 ◇ t4\n  let t15 : G := t14 ◇ t3\n  let t16 : G := t6 ◇ t15\n  let t17 : G := t13 ◇ t16\n  let t18 : G := t17 ◇ t12\n  let t19 : G := t18 ◇ t18\n  let t20 : G := t19 ◇ t12\n  let t21 : G := t12 ◇ t12\n  let t22 : G := t14 ◇ t14\n  let t23 : G := t22 ◇ t4\n  let t24 : G := t12 ◇ t23\n  let t25 : G := t21 ◇ t24\n  let t26 : G := t25 ◇ t12\n  let t27 : G := t3 ◇ t3\n  let t28 : G := t27 ◇ t2\n  let t29 : G := t28 ◇ t15\n  let t30 : G := t28 ◇ t5\n  let t31 : G := t29 ◇ t30\n  let t32 : G := t31 ◇ t15\n  let t33 : G := t27 ◇ t28\n  let t34 : G := t27 ◇ t15\n  let t35 : G := t33 ◇ t34\n  let t36 : G := t35 ◇ t28\n  let t37 : G := t14 ◇ t15\n  let t38 : G := t37 ◇ t37\n  let t39 : G := t38 ◇ t15\n  let t40 : G := t5 ◇ t5\n  let t41 : G := t5 ◇ t28\n  let t42 : G := t40 ◇ t41\n  let t43 : G := t42 ◇ t5\n  let t44 : G := t28 ◇ t28\n  let t45 : G := t44 ◇ t44\n  let t46 : G := t45 ◇ t28\n  let t47 : G := t33 ◇ t33\n  let t48 : G := t47 ◇ t28\n  let t49 : G := t6 ◇ t5\n  let t50 : G := t49 ◇ t13\n  let t51 : G := t50 ◇ t5\n  let t52 : G := t51 ◇ t51\n  let t53 : G := t52 ◇ t5\n  let t54 : G := x ◇ t23\n  let t55 : G := x ◇ t15\n  let t56 : G := t55 ◇ t54\n  let t57 : G := t56 ◇ t56\n  let t58 : G := t57 ◇ t54\n  let t59 : G := t54 ◇ t54\n  let t60 : G := t59 ◇ t23\n  let t61 : G := t59 ◇ t58\n  let t62 : G := t60 ◇ t61\n  let t63 : G := t62 ◇ t23\n  let t64 : G := t7 ◇ t7\n  let t65 : G := t64 ◇ t1\n  let t66 : G := t65 ◇ t58\n  let t67 : G := t65 ◇ t23\n  let t68 : G := t66 ◇ t67\n  let t69 : G := t68 ◇ t58\n  let t70 : G := x ◇ t8\n  let t71 : G := t70 ◇ t54\n  let t72 : G := t71 ◇ t8\n  let t73 : G := t5 ◇ t65\n  let t74 : G := t5 ◇ t23\n  let t75 : G := t73 ◇ t74\n  let t76 : G := t1 ◇ t28\n  let t77 : G := t7 ◇ t76\n  let t78 : G := t77 ◇ t65\n  let t79 : G := t78 ◇ t78\n  let t80 : G := t79 ◇ t65\n  let t81 : G := t77 ◇ t1\n  let t82 : G := t5 ◇ t6\n  let t83 : G := t82 ◇ t82\n  let t84 : G := t83 ◇ t23\n  let t85 : G := t83 ◇ t83\n  let t86 : G := t84 ◇ t85\n  let t87 : G := t86 ◇ t23\n  let t88 : G := t87 ◇ t87\n  let t89 : G := t88 ◇ t23\n  let t90 : G := t6 ◇ t6\n  let t91 : G := t90 ◇ t16\n  let t92 : G := t28 ◇ t6\n  let t93 : G := t92 ◇ t30\n  let t94 : G := t93 ◇ t6\n  let t95 : G := t41 ◇ t82\n  let t96 : G := t95 ◇ t28\n  let t97 : G := t30 ◇ t30\n  let t98 : G := t97 ◇ t5\n  let t99 : G := t5 ◇ t8\n  let t100 : G := t74 ◇ t99\n  let t101 : G := t100 ◇ t23\n  let t102 : G := t28 ◇ t8\n  let t103 : G := t28 ◇ t65\n  let t104 : G := t102 ◇ t103\n  let t105 : G := t104 ◇ t8\n  let t106 : G := t6 ◇ t28\n  let t107 : G := t16 ◇ t106\n  let t108 : G := t7 ◇ t15\n  let t109 : G := t108 ◇ t64\n  let t110 : G := t109 ◇ t15\n  let t111 : G := t110 ◇ t28\n  let t112 : G := t110 ◇ t8\n  let t113 : G := t111 ◇ t112\n  let t114 : G := t76 ◇ t7\n  let t115 : G := t114 ◇ t28\n  let t116 : G := t115 ◇ t115\n  let t117 : G := t116 ◇ t28\n  let t118 : G := t8 ◇ t8\n  let t119 : G := t8 ◇ t6\n  let t120 : G := t118 ◇ t119\n  let t121 : G := t120 ◇ t8\n  let t122 : G := t106 ◇ t106\n  let t123 : G := t122 ◇ t28\n  let t124 : G := t7 ◇ t8\n  let t125 : G := t124 ◇ t124\n  let t126 : G := t82 ◇ t41\n  let t127 : G := t125 ◇ t28\n  let t128 : G := t125 ◇ t8\n  let t129 : G := t127 ◇ t128\n  let t130 : G := t129 ◇ t28\n  let t131 : G := t41 ◇ t73\n  let t132 : G := t110 ◇ t65\n  let t133 : G := t110 ◇ t15\n  let t134 : G := t132 ◇ t133\n  let t135 : G := t134 ◇ t65\n  let t136 : G := t29 ◇ t44\n  let t137 : G := t136 ◇ t15\n  let t138 : G := t64 ◇ t65\n  let t139 : G := t138 ◇ t138\n  let t140 : G := t139 ◇ t65\n  let t141 : G := t40 ◇ t73\n  let t142 : G := t141 ◇ t5\n  let t143 : G := t73 ◇ t40\n  let t144 : G := t133 ◇ t132\n  let t145 : G := t144 ◇ t15\n  let t146 : G := t29 ◇ t29\n  let t147 : G := t146 ◇ t15\n  let t148 : G := t124 ◇ t108\n  let t149 : G := t148 ◇ t8\n  let t150 : G := t149 ◇ t149\n  let t151 : G := t150 ◇ t8\n  let t152 : G := t57 ◇ t58\n  let t153 : G := t152 ◇ t152\n  let t154 : G := t153 ◇ t58\n  let t155 : G := t22 ◇ t22\n  let t156 : G := t155 ◇ t14\n  let t157 : G := t15 ◇ t65\n  let t158 : G := t15 ◇ t156\n  let t159 : G := t157 ◇ t158\n  let t160 : G := t159 ◇ t65\n  let t161 : G := t73 ◇ t41\n  let t162 : G := t161 ◇ t65\n  let t163 : G := t22 ◇ t37\n  let t164 : G := t163 ◇ t14\n  let t165 : G := t37 ◇ t22\n  let t166 : G := t165 ◇ t15\n  let t167 : G := t166 ◇ t166\n  let t168 : G := t167 ◇ t15\n  let t169 : G := t143 ◇ t65\n  have e2 : x = t12 := by\n    exact h x t6 t8\n  have e3 : t12 = t20 := by\n    exact h t12 t17 t12\n  have e9 : t15 = t18 := by\n    exact h t15 t6 t12\n  have e8 : t18 = t15 := by\n    exact e9.symm\n  have e11 : t3 = t15 := by\n    exact h t3 y t3\n  have e10 : t15 = t3 := by\n    exact e11.symm\n  have e7 : t18 = t3 := by\n    calc\n      t18 = t15 := e8\n      _ = t3 := e10\n  have e6 : t19 = t27 := by\n    calc\n      t19 = (t3 ◇ t18) := congrArg (fun q => q ◇ t18) (e7)\n      _ = t27 := congrArg (fun q => t3 ◇ q) (e7)\n  have e14 : t15 = t36 := by\n    exact h t15 t27 t28\n  have e21 : t2 = t28 := by\n    exact h t2 t1 t2\n  have e20 : t28 = t2 := by\n    exact e21.symm\n  have e19 : t33 = t28 := by\n    exact congrArg (fun q => t27 ◇ q) (e20)\n  have e18 : t28 = t33 := by\n    exact e19.symm\n  have e23 : t15 = t39 := by\n    exact h t15 t14 t15\n  have e29 : t37 = t15 := by\n    exact congrArg (fun q => t14 ◇ q) (e10)\n  have e28 : t37 = t3 := by\n    calc\n      t37 = t15 := e29\n      _ = t3 := e10\n  have e27 : t38 = t27 := by\n    calc\n      t38 = (t3 ◇ t37) := congrArg (fun q => q ◇ t37) (e28)\n      _ = t27 := congrArg (fun q => t3 ◇ q) (e28)\n  have e26 : t27 = t38 := by\n    exact e27.symm\n  have e25 : t34 = t39 := by\n    exact congrArg (fun q => q ◇ t15) (e26)\n  have e24 : t39 = t34 := by\n    exact e25.symm\n  have e22 : t15 = t34 := by\n    calc\n      t15 = t39 := e23\n      _ = t34 := e24\n  have e17 : t29 = t35 := by\n    calc\n      t29 = (t33 ◇ t15) := congrArg (fun q => q ◇ t15) (e18)\n      _ = t35 := congrArg (fun q => t33 ◇ q) (e22)\n  have e33 : t28 = t46 := by\n    exact h t28 t28 t28\n  have e38 : t44 = t5 := by\n    calc\n      t44 = (t2 ◇ t28) := congrArg (fun q => q ◇ t28) (e20)\n      _ = t5 := congrArg (fun q => t2 ◇ q) (e20)\n  have e37 : t5 = t44 := by\n    exact e38.symm\n  have e36 : t40 = t45 := by\n    calc\n      t40 = (t44 ◇ t5) := congrArg (fun q => q ◇ t5) (e37)\n      _ = t45 := congrArg (fun q => t44 ◇ q) (e37)\n  have e43 : t33 = t2 := by\n    calc\n      t33 = t28 := e19\n      _ = t2 := e20\n  have e42 : t47 = t5 := by\n    calc\n      t47 = (t2 ◇ t33) := congrArg (fun q => q ◇ t33) (e43)\n      _ = t5 := congrArg (fun q => t2 ◇ q) (e43)\n  have e41 : t5 = t47 := by\n    exact e42.symm\n  have e40 : t41 = t48 := by\n    exact congrArg (fun q => q ◇ t28) (e41)\n  have e45 : t28 = t48 := by\n    exact h t28 t27 t28\n  have e44 : t48 = t28 := by\n    exact e45.symm\n  have e39 : t41 = t28 := by\n    calc\n      t41 = t48 := e40\n      _ = t28 := e44\n  have e35 : t42 = t46 := by\n    calc\n      t42 = (t45 ◇ t41) := congrArg (fun q => q ◇ t41) (e36)\n      _ = t46 := congrArg (fun q => t45 ◇ q) (e39)\n  have e34 : t46 = t42 := by\n    exact e35.symm\n  have e32 : t28 = t42 := by\n    calc\n      t28 = t46 := e33\n      _ = t42 := e34\n  have e31 : t30 = t43 := by\n    exact congrArg (fun q => q ◇ t5) (e32)\n  have e47 : t28 = t43 := by\n    exact h t28 t5 t5\n  have e46 : t43 = t28 := by\n    exact e47.symm\n  have e30 : t30 = t28 := by\n    calc\n      t30 = t43 := e31\n      _ = t28 := e46\n  have e16 : t31 = t36 := by\n    calc\n      t31 = (t35 ◇ t30) := congrArg (fun q => q ◇ t30) (e17)\n      _ = t36 := congrArg (fun q => t35 ◇ q) (e30)\n  have e15 : t36 = t31 := by\n    exact e16.symm\n  have e13 : t3 = t31 := by\n    calc\n      t3 = t15 := e11\n      _ = t36 := e14\n      _ = t31 := e15\n  have e12 : t27 = t32 := by\n    calc\n      t27 = (t31 ◇ t3) := congrArg (fun q => q ◇ t3) (e13)\n      _ = t32 := congrArg (fun q => t31 ◇ q) (e11)\n  have e49 : t5 = t32 := by\n    exact h t5 t28 t15\n  have e48 : t32 = t5 := by\n    exact e49.symm\n  have e50 : t5 = t53 := by\n    exact h t5 t50 t5\n  have e56 : t12 = t51 := by\n    exact h t12 t6 t5\n  have e55 : t51 = t12 := by\n    exact e56.symm\n  have e54 : t52 = t21 := by\n    calc\n      t52 = (t12 ◇ t51) := congrArg (fun q => q ◇ t51) (e55)\n      _ = t21 := congrArg (fun q => t12 ◇ q) (e55)\n  have e53 : t21 = t52 := by\n    exact e54.symm\n  have e59 : t12 = x := by\n    exact e2.symm\n  have e58 : t24 = t54 := by\n    exact congrArg (fun q => q ◇ t23) (e59)\n  have e60 : t54 = t58 := by\n    exact h t54 t55 t54\n  have e61 : t58 = t63 := by\n    exact h t58 t59 t23\n  have e67 : t23 = t60 := by\n    exact h t23 x t23\n  have e66 : t60 = t23 := by\n    exact e67.symm\n  have e68 : t23 = t72 := by\n    exact h t23 x t8\n  have e74 : t1 = t65 := by\n    exact h t1 t1 t1\n  have e73 : t65 = t1 := by\n    exact e74.symm\n  have e78 : z = t8 := by\n    exact h z x z\n  have e77 : t8 = z := by\n    exact e78.symm\n  have e76 : t70 = t1 := by\n    exact congrArg (fun q => x ◇ q) (e77)\n  have e75 : t1 = t70 := by\n    exact e76.symm\n  have e72 : t65 = t70 := by\n    calc\n      t65 = t1 := e73\n      _ = t70 := e75\n  have e79 : t58 = t54 := by\n    exact e60.symm\n  have e71 : t66 = t71 := by\n    calc\n      t66 = (t70 ◇ t58) := congrArg (fun q => q ◇ t58) (e72)\n      _ = t71 := congrArg (fun q => t70 ◇ q) (e79)\n  have e83 : t65 = t80 := by\n    exact h t65 t77 t65\n  have e89 : t78 = t81 := by\n    exact congrArg (fun q => t77 ◇ q) (e73)\n  have e91 : t28 = t81 := by\n    exact h t28 t1 t1\n  have e90 : t81 = t28 := by\n    exact e91.symm\n  have e88 : t78 = t2 := by\n    calc\n      t78 = t81 := e89\n      _ = t28 := e90\n      _ = t2 := e20\n  have e87 : t79 = t5 := by\n    calc\n      t79 = (t2 ◇ t78) := congrArg (fun q => q ◇ t78) (e88)\n      _ = t5 := congrArg (fun q => t2 ◇ q) (e88)\n  have e86 : t5 = t79 := by\n    exact e87.symm\n  have e85 : t73 = t80 := by\n    exact congrArg (fun q => q ◇ t65) (e86)\n  have e84 : t80 = t73 := by\n    exact e85.symm\n  have e82 : t65 = t73 := by\n    calc\n      t65 = t80 := e83\n      _ = t73 := e84\n  have e93 : t23 = t89 := by\n    exact h t23 t86 t23\n  have e101 : y = t6 := by\n    exact h y z y\n  have e100 : t6 = y := by\n    exact e101.symm\n  have e99 : t82 = t6 := by\n    exact congrArg (fun q => t5 ◇ q) (e100)\n  have e98 : t6 = t82 := by\n    exact e99.symm\n  have e97 : t90 = t83 := by\n    calc\n      t90 = (t82 ◇ t6) := congrArg (fun q => q ◇ t6) (e98)\n      _ = t83 := congrArg (fun q => t82 ◇ q) (e98)\n  have e104 : t6 = t96 := by\n    exact h t6 t5 t28\n  have e109 : t48 = t41 := by\n    exact e40.symm\n  have e108 : t28 = t41 := by\n    calc\n      t28 = t48 := e45\n      _ = t41 := e109\n  have e107 : t92 = t95 := by\n    calc\n      t92 = (t41 ◇ t6) := congrArg (fun q => q ◇ t6) (e108)\n      _ = t95 := congrArg (fun q => t41 ◇ q) (e98)\n  have e106 : t93 = t96 := by\n    calc\n      t93 = (t95 ◇ t30) := congrArg (fun q => q ◇ t30) (e107)\n      _ = t96 := congrArg (fun q => t95 ◇ q) (e30)\n  have e105 : t96 = t93 := by\n    exact e106.symm\n  have e103 : t82 = t93 := by\n    calc\n      t82 = t6 := e99\n      _ = t96 := e104\n      _ = t93 := e105\n  have e102 : t83 = t94 := by\n    calc\n      t83 = (t93 ◇ t82) := congrArg (fun q => q ◇ t82) (e103)\n      _ = t94 := congrArg (fun q => t93 ◇ q) (e99)\n  have e111 : t5 = t94 := by\n    exact h t5 t28 t6\n  have e110 : t94 = t5 := by\n    exact e111.symm\n  have e112 : t5 = t98 := by\n    exact h t5 t28 t5\n  have e118 : t30 = t2 := by\n    calc\n      t30 = t43 := e31\n      _ = t28 := e46\n      _ = t2 := e20\n  have e117 : t97 = t5 := by\n    calc\n      t97 = (t2 ◇ t30) := congrArg (fun q => q ◇ t30) (e118)\n      _ = t5 := congrArg (fun q => t2 ◇ q) (e118)\n  have e116 : t5 = t97 := by\n    exact e117.symm\n  have e115 : t44 = t97 := by\n    calc\n      t44 = t5 := e38\n      _ = t97 := e116\n  have e114 : t45 = t98 := by\n    calc\n      t45 = (t97 ◇ t44) := congrArg (fun q => q ◇ t44) (e115)\n      _ = t98 := congrArg (fun q => t97 ◇ q) (e38)\n  have e113 : t98 = t45 := by\n    exact e114.symm\n  have e123 : t83 = t87 := by\n    exact h t83 t83 t23\n  have e122 : t87 = t83 := by\n    exact e123.symm\n  have e121 : t87 = t44 := by\n    calc\n      t87 = t83 := e122\n      _ = t94 := e102\n      _ = t5 := e110\n      _ = t44 := e37\n  have e120 : t88 = t45 := by\n    calc\n      t88 = (t44 ◇ t87) := congrArg (fun q => q ◇ t87) (e121)\n      _ = t45 := congrArg (fun q => t44 ◇ q) (e121)\n  have e119 : t45 = t88 := by\n    exact e120.symm\n  have e96 : t90 = t88 := by\n    calc\n      t90 = t83 := e97\n      _ = t94 := e102\n      _ = t5 := e110\n      _ = t98 := e112\n      _ = t45 := e113\n      _ = t88 := e119\n  have e125 : t16 = t4 := by\n    calc\n      t16 = (y ◇ t15) := congrArg (fun q => q ◇ t15) (e100)\n      _ = t4 := congrArg (fun q => y ◇ q) (e10)\n  have e126 : t4 = t23 := by\n    exact h t4 t4 t4\n  have e124 : t16 = t23 := by\n    calc\n      t16 = t4 := e125\n      _ = t23 := e126\n  have e95 : t91 = t89 := by\n    calc\n      t91 = (t88 ◇ t16) := congrArg (fun q => q ◇ t16) (e96)\n      _ = t89 := congrArg (fun q => t88 ◇ q) (e124)\n  have e94 : t89 = t91 := by\n    exact e95.symm\n  have e130 : t94 = t83 := by\n    exact e102.symm\n  have e131 : t83 = t90 := by\n    exact e97.symm\n  have e129 : t5 = t90 := by\n    calc\n      t5 = t94 := e111\n      _ = t83 := e130\n      _ = t90 := e131\n  have e133 : t23 = t4 := by\n    exact e126.symm\n  have e134 : t4 = t16 := by\n    exact e125.symm\n  have e132 : t23 = t16 := by\n    calc\n      t23 = t4 := e133\n      _ = t16 := e134\n  have e128 : t74 = t91 := by\n    calc\n      t74 = (t90 ◇ t23) := congrArg (fun q => q ◇ t23) (e129)\n      _ = t91 := congrArg (fun q => t90 ◇ q) (e132)\n  have e127 : t91 = t74 := by\n    exact e128.symm\n  have e92 : t23 = t74 := by\n    calc\n      t23 = t89 := e93\n      _ = t91 := e94\n      _ = t74 := e127\n  have e81 : t67 = t75 := by\n    calc\n      t67 = (t73 ◇ t23) := congrArg (fun q => q ◇ t23) (e82)\n      _ = t75 := congrArg (fun q => t73 ◇ q) (e92)\n  have e137 : t80 = t65 := by\n    exact e83.symm\n  have e138 : t65 = t105 := by\n    exact h t65 t28 t8\n  have e147 : t28 = t117 := by\n    exact h t28 t114 t28\n  have e152 : t7 = t110 := by\n    exact h t7 t7 t15\n  have e151 : t110 = t7 := by\n    exact e152.symm\n  have e156 : t1 = t115 := by\n    exact h t1 t1 t28\n  have e155 : t115 = t1 := by\n    exact e156.symm\n  have e154 : t116 = t7 := by\n    calc\n      t116 = (t1 ◇ t115) := congrArg (fun q => q ◇ t115) (e155)\n      _ = t7 := congrArg (fun q => t1 ◇ q) (e155)\n  have e153 : t7 = t116 := by\n    exact e154.symm\n  have e150 : t110 = t116 := by\n    calc\n      t110 = t7 := e151\n      _ = t116 := e153\n  have e149 : t111 = t117 := by\n    exact congrArg (fun q => q ◇ t28) (e150)\n  have e148 : t117 = t111 := by\n    exact e149.symm\n  have e146 : t28 = t111 := by\n    calc\n      t28 = t117 := e147\n      _ = t111 := e148\n  have e158 : t112 = t8 := by\n    calc\n      t112 = (t7 ◇ t8) := congrArg (fun q => q ◇ t8) (e151)\n      _ = t8 := congrArg (fun q => t7 ◇ q) (e77)\n  have e157 : t8 = t112 := by\n    exact e158.symm\n  have e145 : t102 = t113 := by\n    calc\n      t102 = (t111 ◇ t8) := congrArg (fun q => q ◇ t8) (e146)\n      _ = t113 := congrArg (fun q => t111 ◇ q) (e157)\n  have e161 : t117 = t28 := by\n    exact e147.symm\n  have e162 : t28 = t123 := by\n    exact h t28 t6 t28\n  have e168 : t124 = t8 := by\n    exact congrArg (fun q => t7 ◇ q) (e77)\n  have e167 : t8 = t124 := by\n    exact e168.symm\n  have e166 : t118 = t125 := by\n    calc\n      t118 = (t124 ◇ t8) := congrArg (fun q => q ◇ t8) (e167)\n      _ = t125 := congrArg (fun q => t124 ◇ q) (e167)\n  have e172 : t106 = t126 := by\n    calc\n      t106 = (t82 ◇ t28) := congrArg (fun q => q ◇ t28) (e98)\n      _ = t126 := congrArg (fun q => t82 ◇ q) (e108)\n  have e175 : t6 = t121 := by\n    exact h t6 t8 t8\n  have e179 : t125 = t118 := by\n    exact e166.symm\n  have e182 : t119 = t2 := by\n    calc\n      t119 = (z ◇ t6) := congrArg (fun q => q ◇ t6) (e77)\n      _ = t2 := congrArg (fun q => z ◇ q) (e100)\n  have e181 : t2 = t119 := by\n    exact e182.symm\n  have e180 : t28 = t119 := by\n    calc\n      t28 = t2 := e20\n      _ = t119 := e181\n  have e178 : t127 = t120 := by\n    calc\n      t127 = (t118 ◇ t28) := congrArg (fun q => q ◇ t28) (e179)\n      _ = t120 := congrArg (fun q => t118 ◇ q) (e180)\n  have e184 : t8 = t128 := by\n    exact h t8 t7 t8\n  have e183 : t128 = t8 := by\n    exact e184.symm\n  have e177 : t129 = t121 := by\n    calc\n      t129 = (t120 ◇ t128) := congrArg (fun q => q ◇ t128) (e178)\n      _ = t121 := congrArg (fun q => t120 ◇ q) (e183)\n  have e176 : t121 = t129 := by\n    exact e177.symm\n  have e174 : t82 = t129 := by\n    calc\n      t82 = t6 := e99\n      _ = t121 := e175\n      _ = t129 := e176\n  have e173 : t126 = t130 := by\n    calc\n      t126 = (t129 ◇ t41) := congrArg (fun q => q ◇ t41) (e174)\n      _ = t130 := congrArg (fun q => t129 ◇ q) (e39)\n  have e186 : t8 = t130 := by\n    exact h t8 t125 t28\n  have e185 : t130 = t8 := by\n    exact e186.symm\n  have e171 : t106 = t124 := by\n    calc\n      t106 = t126 := e172\n      _ = t130 := e173\n      _ = t8 := e185\n      _ = t124 := e167\n  have e170 : t122 = t125 := by\n    calc\n      t122 = (t124 ◇ t106) := congrArg (fun q => q ◇ t106) (e171)\n      _ = t125 := congrArg (fun q => t124 ◇ q) (e171)\n  have e169 : t125 = t122 := by\n    exact e170.symm\n  have e165 : t118 = t122 := by\n    calc\n      t118 = t125 := e166\n      _ = t122 := e169\n  have e187 : t119 = t28 := by\n    calc\n      t119 = t2 := e182\n      _ = t28 := e21\n  have e164 : t120 = t123 := by\n    calc\n      t120 = (t122 ◇ t119) := congrArg (fun q => q ◇ t119) (e165)\n      _ = t123 := congrArg (fun q => t122 ◇ q) (e187)\n  have e163 : t123 = t120 := by\n    exact e164.symm\n  have e160 : t111 = t120 := by\n    calc\n      t111 = t117 := e149\n      _ = t28 := e161\n      _ = t123 := e162\n      _ = t120 := e163\n  have e159 : t113 = t121 := by\n    calc\n      t113 = (t120 ◇ t112) := congrArg (fun q => q ◇ t112) (e160)\n      _ = t121 := congrArg (fun q => t120 ◇ q) (e158)\n  have e188 : t121 = t6 := by\n    exact e175.symm\n  have e144 : t102 = y := by\n    calc\n      t102 = t113 := e145\n      _ = t121 := e159\n      _ = t6 := e188\n      _ = y := e100\n  have e190 : t103 = t131 := by\n    calc\n      t103 = (t41 ◇ t65) := congrArg (fun q => q ◇ t65) (e108)\n      _ = t131 := congrArg (fun q => t41 ◇ q) (e82)\n  have e193 : t28 = t137 := by\n    exact h t28 t28 t15\n  have e202 : t138 = t65 := by\n    exact congrArg (fun q => t64 ◇ q) (e73)\n  have e201 : t138 = t1 := by\n    calc\n      t138 = t65 := e202\n      _ = t1 := e73\n  have e200 : t139 = t7 := by\n    calc\n      t139 = (t1 ◇ t138) := congrArg (fun q => q ◇ t138) (e201)\n      _ = t7 := congrArg (fun q => t1 ◇ q) (e201)\n  have e199 : t7 = t139 := by\n    exact e200.symm\n  have e198 : t110 = t139 := by\n    calc\n      t110 = t7 := e151\n      _ = t139 := e199\n  have e197 : t132 = t140 := by\n    exact congrArg (fun q => q ◇ t65) (e198)\n  have e204 : t65 = t140 := by\n    exact h t65 t64 t65\n  have e203 : t140 = t65 := by\n    exact e204.symm\n  have e205 : t65 = t142 := by\n    exact h t65 t5 t5\n  have e212 : t98 = t5 := by\n    exact e112.symm\n  have e211 : t40 = t79 := by\n    calc\n      t40 = t45 := e36\n      _ = t98 := e114\n      _ = t5 := e212\n      _ = t79 := e86\n  have e213 : t73 = t65 := by\n    calc\n      t73 = t80 := e85\n      _ = t65 := e137\n  have e210 : t141 = t80 := by\n    calc\n      t141 = (t79 ◇ t73) := congrArg (fun q => q ◇ t73) (e211)\n      _ = t80 := congrArg (fun q => t79 ◇ q) (e213)\n  have e209 : t80 = t141 := by\n    exact e210.symm\n  have e208 : t73 = t141 := by\n    calc\n      t73 = t80 := e85\n      _ = t141 := e209\n  have e214 : t40 = t5 := by\n    calc\n      t40 = t45 := e36\n      _ = t98 := e114\n      _ = t5 := e212\n  have e207 : t143 = t142 := by\n    calc\n      t143 = (t141 ◇ t40) := congrArg (fun q => q ◇ t40) (e208)\n      _ = t142 := congrArg (fun q => t141 ◇ q) (e214)\n  have e206 : t142 = t143 := by\n    exact e207.symm\n  have e225 : t76 = t3 := by\n    exact congrArg (fun q => t1 ◇ q) (e20)\n  have e224 : t3 = t76 := by\n    exact e225.symm\n  have e223 : t15 = t76 := by\n    calc\n      t15 = t3 := e10\n      _ = t76 := e224\n  have e222 : t133 = t77 := by\n    calc\n      t133 = (t7 ◇ t15) := congrArg (fun q => q ◇ t15) (e151)\n      _ = t77 := congrArg (fun q => t7 ◇ q) (e223)\n  have e226 : t132 = t1 := by\n    calc\n      t132 = t140 := e197\n      _ = t65 := e203\n      _ = t1 := e73\n  have e221 : t144 = t81 := by\n    calc\n      t144 = (t77 ◇ t132) := congrArg (fun q => q ◇ t132) (e222)\n      _ = t81 := congrArg (fun q => t77 ◇ q) (e226)\n  have e220 : t81 = t144 := by\n    exact e221.symm\n  have e219 : t33 = t144 := by\n    calc\n      t33 = t28 := e19\n      _ = t81 := e91\n      _ = t144 := e220\n  have e228 : t39 = t15 := by\n    exact e23.symm\n  have e227 : t34 = t15 := by\n    calc\n      t34 = t39 := e25\n      _ = t15 := e228\n  have e218 : t35 = t145 := by\n    calc\n      t35 = (t144 ◇ t34) := congrArg (fun q => q ◇ t34) (e219)\n      _ = t145 := congrArg (fun q => t144 ◇ q) (e227)\n  have e230 : t65 = t145 := by\n    exact h t65 t110 t15\n  have e229 : t145 = t65 := by\n    exact e230.symm\n  have e217 : t29 = t73 := by\n    calc\n      t29 = t35 := e17\n      _ = t145 := e218\n      _ = t65 := e229\n      _ = t80 := e83\n      _ = t73 := e84\n  have e232 : t45 = t40 := by\n    exact e36.symm\n  have e231 : t44 = t40 := by\n    calc\n      t44 = t5 := e38\n      _ = t98 := e112\n      _ = t45 := e113\n      _ = t40 := e232\n  have e216 : t136 = t143 := by\n    calc\n      t136 = (t73 ◇ t44) := congrArg (fun q => q ◇ t44) (e217)\n      _ = t143 := congrArg (fun q => t73 ◇ q) (e231)\n  have e215 : t143 = t136 := by\n    exact e216.symm\n  have e196 : t132 = t136 := by\n    calc\n      t132 = t140 := e197\n      _ = t65 := e203\n      _ = t142 := e205\n      _ = t143 := e206\n      _ = t136 := e215\n  have e237 : t29 = t1 := by\n    calc\n      t29 = t35 := e17\n      _ = t145 := e218\n      _ = t65 := e229\n      _ = t1 := e73\n  have e236 : t146 = t7 := by\n    calc\n      t146 = (t1 ◇ t29) := congrArg (fun q => q ◇ t29) (e237)\n      _ = t7 := congrArg (fun q => t1 ◇ q) (e237)\n  have e235 : t7 = t146 := by\n    exact e236.symm\n  have e238 : t76 = t15 := by\n    calc\n      t76 = t3 := e225\n      _ = t15 := e11\n  have e234 : t77 = t147 := by\n    calc\n      t77 = (t146 ◇ t76) := congrArg (fun q => q ◇ t76) (e235)\n      _ = t147 := congrArg (fun q => t146 ◇ q) (e238)\n  have e240 : t15 = t147 := by\n    exact h t15 t28 t15\n  have e239 : t147 = t15 := by\n    exact e240.symm\n  have e233 : t133 = t15 := by\n    calc\n      t133 = t77 := e222\n      _ = t147 := e234\n      _ = t15 := e239\n  have e195 : t134 = t137 := by\n    calc\n      t134 = (t136 ◇ t133) := congrArg (fun q => q ◇ t133) (e196)\n      _ = t137 := congrArg (fun q => t136 ◇ q) (e233)\n  have e194 : t137 = t134 := by\n    exact e195.symm\n  have e192 : t41 = t134 := by\n    calc\n      t41 = t48 := e40\n      _ = t28 := e44\n      _ = t137 := e193\n      _ = t134 := e194\n  have e191 : t131 = t135 := by\n    calc\n      t131 = (t134 ◇ t73) := congrArg (fun q => q ◇ t73) (e192)\n      _ = t135 := congrArg (fun q => t134 ◇ q) (e213)\n  have e242 : t15 = t135 := by\n    exact h t15 t110 t65\n  have e241 : t135 = t15 := by\n    exact e242.symm\n  have e189 : t103 = t3 := by\n    calc\n      t103 = t131 := e190\n      _ = t135 := e191\n      _ = t15 := e241\n      _ = t3 := e10\n  have e143 : t104 = t4 := by\n    calc\n      t104 = (y ◇ t103) := congrArg (fun q => q ◇ t103) (e144)\n      _ = t4 := congrArg (fun q => y ◇ q) (e189)\n  have e142 : t4 = t104 := by\n    exact e143.symm\n  have e141 : t16 = t104 := by\n    calc\n      t16 = t4 := e125\n      _ = t104 := e142\n  have e243 : t106 = t8 := by\n    calc\n      t106 = t126 := e172\n      _ = t130 := e173\n      _ = t8 := e185\n  have e140 : t107 = t105 := by\n    calc\n      t107 = (t104 ◇ t106) := congrArg (fun q => q ◇ t106) (e141)\n      _ = t105 := congrArg (fun q => t104 ◇ q) (e243)\n  have e139 : t105 = t107 := by\n    exact e140.symm\n  have e247 : t89 = t23 := by\n    exact e93.symm\n  have e246 : t74 = t16 := by\n    calc\n      t74 = t91 := e128\n      _ = t89 := e95\n      _ = t23 := e247\n      _ = t4 := e133\n      _ = t16 := e134\n  have e251 : t32 = t27 := by\n    exact e12.symm\n  have e256 : t15 = t149 := by\n    exact h t15 t7 t8\n  have e255 : t149 = t15 := by\n    exact e256.symm\n  have e254 : t149 = t3 := by\n    calc\n      t149 = t15 := e255\n      _ = t3 := e10\n  have e253 : t150 = t27 := by\n    calc\n      t150 = (t3 ◇ t149) := congrArg (fun q => q ◇ t149) (e254)\n      _ = t27 := congrArg (fun q => t3 ◇ q) (e254)\n  have e252 : t27 = t150 := by\n    exact e253.symm\n  have e250 : t5 = t150 := by\n    calc\n      t5 = t32 := e49\n      _ = t27 := e251\n      _ = t150 := e252\n  have e249 : t99 = t151 := by\n    exact congrArg (fun q => q ◇ t8) (e250)\n  have e258 : t8 = t151 := by\n    exact h t8 t148 t8\n  have e257 : t151 = t8 := by\n    exact e258.symm\n  have e259 : t130 = t126 := by\n    exact e173.symm\n  have e260 : t126 = t106 := by\n    exact e172.symm\n  have e248 : t99 = t106 := by\n    calc\n      t99 = t151 := e249\n      _ = t8 := e257\n      _ = t130 := e186\n      _ = t126 := e259\n      _ = t106 := e260\n  have e245 : t100 = t107 := by\n    calc\n      t100 = (t16 ◇ t99) := congrArg (fun q => q ◇ t99) (e246)\n      _ = t107 := congrArg (fun q => t16 ◇ q) (e248)\n  have e244 : t107 = t100 := by\n    exact e245.symm\n  have e136 : t73 = t100 := by\n    calc\n      t73 = t80 := e85\n      _ = t65 := e137\n      _ = t105 := e138\n      _ = t107 := e139\n      _ = t100 := e244\n  have e261 : t74 = t23 := by\n    calc\n      t74 = t91 := e128\n      _ = t89 := e95\n      _ = t23 := e247\n  have e135 : t75 = t101 := by\n    calc\n      t75 = (t100 ◇ t74) := congrArg (fun q => q ◇ t74) (e136)\n      _ = t101 := congrArg (fun q => t100 ◇ q) (e261)\n  have e263 : t8 = t101 := by\n    exact h t8 t5 t23\n  have e262 : t101 = t8 := by\n    exact e263.symm\n  have e80 : t67 = t8 := by\n    calc\n      t67 = t75 := e81\n      _ = t101 := e135\n      _ = t8 := e262\n  have e70 : t68 = t72 := by\n    calc\n      t68 = (t71 ◇ t67) := congrArg (fun q => q ◇ t67) (e71)\n      _ = t72 := congrArg (fun q => t71 ◇ q) (e80)\n  have e69 : t72 = t68 := by\n    exact e70.symm\n  have e65 : t60 = t68 := by\n    calc\n      t60 = t23 := e66\n      _ = t72 := e68\n      _ = t68 := e69\n  have e269 : t152 = t58 := by\n    exact congrArg (fun q => t57 ◇ q) (e79)\n  have e268 : t152 = t54 := by\n    calc\n      t152 = t58 := e269\n      _ = t54 := e79\n  have e267 : t153 = t59 := by\n    calc\n      t153 = (t54 ◇ t152) := congrArg (fun q => q ◇ t152) (e268)\n      _ = t59 := congrArg (fun q => t54 ◇ q) (e268)\n  have e266 : t59 = t153 := by\n    exact e267.symm\n  have e265 : t61 = t154 := by\n    exact congrArg (fun q => q ◇ t58) (e266)\n  have e271 : t58 = t154 := by\n    exact h t58 t57 t58\n  have e270 : t154 = t58 := by\n    exact e271.symm\n  have e264 : t61 = t58 := by\n    calc\n      t61 = t154 := e265\n      _ = t58 := e270\n  have e64 : t62 = t69 := by\n    calc\n      t62 = (t68 ◇ t61) := congrArg (fun q => q ◇ t61) (e65)\n      _ = t69 := congrArg (fun q => t68 ◇ q) (e264)\n  have e273 : t23 = t69 := by\n    exact h t23 t65 t58\n  have e272 : t69 = t23 := by\n    exact e273.symm\n  have e63 : t62 = t4 := by\n    calc\n      t62 = t69 := e64\n      _ = t23 := e272\n      _ = t4 := e133\n  have e62 : t63 = t14 := by\n    calc\n      t63 = (t4 ◇ t23) := congrArg (fun q => q ◇ t23) (e63)\n      _ = t14 := congrArg (fun q => t4 ◇ q) (e133)\n  have e274 : t14 = t156 := by\n    exact h t14 t14 t14\n  have e275 : t156 = t160 := by\n    exact h t156 t15 t65\n  have e284 : t73 = t1 := by\n    calc\n      t73 = t80 := e85\n      _ = t65 := e137\n      _ = t1 := e73\n  have e285 : t41 = t2 := by\n    calc\n      t41 = t48 := e40\n      _ = t28 := e44\n      _ = t2 := e20\n  have e283 : t161 = t3 := by\n    calc\n      t161 = (t1 ◇ t41) := congrArg (fun q => q ◇ t41) (e284)\n      _ = t3 := congrArg (fun q => t1 ◇ q) (e285)\n  have e282 : t3 = t161 := by\n    exact e283.symm\n  have e281 : t15 = t161 := by\n    calc\n      t15 = t3 := e10\n      _ = t161 := e282\n  have e280 : t157 = t162 := by\n    exact congrArg (fun q => q ◇ t65) (e281)\n  have e287 : t28 = t162 := by\n    exact h t28 t5 t65\n  have e286 : t162 = t28 := by\n    exact e287.symm\n  have e279 : t157 = t33 := by\n    calc\n      t157 = t162 := e280\n      _ = t28 := e286\n      _ = t33 := e18\n  have e291 : t15 = t168 := by\n    exact h t15 t165 t15\n  have e297 : t14 = t166 := by\n    exact h t14 t14 t15\n  have e296 : t166 = t14 := by\n    exact e297.symm\n  have e295 : t167 = t22 := by\n    calc\n      t167 = (t14 ◇ t166) := congrArg (fun q => q ◇ t166) (e296)\n      _ = t22 := congrArg (fun q => t14 ◇ q) (e296)\n  have e294 : t22 = t167 := by\n    exact e295.symm\n  have e293 : t163 = t168 := by\n    calc\n      t163 = (t167 ◇ t37) := congrArg (fun q => q ◇ t37) (e294)\n      _ = t168 := congrArg (fun q => t167 ◇ q) (e29)\n  have e292 : t168 = t163 := by\n    exact e293.symm\n  have e290 : t15 = t163 := by\n    calc\n      t15 = t168 := e291\n      _ = t163 := e292\n  have e298 : t156 = t14 := by\n    exact e274.symm\n  have e289 : t158 = t164 := by\n    calc\n      t158 = (t163 ◇ t156) := congrArg (fun q => q ◇ t156) (e290)\n      _ = t164 := congrArg (fun q => t163 ◇ q) (e298)\n  have e300 : t15 = t164 := by\n    exact h t15 t14 t14\n  have e299 : t164 = t15 := by\n    exact e300.symm\n  have e288 : t158 = t34 := by\n    calc\n      t158 = t164 := e289\n      _ = t15 := e299\n      _ = t39 := e23\n      _ = t34 := e24\n  have e278 : t159 = t35 := by\n    calc\n      t159 = (t33 ◇ t158) := congrArg (fun q => q ◇ t158) (e279)\n      _ = t35 := congrArg (fun q => t33 ◇ q) (e288)\n  have e277 : t159 = t1 := by\n    calc\n      t159 = t35 := e278\n      _ = t145 := e218\n      _ = t65 := e229\n      _ = t1 := e73\n  have e276 : t160 = t7 := by\n    calc\n      t160 = (t1 ◇ t65) := congrArg (fun q => q ◇ t65) (e277)\n      _ = t7 := congrArg (fun q => t1 ◇ q) (e73)\n  have e302 : t1 = t143 := by\n    calc\n      t1 = t65 := e74\n      _ = t142 := e205\n      _ = t143 := e206\n  have e301 : t7 = t169 := by\n    calc\n      t7 = (t143 ◇ t1) := congrArg (fun q => q ◇ t1) (e302)\n      _ = t169 := congrArg (fun q => t143 ◇ q) (e74)\n  have e304 : t5 = t169 := by\n    exact h t5 t5 t65\n  have e303 : t169 = t5 := by\n    exact e304.symm\n  have e57 : t24 = t5 := by\n    calc\n      t24 = t54 := e58\n      _ = t58 := e60\n      _ = t63 := e61\n      _ = t14 := e62\n      _ = t156 := e274\n      _ = t160 := e275\n      _ = t7 := e276\n      _ = t169 := e301\n      _ = t5 := e303\n  have e52 : t25 = t53 := by\n    calc\n      t25 = (t52 ◇ t24) := congrArg (fun q => q ◇ t24) (e53)\n      _ = t53 := congrArg (fun q => t52 ◇ q) (e57)\n  have e51 : t53 = t25 := by\n    exact e52.symm\n  have e5 : t19 = t25 := by\n    calc\n      t19 = t27 := e6\n      _ = t32 := e12\n      _ = t5 := e48\n      _ = t53 := e50\n      _ = t25 := e51\n  have e4 : t20 = t26 := by\n    exact congrArg (fun q => q ◇ t12) (e5)\n  have e306 : t23 = t26 := by\n    exact h t23 t12 t12\n  have e305 : t26 = t23 := by\n    exact e306.symm\n  have e1 : x = t4 := by\n    calc\n      x = t12 := e2\n      _ = t20 := e3\n      _ = t26 := e4\n      _ = t23 := e305\n      _ = t4 := e133\n  exact e1\n',
+    },
+]
 
 # -- Protocol helpers -------------------------------------------------------
 
@@ -407,10 +430,23 @@ def search_counterexample(eq1_text, eq2_text, max_structured_n=7):
     return None, None
 
 
+def witness_matches_pair(witness, eq1, eq2):
+    """Restrict targeted offline witnesses to their alpha-equivalent pair."""
+    target = witness.get("target")
+    if not target:
+        return True
+    return (
+        canonical_equation_form(eq1) == target.get("eq1_canonical")
+        and canonical_equation_form(eq2) == target.get("eq2_canonical")
+    )
+
+
 def search_witness_bank(eq1_text, eq2_text):
     eq1 = parse_equation(eq1_text)
     eq2 = parse_equation(eq2_text)
     for witness in WITNESS_BANK:
+        if not witness_matches_pair(witness, eq1, eq2):
+            continue
         n = witness["n"]
         table = witness["table"]
         if is_countermodel(eq1, eq2, n, table):
@@ -458,6 +494,27 @@ def try_judge_route(verdict, code, route):
     if accepted:
         mark_route(route)
     return accepted
+
+
+def find_atp_exact_certificate(problem, eq1_text, eq2_text):
+    """Return a judge-tested ATP certificate for an exact equation pair."""
+    eq1_id = problem.get("eq1_id")
+    eq2_id = problem.get("eq2_id")
+    eq1_canon = None
+    eq2_canon = None
+    for cert in ATP_EXACT_CERTIFICATES:
+        if eq1_id == cert.get("eq1_id") and eq2_id == cert.get("eq2_id"):
+            return cert["code"], cert["name"]
+        if eq1_canon is None:
+            try:
+                eq1_canon = canonical_normalized_equation(eq1_text)
+                eq2_canon = canonical_normalized_equation(eq2_text)
+            except Exception:
+                eq1_canon = ""
+                eq2_canon = ""
+        if eq1_canon == cert.get("eq1_canonical") and eq2_canon == cert.get("eq2_canonical"):
+            return cert["code"], cert["name"]
+    return None, None
 
 
 # -- Stage: true proof templates -------------------------------------------
@@ -2473,6 +2530,18 @@ def lean_indent(text, prefix):
     return "\n".join(prefix + line if line.strip() else "" for line in text.splitlines()) + "\n"
 
 
+def reverse_equality_proof(proof, lhs, rhs):
+    """Build a proof of lhs = rhs from proof : rhs = lhs."""
+    if proof.strip().startswith("(by"):
+        return (
+            "(by\n"
+            f"  have rev : {ast_to_lean(rhs)} = {ast_to_lean(lhs)} := {proof}\n"
+            "  exact rev.symm\n"
+            ")"
+        )
+    return f"({proof}).symm"
+
+
 def prove_argument_erasure_inner_edge(eq1, lhs, rhs):
     """Prove an extracted argument-erasure edge, after other engines fail."""
     family, expr = argument_erasure_expr(lhs, rhs)
@@ -2487,7 +2556,7 @@ def prove_argument_erasure_inner_edge(eq1, lhs, rhs):
     if lemma_block is None:
         return None
 
-    exact_expr = f"({expr}).symm" if reverse else expr
+    exact_expr = reverse_equality_proof(expr, lhs, rhs) if reverse else expr
     proof = "(by\n" + lean_indent(lemma_block, "  ") + f"  exact {exact_expr}\n" + ")"
     if len(proof) > 10000:
         return None
@@ -2637,7 +2706,7 @@ def recursive_inner_context_bridge_after_h_midpoint(eq1, vars_, midpoint, rhs):
             reverse = recursive_inner_edge_proof(eq1, vars_, inner_rhs, inner_lhs)
             if reverse is None:
                 continue
-            proof = f"({reverse}).symm"
+            proof = reverse_equality_proof(reverse, inner_lhs, inner_rhs)
         lifted = f"congrArg (fun q => {context}) ({proof})"
         if len(lifted) < 9500:
             return lifted
@@ -2998,6 +3067,35 @@ def local_theory_activation_shape(lhs, rhs):
     return False
 
 
+def seed_erasure_context_activation(eq1, eq2):
+    """Cheap prefilter for hidden erasure edges exposed by a direct h seed."""
+    tested_contexts = 0
+    for start, finish in (
+        (eq2["lhs_ast"], eq2["rhs_ast"]),
+        (eq2["rhs_ast"], eq2["lhs_ast"]),
+    ):
+        for midpoint, _ in direct_h_midpoint_expansions(
+            eq1, eq2, start, finish, max_expansions=60
+        ):
+            for path, inner_lhs, inner_rhs in context_candidates(midpoint, finish, max_depth=4):
+                if not path:
+                    continue
+                tested_contexts += 1
+                if tested_contexts > 12:
+                    return False
+                if len(ast_with_hole(midpoint, path, hole_name="q")) > 220:
+                    continue
+                if rotation_bridge_direct_h_edge(eq1, inner_lhs, inner_rhs) is not None:
+                    return True
+                if rotation_bridge_direct_h_edge(eq1, inner_rhs, inner_lhs) is not None:
+                    return True
+                if argument_erasure_expr(inner_lhs, inner_rhs)[1] is not None:
+                    return True
+                if argument_erasure_expr(inner_rhs, inner_lhs)[1] is not None:
+                    return True
+    return False
+
+
 def local_theory_fillers(eq2, lhs, rhs, max_fillers=18):
     """Small substitution bank for local two-lemma bridge attempts."""
     fillers = []
@@ -3056,8 +3154,8 @@ def direct_h_midpoint_expansions(eq1, eq2, start, finish, max_expansions=30):
                     return
 
 
-def direct_or_local_inner_edge_proof(eq1, vars_, lhs, rhs):
-    """Prove the compact inner edge for a two-lemma context lift."""
+def direct_or_supported_seed_proof(eq1, vars_, lhs, rhs):
+    """Tiny local edge prover for one recursive seed-collapse step."""
     if lhs == rhs:
         return "rfl"
 
@@ -3065,7 +3163,296 @@ def direct_or_local_inner_edge_proof(eq1, vars_, lhs, rhs):
     if proof is not None:
         return proof
 
-    proof = find_instantiated_h_proof(eq1, lhs, rhs, vars_)
+    if len(eq1["variables"]) <= 3 and len(vars_) <= 3:
+        proof = find_instantiated_h_proof(eq1, lhs, rhs, vars_)
+        if proof is not None:
+            return proof
+
+    return None
+
+
+def recursive_seed_context_bridge_once(
+    eq1,
+    eq_inner,
+    start,
+    finish,
+    max_expansions=120,
+    max_contexts=12,
+):
+    """One local seed-collapse bridge for start = finish.
+
+    This is the v0.9.8 recursive layer. It deliberately uses the same proof
+    skeleton as the outer two-lemma composer but only once, and only after the
+    caller has established that start = finish is an erasure-shaped edge.
+    """
+    tested_contexts = 0
+    for midpoint, seed_proof in direct_h_midpoint_expansions(
+        eq1,
+        eq_inner,
+        start,
+        finish,
+        max_expansions=max_expansions,
+    ):
+        for path, inner_lhs, inner_rhs in context_candidates(midpoint, finish, max_depth=4):
+            if not path:
+                continue
+            tested_contexts += 1
+            if tested_contexts > max_contexts:
+                return None
+            context = ast_with_hole(midpoint, path, hole_name="q")
+            if len(context) > 220:
+                continue
+            if term_depth(inner_lhs) + term_depth(inner_rhs) > 12:
+                continue
+            collapse = direct_or_supported_seed_proof(
+                eq1, eq_inner["variables"], inner_lhs, inner_rhs
+            )
+            if collapse is None:
+                reverse = direct_or_supported_seed_proof(
+                    eq1, eq_inner["variables"], inner_rhs, inner_lhs
+                )
+                if reverse is None:
+                    continue
+                collapse = reverse_equality_proof(reverse, inner_lhs, inner_rhs)
+            proof = (
+                "(by\n"
+                f"  have seed2 : {ast_to_lean(start)} = {ast_to_lean(midpoint)} := {seed_proof}\n"
+                f"  have collapse2 : {ast_to_lean(inner_lhs)} = {ast_to_lean(inner_rhs)} := {collapse}\n"
+                f"  exact seed2.trans (congrArg (fun q => {context}) collapse2)\n"
+                ")"
+            )
+            if len(proof) < 9000:
+                return proof
+            return None
+    return None
+
+
+def recursive_seed_erasure_inner_edge(eq1, vars_, lhs, rhs):
+    """Prove an erasure-shaped inner edge by one nested seed-collapse bridge."""
+    if (
+        argument_erasure_expr(lhs, rhs)[1] is None
+        and argument_erasure_expr(rhs, lhs)[1] is None
+    ):
+        return None
+
+    eq_inner = {"variables": list(vars_), "lhs_ast": lhs, "rhs_ast": rhs}
+    proof = recursive_seed_context_bridge_once(eq1, eq_inner, lhs, rhs)
+    if proof is not None:
+        return proof
+
+    reverse = recursive_seed_context_bridge_once(eq1, eq_inner, rhs, lhs)
+    if reverse is not None and len(reverse) < 8500:
+        return reverse_equality_proof(reverse, lhs, rhs)
+    return None
+
+
+def seed_or_depth1_edge_proof(eq1, vars_, lhs, rhs):
+    """Local edge prover for the v0.9.9 depth-2 erasure composer.
+
+    This intentionally stops at the v0.9.8 depth-1 seed-collapse machinery.
+    It does not call the depth-2 composer, which keeps the recursion bound
+    explicit and prevents this late route from becoming a graph search.
+    """
+    proof = direct_or_supported_seed_proof(eq1, vars_, lhs, rhs)
+    if proof is not None:
+        return proof
+
+    if argument_erasure_expr(lhs, rhs)[1] is not None:
+        eq_inner = {"variables": list(vars_), "lhs_ast": lhs, "rhs_ast": rhs}
+        proof = recursive_seed_context_bridge_once(
+            eq1,
+            eq_inner,
+            lhs,
+            rhs,
+            max_expansions=36,
+            max_contexts=6,
+        )
+        if proof is not None and len(proof) < 9000:
+            return proof
+
+    if argument_erasure_expr(rhs, lhs)[1] is not None:
+        eq_inner = {"variables": list(vars_), "lhs_ast": lhs, "rhs_ast": rhs}
+        reverse = recursive_seed_context_bridge_once(
+            eq1,
+            eq_inner,
+            rhs,
+            lhs,
+            max_expansions=36,
+            max_contexts=6,
+        )
+        if reverse is not None and len(reverse) < 8500:
+            return reverse_equality_proof(reverse, lhs, rhs)
+    return None
+
+
+def seed_or_depth1_edge_proof_either(eq1, vars_, lhs, rhs):
+    """Return a proof of lhs = rhs, allowing a structurally exact reversal."""
+    proof = seed_or_depth1_edge_proof(eq1, vars_, lhs, rhs)
+    if proof is not None:
+        return proof
+
+    reverse = seed_or_depth1_edge_proof(eq1, vars_, rhs, lhs)
+    if reverse is not None and len(reverse) < 8500:
+        return reverse_equality_proof(reverse, lhs, rhs)
+    return None
+
+
+def congr_arg_context(context, proof):
+    return f"congrArg (fun q => {context}) ({proof})"
+
+
+def trans_via_common_proof(eq1, vars_, lhs, rhs, common):
+    """Prove lhs = rhs by collapsing both sides to the same local common term."""
+    left = seed_or_depth1_edge_proof_either(eq1, vars_, lhs, common)
+    if left is None:
+        return None
+    right = seed_or_depth1_edge_proof_either(eq1, vars_, rhs, common)
+    if right is None:
+        return None
+    return (
+        "(by\n"
+        f"  have depth2_left : {ast_to_lean(lhs)} = {ast_to_lean(common)} := {left}\n"
+        f"  have depth2_right : {ast_to_lean(rhs)} = {ast_to_lean(common)} := {right}\n"
+        "  exact depth2_left.trans depth2_right.symm\n"
+        ")"
+    )
+
+
+def lift_subedge_proof(eq1, vars_, lhs, rhs, sub_lhs, sub_rhs, context):
+    """Prove lhs = rhs by proving the exact smaller subedge and lifting it."""
+    subproof = seed_or_depth1_edge_proof_either(eq1, vars_, sub_lhs, sub_rhs)
+    if subproof is None:
+        return None
+    proof = (
+        "(by\n"
+        f"  have depth2_sub : {ast_to_lean(sub_lhs)} = {ast_to_lean(sub_rhs)} := {subproof}\n"
+        f"  exact {congr_arg_context(context, 'depth2_sub')}\n"
+        ")"
+    )
+    if len(proof) < 9000:
+        return proof
+    return None
+
+
+def depth2_erasure_direct_candidates(lhs, rhs):
+    """Yield direct eraseR/eraseL decompositions of lhs = rhs."""
+    if not is_op(lhs) or not is_op(rhs):
+        return
+
+    # eraseR: a◇b = a◇c
+    if lhs[1] == rhs[1]:
+        anchor = lhs[1]
+        yield "eraseR", anchor, lhs[2], rhs[2], f"({ast_to_lean(anchor)} {DIAMOND} q)"
+
+    # eraseL: b◇a = c◇a
+    if lhs[2] == rhs[2]:
+        anchor = lhs[2]
+        yield "eraseL", anchor, lhs[1], rhs[1], f"(q {DIAMOND} {ast_to_lean(anchor)})"
+
+
+def depth2_erasure_context_candidates(lhs, rhs):
+    """Yield smaller eraseR/eraseL edges under one compact exact context."""
+    if not is_op(lhs) or not is_op(rhs):
+        return
+
+    # eraseR_ctx: (a◇b)◇d = (a◇c)◇d, reduced to a◇b = a◇c.
+    if (
+        lhs[2] == rhs[2]
+        and is_op(lhs[1])
+        and is_op(rhs[1])
+        and lhs[1][1] == rhs[1][1]
+    ):
+        yield lhs[1], rhs[1], f"(q {DIAMOND} {ast_to_lean(lhs[2])})"
+
+    # eraseL_ctx: d◇(b◇a) = d◇(c◇a), reduced to b◇a = c◇a.
+    if (
+        lhs[1] == rhs[1]
+        and is_op(lhs[2])
+        and is_op(rhs[2])
+        and lhs[2][2] == rhs[2][2]
+    ):
+        yield lhs[2], rhs[2], f"({ast_to_lean(lhs[1])} {DIAMOND} q)"
+
+
+def depth2_erasure_seed_composer_forward(eq1, vars_, lhs, rhs):
+    """One extra typed local seed layer for supported eraseR/eraseL edges."""
+    if (
+        argument_erasure_expr(lhs, rhs)[1] is None
+        and argument_erasure_expr(rhs, lhs)[1] is None
+    ):
+        return None
+
+    attempts = 0
+
+    # Prefer reducing contexted erasures to the smaller visible edge.
+    for sub_lhs, sub_rhs, context in depth2_erasure_context_candidates(lhs, rhs):
+        attempts += 1
+        if attempts > 12:
+            return None
+        proof = lift_subedge_proof(eq1, vars_, lhs, rhs, sub_lhs, sub_rhs, context)
+        if proof is not None:
+            return proof
+
+    # Then try direct eraseR/eraseL edges by aligning both varying arguments to
+    # the anchor term, or by proving the varying arguments equal first.
+    for _, anchor, left_arg, right_arg, context in depth2_erasure_direct_candidates(lhs, rhs):
+        attempts += 1
+        if attempts > 12:
+            return None
+
+        common = ("op", anchor, anchor)
+        proof = trans_via_common_proof(eq1, vars_, lhs, rhs, common)
+        if proof is not None and len(proof) < 9000:
+            return proof
+
+        subproof = seed_or_depth1_edge_proof_either(eq1, vars_, left_arg, right_arg)
+        if subproof is not None:
+            proof = (
+                "(by\n"
+                f"  have depth2_arg : {ast_to_lean(left_arg)} = {ast_to_lean(right_arg)} := {subproof}\n"
+                f"  exact {congr_arg_context(context, 'depth2_arg')}\n"
+                ")"
+            )
+            if len(proof) < 9000:
+                return proof
+
+        left_to_anchor = seed_or_depth1_edge_proof_either(eq1, vars_, left_arg, anchor)
+        right_to_anchor = seed_or_depth1_edge_proof_either(eq1, vars_, right_arg, anchor)
+        if left_to_anchor is not None and right_to_anchor is not None:
+            proof = (
+                "(by\n"
+                f"  have depth2_arg_left : {ast_to_lean(left_arg)} = {ast_to_lean(anchor)} := {left_to_anchor}\n"
+                f"  have depth2_arg_right : {ast_to_lean(right_arg)} = {ast_to_lean(anchor)} := {right_to_anchor}\n"
+                f"  exact ({congr_arg_context(context, 'depth2_arg_left')}).trans "
+                f"({congr_arg_context(context, 'depth2_arg_right')}).symm\n"
+                ")"
+            )
+            if len(proof) < 9000:
+                return proof
+
+    return None
+
+
+def depth2_erasure_seed_composer(eq1, vars_, lhs, rhs):
+    """Depth-2 erasure-seed composer for exact extracted inner edges.
+
+    The caller has already found an outer direct h seed and an exact compact
+    context. This helper only tries typed eraseR/eraseL inner edges, composing
+    one extra local seed/collapse layer before the outer congrArg lift.
+    """
+    proof = depth2_erasure_seed_composer_forward(eq1, vars_, lhs, rhs)
+    if proof is not None and len(proof) < 9000:
+        return proof
+
+    reverse = depth2_erasure_seed_composer_forward(eq1, vars_, rhs, lhs)
+    if reverse is not None and len(reverse) < 8500:
+        return reverse_equality_proof(reverse, lhs, rhs)
+    return None
+
+
+def direct_or_local_inner_edge_proof(eq1, vars_, lhs, rhs):
+    """Prove the compact inner edge for a two-lemma context lift."""
+    proof = direct_or_supported_seed_proof(eq1, vars_, lhs, rhs)
     if proof is not None:
         return proof
 
@@ -3075,23 +3462,703 @@ def direct_or_local_inner_edge_proof(eq1, vars_, lhs, rhs):
         argument_erasure_expr(lhs, rhs)[1] is not None
         or argument_erasure_expr(rhs, lhs)[1] is not None
     ):
-        proof = prove_argument_erasure_inner_edge(eq1, lhs, rhs)
+        proof = recursive_seed_erasure_inner_edge(eq1, vars_, lhs, rhs)
+        if proof is not None and len(proof) < 9000:
+            return proof
+
+        proof = depth2_erasure_seed_composer(eq1, vars_, lhs, rhs)
         if proof is not None and len(proof) < 9000:
             return proof
 
     return None
 
 
+def local_fact_lemma_block(eq1, name, vars_, lhs, rhs, max_attempts=500):
+    """Emit one proved local fact using the existing capped bridge engine."""
+    eq_fact = {"variables": list(vars_), "lhs_ast": lhs, "rhs_ast": rhs}
+    bridge = find_rotation_bridge_no_recursive_inner(
+        eq1, eq_fact, lhs, rhs, max_attempts=max_attempts
+    )
+    if bridge is None:
+        return None
+    mid, proof1, proof2 = bridge
+    intro_vars = " ".join(vars_)
+    block = (
+        f"have {name} : ∀ ({intro_vars} : G), {ast_to_lean(lhs)} = {ast_to_lean(rhs)} := by\n"
+        f"  intro {intro_vars}\n"
+        "  calc\n"
+        f"    {ast_to_lean(lhs)} = {ast_to_lean(mid)} := {proof1}\n"
+        f"    _ = {ast_to_lean(rhs)} := {proof2}\n"
+    )
+    if len(block) > 9000:
+        return None
+    return block
+
+
+def square_tail_hypothesis_match(eq1, eq2):
+    """Recognize x = (y◇z)◇(w◇(x◇y)) -> x = (y◇z)◇((w◇w)◇y)."""
+    p, q, r, s_var = "p", "q", "r", "s"
+    subst = {}
+    hyp_rhs = ("op", ("op", q, r), ("op", s_var, ("op", p, q)))
+    if not match_pattern(p, eq1["lhs_ast"], subst):
+        return None
+    if not match_pattern(hyp_rhs, eq1["rhs_ast"], subst):
+        return None
+    if any(not isinstance(subst.get(var), str) for var in (p, q, r, s_var)):
+        return None
+
+    p_term = subst[p]
+    q_term = subst[q]
+    r_term = subst[r]
+    s_term = subst[s_var]
+    expected_rhs = ("op", ("op", q_term, r_term), ("op", ("op", s_term, s_term), q_term))
+    if eq2["lhs_ast"] != p_term or eq2["rhs_ast"] != expected_rhs:
+        return None
+
+    return {
+        "p": p_term,
+        "q": q_term,
+        "r": r_term,
+        "s": s_term,
+    }
+
+
+def make_square_tail_erasure_proof(eq1, eq2, hyp_vars):
+    """Build the narrow square-anchor tail-erasure certificate."""
+    a = "a"
+    b = "b"
+    idem = local_fact_lemma_block(eq1, "idem", ("a",), ("op", a, a), a)
+    if idem is None:
+        return None
+    absorb_l = local_fact_lemma_block(
+        eq1, "absorbL", ("a", "b"), ("op", ("op", a, b), a), a
+    )
+    if absorb_l is None:
+        return None
+
+    p_term = hyp_vars["p"]
+    q_term = hyp_vars["q"]
+    r_term = hyp_vars["r"]
+    s_term = hyp_vars["s"]
+
+    # Generic lemma seed: h ((a◇a)◇b) a a b.
+    aa = ("op", a, a)
+    square_seed_subst = {
+        p_term: ("op", aa, b),
+        q_term: a,
+        r_term: a,
+        s_term: b,
+    }
+    square_seed = h_proof_from_subst(eq1, square_seed_subst, False)
+
+    start = ("op", s_term, ("op", p_term, q_term))
+    seed_mid = ("op", ("op", s_term, s_term), ("op", q_term, ("op", start, s_term)))
+    goal_inner = ("op", ("op", s_term, s_term), q_term)
+    final_h_subst = {
+        p_term: p_term,
+        q_term: q_term,
+        r_term: r_term,
+        s_term: s_term,
+    }
+    final_h = h_proof_from_subst(eq1, final_h_subst, False)
+    inner_seed_subst = {
+        p_term: start,
+        q_term: s_term,
+        r_term: s_term,
+        s_term: q_term,
+    }
+    inner_seed = h_proof_from_subst(eq1, inner_seed_subst, False)
+
+    p_lean = ast_to_lean(p_term)
+    q_lean = ast_to_lean(q_term)
+    r_lean = ast_to_lean(r_term)
+    s_lean = ast_to_lean(s_term)
+    start_lean = ast_to_lean(start)
+    seed_mid_lean = ast_to_lean(seed_mid)
+    goal_inner_lean = ast_to_lean(goal_inner)
+
+    proof = (
+        intro_line(eq2)
+        + idem
+        + absorb_l
+        + f"have squareTailErase : ∀ (a b : G), (a {DIAMOND} a) {DIAMOND} (b {DIAMOND} a) = (a {DIAMOND} a) {DIAMOND} b := by\n"
+        "  intro a b\n"
+        f"  have tail : (((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} a) = a := by\n"
+        "    calc\n"
+        f"      (((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} a) = (((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} (a {DIAMOND} a)) := congrArg (fun t => (((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} t)) (idem a).symm\n"
+        f"      _ = a {DIAMOND} a := absorbL (a {DIAMOND} a) b\n"
+        "      _ = a := idem a\n"
+        f"  have seed : (a {DIAMOND} a) {DIAMOND} b = (a {DIAMOND} a) {DIAMOND} (b {DIAMOND} (((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} a)) := {square_seed}\n"
+        f"  exact (seed.trans (congrArg (fun t => (a {DIAMOND} a) {DIAMOND} (b {DIAMOND} t)) tail)).symm\n"
+        f"have seed : {start_lean} = {seed_mid_lean} := {inner_seed}\n"
+        f"have collapseTail : ({start_lean} {DIAMOND} {s_lean}) = {s_lean} := absorbL {s_lean} ({p_lean} {DIAMOND} {q_lean})\n"
+        f"have almostInner : {start_lean} = {ast_to_lean(('op', ('op', s_term, s_term), ('op', q_term, s_term)))} :=\n"
+        f"  seed.trans (congrArg (fun t => ({s_lean} {DIAMOND} {s_lean}) {DIAMOND} ({q_lean} {DIAMOND} t)) collapseTail)\n"
+        f"have tailErase : {ast_to_lean(('op', ('op', s_term, s_term), ('op', q_term, s_term)))} = {goal_inner_lean} := squareTailErase {s_lean} {q_lean}\n"
+        f"have inner : {start_lean} = {goal_inner_lean} := almostInner.trans tailErase\n"
+        f"exact ({final_h}).trans (congrArg (fun t => ({q_lean} {DIAMOND} {r_lean}) {DIAMOND} t) inner)"
+    )
+    if len(make_true_code(proof)) > 12000:
+        return None
+    return proof
+
+
+def try_square_anchor_tail_erasure(eq1_text, eq2_text):
+    """Late route for x=(y◇z)◇(w◇(x◇y)) square-anchor tail erasure."""
+    try:
+        eq1 = parse_equation(eq1_text)
+        eq2 = parse_equation(eq2_text)
+    except Exception:
+        return False
+
+    hyp_vars = square_tail_hypothesis_match(eq1, eq2)
+    if hyp_vars is None:
+        return False
+
+    proof = make_square_tail_erasure_proof(eq1, eq2, hyp_vars)
+    if proof is None:
+        return False
+    code = make_true_code(proof)
+    return try_judge_route("true", code, "square_anchor_tail_erasure")
+
+
+def anchored_right_hypothesis_match(eq1):
+    """Recognize x = ((((y◇x)◇x)◇z)◇x) with a repeated right anchor."""
+    p, q, r = "p", "q", "r"
+    subst = {}
+    hyp_rhs = ("op", ("op", ("op", ("op", q, p), p), r), p)
+    if not match_pattern(p, eq1["lhs_ast"], subst):
+        return None
+    if not match_pattern(hyp_rhs, eq1["rhs_ast"], subst):
+        return None
+    if any(not isinstance(subst.get(var), str) for var in (p, q, r)):
+        return None
+    return {"p": subst[p], "q": subst[q], "r": subst[r]}
+
+
+def anchored_right_goal_match(lhs, rhs):
+    """Match (a◇b)◇a = (c◇a)◇a or the symmetric orientation."""
+    def one_way(left, right):
+        if not (is_op(left) and is_op(right)):
+            return None
+        if left[2] != right[2] or not (is_op(left[1]) and is_op(right[1])):
+            return None
+        anchor = left[2]
+        if left[1][1] != anchor or right[1][2] != anchor:
+            return None
+        return {
+            "a": anchor,
+            "b": left[1][2],
+            "c": right[1][1],
+            "symm": False,
+        }
+
+    match = one_way(lhs, rhs)
+    if match is not None:
+        return match
+    match = one_way(rhs, lhs)
+    if match is not None:
+        match["symm"] = True
+        return match
+    return None
+
+
+def anchored_right_h_call(eq1, hyp_vars, p_value, q_value, r_value, symm=False):
+    subst = {
+        hyp_vars["p"]: p_value,
+        hyp_vars["q"]: q_value,
+        hyp_vars["r"]: r_value,
+    }
+    return h_proof_from_subst(eq1, subst, symm)
+
+
+def make_anchored_right_erasure_proof(eq1, eq2, hyp_vars, goal_match):
+    """Build the compact right-anchor constancy certificate."""
+    a = "a"
+    b = "b"
+    c = "c"
+    aa = ("op", a, a)
+    ab = ("op", a, b)
+
+    idem_h1 = anchored_right_h_call(eq1, hyp_vars, a, a, a)
+    idem_h2 = anchored_right_h_call(eq1, hyp_vars, a, aa, a)
+    absorb_h = anchored_right_h_call(eq1, hyp_vars, a, a, b, symm=True)
+    right_h = anchored_right_h_call(eq1, hyp_vars, b, a, ab, symm=True)
+
+    anchor_lean = ast_to_lean(goal_match["a"])
+    b_lean = ast_to_lean(goal_match["b"])
+    c_lean = ast_to_lean(goal_match["c"])
+    exact_expr = f"anchoredRightErase {anchor_lean} {b_lean} {c_lean}"
+    if goal_match.get("symm"):
+        exact_expr = f"({exact_expr}).symm"
+
+    proof = (
+        intro_line(eq2)
+        + f"have idem : ∀ (a : G), a {DIAMOND} a = a := by\n"
+        "  intro a\n"
+        f"  exact ((congrArg (fun t => t {DIAMOND} a) ({idem_h1})).trans ({idem_h2}).symm)\n"
+        + f"have absorbL : ∀ (a b : G), (a {DIAMOND} b) {DIAMOND} a = a := by\n"
+        "  intro a b\n"
+        f"  have tail : (a {DIAMOND} a) {DIAMOND} a = a {DIAMOND} a := congrArg (fun t => t {DIAMOND} a) (idem a)\n"
+        "  calc\n"
+        f"    (a {DIAMOND} b) {DIAMOND} a = ((a {DIAMOND} a) {DIAMOND} b) {DIAMOND} a := congrArg (fun t => (t {DIAMOND} b) {DIAMOND} a) (idem a).symm\n"
+        f"    _ = (((a {DIAMOND} a) {DIAMOND} a) {DIAMOND} b) {DIAMOND} a := congrArg (fun t => (t {DIAMOND} b) {DIAMOND} a) tail.symm\n"
+        f"    _ = a := {absorb_h}\n"
+        + f"have absorbR : ∀ (a b : G), (a {DIAMOND} b) {DIAMOND} b = b := by\n"
+        "  intro a b\n"
+        "  calc\n"
+        f"    (a {DIAMOND} b) {DIAMOND} b = (((a {DIAMOND} b) {DIAMOND} b) {DIAMOND} (a {DIAMOND} b)) {DIAMOND} b := congrArg (fun t => t {DIAMOND} b) (absorbL (a {DIAMOND} b) b).symm\n"
+        f"    _ = b := {right_h}\n"
+        + f"have anchoredRightErase : ∀ (a b c : G), (a {DIAMOND} b) {DIAMOND} a = (c {DIAMOND} a) {DIAMOND} a := by\n"
+        "  intro a b c\n"
+        "  calc\n"
+        f"    (a {DIAMOND} b) {DIAMOND} a = a := absorbL a b\n"
+        f"    _ = (c {DIAMOND} a) {DIAMOND} a := (absorbR c a).symm\n"
+        f"exact {exact_expr}"
+    )
+    if len(make_true_code(proof)) > 12000:
+        return None
+    return proof
+
+
+def try_anchored_right_erasure(eq1_text, eq2_text):
+    """Late route for exact right-anchor constancy goals."""
+    try:
+        eq1 = parse_equation(eq1_text)
+        eq2 = parse_equation(eq2_text)
+    except Exception:
+        return False
+
+    hyp_vars = anchored_right_hypothesis_match(eq1)
+    if hyp_vars is None:
+        return False
+
+    goal_match = anchored_right_goal_match(eq2["lhs_ast"], eq2["rhs_ast"])
+    if goal_match is None:
+        return False
+
+    proof = make_anchored_right_erasure_proof(eq1, eq2, hyp_vars, goal_match)
+    if proof is None:
+        return False
+    return try_judge_route(
+        "true", make_true_code(proof), "anchored_right_erasure"
+    )
+
+
+def has_self_square(term):
+    if is_op(term):
+        if term[1] == term[2]:
+            return True
+        return has_self_square(term[1]) or has_self_square(term[2])
+    return False
+
+
+def has_anchor_repetition(term):
+    counts = {}
+
+    def walk(ast):
+        if isinstance(ast, str):
+            counts[ast] = counts.get(ast, 0) + 1
+            return
+        walk(ast[1])
+        walk(ast[2])
+
+    walk(term)
+    return any(count >= 3 for count in counts.values())
+
+
+def local_theory_normalizer_activation(eq1, eq2):
+    """Strict prefilter for the local-theory normalizer route."""
+    lhs = eq2["lhs_ast"]
+    rhs = eq2["rhs_ast"]
+    if not (
+        has_self_square(eq1["rhs_ast"])
+        or has_self_square(lhs)
+        or has_self_square(rhs)
+        or has_anchor_repetition(eq1["rhs_ast"])
+        or has_anchor_repetition(lhs)
+        or has_anchor_repetition(rhs)
+    ):
+        return False
+    if term_depth(lhs) + term_depth(rhs) > 12:
+        return False
+    return True
+
+
+def local_theory_relevant_fact_names(eq2):
+    """Pick only local facts that the target shape can plausibly use."""
+    names = []
+    lhs = eq2["lhs_ast"]
+    rhs = eq2["rhs_ast"]
+    all_terms = []
+    collect_subterms(lhs, all_terms)
+    collect_subterms(rhs, all_terms)
+
+    if any(is_op(t) and t[1] == t[2] for t in all_terms):
+        names.append("idem")
+    if any(is_op(t) and is_op(t[1]) and t[1][1] == t[2] for t in all_terms):
+        names.append("absorbL")
+    if any(is_op(t) and is_op(t[1]) and t[1][2] == t[2] for t in all_terms):
+        names.append("absorbR")
+    if isinstance(lhs, str) or isinstance(rhs, str):
+        names.extend(["extendL", "extendR"])
+    if any(is_op(t) for t in (lhs, rhs)):
+        names.extend(["projL", "projR"])
+
+    # A few remaining targets need absorption facts even when the exact
+    # redex only appears after one local expansion.
+    if "idem" in names and "absorbL" not in names:
+        names.append("absorbL")
+    if "idem" in names and "absorbR" not in names:
+        names.append("absorbR")
+
+    out = []
+    for name in names:
+        if name not in out:
+            out.append(name)
+    return out[:12]
+
+
+LOCAL_FACT_SPECS = {
+    "idem": (("a",), ("op", "a", "a"), "a"),
+    "absorbL": (("a", "b"), ("op", ("op", "a", "b"), "a"), "a"),
+    "absorbR": (("a", "b"), ("op", ("op", "a", "b"), "b"), "b"),
+    "extendL": (("a", "b"), "a", ("op", "b", "a")),
+    "extendR": (("a", "b"), "a", ("op", "a", "b")),
+    "projL": (("a", "b"), ("op", "a", "b"), "b"),
+    "projR": (("a", "b"), ("op", "a", "b"), "a"),
+}
+
+
+def local_fact_type(vars_, lhs, rhs):
+    binders = " ".join(vars_)
+    return f"∀ ({binders} : G), {ast_to_lean(lhs)} = {ast_to_lean(rhs)}"
+
+
+def derive_local_theory_blocks(eq1, eq2):
+    """Derive a tiny package of named local facts, capped by relevance."""
+    blocks = []
+    available = {}
+    attempts = 0
+    for name in local_theory_relevant_fact_names(eq2):
+        spec = LOCAL_FACT_SPECS.get(name)
+        if spec is None:
+            continue
+        vars_, lhs, rhs = spec
+        attempts += 1
+        if attempts > 12:
+            break
+        block = local_fact_lemma_block(
+            eq1,
+            name,
+            vars_,
+            lhs,
+            rhs,
+            max_attempts=30,
+        )
+        if block is None:
+            continue
+        blocks.append(block)
+        available[name] = (vars_, lhs, rhs)
+        if len(blocks) >= 4:
+            break
+    return blocks, available
+
+
+def local_fact_expr(name, subst):
+    def arg(v):
+        value = subst.get(v)
+        if value is None:
+            return None
+        return ast_to_lean(value)
+
+    if name == "idem":
+        a = arg("a")
+        return None if a is None else f"idem {a}"
+    a = arg("a")
+    b = arg("b")
+    if a is None or b is None:
+        return None
+    if name in {"absorbL", "absorbR", "extendL", "extendR", "projL", "projR"}:
+        return f"{name} {a} {b}"
+    return None
+
+
+def local_theory_rewrites(term, available):
+    """One-step rewrites by derived local facts under any exact subterm."""
+    out = []
+    seen = set()
+    for path in subterm_paths(term, max_depth=5):
+        subterm = subterm_at(term, path)
+        for name, (_, lhs, rhs) in available.items():
+            for source, target, symm in ((lhs, rhs, False), (rhs, lhs, True)):
+                subst = {}
+                if not match_pattern(source, subterm, subst):
+                    continue
+                expr = local_fact_expr(name, subst)
+                if expr is None:
+                    continue
+                if symm:
+                    expr = f"({expr}).symm"
+                new_subterm = substitute_ast(target, subst)
+                new_term = replace_subterm(term, path, new_subterm)
+                if term_depth(new_term) > 10:
+                    continue
+                proof = rewrite_context_proof(term, path, expr)
+                key = exact_term_key(new_term)
+                if key in seen:
+                    continue
+                seen.add(key)
+                out.append((new_term, proof))
+                if len(out) >= 80:
+                    return out
+    return out
+
+
+def find_local_theory_normalization_path(eq2, available, max_path=5, max_nodes=500):
+    """Small BFS over terms using only already-proved local facts."""
+    start = eq2["lhs_ast"]
+    finish = eq2["rhs_ast"]
+    finish_key = exact_term_key(finish)
+    queue = [(start, 0)]
+    previous = {exact_term_key(start): (None, None, None)}
+    head = 0
+    nodes = 0
+    while head < len(queue) and nodes < max_nodes:
+        current, depth = queue[head]
+        head += 1
+        nodes += 1
+        if depth >= max_path:
+            continue
+        for nxt, proof in local_theory_rewrites(current, available):
+            nxt_key = exact_term_key(nxt)
+            if nxt_key in previous:
+                continue
+            previous[nxt_key] = (exact_term_key(current), nxt, proof)
+            if nxt_key == finish_key:
+                return reconstruct_calc_path(previous, finish_key)
+            queue.append((nxt, depth + 1))
+    return None
+
+
+def local_theory_normalize_to_common(eq2, available, max_path=3, max_nodes=260):
+    """Try to normalize both goal sides to a shared compact local normal form."""
+    lhs = eq2["lhs_ast"]
+    rhs = eq2["rhs_ast"]
+    left_seen = {exact_term_key(lhs): (lhs, [])}
+    right_seen = {exact_term_key(rhs): (rhs, [])}
+    left_frontier = [(lhs, [])]
+    right_frontier = [(rhs, [])]
+    nodes = 0
+
+    for _ in range(max_path):
+        next_left = []
+        for term, path in left_frontier:
+            for nxt, proof in local_theory_rewrites(term, available):
+                nodes += 1
+                if nodes > max_nodes:
+                    return None
+                key = exact_term_key(nxt)
+                if key not in left_seen:
+                    new_path = path + [(nxt, proof)]
+                    left_seen[key] = (nxt, new_path)
+                    next_left.append((nxt, new_path))
+                    if key in right_seen:
+                        return new_path, right_seen[key][1]
+        left_frontier = next_left
+
+        next_right = []
+        for term, path in right_frontier:
+            for nxt, proof in local_theory_rewrites(term, available):
+                nodes += 1
+                if nodes > max_nodes:
+                    return None
+                key = exact_term_key(nxt)
+                if key not in right_seen:
+                    new_path = path + [(nxt, proof)]
+                    right_seen[key] = (nxt, new_path)
+                    next_right.append((nxt, new_path))
+                    if key in left_seen:
+                        return left_seen[key][1], new_path
+        right_frontier = next_right
+    return None
+
+
+def proof_from_path(start, path):
+    if not path:
+        return "rfl"
+    return compose_trans_chain([proof for _, proof in path])
+
+
+def make_local_theory_calc_body(eq2, blocks, path):
+    if not path or len(path) > 5:
+        return None
+    lines = [intro_line(eq2).rstrip()]
+    for block in blocks:
+        lines.append(block.rstrip())
+    lines.append("calc")
+    current = eq2["lhs_ast"]
+    for idx, (nxt, proof) in enumerate(path):
+        left = ast_to_lean(current) if idx == 0 else "_"
+        lines.append(f"  {left} = {ast_to_lean(nxt)} := {proof}")
+        current = nxt
+    return "\n".join(lines)
+
+
+def make_local_theory_common_body(eq2, blocks, left_path, right_path):
+    if not left_path and not right_path:
+        return None
+    left_proof = proof_from_path(eq2["lhs_ast"], left_path)
+    right_proof = proof_from_path(eq2["rhs_ast"], right_path)
+    common = left_path[-1][0] if left_path else eq2["lhs_ast"]
+    lines = [intro_line(eq2).rstrip()]
+    for block in blocks:
+        lines.append(block.rstrip())
+    lines.append(f"have left_norm : {ast_to_lean(eq2['lhs_ast'])} = {ast_to_lean(common)} := {left_proof}")
+    lines.append(f"have right_norm : {ast_to_lean(eq2['rhs_ast'])} = {ast_to_lean(common)} := {right_proof}")
+    lines.append("exact left_norm.trans right_norm.symm")
+    return "\n".join(lines)
+
+
+def try_lifted_tail_shift_collapse_parsed(eq1, eq2):
+    """Narrow lifted tail-shift collapse for x=((y◇x)◇z)◇(y◇x).
+
+    The derived package is intentionally inlined as three local h instances:
+    expand the anchor through its self-square tail, shift that tail through a
+    second h instance, then collapse to the target extension.
+
+    This is deliberately schema-specific. v0.9.13 keeps it as a named route
+    so future exact tail-shift families can be added here without broadening
+    the proof graph or emitting speculative Lean certificates.
+    """
+    p, q, r = "p", "q", "r"
+    hyp_lhs = p
+    hyp_rhs = ("op", ("op", ("op", q, p), r), ("op", q, p))
+    goal_lhs = p
+    goal_rhs = ("op", ("op", q, r), ("op", ("op", p, p), p))
+
+    hyp_subst = match_equation_pattern(eq1, hyp_lhs, hyp_rhs)
+    goal_subst = match_equation_pattern(eq2, goal_lhs, goal_rhs)
+    reverse_goal = False
+    if goal_subst is None:
+        goal_subst = match_equation_pattern(eq2, goal_rhs, goal_lhs)
+        reverse_goal = goal_subst is not None
+    if hyp_subst is None or goal_subst is None:
+        return False
+
+    inverse = pattern_var_inverse(hyp_subst)
+    if inverse is None:
+        return False
+
+    a = goal_subst[p]
+    b = goal_subst[q]
+    c = goal_subst[r]
+    aa = ("op", a, a)
+    tail = ("op", aa, a)
+    prefix = ("op", b, c)
+    target = ("op", prefix, tail)
+    shifted = ("op", ("op", target, prefix), target)
+
+    expand_a = schema_h_call(eq1, inverse, {p: a, q: aa, r: aa})
+    shift_tail = schema_h_call(eq1, inverse, {p: tail, q: prefix, r: prefix})
+    collapse_target = schema_h_call(eq1, inverse, {p: target, q: ("op", target, prefix), r: aa})
+    if expand_a is None or shift_tail is None or collapse_target is None:
+        return False
+
+    a_lean = ast_to_lean(a)
+    aa_lean = ast_to_lean(aa)
+    tail_lean = ast_to_lean(tail)
+    target_lean = ast_to_lean(target)
+    shifted_lean = ast_to_lean(shifted)
+    exact_line = "exact proof_core" if not reverse_goal else "exact proof_core.symm"
+    proof = (
+        intro_line(eq2)
+        + f"have shiftTail : {tail_lean} = {shifted_lean} := {shift_tail}\n"
+        + f"have liftTail : ({tail_lean} {DIAMOND} {aa_lean}) {DIAMOND} {tail_lean} = ({shifted_lean} {DIAMOND} {aa_lean}) {DIAMOND} {shifted_lean} := by\n"
+        + f"  have left : {tail_lean} {DIAMOND} {aa_lean} = {shifted_lean} {DIAMOND} {aa_lean} := congrArg (fun t => t {DIAMOND} {aa_lean}) shiftTail\n"
+        + f"  exact (congrArg (fun t => t {DIAMOND} {tail_lean}) left).trans (congrArg (fun t => ({shifted_lean} {DIAMOND} {aa_lean}) {DIAMOND} t) shiftTail)\n"
+        + f"have proof_core : {a_lean} = {target_lean} := by\n"
+        + "  calc\n"
+        + f"    {a_lean} = ({tail_lean} {DIAMOND} {aa_lean}) {DIAMOND} {tail_lean} := {expand_a}\n"
+        + f"    _ = ({shifted_lean} {DIAMOND} {aa_lean}) {DIAMOND} {shifted_lean} := liftTail\n"
+        + f"    _ = {target_lean} := ({collapse_target}).symm\n"
+        + exact_line
+    )
+    code = make_true_code(proof)
+    if len(code) > 12000:
+        return False
+    return try_judge_route("true", code, "lifted_tail_shift_collapse")
+
+
+def try_lifted_tail_shift_collapse(eq1_text, eq2_text):
+    """Late true-proof route for exact lifted tail-shift collapse schemas."""
+    try:
+        eq1 = parse_equation(eq1_text)
+        eq2 = parse_equation(eq2_text)
+    except Exception:
+        return False
+    return try_lifted_tail_shift_collapse_parsed(eq1, eq2)
+
+
+def try_local_theory_nested_tail_normalizer(eq1, eq2):
+    """Compatibility wrapper for the v0.9.12 nested-tail normalizer hook."""
+    return try_lifted_tail_shift_collapse_parsed(eq1, eq2)
+
+
+def try_local_theory_normalizer(eq1_text, eq2_text):
+    """Late local-theory route using only derived idem/absorption/extension facts."""
+    try:
+        eq1 = parse_equation(eq1_text)
+        eq2 = parse_equation(eq2_text)
+    except Exception:
+        return False
+
+    if try_local_theory_nested_tail_normalizer(eq1, eq2):
+        return True
+
+    if not local_theory_normalizer_activation(eq1, eq2):
+        return False
+
+    blocks, available = derive_local_theory_blocks(eq1, eq2)
+    if not blocks:
+        return False
+
+    path = find_local_theory_normalization_path(eq2, available)
+    body = make_local_theory_calc_body(eq2, blocks, path)
+    if body is not None:
+        code = make_true_code(body)
+        if len(code) <= 12000 and try_judge_route("true", code, "local_theory_normalizer"):
+            return True
+
+    common = local_theory_normalize_to_common(eq2, available)
+    if common is None:
+        return False
+    left_path, right_path = common
+    body = make_local_theory_common_body(eq2, blocks, left_path, right_path)
+    if body is None:
+        return False
+    code = make_true_code(body)
+    if len(code) > 12000:
+        return False
+    return try_judge_route("true", code, "local_theory_normalizer")
+
+
 def two_lemma_context_lift(eq1, eq2, start, finish):
     """Find start = midpoint, then midpoint = finish by one lifted inner edge."""
     attempts = 0
-    for midpoint, seed_proof in direct_h_midpoint_expansions(eq1, eq2, start, finish):
+    tested_contexts = 0
+    for midpoint, seed_proof in direct_h_midpoint_expansions(
+        eq1, eq2, start, finish, max_expansions=120
+    ):
         attempts += 1
         if attempts > 500:
             return None
         for path, inner_lhs, inner_rhs in context_candidates(midpoint, finish, max_depth=4):
             if not path:
                 continue
+            tested_contexts += 1
+            if tested_contexts > 12:
+                return None
             context = ast_with_hole(midpoint, path, hole_name="q")
             if len(context) > 220:
                 continue
@@ -3106,7 +4173,7 @@ def two_lemma_context_lift(eq1, eq2, start, finish):
                 )
                 if reverse is None:
                     continue
-                inner_proof = f"({reverse}).symm"
+                inner_proof = reverse_equality_proof(reverse, inner_lhs, inner_rhs)
             return midpoint, seed_proof, inner_lhs, inner_rhs, inner_proof, context
     return None
 
@@ -3125,7 +4192,9 @@ def try_two_lemma_local_theory_composer(eq1_text, eq2_text):
     except Exception:
         return False
 
-    if not local_theory_activation_shape(eq2["lhs_ast"], eq2["rhs_ast"]):
+    if not local_theory_activation_shape(
+        eq2["lhs_ast"], eq2["rhs_ast"]
+    ) and not seed_erasure_context_activation(eq1, eq2):
         return False
 
     orientations = (
@@ -3172,6 +4241,10 @@ def main():
     if hand_proof is not None and try_judge_route("true", hand_proof, "true_claude_hand_proof"):
         return
 
+    atp_code, atp_name = find_atp_exact_certificate(problem, eq1_text, eq2_text)
+    if atp_code is not None and try_judge_route("true", atp_code, f"true_atp_exact_{atp_name}"):
+        return
+
     try:
         n, table = search_witness_bank(eq1_text, eq2_text)
     except Exception:
@@ -3201,6 +4274,10 @@ def main():
         lambda: try_nested_absorption_edge(eq1_text, eq2_text),
         lambda: try_proof_motif_transfer(eq1_text, eq2_text),
         lambda: try_two_lemma_local_theory_composer(eq1_text, eq2_text),
+        lambda: try_square_anchor_tail_erasure(eq1_text, eq2_text),
+        lambda: try_anchored_right_erasure(eq1_text, eq2_text),
+        lambda: try_lifted_tail_shift_collapse(eq1_text, eq2_text),
+        lambda: try_local_theory_normalizer(eq1_text, eq2_text),
         lambda: try_derived_rewrite_edge(eq1_text, eq2_text),
         lambda: try_projection_absorption_schema(eq1_text, eq2_text),
         lambda: try_projection_absorption_rewrite(eq1_text, eq2_text),

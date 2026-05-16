@@ -1,0 +1,201 @@
+unit-resolution(mp(mp(asserted(c_x !=
+                               f(c_y,
+                                 f(c_x, f(f(c_x, c_x), c_z)))),
+                      rewrite(c_x !=
+                              f(c_y,
+                                f(c_x, f(f(c_x, c_x), c_z))) ==
+                              Not(c_x ==
+                                  f(c_y,
+                                    f(c_x,
+                                      f(f(c_x, c_x), c_z))))),
+                      Not(c_x ==
+                          f(c_y,
+                            f(c_x, f(f(c_x, c_x), c_z))))),
+                   rewrite(Not(c_x ==
+                               f(c_y,
+                                 f(c_x, f(f(c_x, c_x), c_z)))) ==
+                           Not(c_x ==
+                               f(c_y,
+                                 f(c_x, f(f(c_x, c_x), c_z))))),
+                   Not(c_x ==
+                       f(c_y, f(c_x, f(f(c_x, c_x), c_z))))),
+                trans*(unit-resolution(quant-inst(Or(Not(ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        c_x ==
+                                        f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))))),
+                                       mp(mp~(mp(asserted(ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        rewrite((ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))) ==
+                                        (ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        nnf-pos(proof-bind(Lambda([x,
+                                        y,
+                                        z],
+                                        refl(~(x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))),
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))))),
+                                        ~(ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        quant-intro(proof-bind(Lambda([x,
+                                        y,
+                                        z],
+                                        refl((x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))) ==
+                                        (x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))))),
+                                        (ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))) ==
+                                        (ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                       c_x ==
+                                       f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x)))),
+                       unit-resolution(quant-inst(Or(Not(ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))) ==
+                                        f(f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(c_x, c_x),
+                                        f(f(f(c_x, c_x),
+                                        f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        c_z))),
+                                        f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        c_z))))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        f(f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x)))),
+                                        f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x)))))),
+                                        f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        c_z))),
+                                        f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        f(f(f(f(c_x, c_x),
+                                        f(c_x,
+                                        f(f(c_x, c_x), c_x))),
+                                        c_z),
+                                        c_z))))))),
+                                       mp(mp~(mp(asserted(ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        rewrite((ForAll([x,
+                                        y,
+                                        z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))) ==
+                                        (ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))),
+                                        nnf-pos(proof-bind(Lambda([x,
+                                        y,
+                                        z],
+                                        refl(~(x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))),
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z))))))),
+                                        ~(ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))),
+                                        ForAll([x, y, z],
+                                        x ==
+                                        f(y,
+                                        f(x, f(f(x, z), z)))))),
+...

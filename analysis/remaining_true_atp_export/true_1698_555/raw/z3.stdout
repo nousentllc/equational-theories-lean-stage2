@@ -1,0 +1,13 @@
+tool: z3_python
+z3_version: 4.16.0
+status: unsat
+elapsed_seconds: 0.116
+proof_length: 10575
+quant_inst_count: 3
+trans_count: 3
+monotonicity_count: 2
+rewrite_count: 5
+reason_unknown: 
+smt2: raw/z3.smt2
+proof: raw/z3.proof
+model: raw/z3.model

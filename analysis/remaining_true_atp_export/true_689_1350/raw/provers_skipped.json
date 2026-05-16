@@ -1,0 +1,9 @@
+{
+  "available": [],
+  "missing": [
+    "prover9",
+    "eprover",
+    "vampire"
+  ],
+  "proofs": []
+}

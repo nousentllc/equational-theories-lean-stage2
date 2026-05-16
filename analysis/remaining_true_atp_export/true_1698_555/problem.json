@@ -1,0 +1,8 @@
+{
+  "id": "true_1698_555",
+  "eq1_id": 1698,
+  "eq2_id": 555,
+  "equation1": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+  "equation2": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+  "answer": true
+}

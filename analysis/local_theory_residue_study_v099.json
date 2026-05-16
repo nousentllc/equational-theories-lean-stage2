@@ -1,0 +1,457 @@
+{
+  "inputs": {
+    "latest_result": "pipeline/results/arcf_sample200_v099.json",
+    "sample_200": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py",
+    "residue_reports_used": [
+      "analysis/v098_recursive_seed_collapse_transfer_report.json",
+      "analysis/v095_residue_route_transfer_report.json",
+      "analysis/v094_local_theory_transfer_report.json",
+      "analysis/proof_motif_study_v09.json",
+      "analysis/v096_route_audit.json"
+    ]
+  },
+  "summary": {
+    "remaining_true_failures": 17,
+    "remaining_true_failure_ids": [
+      "true_3108_4642",
+      "true_1698_555",
+      "true_1604_1822",
+      "true_2111_1755",
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_2074_2082",
+      "true_4082_4109",
+      "true_2771_2775",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_674_668",
+      "true_1636_1839"
+    ],
+    "excluded_false_failure": "false_1682_411",
+    "fact_frequency": {
+      "argument erasure": 10,
+      "projection": 5,
+      "local collapse": 14,
+      "idempotence": 8,
+      "absorption": 10,
+      "extension": 10,
+      "two-h contextual lift": 7
+    },
+    "cluster_counts": {
+      "anchored argument-erasure / diagonal local theory": 1,
+      "two-h contextual lift with nested absorption": 1,
+      "two-h contextual lift plus proven idempotence/absorption seed": 1,
+      "idempotence/absorption/extension local theory": 1,
+      "right absorption / anchored projection": 1,
+      "extension plus idempotent tail collapse": 1,
+      "rotation/context shift plus nested absorption": 1,
+      "idempotence/extension plus argument erasure": 1,
+      "two-h contextual lift with fresh-variable erasure": 1,
+      "recursive seed-collapse depth-2 / eraseR package": 1,
+      "eraseL / right-anchor invariance": 1,
+      "diagonal constancy local theory": 1,
+      "eraseR seed / right-argument invariance": 1,
+      "multi-local-edge calc with extension/erasure": 1,
+      "two-h contextual lift with anchored absorption": 1,
+      "eraseR/eraseL context-invariance": 1,
+      "idempotence/extension local theory": 1
+    }
+  },
+  "cases": [
+    {
+      "likely_facts": [
+        "argument erasure",
+        "projection",
+        "local collapse",
+        "idempotence"
+      ],
+      "closing_edge": "(x \u25c7 y) \u25c7 x = (z \u25c7 x) \u25c7 x",
+      "package": "anchored argument-erasure / diagonal local theory",
+      "notes": "Goal is constancy of the map q \u21a6 (q \u25c7 x) \u25c7 x. Idempotence is derivable, but the missing fact is argument erasure under a right anchor.",
+      "id": "true_3108_4642",
+      "eq1_id": 3108,
+      "eq2_id": 4642,
+      "hypothesis": "x = (((y \u25c7 x) \u25c7 x) \u25c7 z) \u25c7 x",
+      "goal": "(x \u25c7 y) \u25c7 x = (z \u25c7 x) \u25c7 x",
+      "derivable_by_probe": [
+        {
+          "fact": "idempotence",
+          "method": "h + congrArg/trans graph",
+          "h_uses": "1-3"
+        }
+      ],
+      "probe_status": "some generic facts derivable"
+    },
+    {
+      "likely_facts": [
+        "absorption",
+        "extension",
+        "local collapse",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "package": "two-h contextual lift with nested absorption",
+      "notes": "Needs a seed expansion of x followed by a nested context collapse around y and x\u25c7y.",
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+      "goal": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "idempotence",
+        "absorption",
+        "argument erasure",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "w \u25c7 (x \u25c7 y) = (w \u25c7 w) \u25c7 y under (y \u25c7 z) \u25c7 _",
+      "package": "two-h contextual lift plus proven idempotence/absorption seed",
+      "notes": "Generic probe found idempotence and left absorption derivable; the missing step is composing them into the exact inner replacement.",
+      "id": "true_1604_1822",
+      "eq1_id": 1604,
+      "eq2_id": 1822,
+      "hypothesis": "x = (y \u25c7 z) \u25c7 (w \u25c7 (x \u25c7 y))",
+      "goal": "x = (y \u25c7 z) \u25c7 ((w \u25c7 w) \u25c7 y)",
+      "derivable_by_probe": [
+        {
+          "fact": "idempotence",
+          "method": "two-edge bridge",
+          "h_uses": "1-3"
+        },
+        {
+          "fact": "absorption_left",
+          "method": "two-edge bridge",
+          "h_uses": "1-3"
+        }
+      ],
+      "probe_status": "some generic facts derivable"
+    },
+    {
+      "likely_facts": [
+        "absorption",
+        "extension",
+        "local collapse",
+        "idempotence"
+      ],
+      "closing_edge": "x = (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+      "package": "idempotence/absorption/extension local theory",
+      "notes": "Goal has a repeated x-tail; likely needs a package that collapses or extends x\u25c7x and then lifts through a y\u25c7z context.",
+      "id": "true_2111_1755",
+      "eq1_id": 2111,
+      "eq2_id": 1755,
+      "hypothesis": "x = ((y \u25c7 x) \u25c7 z) \u25c7 (y \u25c7 x)",
+      "goal": "x = (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "absorption",
+        "projection",
+        "extension",
+        "local collapse"
+      ],
+      "closing_edge": "x = (x \u25c7 y) \u25c7 x, then congrArg (fun q => x \u25c7 q)",
+      "package": "right absorption / anchored projection",
+      "notes": "Claude notes identify this as strong right absorption with an extra trailing \u25c7x to eliminate.",
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+      "goal": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "idempotence",
+        "extension",
+        "projection",
+        "local collapse"
+      ],
+      "closing_edge": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "package": "extension plus idempotent tail collapse",
+      "notes": "Looks close to a = a\u25c7C[a]; likely needs x\u25c7x = x or a stronger right-extension lemma.",
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+      "goal": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "absorption",
+        "extension",
+        "local collapse",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "package": "rotation/context shift plus nested absorption",
+      "notes": "Requires moving a y/z anchored block through a right-nested context; previous rotation reports classify this family as context-shift.",
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y \u25c7 z) \u25c7 (y \u25c7 x)) \u25c7 z",
+      "goal": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "idempotence",
+        "argument erasure",
+        "extension",
+        "absorption"
+      ],
+      "closing_edge": "((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y) = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "package": "idempotence/extension plus argument erasure",
+      "notes": "Needs replacement of y-tail and x-position under a repeated y\u25c7y anchor.",
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "extension",
+        "two-h contextual lift",
+        "local collapse"
+      ],
+      "closing_edge": "z \u25c7 (x \u25c7 z) = x \u25c7 (z \u25c7 (w \u25c7 w)) under y \u25c7 _",
+      "package": "two-h contextual lift with fresh-variable erasure",
+      "notes": "Fresh w appears only through w\u25c7w, so a diagonal/argument-erasure fact is probably needed.",
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 (z \u25c7 (x \u25c7 z))",
+      "goal": "x = y \u25c7 (x \u25c7 (z \u25c7 (w \u25c7 w)))",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "absorption",
+        "local collapse",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "x \u25c7 ((x \u25c7 (y \u25c7 (z \u25c7 y))) \u25c7 (y \u25c7 (z \u25c7 y))) = x \u25c7 y",
+      "package": "recursive seed-collapse depth-2 / eraseR package",
+      "notes": "v0.9.8 report marks this as closest to recursive seed-collapse depth 2; current depth-2 composer did not prove the erasure seed.",
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+      "goal": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "projection",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "y \u25c7 x = w \u25c7 x under (((x \u25c7 y) \u25c7 z) \u25c7 _)",
+      "package": "eraseL / right-anchor invariance",
+      "notes": "Canonical remaining eraseL case: b\u25c7a = c\u25c7a. Needs proof of right-anchor invariance, not just application.",
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+      "goal": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "idempotence",
+        "argument erasure",
+        "local collapse"
+      ],
+      "closing_edge": "x \u25c7 x = z \u25c7 z after h z y y",
+      "package": "diagonal constancy local theory",
+      "notes": "Claude notes classify this as constant diagonal. This is distinct from ordinary projection.",
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+      "goal": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "idempotence",
+        "local collapse"
+      ],
+      "closing_edge": "x \u25c7 x = x \u25c7 y under (((y \u25c7 z) \u25c7 _) \u25c7 y)",
+      "package": "eraseR seed / right-argument invariance",
+      "notes": "The extracted inner edge is exactly a\u25c7a = a\u25c7b. Existing routes can lift it if the seed is proven.",
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y",
+      "goal": "x = ((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "absorption",
+        "extension",
+        "local collapse"
+      ],
+      "closing_edge": "((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z) = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "package": "multi-local-edge calc with extension/erasure",
+      "notes": "Composite equality likely needs two local edges plus one context lift, close to v0.9.4 local-theory motif.",
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+      "goal": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "absorption",
+        "extension",
+        "local collapse",
+        "two-h contextual lift"
+      ],
+      "closing_edge": "x \u25c7 ((z \u25c7 x) \u25c7 w) = ((z \u25c7 x) \u25c7 x) \u25c7 y under y \u25c7 _",
+      "package": "two-h contextual lift with anchored absorption",
+      "notes": "Goal shares outer y\u25c7 context; missing edge is a nested anchored replacement.",
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+      "goal": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "argument erasure",
+        "local collapse",
+        "projection"
+      ],
+      "closing_edge": "(x \u25c7 z) \u25c7 z = (x \u25c7 x) \u25c7 z, or x \u25c7 z = x \u25c7 x",
+      "package": "eraseR/eraseL context-invariance",
+      "notes": "A near-miss eraseR/eraseL case. Current composer finds contexts but cannot prove the erasure seed.",
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z))",
+      "goal": "x = y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z))",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    },
+    {
+      "likely_facts": [
+        "idempotence",
+        "extension",
+        "absorption",
+        "local collapse"
+      ],
+      "closing_edge": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "package": "idempotence/extension local theory",
+      "notes": "Needs a self-anchor expansion package around x\u25c7x and x\u25c7(x\u25c7y).",
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+      "goal": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "derivable_by_probe": [],
+      "probe_status": "no generic menu fact derived under 1-3 h/congrArg caps"
+    }
+  ],
+  "clusters": {
+    "anchored argument-erasure / diagonal local theory": [
+      "true_3108_4642"
+    ],
+    "two-h contextual lift with nested absorption": [
+      "true_1698_555"
+    ],
+    "two-h contextual lift plus proven idempotence/absorption seed": [
+      "true_1604_1822"
+    ],
+    "idempotence/absorption/extension local theory": [
+      "true_2111_1755"
+    ],
+    "right absorption / anchored projection": [
+      "true_2860_3458"
+    ],
+    "extension plus idempotent tail collapse": [
+      "true_1738_1258"
+    ],
+    "rotation/context shift plus nested absorption": [
+      "true_2789_898"
+    ],
+    "idempotence/extension plus argument erasure": [
+      "true_2135_2128"
+    ],
+    "two-h contextual lift with fresh-variable erasure": [
+      "true_1500_498"
+    ],
+    "recursive seed-collapse depth-2 / eraseR package": [
+      "true_691_1976"
+    ],
+    "eraseL / right-anchor invariance": [
+      "true_2074_2082"
+    ],
+    "diagonal constancy local theory": [
+      "true_4082_4109"
+    ],
+    "eraseR seed / right-argument invariance": [
+      "true_2771_2775"
+    ],
+    "multi-local-edge calc with extension/erasure": [
+      "true_2055_2656"
+    ],
+    "two-h contextual lift with anchored absorption": [
+      "true_689_1350"
+    ],
+    "eraseR/eraseL context-invariance": [
+      "true_674_668"
+    ],
+    "idempotence/extension local theory": [
+      "true_1636_1839"
+    ]
+  },
+  "recommendation_v0910": {
+    "target": "proven-local-fact contextual composer",
+    "first_targets": [
+      "true_1604_1822",
+      "true_3108_4642",
+      "true_2771_2775",
+      "true_2074_2082",
+      "true_674_668"
+    ],
+    "rationale": "Only emit/use facts already proved by the bounded local menu. Start with idempotence/absorption seeds that the probe can derive, then attempt exact-context closure or one argument-erasure seed under an extracted context. This is narrower than raising proof-graph caps and preserves zero-judge-error discipline.",
+    "safety_gates": [
+      "derive at most two local facts per problem",
+      "facts must be proved by <=3 h uses plus congrArg/trans",
+      "apply only under exact extracted contexts or direct goal shape",
+      "no new global term-bank or edge-cap increase",
+      "abstain if generated Lean exceeds existing code-size gate"
+    ]
+  }
+}

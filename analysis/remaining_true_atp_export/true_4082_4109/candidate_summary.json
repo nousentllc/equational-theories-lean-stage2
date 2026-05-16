@@ -1,0 +1,104 @@
+{
+  "id": "true_4082_4109",
+  "features": {
+    "id": "true_4082_4109",
+    "eq1_id": 4082,
+    "eq2_id": 4109,
+    "hypothesis": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+    "goal": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+    "hypothesis_tptp": "fof(hypothesis, axiom, ! [X,Y,Z] : (f(X,X) = f(f(f(Y,X),X),Z))).",
+    "goal_tptp": "fof(goal, conjecture, ! [X,Y,Z] : (f(X,X) = f(f(f(Y,Z),Z),Y))).",
+    "hyp_depth": [
+      1,
+      3
+    ],
+    "goal_depth": [
+      1,
+      3
+    ],
+    "hyp_op_count": [
+      1,
+      3
+    ],
+    "goal_op_count": [
+      1,
+      3
+    ],
+    "hyp_root_shape": [
+      "op(var,var)",
+      "op(op,var)"
+    ],
+    "goal_root_shape": [
+      "op(var,var)",
+      "op(op,var)"
+    ],
+    "motif_guess": [
+      "idempotence/absorption",
+      "tail-shift"
+    ],
+    "candidate_local_lemmas": [
+      "idempotence",
+      "absorption",
+      "tail replacement"
+    ],
+    "current_result": {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "elapsed_seconds": 2.29,
+      "solved": false,
+      "verdict": null,
+      "code": null,
+      "llm_calls": 0,
+      "judge_calls": 0,
+      "log": []
+    }
+  },
+  "atp": {
+    "available": [
+      "z3_python"
+    ],
+    "missing": [],
+    "proofs": [
+      {
+        "tool": "z3_python",
+        "stdout": "raw/z3.stdout",
+        "stderr": "raw/z3.stderr",
+        "proof": "raw/z3.proof",
+        "smt2": "raw/z3.smt2",
+        "proof_length": 10967,
+        "quant_inst_count": 3
+      }
+    ],
+    "z3_python": {
+      "command": [
+        "python-z3",
+        "true_4082_4109"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.011,
+      "status": "unsat",
+      "proof_found": true,
+      "proof_length": 10967,
+      "quant_inst_count": 3,
+      "trans_count": 4,
+      "monotonicity_count": 5,
+      "rewrite_count": 5,
+      "reason_unknown": ""
+    }
+  },
+  "lean_translation": {
+    "status": "z3_raw_proof_found_needs_extraction",
+    "allowed_grammar": [
+      "h instantiation",
+      ".symm",
+      "Eq.trans",
+      "congrArg",
+      "calc",
+      "local have"
+    ],
+    "notes": "Z3 refuted hypothesis plus skolemized negated goal. Each quant-inst corresponds to an h instantiation; equality propagation must be hand-extracted into trans/symm/congrArg steps.",
+    "quant_inst_count": 3,
+    "proof_length": 10967
+  }
+}

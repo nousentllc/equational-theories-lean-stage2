@@ -1,0 +1,42 @@
+{
+  "id": "true_4082_4109",
+  "eq1_id": 4082,
+  "eq2_id": 4109,
+  "hypothesis": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+  "goal": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+  "hypothesis_tptp": "fof(hypothesis, axiom, ! [X,Y,Z] : (f(X,X) = f(f(f(Y,X),X),Z))).",
+  "goal_tptp": "fof(goal, conjecture, ! [X,Y,Z] : (f(X,X) = f(f(f(Y,Z),Z),Y))).",
+  "hyp_depth": [
+    1,
+    3
+  ],
+  "goal_depth": [
+    1,
+    3
+  ],
+  "hyp_op_count": [
+    1,
+    3
+  ],
+  "goal_op_count": [
+    1,
+    3
+  ],
+  "hyp_root_shape": [
+    "op(var,var)",
+    "op(op,var)"
+  ],
+  "goal_root_shape": [
+    "op(var,var)",
+    "op(op,var)"
+  ],
+  "motif_guess": [
+    "idempotence/absorption",
+    "tail-shift"
+  ],
+  "candidate_local_lemmas": [
+    "idempotence",
+    "absorption",
+    "tail replacement"
+  ]
+}

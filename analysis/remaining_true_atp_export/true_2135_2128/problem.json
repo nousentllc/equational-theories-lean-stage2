@@ -1,0 +1,8 @@
+{
+  "id": "true_2135_2128",
+  "eq1_id": 2135,
+  "eq2_id": 2128,
+  "equation1": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+  "equation2": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+  "answer": true
+}

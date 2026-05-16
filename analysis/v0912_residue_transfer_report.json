@@ -1,0 +1,503 @@
+{
+  "inputs": {
+    "current": "pipeline/results/arcf_sample200_v0912.json",
+    "prior": "pipeline/results/arcf_sample200_v0911.json",
+    "problems": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py",
+    "prior_report": "analysis/v0911_local_theory_transfer_report.json"
+  },
+  "summary": {
+    "v0911": {
+      "accepted": 184,
+      "true_proofs": 85,
+      "false_countermodels": 99,
+      "no_judge_attempt": 16,
+      "judge_errors": 0,
+      "judge_error_details": []
+    },
+    "v0912": {
+      "accepted": 185,
+      "true_proofs": 86,
+      "false_countermodels": 99,
+      "no_judge_attempt": 15,
+      "judge_errors": 0,
+      "judge_error_details": []
+    },
+    "delta": {
+      "accepted": 1,
+      "true_proofs": 1,
+      "false_countermodels": 0,
+      "no_judge_attempt": -1,
+      "judge_errors": 0
+    },
+    "newly_solved": [
+      "true_2111_1755"
+    ],
+    "regressions": []
+  },
+  "true_2111_1755_proof_analysis": {
+    "id": "true_2111_1755",
+    "eq1_id": 2111,
+    "eq2_id": 1755,
+    "hypothesis": "x = ((y \u25c7 x) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "goal": "x = (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+    "route": "local_theory_normalizer_nested_tail",
+    "code_length": 1226,
+    "local_edges": [
+      {
+        "name": "shiftTail",
+        "statement": "((x \u25c7 x) \u25c7 x) = ((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)))",
+        "source": "direct h instance: h ((x \u25c7 x) \u25c7 x) (y \u25c7 z) (y \u25c7 z)",
+        "role": "repeated-tail expansion of the tail T = (x\u25c7x)\u25c7x through the target prefix y\u25c7z."
+      },
+      {
+        "name": "liftTail",
+        "statement": "((T \u25c7 (x \u25c7 x)) \u25c7 T) = ((T' \u25c7 (x \u25c7 x)) \u25c7 T')",
+        "source": "two congrArg lifts of shiftTail",
+        "role": "nested congrArg replacement of both tail occurrences in the h-expanded anchor."
+      },
+      {
+        "name": "proof_core step 1",
+        "statement": "x = (((x \u25c7 x) \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((x \u25c7 x) \u25c7 x)",
+        "source": "h x (x \u25c7 x) (x \u25c7 x)",
+        "role": "expand the goal anchor into the repeated-tail source form."
+      },
+      {
+        "name": "symmetric collapse",
+        "statement": "expanded target prefix collapses back to (y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)",
+        "source": "(h ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) (((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) (x \u25c7 x)).symm",
+        "role": "symmetric hypothesis collapse closes the final calc."
+      }
+    ],
+    "motif": "lifted tail-shift collapse: repeated-tail expansion, nested congrArg lift, symmetric h collapse, final 3-step calc.",
+    "accepted_code_excerpt": "import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z\n  have shiftTail : ((x \u25c7 x) \u25c7 x) = ((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) := h ((x \u25c7 x) \u25c7 x) (y \u25c7 z) (y \u25c7 z)\n  have liftTail : (((x \u25c7 x) \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((x \u25c7 x) \u25c7 x) = (((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) \u25c7 (x \u25c7 x)) \u25c7 ((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) := by\n    have left : ((x \u25c7 x) \u25c7 x) \u25c7 (x \u25c7 x) = ((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) \u25c7 (x \u25c7 x) := congrArg (fun t => t \u25c7 (x \u25c7 x)) shiftTail\n    exact (congrArg (fun t => t \u25c7 ((x \u25c7 x) \u25c7 x)) left).trans (congrArg (fun t => (((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) \u25c7 (x \u25c7 x)) \u25c7 t) shiftTail)\n  have proof_core : x = ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) := by\n    calc\n      x = (((x \u25c7 x) \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((x \u25c7 x) \u25c7 x) := h x (x \u25c7 x) (x \u25c7 x)\n      _ = (((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) \u25c7 (x \u25c7 x)) \u25c7 ((((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x))) := liftTail\n      _ = ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) := (h ((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) (((y \u25c7 z) \u25c7 ((x \u25c7 x) \u25c7 x)) \u25c7 (y \u25c7 z)) (x \u25c7 x)).symm\n  exact proof_core\n"
+  },
+  "remaining_unsolved": {
+    "total": 15,
+    "true_failures": [
+      "true_1698_555",
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_2074_2082",
+      "true_4082_4109",
+      "true_2771_2775",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_674_668",
+      "true_1636_1839"
+    ],
+    "false_failures": [
+      "false_1682_411"
+    ]
+  },
+  "remaining_true_analysis": [
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+      "goal": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "prior_family": "extension/local collapse",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "two-h contextual lift",
+      "cluster": "two-h contextual lift",
+      "tractability_score": 6,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "Shares the direct seed-plus-collapse shape, but the target context is right-nested rather than the exact repeated-tail block solved in v0.9.12."
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+      "goal": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "prior_family": "argument erasure/context invariance",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": false,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "argument erasure / anchored projection",
+      "cluster": "anchored-right erasure",
+      "tractability_score": 8,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "Likely needs right absorption or argument erasure after a seed expansion; not a direct true_2111 tail-shift."
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+      "goal": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "prior_family": "idempotence/absorption/extension local theory",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "local-theory normalization",
+      "cluster": "lifted tail-shift collapse",
+      "tractability_score": 9,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low",
+      "note": "Closest remaining true_2111-style case: target is x = x\u25c7C[x] with an idempotent right tail."
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y \u25c7 z) \u25c7 (y \u25c7 x)) \u25c7 z",
+      "goal": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "prior_family": "extension/local collapse",
+      "repeated_tail_expansion": false,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "rotation/context shift",
+      "cluster": "two-h contextual lift",
+      "tractability_score": 5,
+      "implementation_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "note": "Needs movement of a y/z block through a nested context; tail-shift alone is not enough."
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": false,
+      "closer_older_motif": "anchored-right erasure",
+      "cluster": "anchored-right erasure",
+      "tractability_score": 8,
+      "implementation_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "note": "Automated grind proof is large; likely needs a tailored anchored-erasure package rather than one more true_2111 transfer."
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 (z \u25c7 (x \u25c7 z))",
+      "goal": "x = y \u25c7 (x \u25c7 (z \u25c7 (w \u25c7 w)))",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": false,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "two-h contextual lift",
+      "cluster": "two-h contextual lift",
+      "tractability_score": 5,
+      "implementation_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "note": "Fresh w\u25c7w target suggests diagonal/argument erasure before tail replacement."
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+      "goal": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "recursive seed-collapse",
+      "cluster": "nested congrArg / tail replacement",
+      "tractability_score": 7,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "Similar seed-collapse/tail-replacement shape, but with an extra left context around y\u25c7(z\u25c7y)."
+    },
+    {
+      "id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+      "goal": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": false,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": false,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "argument erasure / eraseL",
+      "cluster": "anchored-right erasure",
+      "tractability_score": 7,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "Canonical b\u25c7x = w\u25c7x inner-edge problem; true_2111 tail-shift does not directly apply."
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+      "goal": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": false,
+      "tail_replacement_context": false,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": false,
+      "closer_older_motif": "diagonal constancy / local theory",
+      "cluster": "local-theory/idempotence/extension",
+      "tractability_score": 3,
+      "implementation_risk": "high",
+      "judge_error_risk": "medium",
+      "note": "Likely requires constant diagonal, a different local-theory object than tail-shift collapse."
+    },
+    {
+      "id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y",
+      "goal": "x = ((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": false,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "argument erasure / eraseR",
+      "cluster": "nested congrArg / tail replacement",
+      "tractability_score": 8,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "The context is exact and compact; blocker is proving x\u25c7x = x\u25c7y, not the outer lift."
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+      "goal": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "local-theory normalization",
+      "cluster": "lifted tail-shift collapse",
+      "tractability_score": 9,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "High-value transfer target: resembles multi-local-edge calc with tail shift and symmetric collapse."
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+      "goal": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+      "prior_family": "extension/local collapse",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "two-h contextual lift",
+      "cluster": "nested congrArg / tail replacement",
+      "tractability_score": 8,
+      "implementation_risk": "medium",
+      "judge_error_risk": "low-medium",
+      "note": "Outer y\u25c7 context is already visible; likely needs a true_2111-like inner tail replacement after one seed."
+    },
+    {
+      "id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z))",
+      "goal": "x = y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z))",
+      "prior_family": "anchored-right erasure",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": false,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "argument erasure / context invariance",
+      "cluster": "anchored-right erasure",
+      "tractability_score": 6,
+      "implementation_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "note": "Outer lift exists but inner x\u25c7z = x\u25c7x has remained the hard edge."
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+      "goal": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "prior_family": "extension/local collapse",
+      "repeated_tail_expansion": true,
+      "needs_nested_congrArg_lift": true,
+      "tail_replacement_context": true,
+      "symmetric_hypothesis_collapse": true,
+      "short_calc_2_4_edges": true,
+      "closer_older_motif": "local-theory normalization",
+      "cluster": "local-theory/idempotence/extension",
+      "tractability_score": 7,
+      "implementation_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "note": "Self-anchor expansion package around x\u25c7x and x\u25c7(x\u25c7y); plausible but less direct than true_1738/true_2055."
+    }
+  ],
+  "clusters": {
+    "anchored-right erasure": [
+      "true_2860_3458",
+      "true_2135_2128",
+      "true_2074_2082",
+      "true_674_668"
+    ],
+    "lifted tail-shift collapse": [
+      "true_1738_1258",
+      "true_2055_2656"
+    ],
+    "local-theory/idempotence/extension": [
+      "true_4082_4109",
+      "true_1636_1839"
+    ],
+    "nested congrArg / tail replacement": [
+      "true_691_1976",
+      "true_2771_2775",
+      "true_689_1350"
+    ],
+    "two-h contextual lift": [
+      "true_1698_555",
+      "true_2789_898",
+      "true_1500_498"
+    ]
+  },
+  "rankings": {
+    "top5_easiest": [
+      {
+        "id": "true_1738_1258",
+        "cluster": "lifted tail-shift collapse",
+        "tractability_score": 9,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low",
+        "closer_older_motif": "local-theory normalization",
+        "note": "Closest remaining true_2111-style case: target is x = x\u25c7C[x] with an idempotent right tail."
+      },
+      {
+        "id": "true_2055_2656",
+        "cluster": "lifted tail-shift collapse",
+        "tractability_score": 9,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low-medium",
+        "closer_older_motif": "local-theory normalization",
+        "note": "High-value transfer target: resembles multi-local-edge calc with tail shift and symmetric collapse."
+      },
+      {
+        "id": "true_2771_2775",
+        "cluster": "nested congrArg / tail replacement",
+        "tractability_score": 8,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low-medium",
+        "closer_older_motif": "argument erasure / eraseR",
+        "note": "The context is exact and compact; blocker is proving x\u25c7x = x\u25c7y, not the outer lift."
+      },
+      {
+        "id": "true_2860_3458",
+        "cluster": "anchored-right erasure",
+        "tractability_score": 8,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low-medium",
+        "closer_older_motif": "argument erasure / anchored projection",
+        "note": "Likely needs right absorption or argument erasure after a seed expansion; not a direct true_2111 tail-shift."
+      },
+      {
+        "id": "true_689_1350",
+        "cluster": "nested congrArg / tail replacement",
+        "tractability_score": 8,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low-medium",
+        "closer_older_motif": "two-h contextual lift",
+        "note": "Outer y\u25c7 context is already visible; likely needs a true_2111-like inner tail replacement after one seed."
+      }
+    ],
+    "top5_hardest": [
+      {
+        "id": "true_4082_4109",
+        "cluster": "local-theory/idempotence/extension",
+        "tractability_score": 3,
+        "implementation_risk": "high",
+        "judge_error_risk": "medium",
+        "closer_older_motif": "diagonal constancy / local theory",
+        "note": "Likely requires constant diagonal, a different local-theory object than tail-shift collapse."
+      },
+      {
+        "id": "true_1500_498",
+        "cluster": "two-h contextual lift",
+        "tractability_score": 5,
+        "implementation_risk": "medium-high",
+        "judge_error_risk": "medium",
+        "closer_older_motif": "two-h contextual lift",
+        "note": "Fresh w\u25c7w target suggests diagonal/argument erasure before tail replacement."
+      },
+      {
+        "id": "true_2789_898",
+        "cluster": "two-h contextual lift",
+        "tractability_score": 5,
+        "implementation_risk": "medium-high",
+        "judge_error_risk": "medium",
+        "closer_older_motif": "rotation/context shift",
+        "note": "Needs movement of a y/z block through a nested context; tail-shift alone is not enough."
+      },
+      {
+        "id": "true_1698_555",
+        "cluster": "two-h contextual lift",
+        "tractability_score": 6,
+        "implementation_risk": "medium",
+        "judge_error_risk": "low-medium",
+        "closer_older_motif": "two-h contextual lift",
+        "note": "Shares the direct seed-plus-collapse shape, but the target context is right-nested rather than the exact repeated-tail block solved in v0.9.12."
+      },
+      {
+        "id": "true_674_668",
+        "cluster": "anchored-right erasure",
+        "tractability_score": 6,
+        "implementation_risk": "medium-high",
+        "judge_error_risk": "medium",
+        "closer_older_motif": "argument erasure / context invariance",
+        "note": "Outer lift exists but inner x\u25c7z = x\u25c7x has remained the hard edge."
+      }
+    ]
+  },
+  "recommendation_v0913": {
+    "target": "generalize lifted tail-shift collapse for one more exact schema family",
+    "first_cases": [
+      "true_1738_1258",
+      "true_2055_2656",
+      "true_689_1350"
+    ],
+    "rationale": "true_2111_1755 produced a compact, accepted proof using three h instances and nested congrArg. The closest remaining true cases still have repeated-tail replacement plus symmetric collapse, while broad erasure and diagonal-constancy cases remain higher risk.",
+    "safety_gates": [
+      "Do not use broad automation or graph-cap increases.",
+      "Activate only when the hypothesis and goal match an exact repeated-tail schema.",
+      "Emit at most one tail expansion edge, one nested congrArg lift, one symmetric h collapse, and a calc of length <= 4.",
+      "Abstain if code length exceeds the existing gate or if the exact symmetric collapse h instance is unavailable."
+    ],
+    "false_case_note": "false_1682_411 remains separate. This proof-side report does not run or recommend mixing the targeted countermodel search into v0.9.13 proof routing."
+  }
+}

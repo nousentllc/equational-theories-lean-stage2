@@ -1,0 +1,45 @@
+{
+  "id": "true_1698_555",
+  "eq1_id": 1698,
+  "eq2_id": 555,
+  "hypothesis": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+  "goal": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+  "hypothesis_tptp": "fof(hypothesis, axiom, ! [X,Y,Z] : (X = f(f(Y,X),f(f(Y,Z),Y)))).",
+  "goal_tptp": "fof(goal, conjecture, ! [X,Y,Z] : (X = f(Y,f(Z,f(Y,f(X,Y)))))).",
+  "hyp_depth": [
+    0,
+    3
+  ],
+  "goal_depth": [
+    0,
+    4
+  ],
+  "hyp_op_count": [
+    0,
+    4
+  ],
+  "goal_op_count": [
+    0,
+    4
+  ],
+  "hyp_root_shape": [
+    "var",
+    "op(op,op)"
+  ],
+  "goal_root_shape": [
+    "var",
+    "op(var,op)"
+  ],
+  "motif_guess": [
+    "idempotence/absorption",
+    "extension",
+    "context shift",
+    "local theory"
+  ],
+  "candidate_local_lemmas": [
+    "idempotence",
+    "absorption",
+    "extension/local collapse",
+    "context bridge"
+  ]
+}

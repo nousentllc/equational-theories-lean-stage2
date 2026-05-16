@@ -1,0 +1,33 @@
+{
+  "available": [
+    "z3_python"
+  ],
+  "missing": [],
+  "proofs": [
+    {
+      "tool": "z3_python",
+      "stdout": "raw/z3.stdout",
+      "stderr": "raw/z3.stderr",
+      "proof": "raw/z3.proof",
+      "smt2": "raw/z3.smt2",
+      "proof_length": 10228,
+      "quant_inst_count": 3
+    }
+  ],
+  "z3_python": {
+    "command": [
+      "python-z3",
+      "true_689_1350"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.087,
+    "status": "unsat",
+    "proof_found": true,
+    "proof_length": 10228,
+    "quant_inst_count": 3,
+    "trans_count": 3,
+    "monotonicity_count": 2,
+    "rewrite_count": 4,
+    "reason_unknown": ""
+  }
+}

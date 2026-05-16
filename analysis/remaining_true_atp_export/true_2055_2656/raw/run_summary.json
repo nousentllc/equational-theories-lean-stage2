@@ -1,0 +1,23 @@
+{
+  "available": [
+    "z3_python"
+  ],
+  "missing": [],
+  "proofs": [],
+  "z3_python": {
+    "command": [
+      "python-z3",
+      "true_2055_2656"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 120.157,
+    "status": "unknown",
+    "proof_found": false,
+    "proof_length": 0,
+    "quant_inst_count": 0,
+    "trans_count": 0,
+    "monotonicity_count": 0,
+    "rewrite_count": 0,
+    "reason_unknown": "timeout"
+  }
+}
