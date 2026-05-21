@@ -33,6 +33,290 @@ WITNESS_BANK = [
         },
         "table": [[4, 0, 3, 1, 2], [3, 1, 3, 0, 4], [1, 0, 2, 4, 2], [2, 2, 2, 3, 0], [0, 4, 3, 1, 1]],
     },
+    {
+        "name": "z3_true_674_668_min",
+        "eq1_id": 674,
+        "eq2_id": 668,
+        "eq1_canonical": "v0=(v1◇(v0◇((v0◇v2)◇v2)))",
+        "eq2_canonical": "v0=(v1◇(v0◇((v0◇v0)◇v2)))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x
+  intro y
+  intro z
+  let t1 : G := x ◇ x
+  let t2 : G := t1 ◇ z
+  let t3 : G := x ◇ t2
+  let t4 : G := y ◇ t3
+  let t5 : G := t1 ◇ x
+  let t6 : G := x ◇ t5
+  let t7 : G := t1 ◇ t6
+  let t8 : G := t7 ◇ z
+  let t9 : G := t8 ◇ t5
+  let t10 : G := t9 ◇ t5
+  let t11 : G := t8 ◇ t10
+  let t12 : G := t7 ◇ t11
+  let t13 : G := t8 ◇ z
+  let t14 : G := t7 ◇ t13
+  let t15 : G := t7 ◇ t14
+  let t16 : G := t15 ◇ t14
+  let t17 : G := t7 ◇ t16
+  let t18 : G := t12 ◇ t17
+  let t19 : G := t1 ◇ t14
+  let t20 : G := t19 ◇ t14
+  let t21 : G := t1 ◇ t20
+  let t22 : G := t7 ◇ t21
+  let t23 : G := t22 ◇ t14
+  let t24 : G := t23 ◇ t14
+  let t25 : G := t22 ◇ t24
+  let t26 : G := t9 ◇ t25
+  let t27 : G := t22 ◇ t5
+  let t28 : G := t27 ◇ t5
+  let t29 : G := t22 ◇ t28
+  let t30 : G := t22 ◇ t29
+  let t31 : G := t12 ◇ t25
+  let t32 : G := t22 ◇ z
+  let t33 : G := t32 ◇ z
+  let t34 : G := t22 ◇ t33
+  let t35 : G := y ◇ t34
+  have e2 : x = t7 := by
+    exact h x t1 x
+  have e3 : t7 = t18 := by
+    exact h t7 t12 t14
+  have e6 : t8 = t12 := by
+    exact h t8 t7 t5
+  have e5 : t12 = t8 := by
+    exact e6.symm
+  have e9 : t7 = x := by
+    exact e2.symm
+  have e13 : t7 = t15 := by
+    exact h t7 t7 z
+  have e12 : t15 = t7 := by
+    exact e13.symm
+  have e11 : t16 = t15 := by
+    exact congrArg (fun q => q ◇ t14) (e12)
+  have e10 : t16 = x := by
+    calc
+      t16 = t15 := e11
+      _ = t7 := e12
+      _ = x := e9
+  have e8 : t17 = t1 := by
+    calc
+      t17 = (x ◇ t16) := congrArg (fun q => q ◇ t16) (e9)
+      _ = t1 := congrArg (fun q => x ◇ q) (e10)
+  have e14 : t1 = t22 := by
+    exact h t1 t7 t14
+  have e15 : t22 = t26 := by
+    exact h t22 t9 t14
+  have e20 : t22 = t1 := by
+    exact e14.symm
+  have e24 : t23 = t19 := by
+    exact congrArg (fun q => q ◇ t14) (e20)
+  have e26 : t7 = t19 := by
+    exact h t7 t1 z
+  have e25 : t19 = t7 := by
+    exact e26.symm
+  have e23 : t23 = t7 := by
+    calc
+      t23 = t19 := e24
+      _ = t7 := e25
+  have e22 : t24 = t15 := by
+    exact congrArg (fun q => q ◇ t14) (e23)
+  have e21 : t24 = x := by
+    calc
+      t24 = t15 := e22
+      _ = t7 := e12
+      _ = x := e9
+  have e19 : t25 = t5 := by
+    calc
+      t25 = (t1 ◇ t24) := congrArg (fun q => q ◇ t24) (e20)
+      _ = t5 := congrArg (fun q => t1 ◇ q) (e21)
+  have e18 : t5 = t25 := by
+    exact e19.symm
+  have e17 : t10 = t26 := by
+    exact congrArg (fun q => t9 ◇ q) (e18)
+  have e16 : t26 = t10 := by
+    exact e17.symm
+  have e7 : t17 = t10 := by
+    calc
+      t17 = t1 := e8
+      _ = t22 := e14
+      _ = t26 := e15
+      _ = t10 := e16
+  have e4 : t18 = t11 := by
+    calc
+      t18 = (t8 ◇ t17) := congrArg (fun q => q ◇ t17) (e5)
+      _ = t11 := congrArg (fun q => t8 ◇ q) (e7)
+  have e29 : t26 = t22 := by
+    exact e15.symm
+  have e30 : t22 = t30 := by
+    exact h t22 t22 t5
+  have e41 : t22 = t31 := by
+    exact h t22 t12 t14
+  have e43 : t9 = t31 := by
+    calc
+      t9 = (t12 ◇ t5) := congrArg (fun q => q ◇ t5) (e6)
+      _ = t31 := congrArg (fun q => t12 ◇ q) (e18)
+  have e42 : t31 = t9 := by
+    exact e43.symm
+  have e40 : t22 = t9 := by
+    calc
+      t22 = t31 := e41
+      _ = t9 := e42
+  have e39 : t27 = t10 := by
+    exact congrArg (fun q => q ◇ t5) (e40)
+  have e38 : t27 = t9 := by
+    calc
+      t27 = t10 := e39
+      _ = t26 := e17
+      _ = t22 := e29
+      _ = t31 := e41
+      _ = t9 := e42
+  have e37 : t28 = t10 := by
+    exact congrArg (fun q => q ◇ t5) (e38)
+  have e49 : t20 = t15 := by
+    exact congrArg (fun q => q ◇ t14) (e25)
+  have e48 : t20 = x := by
+    calc
+      t20 = t15 := e49
+      _ = t7 := e12
+      _ = x := e9
+  have e47 : t21 = t5 := by
+    exact congrArg (fun q => t1 ◇ q) (e48)
+  have e46 : t5 = t21 := by
+    exact e47.symm
+  have e45 : t6 = t22 := by
+    calc
+      t6 = (t7 ◇ t5) := congrArg (fun q => q ◇ t5) (e2)
+      _ = t22 := congrArg (fun q => t7 ◇ q) (e46)
+  have e44 : t22 = t6 := by
+    exact e45.symm
+  have e36 : t28 = t6 := by
+    calc
+      t28 = t10 := e37
+      _ = t26 := e17
+      _ = t22 := e29
+      _ = t6 := e44
+  have e35 : t29 = t7 := by
+    calc
+      t29 = (t1 ◇ t28) := congrArg (fun q => q ◇ t28) (e20)
+      _ = t7 := congrArg (fun q => t1 ◇ q) (e36)
+  have e34 : t7 = t29 := by
+    exact e35.symm
+  have e33 : x = t29 := by
+    calc
+      x = t7 := e2
+      _ = t29 := e34
+  have e32 : t5 = t30 := by
+    calc
+      t5 = (t22 ◇ x) := congrArg (fun q => q ◇ x) (e14)
+      _ = t30 := congrArg (fun q => t22 ◇ q) (e33)
+  have e31 : t30 = t5 := by
+    exact e32.symm
+  have e28 : t10 = t5 := by
+    calc
+      t10 = t26 := e17
+      _ = t22 := e29
+      _ = t30 := e30
+      _ = t5 := e31
+  have e27 : t11 = t9 := by
+    exact congrArg (fun q => t8 ◇ q) (e28)
+  have e50 : t31 = t22 := by
+    exact e41.symm
+  have e51 : t22 = t35 := by
+    exact h t22 y z
+  have e56 : x = t1 := by
+    calc
+      x = t7 := e2
+      _ = t18 := e3
+      _ = t11 := e4
+      _ = t9 := e27
+      _ = t31 := e43
+      _ = t22 := e50
+      _ = t1 := e20
+  have e60 : t9 = t11 := by
+    exact e27.symm
+  have e61 : t11 = t18 := by
+    exact e4.symm
+  have e62 : t18 = t7 := by
+    exact e3.symm
+  have e59 : t1 = t7 := by
+    calc
+      t1 = t22 := e14
+      _ = t31 := e41
+      _ = t9 := e42
+      _ = t11 := e60
+      _ = t18 := e61
+      _ = t7 := e62
+  have e58 : t2 = t8 := by
+    exact congrArg (fun q => q ◇ z) (e59)
+  have e64 : t11 = x := by
+    calc
+      t11 = t18 := e61
+      _ = t7 := e62
+      _ = x := e9
+  have e63 : t12 = t1 := by
+    calc
+      t12 = (x ◇ t11) := congrArg (fun q => q ◇ t11) (e9)
+      _ = t1 := congrArg (fun q => x ◇ q) (e64)
+  have e57 : t2 = t6 := by
+    calc
+      t2 = t8 := e58
+      _ = t12 := e6
+      _ = t1 := e63
+      _ = t22 := e14
+      _ = t6 := e44
+  have e55 : t3 = t7 := by
+    calc
+      t3 = (t1 ◇ t2) := congrArg (fun q => q ◇ t2) (e56)
+      _ = t7 := congrArg (fun q => t1 ◇ q) (e57)
+  have e70 : t32 = t2 := by
+    exact congrArg (fun q => q ◇ z) (e20)
+  have e69 : t32 = t1 := by
+    calc
+      t32 = t2 := e70
+      _ = t8 := e58
+      _ = t12 := e6
+      _ = t1 := e63
+  have e68 : t33 = t2 := by
+    exact congrArg (fun q => q ◇ z) (e69)
+  have e67 : t33 = t6 := by
+    calc
+      t33 = t2 := e68
+      _ = t8 := e58
+      _ = t12 := e6
+      _ = t1 := e63
+      _ = t22 := e14
+      _ = t6 := e44
+  have e66 : t34 = t7 := by
+    calc
+      t34 = (t1 ◇ t33) := congrArg (fun q => q ◇ t33) (e20)
+      _ = t7 := congrArg (fun q => t1 ◇ q) (e67)
+  have e65 : t7 = t34 := by
+    exact e66.symm
+  have e54 : t3 = t34 := by
+    calc
+      t3 = t7 := e55
+      _ = t34 := e65
+  have e53 : t4 = t35 := by
+    exact congrArg (fun q => y ◇ q) (e54)
+  have e52 : t35 = t4 := by
+    exact e53.symm
+  have e1 : x = t4 := by
+    calc
+      x = t7 := e2
+      _ = t18 := e3
+      _ = t11 := e4
+      _ = t9 := e27
+      _ = t31 := e43
+      _ = t22 := e50
+      _ = t35 := e51
+      _ = t4 := e52
+  exact e1
+""",
+    },
 ]
 
 # Judge-verified hand proofs from claude_attempt/. These are intentionally
@@ -119,7 +403,603 @@ def submission : Goal := by
 # ATP-derived exact certificates. These are narrow, judge-tested Lean
 # certificates mined from external proof search and guarded by equation IDs
 # or exact alpha-normalized forms. They are not general-purpose schemas.
-ATP_EXACT_CERTIFICATES = [
+_ATP_EXACT_CERTS_FROM_WITNESS_LITERAL = []
+if WITNESS_BANK and WITNESS_BANK[-1].get("name") == "z3_true_674_668_min":
+    _ATP_EXACT_CERTS_FROM_WITNESS_LITERAL.append(WITNESS_BANK.pop())
+
+ATP_EXACT_CERTIFICATES = _ATP_EXACT_CERTS_FROM_WITNESS_LITERAL + [
+    {
+        "name": "eprover_normal_0260_universal_op",
+        "eq1_id": 1808,
+        "eq2_id": 3695,
+        "eq1_canonical": "v0=((v1◇v2)◇((v3◇v0)◇v2))",
+        "eq2_canonical": "(v0◇v0)=((v1◇v2)◇(v0◇v1))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x y z
+  have collapse : ∀ (a b c d : G), (a ◇ ((b ◇ c) ◇ d)) ◇ c = d := by
+    intro a b c d
+    have src : (a ◇ d) ◇ ((b ◇ c) ◇ d) = c := (h c a d b).symm
+    have tgt : d = (a ◇ ((b ◇ c) ◇ d)) ◇ ((a ◇ d) ◇ ((b ◇ c) ◇ d)) := h d a ((b ◇ c) ◇ d) a
+    exact (tgt.trans (congrArg (fun q => (a ◇ ((b ◇ c) ◇ d)) ◇ q) src)).symm
+  have anyop : ∀ (p q r : G), p ◇ q = r := by
+    intro p q r
+    let k : G := (p ◇ q) ◇ r
+    have src : (p ◇ ((p ◇ k) ◇ p)) ◇ k = p := collapse p p k p
+    have tgt : ((p ◇ ((p ◇ k) ◇ p)) ◇ k) ◇ q = r := collapse (p ◇ ((p ◇ k) ◇ p)) p q r
+    exact (congrArg (fun u => u ◇ q) src).symm.trans tgt
+  exact anyop x x ((y ◇ z) ◇ (x ◇ y))
+""",
+    },
+    {
+        "name": "eprover_normal_0227_right_anchor_collapse",
+        "eq1_id": 2377,
+        "eq2_id": 1139,
+        "eq1_canonical": "v0=((v1◇(v2◇(v0◇v3)))◇v1)",
+        "eq2_canonical": "v0=(v1◇((v1◇(v2◇v2))◇v2))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x y z
+  have collapse : ∀ (a b c : G), (a ◇ b) ◇ a = c := by
+    intro a b c
+    let u : G := c ◇ a
+    let t : G := u ◇ (a ◇ (b ◇ a))
+    have src : t ◇ u = b := (h b u a a).symm
+    have tgt : c = (a ◇ (t ◇ u)) ◇ a := h c a t a
+    exact (tgt.trans (congrArg (fun q => (a ◇ q) ◇ a) src)).symm
+  have singleton : ∀ (a b : G), a = b := by
+    intro a b
+    exact (collapse a a a).symm.trans (collapse a a b)
+  exact singleton x (y ◇ ((y ◇ (z ◇ z)) ◇ z))
+""",
+    },
+    {
+        "name": "eprover_normal_0126_idem_right_abs_singleton",
+        "eq1_id": 3110,
+        "eq2_id": 4441,
+        "eq1_canonical": "v0=((((v1◇v0)◇v0)◇v2)◇v2)",
+        "eq2_canonical": "(v0◇(v1◇v0))=((v0◇v2)◇v3)",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x y z w
+  have idem : ∀ (a : G), a ◇ a = a := by
+    intro a
+    have outer : a = (((((a ◇ a) ◇ a) ◇ a) ◇ a) ◇ a) := h a (a ◇ a) a
+    have inner : ((((a ◇ a) ◇ a) ◇ a) ◇ a) = a := (h a a a).symm
+    exact (outer.trans (congrArg (fun q => q ◇ a) inner)).symm
+  have rightAbs : ∀ (a b : G), (a ◇ b) ◇ b = b := by
+    intro a b
+    let s : G := (a ◇ b) ◇ b
+    have seed : b = (s ◇ s) ◇ s := h b a s
+    have step : (s ◇ s) ◇ s = s ◇ s := congrArg (fun q => q ◇ s) (idem s)
+    exact (seed.trans (step.trans (idem s))).symm
+  have singleton : ∀ (a b : G), a = b := by
+    intro a b
+    have seed : a = ((((b ◇ a) ◇ a) ◇ b) ◇ b) := h a b b
+    have step1 : ((((b ◇ a) ◇ a) ◇ b) ◇ b) = (a ◇ b) ◇ b :=
+      congrArg (fun q => (q ◇ b) ◇ b) (rightAbs b a)
+    exact seed.trans (step1.trans (rightAbs a b))
+  exact singleton (x ◇ (y ◇ x)) ((x ◇ z) ◇ w)
+""",
+    },
+    {
+        "name": "eprover_normal_0092_universal_op",
+        "eq1_id": 2581,
+        "eq2_id": 444,
+        "eq1_canonical": "v0=((v1◇((v2◇v0)◇v3))◇v2)",
+        "eq2_canonical": "v0=(v0◇(v1◇(v1◇(v2◇v2))))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x y z
+  have anyop : ∀ (p q r : G), p ◇ q = r := by
+    intro p q r
+    let k : G := (q ◇ r) ◇ p
+    have src : (p ◇ ((k ◇ p) ◇ p)) ◇ k = p := (h p p k p).symm
+    have tgt : r = ((p ◇ ((k ◇ p) ◇ p)) ◇ k) ◇ q := h r (p ◇ ((k ◇ p) ◇ p)) q p
+    exact (congrArg (fun u => u ◇ q) src).symm.trans tgt.symm
+  have singleton : ∀ (a b : G), a = b := by
+    intro a b
+    exact (anyop a a a).symm.trans (anyop a a b)
+  exact singleton x (x ◇ (y ◇ (y ◇ (z ◇ z))))
+""",
+    },
+    {
+        "name": "eprover_true_2055_2656_l4_l15",
+        "eq1_id": 2055,
+        "eq2_id": 2656,
+        "eq1_canonical": "v0=(((v0◇v1)◇v0)◇(v1◇v2))",
+        "eq2_canonical": "v0=(((v0◇v0)◇(v1◇v2))◇v1)",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z\n  have l4 : ∀ (a b : G), a ◇ (a ◇ b) = a ◇ a := by\n    intro a b\n    calc\n      a ◇ (a ◇ b) = ((((a ◇ a) ◇ a) ◇ (a ◇ a)) ◇ (a ◇ b)) := congrArg (fun t => t ◇ (a ◇ b)) (h a a a)\n      _ = a ◇ a := (h (a ◇ a) a b).symm\n  have l5 : ∀ (a b c : G), (((a ◇ ((b ◇ c) ◇ b)) ◇ a) ◇ b) = a := by\n    intro a b c\n    calc\n      (((a ◇ ((b ◇ c) ◇ b)) ◇ a) ◇ b) = (((a ◇ ((b ◇ c) ◇ b)) ◇ a) ◇ (((b ◇ c) ◇ b) ◇ (c ◇ a))) := congrArg (fun t => (((a ◇ ((b ◇ c) ◇ b)) ◇ a) ◇ t)) (h b c a)\n      _ = a := (h a ((b ◇ c) ◇ b) (c ◇ a)).symm\n  have l6 : ∀ (a b c : G), (((a ◇ a) ◇ a) ◇ ((a ◇ b) ◇ c)) = a := by\n    intro a b c\n    calc\n      (((a ◇ a) ◇ a) ◇ ((a ◇ b) ◇ c)) = (((a ◇ (a ◇ b)) ◇ a) ◇ ((a ◇ b) ◇ c)) := congrArg (fun q => ((q ◇ a) ◇ ((a ◇ b) ◇ c))) (l4 a b).symm\n      _ = a := (h a (a ◇ b) c).symm\n  have l7 : ∀ (a : G), ((a ◇ ((a ◇ a) ◇ a)) ◇ a) = ((a ◇ a) ◇ a) := by\n    intro a\n    let t : G := (a ◇ a) ◇ a\n    calc\n      ((a ◇ t) ◇ a) = (((t ◇ ((a ◇ a) ◇ a)) ◇ t) ◇ a) := congrArg (fun q => ((q ◇ t) ◇ a)) (l6 a a a).symm\n      _ = t := l5 t a a\n  have l8 : ∀ (a : G), a ◇ ((a ◇ a) ◇ a) = a ◇ a := by\n    intro a\n    let t : G := (a ◇ a) ◇ a\n    let u : G := a ◇ t\n    let v : G := u ◇ a\n    have vt : v = t := l7 a\n    have tt : t ◇ t = a := l6 a a a\n    have va : v ◇ a = a := l5 a a a\n    have cube : ((t ◇ t) ◇ t) = ((v ◇ v) ◇ v) := congrArg (fun q => (q ◇ q) ◇ q) vt.symm\n    have p1 : u ◇ u = (((v ◇ v) ◇ v) ◇ ((v ◇ a) ◇ t)) := by\n      calc\n        u ◇ u = ((t ◇ t) ◇ t) ◇ u := congrArg (fun q => (q ◇ t) ◇ u) tt.symm\n        _ = ((v ◇ v) ◇ v) ◇ u := congrArg (fun q => q ◇ u) cube\n        _ = ((v ◇ v) ◇ v) ◇ ((v ◇ a) ◇ t) := congrArg (fun q => ((v ◇ v) ◇ v) ◇ (q ◇ t)) va.symm\n    have p2 : u ◇ u = v := p1.trans (l6 v a t)\n    have p3 : u ◇ u = t := p2.trans vt\n    have left : ((u ◇ u) ◇ u) = a := (congrArg (fun q => q ◇ u) p3).trans (h a a t).symm\n    have right : v ◇ t = a := (congrArg (fun q => q ◇ t) vt).trans tt\n    calc\n      u = (((u ◇ u) ◇ u) ◇ (v ◇ t)) := (l6 u a t).symm\n      _ = a ◇ (v ◇ t) := congrArg (fun q => q ◇ (v ◇ t)) left\n      _ = a ◇ a := congrArg (fun q => a ◇ q) right\n  have l9 : ∀ (a b : G), (a ◇ a) ◇ (a ◇ b) = (a ◇ a) ◇ a := by\n    intro a b\n    let t : G := (a ◇ a) ◇ a\n    have tt : t ◇ t = a := l6 a a a\n    have left : (a ◇ a) = (t ◇ t) ◇ t := (l8 a).symm.trans (congrArg (fun q => q ◇ t) tt.symm)\n    have right : a ◇ b = (t ◇ t) ◇ b := congrArg (fun q => q ◇ b) tt.symm\n    calc\n      (a ◇ a) ◇ (a ◇ b) = ((t ◇ t) ◇ t) ◇ ((t ◇ t) ◇ b) := (congrArg (fun q => q ◇ (a ◇ b)) left).trans (congrArg (fun q => ((t ◇ t) ◇ t) ◇ q) right)\n      _ = t := l6 t t b\n  have l11 : ∀ (a b c : G), a ◇ ((a ◇ b) ◇ c) = a ◇ a := by\n    intro a b c\n    let s : G := a ◇ a\n    let r : G := (a ◇ b) ◇ c\n    have p : a = ((s ◇ (a ◇ b)) ◇ s) := (h a a a).trans (congrArg (fun q => q ◇ s) (l9 a b).symm)\n    calc\n      a ◇ r = (((s ◇ (a ◇ b)) ◇ s) ◇ r) := congrArg (fun q => q ◇ r) p\n      _ = s := (h s (a ◇ b) c).symm\n  have l13 : ∀ (a b c : G), ((a ◇ (b ◇ c)) ◇ a) = ((a ◇ a) ◇ b) := by\n    intro a b c\n    let p : G := (a ◇ (b ◇ c)) ◇ a\n    have hp : (p ◇ ((b ◇ c) ◇ b)) = a := (h a (b ◇ c) b).symm\n    have inter : ((a ◇ p) ◇ b) = p := by\n      calc\n        ((a ◇ p) ◇ b) = (((p ◇ ((b ◇ c) ◇ b)) ◇ p) ◇ b) := congrArg (fun q => ((q ◇ p) ◇ b)) hp.symm\n        _ = p := l5 p b c\n    exact inter.symm.trans (congrArg (fun q => q ◇ b) (l11 a (b ◇ c) a))\n  have l15 : ∀ (a b c : G), (((a ◇ a) ◇ (b ◇ c)) ◇ b) = a := by\n    intro a b c\n    calc\n      (((a ◇ a) ◇ (b ◇ c)) ◇ b) = (((a ◇ ((b ◇ c) ◇ b)) ◇ a) ◇ b) := congrArg (fun q => q ◇ b) (l13 a (b ◇ c) b).symm\n      _ = a := l5 a b c\n  exact (l15 x y z).symm\n',
+    },
+    {
+        "name": "z3_true_2771_2775_alias4",
+        "eq1_id": 2771,
+        "eq2_id": 2775,
+        "eq1_canonical": "v0=(((v1◇v2)◇(v0◇v0))◇v1)",
+        "eq2_canonical": "v0=(((v1◇v2)◇(v0◇v1))◇v1)",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  let t1 : G := (x ◇ x)\n  let t2 : G := (x ◇ y)\n  let t3 : G := (y ◇ z)\n  let t4 : G := (z ◇ z)\n  let t5 : G := (t1 ◇ t1)\n  let t6 : G := (t2 ◇ t2)\n  let t7 : G := (t2 ◇ t3)\n  let t8 : G := (t2 ◇ t4)\n  let t9 : G := (t3 ◇ t2)\n  let t10 : G := (t3 ◇ t3)\n  let t11 : G := (t4 ◇ t4)\n  let t12 : G := (t5 ◇ x)\n  let t13 : G := (t9 ◇ y)\n  let t14 : G := (t7 ◇ t4)\n  let t15 : G := (t2 ◇ t11)\n  let t16 : G := (t8 ◇ t11)\n  let t17 : G := (t9 ◇ t11)\n  let t18 : G := (t10 ◇ t10)\n  let t19 : G := (t11 ◇ t11)\n  let t20 : G := (t13 ◇ t4)\n  let t21 : G := (t15 ◇ x)\n  let t22 : G := (t14 ◇ t2)\n  let t23 : G := (t16 ◇ t2)\n  let t24 : G := (t17 ◇ t3)\n  let t25 : G := (t18 ◇ t3)\n  let t26 : G := (t19 ◇ t4)\n  let t27 : G := (t17 ◇ t17)\n  let t28 : G := (y ◇ t22)\n  let t30 : G := (t20 ◇ t11)\n  let t31 : G := (t22 ◇ t22)\n  let t32 : G := (t3 ◇ t27)\n  let t33 : G := (t25 ◇ t27)\n  let t34 : G := (t28 ◇ t11)\n  let t36 : G := (t2 ◇ t31)\n  let t37 : G := (t31 ◇ t11)\n  let t38 : G := (t22 ◇ t31)\n  let t40 : G := (t32 ◇ t18)\n  let t41 : G := (t31 ◇ t31)\n  let t42 : G := (t33 ◇ t18)\n  let t43 : G := (t34 ◇ y)\n  let t44 : G := (x ◇ t38)\n  let t45 : G := (y ◇ t38)\n  let t46 : G := (t37 ◇ t22)\n  let t47 : G := (t38 ◇ t6)\n  let t48 : G := (t38 ◇ t10)\n  let t49 : G := (t40 ◇ t3)\n  let t50 : G := (t38 ◇ t14)\n  let t51 : G := (t16 ◇ t38)\n  let t52 : G := (t2 ◇ t41)\n  let t53 : G := (t4 ◇ t41)\n  let t54 : G := (t30 ◇ t38)\n  let t56 : G := (t41 ◇ t22)\n  let t57 : G := (t38 ◇ t38)\n  let t59 : G := (t41 ◇ t41)\n  let t60 : G := (t44 ◇ t1)\n  let t62 : G := (t46 ◇ t11)\n  let t63 : G := (t51 ◇ t10)\n  let t64 : G := (t50 ◇ t31)\n  let t67 : G := (t2 ◇ t57)\n  let t68 : G := (t57 ◇ t10)\n  let t69 : G := (t8 ◇ t57)\n  let t70 : G := (t22 ◇ t57)\n  let t71 : G := (t28 ◇ t57)\n  let t73 : G := (t47 ◇ t57)\n  let t74 : G := (t48 ◇ t57)\n  let t75 : G := (t59 ◇ t31)\n  let t76 : G := (t51 ◇ t57)\n  let t77 : G := (t52 ◇ t57)\n  let t78 : G := (t53 ◇ t57)\n  let t79 : G := (t54 ◇ t57)\n  let t80 : G := (t56 ◇ t57)\n  let t81 : G := (t60 ◇ x)\n  let t82 : G := (t63 ◇ t16)\n  let t84 : G := (t62 ◇ t37)\n  let t86 : G := (t64 ◇ t38)\n  let t87 : G := (t68 ◇ t38)\n  let t88 : G := (t78 ◇ t4)\n  let t89 : G := (t76 ◇ t16)\n  let t94 : G := (t73 ◇ t38)\n  let t95 : G := (t74 ◇ t38)\n  let t96 : G := (t79 ◇ t38)\n  let t97 : G := (t75 ◇ t41)\n  let t98 : G := (t80 ◇ t41)\n  let t101 : G := (t5 ◇ t81)\n  let t103 : G := (t81 ◇ t38)\n  let t104 : G := (t82 ◇ t27)\n  let t105 : G := (t96 ◇ t57)\n  let t106 : G := (t103 ◇ t5)\n  let t107 : G := (t101 ◇ t57)\n  let t108 : G := (t105 ◇ t38)\n  let t109 : G := (t106 ◇ t81)\n  let t110 : G := (t107 ◇ t5)\n  let t111 : G := (t108 ◇ t57)\n  let t112 : G := (t111 ◇ t38)\n  let t113 : G := (t112 ◇ t57)\n  let t114 : G := (t113 ◇ t38)\n  let t115 : G := (t114 ◇ t57)\n  let t116 : G := (t115 ◇ t38)\n  let t117 : G := (t116 ◇ t6)\n  let t118 : G := (t117 ◇ t115)\n  let t120 : G := (t118 ◇ t118)\n  let t121 : G := (t45 ◇ t120)\n  let t122 : G := (t57 ◇ t120)\n  let t123 : G := (t122 ◇ t38)\n  have e1 : x = t12 := by\n    exact h x x x\n  have e2 : t1 = t109 := by\n    exact h t1 t81 t38\n  have e3 : x = t81 := by\n    exact h x x t38\n  have e4 : t81 = x := by\n    exact e3.symm\n  have e5 : t103 = t44 := by\n    exact congrArg (fun q => (q ◇ t38)) (e4)\n  have e6 : t101 = t12 := by\n    exact congrArg (fun q => (t5 ◇ q)) (e4)\n  have e7 : t12 = x := by\n    exact e1.symm\n  have e8 : t101 = x := by\n    exact by\n      calc\n        t101 = t12 := e6\n        _ = x := e7\n  have e9 : t22 = t50 := by\n    exact h t22 t14 t2\n  have e10 : t50 = t22 := by\n    exact e9.symm\n  have e11 : t64 = t38 := by\n    exact congrArg (fun q => (q ◇ t31)) (e10)\n  have e12 : t38 = t64 := by\n    exact e11.symm\n  have e13 : t57 = t86 := by\n    exact congrArg (fun q => (q ◇ t38)) (e12)\n  have e14 : t22 = t86 := by\n    exact h t22 t38 t14\n  have e15 : t86 = t22 := by\n    exact e14.symm\n  have e16 : t22 = t97 := by\n    exact h t22 t41 t41\n  have e17 : z = t22 := by\n    exact h z t2 t3\n  have e18 : t22 = z := by\n    exact e17.symm\n  have e19 : t31 = t4 := by\n    exact by\n      calc\n        t31 = (z ◇ t22) := congrArg (fun q => (q ◇ t22)) (e18)\n        _ = t4 := congrArg (fun q => (z ◇ q)) (e18)\n  have e20 : t4 = t31 := by\n    exact e19.symm\n  have e21 : t11 = t41 := by\n    exact by\n      calc\n        t11 = (t31 ◇ t4) := congrArg (fun q => (q ◇ t4)) (e20)\n        _ = t41 := congrArg (fun q => (t31 ◇ q)) (e20)\n  have e22 : t41 = t11 := by\n    exact e21.symm\n  have e23 : t59 = t19 := by\n    exact by\n      calc\n        t59 = (t11 ◇ t41) := congrArg (fun q => (q ◇ t41)) (e22)\n        _ = t19 := congrArg (fun q => (t11 ◇ q)) (e22)\n  have e24 : t75 = t26 := by\n    exact by\n      calc\n        t75 = (t19 ◇ t31) := congrArg (fun q => (q ◇ t31)) (e23)\n        _ = t26 := congrArg (fun q => (t19 ◇ q)) (e19)\n  have e25 : t4 = t26 := by\n    exact h t4 t4 t4\n  have e26 : t26 = t4 := by\n    exact e25.symm\n  have e27 : t75 = t31 := by\n    exact by\n      calc\n        t75 = t26 := e24\n        _ = t4 := e26\n        _ = t31 := e20\n  have e28 : t97 = t37 := by\n    exact by\n      calc\n        t97 = (t31 ◇ t41) := congrArg (fun q => (q ◇ t41)) (e27)\n        _ = t37 := congrArg (fun q => (t31 ◇ q)) (e22)\n  have e29 : t57 = z := by\n    exact by\n      calc\n        t57 = t86 := e13\n        _ = t22 := e15\n        _ = z := e18\n  have e30 : t70 = t4 := by\n    exact by\n      calc\n        t70 = (z ◇ t57) := congrArg (fun q => (q ◇ t57)) (e18)\n        _ = t4 := congrArg (fun q => (z ◇ q)) (e29)\n  have e31 : t4 = t70 := by\n    exact e30.symm\n  have e32 : t22 = t56 := by\n    exact h t22 t22 t22\n  have e33 : t56 = t22 := by\n    exact e32.symm\n  have e34 : t80 = t70 := by\n    exact congrArg (fun q => (q ◇ t57)) (e33)\n  have e35 : t70 = t80 := by\n    exact e34.symm\n  have e36 : t31 = t80 := by\n    exact by\n      calc\n        t31 = t4 := e19\n        _ = t70 := e31\n        _ = t80 := e35\n  have e37 : t37 = t98 := by\n    exact by\n      calc\n        t37 = (t80 ◇ t11) := congrArg (fun q => (q ◇ t11)) (e36)\n        _ = t98 := congrArg (fun q => (t80 ◇ q)) (e21)\n  have e38 : t38 = t98 := by\n    exact h t38 t41 t22\n  have e39 : t98 = t38 := by\n    exact e38.symm\n  have e40 : t57 = t38 := by\n    exact by\n      calc\n        t57 = t86 := e13\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n  have e41 : t107 = t44 := by\n    exact by\n      calc\n        t107 = (x ◇ t57) := congrArg (fun q => (q ◇ t57)) (e8)\n        _ = t44 := congrArg (fun q => (x ◇ q)) (e40)\n  have e42 : t44 = t107 := by\n    exact e41.symm\n  have e43 : t103 = t107 := by\n    exact by\n      calc\n        t103 = t44 := e5\n        _ = t107 := e42\n  have e44 : t106 = t110 := by\n    exact congrArg (fun q => (q ◇ t5)) (e43)\n  have e45 : t38 = t110 := by\n    exact h t38 t5 t81\n  have e46 : t110 = t38 := by\n    exact e45.symm\n  have e47 : t38 = t94 := by\n    exact h t38 t38 t6\n  have e48 : t2 = t118 := by\n    exact h t2 t115 t38\n  have e49 : t118 = t123 := by\n    exact h t118 t38 t38\n  have e50 : t38 = t89 := by\n    exact h t38 t16 t38\n  have e51 : t10 = t49 := by\n    exact h t10 t3 t27\n  have e52 : t3 = t82 := by\n    exact h t3 t16 t38\n  have e53 : t32 = t104 := by\n    exact congrArg (fun q => (q ◇ t27)) (e52)\n  have e54 : t3 = t25 := by\n    exact h t3 t3 t3\n  have e55 : t25 = t3 := by\n    exact e54.symm\n  have e56 : t25 = t82 := by\n    exact by\n      calc\n        t25 = t3 := e55\n        _ = t82 := e52\n  have e57 : t33 = t104 := by\n    exact congrArg (fun q => (q ◇ t27)) (e56)\n  have e58 : t104 = t33 := by\n    exact e57.symm\n  have e59 : t32 = t33 := by\n    exact by\n      calc\n        t32 = t104 := e53\n        _ = t33 := e58\n  have e60 : t40 = t42 := by\n    exact congrArg (fun q => (q ◇ t18)) (e59)\n  have e61 : t17 = t42 := by\n    exact h t17 t18 t3\n  have e62 : t42 = t17 := by\n    exact e61.symm\n  have e63 : t40 = t17 := by\n    exact by\n      calc\n        t40 = t42 := e60\n        _ = t17 := e62\n  have e64 : t49 = t24 := by\n    exact congrArg (fun q => (q ◇ t3)) (e63)\n  have e65 : t4 = t24 := by\n    exact h t4 t3 t2\n  have e66 : t24 = t4 := by\n    exact e65.symm\n  have e67 : t4 = t84 := by\n    exact h t4 t37 t22\n  have e68 : t4 = t46 := by\n    exact h t4 t22 t22\n  have e69 : t46 = t4 := by\n    exact e68.symm\n  have e70 : t46 = t31 := by\n    exact by\n      calc\n        t46 = t4 := e69\n        _ = t31 := e20\n  have e71 : t62 = t37 := by\n    exact congrArg (fun q => (q ◇ t11)) (e70)\n  have e72 : t62 = t64 := by\n    exact by\n      calc\n        t62 = t37 := e71\n        _ = t98 := e37\n        _ = t38 := e39\n        _ = t64 := e12\n  have e73 : t37 = t38 := by\n    exact by\n      calc\n        t37 = t98 := e37\n        _ = t38 := e39\n  have e74 : t84 = t86 := by\n    exact by\n      calc\n        t84 = (t64 ◇ t37) := congrArg (fun q => (q ◇ t37)) (e72)\n        _ = t86 := congrArg (fun q => (t64 ◇ q)) (e73)\n  have e75 : t86 = t57 := by\n    exact e13.symm\n  have e76 : t10 = t57 := by\n    exact by\n      calc\n        t10 = t49 := e51\n        _ = t24 := e64\n        _ = t4 := e66\n        _ = t84 := e67\n        _ = t86 := e74\n        _ = t57 := e75\n  have e77 : t63 = t76 := by\n    exact congrArg (fun q => (t51 ◇ q)) (e76)\n  have e78 : t82 = t89 := by\n    exact congrArg (fun q => (q ◇ t16)) (e77)\n  have e79 : t89 = t82 := by\n    exact e78.symm\n  have e80 : t82 = t3 := by\n    exact e52.symm\n  have e81 : t98 = t37 := by\n    exact e37.symm\n  have e82 : t37 = t97 := by\n    exact e28.symm\n  have e83 : t97 = t22 := by\n    exact e16.symm\n  have e84 : t38 = z := by\n    exact by\n      calc\n        t38 = t98 := e38\n        _ = t37 := e81\n        _ = t97 := e82\n        _ = t22 := e83\n        _ = z := e18\n  have e85 : t45 = t3 := by\n    exact congrArg (fun q => (y ◇ q)) (e84)\n  have e86 : t3 = t45 := by\n    exact e85.symm\n  have e87 : t38 = t45 := by\n    exact by\n      calc\n        t38 = t89 := e50\n        _ = t82 := e79\n        _ = t3 := e80\n        _ = t45 := e86\n  have e88 : t118 = t2 := by\n    exact e48.symm\n  have e89 : t120 = t6 := by\n    exact by\n      calc\n        t120 = (t2 ◇ t118) := congrArg (fun q => (q ◇ t118)) (e88)\n        _ = t6 := congrArg (fun q => (t2 ◇ q)) (e88)\n  have e90 : t6 = t120 := by\n    exact e89.symm\n  have e91 : t47 = t121 := by\n    exact by\n      calc\n        t47 = (t45 ◇ t6) := congrArg (fun q => (q ◇ t6)) (e87)\n        _ = t121 := congrArg (fun q => (t45 ◇ q)) (e90)\n  have e92 : t57 = t45 := by\n    exact by\n      calc\n        t57 = t86 := e13\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n        _ = t89 := e50\n        _ = t82 := e79\n        _ = t3 := e80\n        _ = t45 := e86\n  have e93 : t122 = t121 := by\n    exact congrArg (fun q => (q ◇ t120)) (e92)\n  have e94 : t121 = t122 := by\n    exact e93.symm\n  have e95 : t47 = t122 := by\n    exact by\n      calc\n        t47 = t121 := e91\n        _ = t122 := e94\n  have e96 : t73 = t123 := by\n    exact by\n      calc\n        t73 = (t122 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e95)\n        _ = t123 := congrArg (fun q => (t122 ◇ q)) (e40)\n  have e97 : t123 = t73 := by\n    exact e96.symm\n  have e98 : t2 = t73 := by\n    exact by\n      calc\n        t2 = t118 := e48\n        _ = t123 := e49\n        _ = t73 := e97\n  have e99 : t67 = t94 := by\n    exact by\n      calc\n        t67 = (t73 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e98)\n        _ = t94 := congrArg (fun q => (t73 ◇ q)) (e40)\n  have e100 : t94 = t67 := by\n    exact e99.symm\n  have e101 : t53 = t37 := by\n    exact by\n      calc\n        t53 = (t31 ◇ t41) := congrArg (fun q => (q ◇ t41)) (e20)\n        _ = t37 := congrArg (fun q => (t31 ◇ q)) (e22)\n  have e102 : t57 = t22 := by\n    exact by\n      calc\n        t57 = t86 := e13\n        _ = t22 := e15\n  have e103 : t78 = t46 := by\n    exact by\n      calc\n        t78 = (t37 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e101)\n        _ = t46 := congrArg (fun q => (t37 ◇ q)) (e102)\n  have e104 : t46 = t78 := by\n    exact e103.symm\n  have e105 : t31 = t78 := by\n    exact by\n      calc\n        t31 = t4 := e19\n        _ = t46 := e68\n        _ = t78 := e104\n  have e106 : t41 = t88 := by\n    exact by\n      calc\n        t41 = (t78 ◇ t31) := congrArg (fun q => (q ◇ t31)) (e105)\n        _ = t88 := congrArg (fun q => (t78 ◇ q)) (e19)\n  have e107 : t38 = t88 := by\n    exact h t38 t4 t41\n  have e108 : t88 = t38 := by\n    exact e107.symm\n  have e109 : t11 = t57 := by\n    exact by\n      calc\n        t11 = t41 := e21\n        _ = t88 := e106\n        _ = t38 := e108\n        _ = t98 := e38\n        _ = t37 := e81\n        _ = t97 := e82\n        _ = t22 := e83\n        _ = t86 := e14\n        _ = t57 := e75\n  have e110 : t15 = t67 := by\n    exact congrArg (fun q => (t2 ◇ q)) (e109)\n  have e111 : t67 = t15 := by\n    exact e110.symm\n  have e112 : t106 = t15 := by\n    exact by\n      calc\n        t106 = t110 := e44\n        _ = t38 := e46\n        _ = t94 := e47\n        _ = t67 := e100\n        _ = t15 := e111\n  have e113 : t109 = t21 := by\n    exact by\n      calc\n        t109 = (t15 ◇ t81) := congrArg (fun q => (q ◇ t81)) (e112)\n        _ = t21 := congrArg (fun q => (t15 ◇ q)) (e4)\n  have e114 : t4 = t21 := by\n    exact h t4 x y\n  have e115 : t21 = t4 := by\n    exact e114.symm\n  have e116 : t1 = t64 := by\n    exact by\n      calc\n        t1 = t109 := e2\n        _ = t21 := e113\n        _ = t4 := e115\n        _ = t84 := e67\n        _ = t86 := e74\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n        _ = t64 := e12\n  have e117 : t1 = t38 := by\n    exact by\n      calc\n        t1 = t109 := e2\n        _ = t21 := e113\n        _ = t4 := e115\n        _ = t84 := e67\n        _ = t86 := e74\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n  have e118 : t5 = t86 := by\n    exact by\n      calc\n        t5 = (t64 ◇ t1) := congrArg (fun q => (q ◇ t1)) (e116)\n        _ = t86 := congrArg (fun q => (t64 ◇ q)) (e117)\n  have e119 : t5 = t15 := by\n    exact by\n      calc\n        t5 = t86 := e118\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n        _ = t94 := e47\n        _ = t67 := e100\n        _ = t15 := e111\n  have e120 : t12 = t21 := by\n    exact congrArg (fun q => (q ◇ x)) (e119)\n  have e121 : t4 = t43 := by\n    exact h t4 y t22\n  have e122 : t89 = t38 := by\n    exact e50.symm\n  have e123 : t52 = t15 := by\n    exact congrArg (fun q => (t2 ◇ q)) (e22)\n  have e124 : t94 = t38 := by\n    exact e47.symm\n  have e125 : t52 = t64 := by\n    exact by\n      calc\n        t52 = t15 := e123\n        _ = t67 := e110\n        _ = t94 := e99\n        _ = t38 := e124\n        _ = t64 := e12\n  have e126 : t77 = t86 := by\n    exact by\n      calc\n        t77 = (t64 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e125)\n        _ = t86 := congrArg (fun q => (t64 ◇ q)) (e40)\n  have e127 : t86 = t77 := by\n    exact e126.symm\n  have e128 : t8 = t36 := by\n    exact congrArg (fun q => (t2 ◇ q)) (e20)\n  have e129 : t31 = t57 := by\n    exact by\n      calc\n        t31 = t4 := e19\n        _ = t84 := e67\n        _ = t86 := e74\n        _ = t57 := e75\n  have e130 : t36 = t67 := by\n    exact congrArg (fun q => (t2 ◇ q)) (e129)\n  have e131 : t15 = t52 := by\n    exact e123.symm\n  have e132 : t8 = t52 := by\n    exact by\n      calc\n        t8 = t36 := e128\n        _ = t67 := e130\n        _ = t15 := e111\n        _ = t52 := e131\n  have e133 : t69 = t77 := by\n    exact congrArg (fun q => (q ◇ t57)) (e132)\n  have e134 : t77 = t69 := by\n    exact e133.symm\n  have e135 : t16 = t69 := by\n    exact congrArg (fun q => (t8 ◇ q)) (e109)\n  have e136 : t69 = t16 := by\n    exact e135.symm\n  have e137 : t3 = t16 := by\n    exact by\n      calc\n        t3 = t82 := e52\n        _ = t89 := e78\n        _ = t38 := e122\n        _ = t98 := e38\n        _ = t37 := e81\n        _ = t97 := e82\n        _ = t22 := e83\n        _ = t86 := e14\n        _ = t77 := e127\n        _ = t69 := e134\n        _ = t16 := e136\n  have e138 : t9 = t23 := by\n    exact congrArg (fun q => (q ◇ t2)) (e137)\n  have e139 : t4 = t23 := by\n    exact h t4 t2 t4\n  have e140 : t23 = t4 := by\n    exact e139.symm\n  have e141 : t38 = t95 := by\n    exact h t38 t38 t10\n  have e142 : t28 = t3 := by\n    exact congrArg (fun q => (y ◇ q)) (e18)\n  have e143 : t3 = t87 := by\n    exact h t3 t38 t38\n  have e144 : t38 = t57 := by\n    exact by\n      calc\n        t38 = t98 := e38\n        _ = t37 := e81\n        _ = t97 := e82\n        _ = t22 := e83\n        _ = t86 := e14\n        _ = t57 := e75\n  have e145 : t48 = t68 := by\n    exact congrArg (fun q => (q ◇ t10)) (e144)\n  have e146 : t74 = t87 := by\n    exact by\n      calc\n        t74 = (t68 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e145)\n        _ = t87 := congrArg (fun q => (t68 ◇ q)) (e40)\n  have e147 : t87 = t74 := by\n    exact e146.symm\n  have e148 : t28 = t74 := by\n    exact by\n      calc\n        t28 = t3 := e142\n        _ = t87 := e143\n        _ = t74 := e147\n  have e149 : t71 = t95 := by\n    exact by\n      calc\n        t71 = (t74 ◇ t57) := congrArg (fun q => (q ◇ t57)) (e148)\n        _ = t95 := congrArg (fun q => (t74 ◇ q)) (e40)\n  have e150 : t95 = t71 := by\n    exact e149.symm\n  have e151 : t34 = t71 := by\n    exact congrArg (fun q => (t28 ◇ q)) (e109)\n  have e152 : t71 = t34 := by\n    exact e151.symm\n  have e153 : t9 = t34 := by\n    exact by\n      calc\n        t9 = t23 := e138\n        _ = t4 := e140\n        _ = t84 := e67\n        _ = t86 := e74\n        _ = t22 := e15\n        _ = t97 := e16\n        _ = t37 := e28\n        _ = t98 := e37\n        _ = t38 := e39\n        _ = t95 := e141\n        _ = t71 := e150\n        _ = t34 := e152\n  have e154 : t13 = t43 := by\n    exact congrArg (fun q => (q ◇ y)) (e153)\n  have e155 : t43 = t13 := by\n    exact e154.symm\n  have e156 : x = t13 := by\n    exact by\n      calc\n        x = t12 := e1\n        _ = t21 := e120\n        _ = t4 := e115\n        _ = t43 := e121\n        _ = t13 := e155\n  exact e156\n',
+    },
+    {
+        "name": "z3_true_2074_2082_seed2_compact",
+        "eq1_id": 2074,
+        "eq2_id": 2082,
+        "eq1_canonical": "v0=(((v0◇v1)◇v2)◇(v1◇v0))",
+        "eq2_canonical": "v0=(((v0◇v1)◇v2)◇(v3◇v0))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x y z w\n  let xy : G := x ◇ y\n  let xyz : G := xy ◇ z\n  let xw : G := x ◇ w\n  let wx : G := w ◇ x\n  let a6 : G := ((z ◇ xy) ◇ xyz) ◇ xyz\n  let p : G := ((xw ◇ a6) ◇ wx)\n  let a18 : G := p ◇ (a6 ◇ xw)\n  let a13 : G := (a6 ◇ xw) ◇ p\n  let a14 : G := ((xw ◇ a6) ◇ a13) ◇ y\n  let a15 : G := a14 ◇ (a13 ◇ (xw ◇ a6))\n  let a30 : G := (a6 ◇ a18) ◇ p\n  have hx : x = p := h x w a6\n  have hxw : xw = a18 := h xw a6 wx\n  have hp : p = ((a18 ◇ a6) ◇ a13) := h p (a6 ◇ xw) a6\n  have ha6 : a6 = a30 ◇ (a18 ◇ a6) := h a6 a18 p\n  have hz : z = a6 := h z xy xyz\n  have hshift : xw ◇ a6 = a15 := h (xw ◇ a6) a13 y\n  have p22 : xw ◇ a6 = a18 ◇ a6 :=\n    congrArg (fun q => q ◇ a6) hxw\n  have pleftbase : ((xw ◇ a6) ◇ a13) = x := by\n    calc\n      ((xw ◇ a6) ◇ a13) = ((a18 ◇ a6) ◇ a13) :=\n        congrArg (fun q => q ◇ a13) p22\n      _ = p := hp.symm\n      _ = x := hx.symm\n  have pleft : a14 = xy :=\n    congrArg (fun q => q ◇ y) pleftbase\n  have p30 : a30 = a13 := by\n    exact congrArg (fun q => q ◇ p) (congrArg (fun q => a6 ◇ q) hxw.symm)\n  have pright : a13 ◇ (xw ◇ a6) = z := by\n    calc\n      a13 ◇ (xw ◇ a6) = a30 ◇ (xw ◇ a6) :=\n        congrArg (fun q => q ◇ (xw ◇ a6)) p30.symm\n      _ = a30 ◇ (a18 ◇ a6) :=\n        congrArg (fun q => a30 ◇ q) p22\n      _ = a6 := ha6.symm\n      _ = z := hz.symm\n  have pa15 : a15 = xyz := by\n    calc\n      a15 = xy ◇ (a13 ◇ (xw ◇ a6)) :=\n        congrArg (fun q => q ◇ (a13 ◇ (xw ◇ a6))) pleft\n      _ = xy ◇ z :=\n        congrArg (fun q => xy ◇ q) pright\n  have p39 : xw ◇ a6 = xyz :=\n    hshift.trans pa15\n  calc\n    x = p := hx\n    _ = xyz ◇ wx := congrArg (fun q => q ◇ wx) p39\n',
+    },
+    {
+        "name": "z3_true_2860_3458_seed24_partial_alias_keep2",
+        "eq1_id": 2860,
+        "eq2_id": 3458,
+        "eq1_canonical": "v0=(((v0◇(v0◇v1))◇v2)◇v2)",
+        "eq2_canonical": "(v0◇v0)=(v0◇((v0◇v1)◇v0))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  let t1 : G := (x ◇ x)\n  let t2 : G := (x ◇ y)\n  let t3 : G := (t2 ◇ x)\n  let t4 : G := (x ◇ t2)\n  let t5 : G := (t4 ◇ y)\n  let t6 : G := (x ◇ t3)\n  let t7 : G := (t2 ◇ t3)\n  let t8 : G := (t7 ◇ y)\n  let t9 : G := (t4 ◇ t5)\n  let t10 : G := (t8 ◇ y)\n  let t11 : G := (t10 ◇ y)\n  let t12 : G := (t4 ◇ t11)\n  let t13 : G := (t10 ◇ t11)\n  let t14 : G := (t12 ◇ t11)\n  let t15 : G := (t10 ◇ t13)\n  let t16 : G := (t14 ◇ y)\n  let t17 : G := (t15 ◇ y)\n  let t18 : G := (t15 ◇ t10)\n  let t19 : G := (t15 ◇ t13)\n  let t21 : G := (t18 ◇ t10)\n  let t22 : G := (t14 ◇ t16)\n  let t23 : G := (t15 ◇ t17)\n  let t24 : G := (t15 ◇ t19)\n  let t25 : G := (t22 ◇ y)\n  let t26 : G := (t23 ◇ t10)\n  let t27 : G := (t22 ◇ t14)\n  let t28 : G := (t24 ◇ t10)\n  let t29 : G := (t23 ◇ t17)\n  let t30 : G := (t24 ◇ t19)\n  let t31 : G := (t25 ◇ y)\n  let t32 : G := (t26 ◇ t10)\n  let t33 : G := (t28 ◇ t10)\n  let t34 : G := (t27 ◇ t14)\n  let t35 : G := (t23 ◇ t29)\n  let t36 : G := (t24 ◇ t30)\n  let t37 : G := (t32 ◇ y)\n  let t38 : G := (t4 ◇ t32)\n  let t39 : G := (t9 ◇ t32)\n  let t40 : G := (t22 ◇ t32)\n  let t41 : G := (t35 ◇ t10)\n  let t42 : G := (t36 ◇ t10)\n  let t43 : G := (t4 ◇ t38)\n  let t45 : G := (t22 ◇ t38)\n  let t46 : G := (t32 ◇ t37)\n  let t47 : G := (t39 ◇ t32)\n  let t48 : G := (t41 ◇ t10)\n  let t49 : G := (t40 ◇ t32)\n  let t50 : G := (t42 ◇ t10)\n  let t51 : G := (t43 ◇ y)\n  let t52 : G := (t43 ◇ t14)\n  let t53 : G := (t43 ◇ t38)\n  let t54 : G := (t48 ◇ t10)\n  let t55 : G := (t46 ◇ t17)\n  let t57 : G := (t45 ◇ t38)\n  let t58 : G := (t32 ◇ t48)\n  let t59 : G := (t51 ◇ y)\n  let t61 : G := (t52 ◇ t14)\n  let t63 : G := (t55 ◇ t17)\n  let t66 : G := (t43 ◇ t53)\n  let t68 : G := (t32 ◇ t58)\n  let t69 : G := (t48 ◇ t54)\n  let t70 : G := (t66 ◇ y)\n  let t72 : G := (t66 ◇ t14)\n  let t73 : G := (t68 ◇ y)\n  let t74 : G := (t66 ◇ t32)\n  let t75 : G := (t69 ◇ y)\n  let t76 : G := (t69 ◇ t13)\n  let t77 : G := (t70 ◇ y)\n  let t78 : G := (t72 ◇ t14)\n  let t79 : G := (t73 ◇ y)\n  let t80 : G := (t75 ◇ y)\n  let t81 : G := (t76 ◇ t13)\n  have e1 := by\n    exact h x y t11\n  have e2 := by\n    exact h t14 y t14\n  have e3 := by\n    exact h t43 t38 t14\n  have e4 := by\n    exact e1.symm\n  have e5 := by\n    exact congrArg (fun q => q ◇ y) (e4)\n  have e6 := by\n    exact by\n      calc\n        t22 = (x ◇ t16) := congrArg (fun q => q ◇ t16) (e4)\n        _ = t4 := congrArg (fun q => x ◇ q) (e5)\n  have e7 := by\n    exact h t4 t32 t14\n  have e8 := by\n    exact h t14 y t38\n  have e9 := by\n    exact congrArg (fun q => q ◇ t38) (e6)\n  have e10 := by\n    exact e9.symm\n  have e11 := by\n    exact congrArg (fun q => q ◇ t38) (e10)\n  have e12 := by\n    exact e11.symm\n  have e13 := by\n    exact by\n      calc\n        t14 = t57 := e8\n        _ = t53 := e12\n  have e14 := by\n    exact congrArg (fun q => t43 ◇ q) (e13)\n  have e15 := by\n    exact e14.symm\n  have e16 := by\n    exact congrArg (fun q => q ◇ t14) (e15)\n  have e17 := by\n    exact e16.symm\n  have e18 := by\n    exact by\n      calc\n        t22 = t4 := e6\n        _ = t61 := e7\n        _ = t72 := e17\n  have e19 := by\n    exact congrArg (fun q => q ◇ t14) (e18)\n  have e20 := by\n    exact e19.symm\n  have e21 := by\n    exact by\n      calc\n        t43 = t78 := e3\n        _ = t27 := e20\n  have e22 := by\n    exact e8.symm\n  have e23 := by\n    exact by\n      calc\n        t53 = t57 := e11\n        _ = t14 := e22\n  have e24 := by\n    exact by\n      calc\n        t66 = (t27 ◇ t53) := congrArg (fun q => q ◇ t53) (e21)\n        _ = t34 := congrArg (fun q => t27 ◇ q) (e23)\n  have e25 := by\n    exact e24.symm\n  have e26 := by\n    exact by\n      calc\n        x = t14 := e1\n        _ = t34 := e2\n        _ = t66 := e25\n        _ = t52 := e15\n  have e27 := by\n    exact by\n      calc\n        t1 = (t52 ◇ x) := congrArg (fun q => q ◇ x) (e26)\n        _ = t61 := congrArg (fun q => t52 ◇ q) (e1)\n  have e28 := by\n    exact e7.symm\n  have e29 := by\n    exact h t4 y t32\n  have e30 := by\n    exact e2.symm\n  have e31 := by\n    exact h t14 y t32\n  have e32 := by\n    exact e6.symm\n  have e33 := by\n    exact congrArg (fun q => q ◇ y) (e32)\n  have e34 := by\n    exact h t4 t32 y\n  have e35 := by\n    exact h t15 y t10\n  have e36 := by\n    exact e35.symm\n  have e37 := by\n    exact h t48 t10 t13\n  have e38 := by\n    exact h t23 t17 t10\n  have e39 := by\n    exact e38.symm\n  have e40 := by\n    exact congrArg (fun q => q ◇ t10) (e39)\n  have e41 := by\n    exact h t10 t11 t17\n  have e42 := by\n    exact e41.symm\n  have e43 := by\n    exact congrArg (fun q => t23 ◇ q) (e42)\n  have e44 := by\n    exact congrArg (fun q => q ◇ t10) (e43)\n  have e45 := by\n    exact e44.symm\n  have e46 := by\n    exact by\n      calc\n        t15 = t32 := e35\n        _ = t41 := e45\n  have e47 := by\n    exact congrArg (fun q => q ◇ t10) (e46)\n  have e48 := by\n    exact e47.symm\n  have e49 := by\n    exact by\n      calc\n        t23 = t48 := e38\n        _ = t18 := e48\n  have e50 := by\n    exact congrArg (fun q => q ◇ t10) (e49)\n  have e51 := by\n    exact h t10 t11 t10\n  have e52 := by\n    exact e51.symm\n  have e53 := by\n    exact by\n      calc\n        t54 = t26 := e40\n        _ = t21 := e50\n        _ = t10 := e52\n  have e54 := by\n    exact by\n      calc\n        t69 = (t23 ◇ t54) := congrArg (fun q => q ◇ t54) (e39)\n        _ = t26 := congrArg (fun q => t23 ◇ q) (e53)\n  have e55 := by\n    exact by\n      calc\n        t69 = t26 := e54\n        _ = t21 := e50\n        _ = t10 := e52\n  have e56 := by\n    exact congrArg (fun q => q ◇ t13) (e55)\n  have e57 := by\n    exact e56.symm\n  have e58 := by\n    exact congrArg (fun q => q ◇ t13) (e57)\n  have e59 := by\n    exact e58.symm\n  have e60 := by\n    exact by\n      calc\n        t48 = t81 := e37\n        _ = t19 := e59\n  have e61 := by\n    exact by\n      calc\n        t58 = (t15 ◇ t48) := congrArg (fun q => q ◇ t48) (e36)\n        _ = t24 := congrArg (fun q => t15 ◇ q) (e60)\n  have e62 := by\n    exact h t24 t19 t10\n  have e63 := by\n    exact h t10 t11 t19\n  have e64 := by\n    exact e63.symm\n  have e65 := by\n    exact congrArg (fun q => t24 ◇ q) (e64)\n  have e66 := by\n    exact congrArg (fun q => q ◇ t10) (e65)\n  have e67 := by\n    exact h t15 t13 t10\n  have e68 := by\n    exact e67.symm\n  have e69 := by\n    exact by\n      calc\n        t42 = t33 := e66\n        _ = t15 := e68\n        _ = t32 := e35\n        _ = t41 := e45\n  have e70 := by\n    exact congrArg (fun q => q ◇ t10) (e69)\n  have e71 := by\n    exact by\n      calc\n        t58 = t24 := e61\n        _ = t50 := e62\n        _ = t48 := e70\n        _ = t81 := e37\n        _ = t19 := e59\n  have e72 := by\n    exact by\n      calc\n        t68 = (t15 ◇ t58) := congrArg (fun q => q ◇ t58) (e36)\n        _ = t24 := congrArg (fun q => t15 ◇ q) (e71)\n  have e73 := by\n    exact h t48 t10 y\n  have e74 := by\n    exact h t43 t38 y\n  have e75 := by\n    exact h t2 x y\n  have e76 := by\n    exact e75.symm\n  have e77 := by\n    exact by\n      calc\n        t66 = t34 := e24\n        _ = t14 := e30\n        _ = x := e4\n  have e78 := by\n    exact congrArg (fun q => q ◇ y) (e77)\n  have e79 := by\n    exact e78.symm\n  have e80 := by\n    exact by\n      calc\n        t10 = t2 := e76\n        _ = t70 := e79\n  have e81 := by\n    exact congrArg (fun q => q ◇ y) (e80)\n  have e82 := by\n    exact e81.symm\n  have e83 := by\n    exact congrArg (fun q => q ◇ y) (e55)\n  have e84 := by\n    exact e83.symm\n  have e85 := by\n    exact by\n      calc\n        t43 = t77 := e74\n        _ = t11 := e82\n        _ = t75 := e84\n  have e86 := by\n    exact congrArg (fun q => q ◇ y) (e85)\n  have e87 := by\n    exact e86.symm\n  have e88 := by\n    exact by\n      calc\n        t68 = t24 := e72\n        _ = t50 := e62\n        _ = t48 := e70\n        _ = t80 := e73\n        _ = t51 := e87\n  have e89 := by\n    exact congrArg (fun q => q ◇ y) (e88)\n  have e90 := by\n    exact e89.symm\n  have e91 := by\n    exact by\n      calc\n        t22 = t4 := e6\n        _ = t59 := e34\n        _ = t73 := e90\n  have e92 := by\n    exact congrArg (fun q => q ◇ y) (e91)\n  have e93 := by\n    exact h t32 t48 y\n  have e94 := by\n    exact e93.symm\n  have e95 := by\n    exact by\n      calc\n        t5 = t25 := e33\n        _ = t79 := e92\n        _ = t32 := e94\n  have e96 := by\n    exact congrArg (fun q => t4 ◇ q) (e95)\n  have e97 := by\n    exact congrArg (fun q => q ◇ t32) (e6)\n  have e98 := by\n    exact e97.symm\n  have e99 := by\n    exact by\n      calc\n        t9 = t38 := e96\n        _ = t40 := e98\n  have e100 := by\n    exact congrArg (fun q => q ◇ t32) (e99)\n  have e101 := by\n    exact e100.symm\n  have e102 := by\n    exact by\n      calc\n        t66 = t34 := e24\n        _ = t14 := e30\n        _ = t49 := e31\n        _ = t39 := e101\n  have e103 := by\n    exact congrArg (fun q => q ◇ t32) (e102)\n  have e104 := by\n    exact e103.symm\n  have e105 := by\n    exact by\n      calc\n        x = t14 := e1\n        _ = t34 := e2\n        _ = t66 := e25\n  have e106 := by\n    exact congrArg (fun q => q ◇ y) (e36)\n  have e107 := by\n    exact by\n      calc\n        t46 = (t15 ◇ t37) := congrArg (fun q => q ◇ t37) (e36)\n        _ = t23 := congrArg (fun q => t15 ◇ q) (e106)\n  have e108 := by\n    exact congrArg (fun q => q ◇ t17) (e107)\n  have e109 := by\n    exact e108.symm\n  have e110 := by\n    exact by\n      calc\n        t2 = t10 := e75\n        _ = t29 := e41\n        _ = t55 := e109\n  have e111 := by\n    exact h t14 y y\n  have e112 := by\n    exact e92.symm\n  have e113 := by\n    exact by\n      calc\n        t15 = t32 := e35\n        _ = t79 := e93\n        _ = t25 := e112\n  have e114 := by\n    exact congrArg (fun q => q ◇ y) (e113)\n  have e115 := by\n    exact e114.symm\n  have e116 := by\n    exact by\n      calc\n        x = t14 := e1\n        _ = t31 := e111\n        _ = t17 := e115\n  have e117 := by\n    exact by\n      calc\n        t3 = (t55 ◇ x) := congrArg (fun q => q ◇ x) (e110)\n        _ = t63 := congrArg (fun q => t55 ◇ q) (e116)\n  have e118 := by\n    exact h t32 y t17\n  have e119 := by\n    exact e118.symm\n  have e120 := by\n    exact by\n      calc\n        t3 = t63 := e117\n        _ = t32 := e119\n  have e121 := by\n    exact by\n      calc\n        t6 = (t66 ◇ t3) := congrArg (fun q => q ◇ t3) (e105)\n        _ = t74 := congrArg (fun q => t66 ◇ q) (e120)\n  have e122 := by\n    exact e121.symm\n  have e123 := by\n    exact by\n      calc\n        t1 = t61 := e27\n        _ = t4 := e28\n        _ = t47 := e29\n        _ = t74 := e104\n        _ = t6 := e122\n  exact e123\n',
+    },
+    {
+        "name": "z3_true_2135_2128_seed7_min_alias",
+        "eq1_id": 2135,
+        "eq2_id": 2128,
+        "eq1_canonical": "v0=(((v1◇v1)◇v1)◇(v0◇v1))",
+        "eq2_canonical": "v0=(((v1◇v1)◇v0)◇(v1◇v1))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  let t1 : G := (x ◇ x)\n  let t2 : G := (y ◇ x)\n  let t3 : G := (y ◇ y)\n  let t4 : G := (t1 ◇ x)\n  let t5 : G := (t3 ◇ x)\n  let t6 : G := (t4 ◇ t1)\n  let t7 : G := (t4 ◇ t2)\n  let t8 : G := (t5 ◇ t3)\n  let t9 : G := (t4 ◇ t4)\n  let t10 : G := (t4 ◇ t5)\n  let t12 : G := (t9 ◇ t4)\n  let t13 : G := (t5 ◇ t10)\n  let t14 : G := (t7 ◇ t7)\n  let t15 : G := (t8 ◇ t8)\n  let t16 : G := (t10 ◇ t7)\n  let t17 : G := (t10 ◇ t10)\n  let t18 : G := (t12 ◇ t9)\n  let t19 : G := (t14 ◇ t7)\n  let t20 : G := (t15 ◇ t8)\n  let t21 : G := (t17 ◇ t10)\n  let t24 : G := (t19 ◇ t10)\n  let t27 : G := (t19 ◇ t14)\n  let t28 : G := (t20 ◇ t15)\n  let t29 : G := (t19 ◇ t16)\n  let t30 : G := (t21 ◇ t13)\n  let t31 : G := (t18 ◇ t18)\n  let t32 : G := (t20 ◇ t20)\n  let t33 : G := (t21 ◇ t18)\n  let t35 : G := (t21 ◇ t24)\n  let t36 : G := (t18 ◇ t30)\n  let t37 : G := (t20 ◇ t30)\n  let t38 : G := (t31 ◇ t18)\n  let t39 : G := (t30 ◇ t30)\n  let t40 : G := (t38 ◇ t33)\n  let t41 : G := (t39 ◇ t30)\n  let t42 : G := (t40 ◇ t7)\n  let t43 : G := (t40 ◇ t8)\n  let t44 : G := (t41 ◇ t36)\n  let t45 : G := (t41 ◇ t37)\n  let t46 : G := (t19 ◇ t42)\n  let t47 : G := (t20 ◇ t43)\n  have e1 : x = t6 := by\n    exact h x x\n  have e2 : t4 = t18 := by\n    exact h (t1 ◇ x) (t1 ◇ x)\n  have e3 : t18 = t44 := by\n    exact h ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))\n  have e4 : t18 = t4 := by\n    exact e2.symm\n  have e5 : t5 = t30 := by\n    exact h (t3 ◇ x) ((t1 ◇ x) ◇ (t3 ◇ x))\n  have e6 : t30 = t5 := by\n    exact e5.symm\n  have e7 : t36 = t10 := by\n    exact by\n      calc\n        (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) = ((t1 ◇ x) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) := congrArg (fun q => q ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) (e4)\n        _ = ((t1 ◇ x) ◇ (t3 ◇ x)) := congrArg (fun q => (t1 ◇ x) ◇ q) (e6)\n  have e8 : t10 = t29 := by\n    exact h ((t1 ◇ x) ◇ (t3 ◇ x)) ((t1 ◇ x) ◇ t2)\n  have e9 : t3 = t10 := by\n    exact h t3 x\n  have e10 : t10 = t3 := by\n    exact e9.symm\n  have e11 : y = t7 := by\n    exact h y x\n  have e12 : t7 = y := by\n    exact e11.symm\n  have e13 : t14 = t3 := by\n    exact by\n      calc\n        (((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) = (y ◇ ((t1 ◇ x) ◇ t2)) := congrArg (fun q => q ◇ ((t1 ◇ x) ◇ t2)) (e12)\n        _ = t3 := congrArg (fun q => y ◇ q) (e12)\n  have e14 : t3 = t14 := by\n    exact e13.symm\n  have e15 : t10 = t14 := by\n    exact by\n      calc\n        ((t1 ◇ x) ◇ (t3 ◇ x)) = t3 := e10\n        _ = (((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) := e14\n  have e16 : t16 = t19 := by\n    exact congrArg (fun q => q ◇ ((t1 ◇ x) ◇ t2)) (e15)\n  have e17 : t19 = t35 := by\n    exact h ((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ((t1 ◇ x) ◇ (t3 ◇ x))\n  have e18 : t21 = t40 := by\n    exact h ((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))\n  have e19 : t40 = t21 := by\n    exact e18.symm\n  have e20 : t7 = t27 := by\n    exact h ((t1 ◇ x) ◇ t2) ((t1 ◇ x) ◇ t2)\n  have e21 : t24 = t27 := by\n    exact congrArg (fun q => ((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ q) (e15)\n  have e22 : t27 = t24 := by\n    exact e21.symm\n  have e23 : t7 = t24 := by\n    exact by\n      calc\n        ((t1 ◇ x) ◇ t2) = (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ (((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2))) := e20\n        _ = (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) := e22\n  have e24 : t42 = t35 := by\n    exact by\n      calc\n        ((((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ◇ ((t1 ◇ x) ◇ t2)) = (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ t2)) := congrArg (fun q => q ◇ ((t1 ◇ x) ◇ t2)) (e19)\n        _ = (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) := congrArg (fun q => ((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ q) (e23)\n  have e25 : t35 = t42 := by\n    exact e24.symm\n  have e26 : t16 = t42 := by\n    exact by\n      calc\n        (((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ t2)) = ((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) := e16\n        _ = (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) := e17\n        _ = ((((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ◇ ((t1 ◇ x) ◇ t2)) := e25\n  have e27 : t29 = t46 := by\n    exact congrArg (fun q => ((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ q) (e26)\n  have e28 : t40 = t46 := by\n    exact h (((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ((t1 ◇ x) ◇ t2)\n  have e29 : t46 = t40 := by\n    exact e28.symm\n  have e30 : t40 = t47 := by\n    exact h (((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ((t3 ◇ x) ◇ t3)\n  have e31 : t13 = t8 := by\n    exact congrArg (fun q => (t3 ◇ x) ◇ q) (e10)\n  have e32 : t8 = t13 := by\n    exact e31.symm\n  have e33 : t43 = t30 := by\n    exact by\n      calc\n        ((((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ◇ ((t3 ◇ x) ◇ t3)) = (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ t3)) := congrArg (fun q => q ◇ ((t3 ◇ x) ◇ t3)) (e19)\n        _ = (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) := congrArg (fun q => ((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ q) (e32)\n  have e34 : t30 = t43 := by\n    exact e33.symm\n  have e35 : t37 = t47 := by\n    exact congrArg (fun q => ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ q) (e34)\n  have e36 : t47 = t37 := by\n    exact e35.symm\n  have e37 : t36 = t37 := by\n    exact by\n      calc\n        (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) = ((t1 ◇ x) ◇ (t3 ◇ x)) := e7\n        _ = (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ (((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ t2))) := e8\n        _ = (((((t1 ◇ x) ◇ t2) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((t1 ◇ x) ◇ t2)) ◇ ((((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ◇ ((t1 ◇ x) ◇ t2))) := e27\n        _ = (((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) := e29\n        _ = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((((((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))))) ◇ ((t3 ◇ x) ◇ t3))) := e30\n        _ = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) := e36\n  have e38 : t44 = t45 := by\n    exact congrArg (fun q => (((((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ q) (e37)\n  have e39 : t20 = t45 := by\n    exact h ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))\n  have e40 : t45 = t20 := by\n    exact e39.symm\n  have e41 : t4 = t20 := by\n    exact by\n      calc\n        (t1 ◇ x) = ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) := e2\n        _ = ((((((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))))) := e3\n        _ = ((((((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))))) := e38\n        _ = ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) := e40\n  have e42 : t1 = t9 := by\n    exact h t1 x\n  have e43 : t45 = t44 := by\n    exact e38.symm\n  have e44 : t44 = t18 := by\n    exact e3.symm\n  have e45 : t20 = t4 := by\n    exact by\n      calc\n        ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) = ((((((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))))) := e39\n        _ = ((((((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))))) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) ◇ (((((t1 ◇ x) ◇ (t3 ◇ x)) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t1 ◇ x) ◇ (t3 ◇ x))) ◇ ((t3 ◇ x) ◇ ((t1 ◇ x) ◇ (t3 ◇ x)))))) := e43\n        _ = ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ (t1 ◇ x))) := e44\n        _ = (t1 ◇ x) := e4\n  have e46 : t32 = t9 := by\n    exact by\n      calc\n        (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3))) = ((t1 ◇ x) ◇ ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3))) := congrArg (fun q => q ◇ ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3))) (e45)\n        _ = ((t1 ◇ x) ◇ (t1 ◇ x)) := congrArg (fun q => (t1 ◇ x) ◇ q) (e45)\n  have e47 : t9 = t32 := by\n    exact e46.symm\n  have e48 : t15 = t32 := by\n    exact h (((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ((t3 ◇ x) ◇ t3)\n  have e49 : t32 = t15 := by\n    exact e48.symm\n  have e50 : t1 = t15 := by\n    exact by\n      calc\n        t1 = ((t1 ◇ x) ◇ (t1 ◇ x)) := e42\n        _ = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3))) := e47\n        _ = (((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) := e49\n  have e51 : t6 = t28 := by\n    exact by\n      calc\n        ((t1 ◇ x) ◇ t1) = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ t1) := congrArg (fun q => q ◇ t1) (e41)\n        _ = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ (((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3))) := congrArg (fun q => ((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ q) (e50)\n  have e52 : t8 = t28 := by\n    exact h ((t3 ◇ x) ◇ t3) ((t3 ◇ x) ◇ t3)\n  have e53 : t28 = t8 := by\n    exact e52.symm\n  have e54 : x = t8 := by\n    exact by\n      calc\n        x = ((t1 ◇ x) ◇ t1) := e1\n        _ = (((((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3)) ◇ ((t3 ◇ x) ◇ t3)) ◇ (((t3 ◇ x) ◇ t3) ◇ ((t3 ◇ x) ◇ t3))) := e51\n        _ = ((t3 ◇ x) ◇ t3) := e53\n  exact e54\n',
+    },
+    {
+        "name": "z3_true_1636_1839_seed7_min_alias",
+        "eq1_id": 1636,
+        "eq2_id": 1839,
+        "eq1_canonical": "v0=((v0◇v0)◇((v1◇v0)◇v2))",
+        "eq2_canonical": "v0=((v0◇(v0◇v1))◇(v0◇v2))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  let t1 : G := (x ◇ x)\n  let t2 : G := (x ◇ y)\n  let t3 : G := (x ◇ z)\n  let t4 : G := (y ◇ y)\n  let t5 : G := (z ◇ z)\n  let t6 : G := (t2 ◇ x)\n  let t7 : G := (x ◇ t2)\n  let t8 : G := (t1 ◇ t1)\n  let t9 : G := (t7 ◇ z)\n  let t10 : G := (t7 ◇ t3)\n  let t11 : G := (t4 ◇ t6)\n  let t12 : G := (t6 ◇ t7)\n  let t13 : G := (t7 ◇ t7)\n  let t14 : G := (t9 ◇ x)\n  let t17 : G := (t8 ◇ t11)\n  let t18 : G := (t12 ◇ t11)\n  let t19 : G := (t5 ◇ t14)\n  let t21 : G := (t8 ◇ t17)\n  let t22 : G := (t13 ◇ t18)\n  let t24 : G := (t6 ◇ t22)\n  let t25 : G := (t1 ◇ t24)\n  let t27 : G := (t1 ◇ t25)\n  let t28 : G := (t25 ◇ t25)\n  let t29 : G := (t27 ◇ t19)\n  let t32 : G := (t27 ◇ t25)\n  let t33 : G := (t28 ◇ t12)\n  let t35 : G := (t28 ◇ t29)\n  let t36 : G := (t28 ◇ t32)\n  let t37 : G := (t28 ◇ t33)\n  have e1 : x = t25 := by\n    exact h x t2 (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))\n  have e2 : t25 = t35 := by\n    exact h (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) t1 (t5 ◇ (((x ◇ t2) ◇ z) ◇ x))\n  have e3 : t25 = x := by\n    exact e1.symm\n  have e4 : t28 = t1 := by\n    exact by\n      calc\n        ((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) = (x ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) := congrArg (fun q => q ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) (e3)\n        _ = t1 := congrArg (fun q => x ◇ q) (e3)\n  have e5 : t1 = t28 := by\n    exact e4.symm\n  have e6 : t7 = t22 := by\n    exact h (x ◇ t2) (t2 ◇ x) (t4 ◇ (t2 ◇ x))\n  have e7 : t22 = t7 := by\n    exact e6.symm\n  have e8 : t24 = t12 := by\n    exact congrArg (fun q => (t2 ◇ x) ◇ q) (e7)\n  have e9 : t12 = t24 := by\n    exact e8.symm\n  have e10 : t33 = t25 := by\n    exact by\n      calc\n        (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t2 ◇ x) ◇ (x ◇ t2))) = (t1 ◇ ((t2 ◇ x) ◇ (x ◇ t2))) := congrArg (fun q => q ◇ ((t2 ◇ x) ◇ (x ◇ t2))) (e4)\n        _ = (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) := congrArg (fun q => t1 ◇ q) (e9)\n  have e11 : t25 = t33 := by\n    exact e10.symm\n  have e12 : t27 = t37 := by\n    exact by\n      calc\n        (t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) := congrArg (fun q => q ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) (e5)\n        _ = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t2 ◇ x) ◇ (x ◇ t2)))) := congrArg (fun q => ((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ q) (e11)\n  have e13 : t25 = t37 := by\n    exact h (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ((t2 ◇ x) ◇ (x ◇ t2))\n  have e14 : t37 = t25 := by\n    exact e13.symm\n  have e15 : t27 = x := by\n    exact by\n      calc\n        (t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t2 ◇ x) ◇ (x ◇ t2)))) := e12\n        _ = (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) := e14\n        _ = x := e3\n  have e16 : t32 = t1 := by\n    exact by\n      calc\n        ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) = (x ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) := congrArg (fun q => q ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) (e15)\n        _ = t1 := congrArg (fun q => x ◇ q) (e3)\n  have e17 : t1 = t32 := by\n    exact e16.symm\n  have e18 : t8 = t36 := by\n    exact by\n      calc\n        (t1 ◇ t1) = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ t1) := congrArg (fun q => q ◇ t1) (e5)\n        _ = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))))) := congrArg (fun q => ((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ q) (e17)\n  have e19 : t25 = t36 := by\n    exact h (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) t1 (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))\n  have e20 : t36 = t25 := by\n    exact e19.symm\n  have e21 : t8 = x := by\n    exact by\n      calc\n        (t1 ◇ t1) = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))))) := e18\n        _ = (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) := e20\n        _ = x := e3\n  have e22 : y = t11 := by\n    exact h y x x\n  have e23 : t11 = y := by\n    exact e22.symm\n  have e24 : t17 = t2 := by\n    exact by\n      calc\n        ((t1 ◇ t1) ◇ (t4 ◇ (t2 ◇ x))) = (x ◇ (t4 ◇ (t2 ◇ x))) := congrArg (fun q => q ◇ (t4 ◇ (t2 ◇ x))) (e21)\n        _ = t2 := congrArg (fun q => x ◇ q) (e23)\n  have e25 : t21 = t7 := by\n    exact by\n      calc\n        ((t1 ◇ t1) ◇ ((t1 ◇ t1) ◇ (t4 ◇ (t2 ◇ x)))) = (x ◇ ((t1 ◇ t1) ◇ (t4 ◇ (t2 ◇ x)))) := congrArg (fun q => q ◇ ((t1 ◇ t1) ◇ (t4 ◇ (t2 ◇ x)))) (e21)\n        _ = (x ◇ t2) := congrArg (fun q => x ◇ q) (e24)\n  have e26 : t7 = t21 := by\n    exact e25.symm\n  have e27 : t1 = t21 := by\n    exact h t1 t1 (t4 ◇ (t2 ◇ x))\n  have e28 : t21 = t1 := by\n    exact e27.symm\n  have e29 : t7 = t28 := by\n    exact by\n      calc\n        (x ◇ t2) = ((t1 ◇ t1) ◇ ((t1 ◇ t1) ◇ (t4 ◇ (t2 ◇ x)))) := e26\n        _ = t1 := e28\n        _ = ((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) := e5\n  have e30 : z = t19 := by\n    exact h z (x ◇ t2) x\n  have e31 : t19 = z := by\n    exact e30.symm\n  have e32 : t29 = t3 := by\n    exact by\n      calc\n        ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t5 ◇ (((x ◇ t2) ◇ z) ◇ x))) = (x ◇ (t5 ◇ (((x ◇ t2) ◇ z) ◇ x))) := congrArg (fun q => q ◇ (t5 ◇ (((x ◇ t2) ◇ z) ◇ x))) (e15)\n        _ = t3 := congrArg (fun q => x ◇ q) (e31)\n  have e33 : t3 = t29 := by\n    exact e32.symm\n  have e34 : t10 = t35 := by\n    exact by\n      calc\n        ((x ◇ t2) ◇ t3) = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ t3) := congrArg (fun q => q ◇ t3) (e29)\n        _ = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t5 ◇ (((x ◇ t2) ◇ z) ◇ x)))) := congrArg (fun q => ((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ q) (e33)\n  have e35 : t35 = t10 := by\n    exact e34.symm\n  have e36 : x = t10 := by\n    exact by\n      calc\n        x = (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) := e1\n        _ = (((t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x)))))) ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ ((t1 ◇ (t1 ◇ ((t2 ◇ x) ◇ (((x ◇ t2) ◇ (x ◇ t2)) ◇ (((t2 ◇ x) ◇ (x ◇ t2)) ◇ (t4 ◇ (t2 ◇ x))))))) ◇ (t5 ◇ (((x ◇ t2) ◇ z) ◇ x)))) := e2\n        _ = ((x ◇ t2) ◇ t3) := e35\n  exact e36\n',
+    },
+    {
+        "name": "z3_true_4082_4109_min",
+        "eq1_id": 4082,
+        "eq2_id": 4109,
+        "eq1_canonical": "(v0◇v0)=(((v1◇v0)◇v0)◇v2)",
+        "eq2_canonical": "(v0◇v0)=(((v1◇v2)◇v2)◇v1)",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  let t1 : G := (x ◇ x)\n  let t2 : G := (y ◇ x)\n  let t3 : G := (y ◇ z)\n  let t4 : G := (z ◇ z)\n  let t5 : G := (t2 ◇ x)\n  let t6 : G := (t3 ◇ z)\n  let t7 : G := (t2 ◇ t2)\n  let t8 : G := (t5 ◇ x)\n  let t9 : G := (t6 ◇ y)\n  let t10 : G := (t5 ◇ t2)\n  let t11 : G := (t5 ◇ t3)\n  let t12 : G := (t6 ◇ t6)\n  let t13 : G := (t8 ◇ t2)\n  let t14 : G := (t10 ◇ t2)\n  let t15 : G := (t11 ◇ t2)\n  let t16 : G := (t11 ◇ t6)\n  let t17 : G := (t5 ◇ t11)\n  let t18 : G := (t11 ◇ t11)\n  let t19 : G := (t14 ◇ t2)\n  let t20 : G := (t15 ◇ t2)\n  let t21 : G := (t16 ◇ t6)\n  let t22 : G := (t17 ◇ t11)\n  let t23 : G := (t20 ◇ t3)\n  let t24 : G := (t21 ◇ t3)\n  let t25 : G := (t20 ◇ t11)\n  let t26 : G := (t22 ◇ t6)\n  have e1 : t1 = t13 := by\n    exact h x (y ◇ x) (y ◇ x)\n  have e2 : t1 = t10 := by\n    exact h x y (y ◇ x)\n  have e3 : t10 = t1 := by\n    exact e2.symm\n  have e4 : t1 = t8 := by\n    exact h x y x\n  have e5 : t10 = t8 := by\n    exact by\n      calc\n        (((y ◇ x) ◇ x) ◇ (y ◇ x)) = (x ◇ x) := e3\n        _ = (((y ◇ x) ◇ x) ◇ x) := e4\n  have e6 : t14 = t13 := by\n    exact congrArg (fun q => q ◇ (y ◇ x)) (e5)\n  have e7 : t13 = t14 := by\n    exact e6.symm\n  have e8 : t13 = t1 := by\n    exact e1.symm\n  have e9 : t14 = t10 := by\n    exact by\n      calc\n        ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e6\n        _ = (x ◇ x) := e8\n        _ = (((y ◇ x) ◇ x) ◇ (y ◇ x)) := e2\n  have e10 : t19 = t14 := by\n    exact congrArg (fun q => q ◇ (y ◇ x)) (e9)\n  have e11 : t14 = t19 := by\n    exact e10.symm\n  have e12 : t7 = t19 := by\n    exact h (y ◇ x) ((y ◇ x) ◇ x) (y ◇ x)\n  have e13 : t19 = t7 := by\n    exact e12.symm\n  have e14 : t7 = t23 := by\n    exact h (y ◇ x) (((y ◇ x) ◇ x) ◇ (y ◇ z)) (y ◇ z)\n  have e15 : t1 = t11 := by\n    exact h x y (y ◇ z)\n  have e16 : t11 = t1 := by\n    exact e15.symm\n  have e17 : t7 = t25 := by\n    exact h (y ◇ x) (((y ◇ x) ◇ x) ◇ (y ◇ z)) (((y ◇ x) ◇ x) ◇ (y ◇ z))\n  have e18 : t1 = t17 := by\n    exact h x y (((y ◇ x) ◇ x) ◇ (y ◇ z))\n  have e19 : t17 = t1 := by\n    exact e18.symm\n  have e20 : t11 = t10 := by\n    exact by\n      calc\n        (((y ◇ x) ◇ x) ◇ (y ◇ z)) = (x ◇ x) := e16\n        _ = (((y ◇ x) ◇ x) ◇ (y ◇ x)) := e2\n  have e21 : t15 = t14 := by\n    exact congrArg (fun q => q ◇ (y ◇ x)) (e20)\n  have e22 : t15 = t10 := by\n    exact by\n      calc\n        ((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e21\n        _ = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e6\n        _ = (x ◇ x) := e8\n        _ = (((y ◇ x) ◇ x) ◇ (y ◇ x)) := e2\n  have e23 : t20 = t14 := by\n    exact congrArg (fun q => q ◇ (y ◇ x)) (e22)\n  have e24 : t14 = t20 := by\n    exact e23.symm\n  have e25 : t17 = t20 := by\n    exact by\n      calc\n        (((y ◇ x) ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) = (x ◇ x) := e19\n        _ = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e1\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e7\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e24\n  have e26 : t22 = t25 := by\n    exact congrArg (fun q => q ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) (e25)\n  have e27 : t25 = t22 := by\n    exact e26.symm\n  have e28 : t11 = t22 := by\n    exact by\n      calc\n        (((y ◇ x) ◇ x) ◇ (y ◇ z)) = (x ◇ x) := e16\n        _ = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e1\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e7\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e11\n        _ = ((y ◇ x) ◇ (y ◇ x)) := e13\n        _ = ((((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e17\n        _ = ((((y ◇ x) ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e27\n  have e29 : t16 = t26 := by\n    exact congrArg (fun q => q ◇ ((y ◇ z) ◇ z)) (e28)\n  have e30 : t18 = t26 := by\n    exact h (((y ◇ x) ◇ x) ◇ (y ◇ z)) ((y ◇ x) ◇ x) ((y ◇ z) ◇ z)\n  have e31 : t26 = t18 := by\n    exact e30.symm\n  have e32 : t11 = t20 := by\n    exact by\n      calc\n        (((y ◇ x) ◇ x) ◇ (y ◇ z)) = (x ◇ x) := e16\n        _ = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e1\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e7\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e24\n  have e33 : t18 = t25 := by\n    exact congrArg (fun q => q ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) (e32)\n  have e34 : t16 = t22 := by\n    exact by\n      calc\n        ((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ ((y ◇ z) ◇ z)) = (((((y ◇ x) ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ ((y ◇ z) ◇ z)) := e29\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e31\n        _ = ((((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e33\n        _ = ((((y ◇ x) ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e27\n  have e35 : t21 = t26 := by\n    exact congrArg (fun q => q ◇ ((y ◇ z) ◇ z)) (e34)\n  have e36 : t25 = t7 := by\n    exact e17.symm\n  have e37 : t21 = t20 := by\n    exact by\n      calc\n        (((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ ((y ◇ z) ◇ z)) ◇ ((y ◇ z) ◇ z)) = (((((y ◇ x) ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) ◇ ((y ◇ z) ◇ z)) := e35\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e31\n        _ = ((((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ x) ◇ (y ◇ z))) := e33\n        _ = ((y ◇ x) ◇ (y ◇ x)) := e36\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e12\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e10\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e24\n  have e38 : t24 = t23 := by\n    exact congrArg (fun q => q ◇ (y ◇ z)) (e37)\n  have e39 : t23 = t24 := by\n    exact e38.symm\n  have e40 : t12 = t24 := by\n    exact h ((y ◇ z) ◇ z) (((y ◇ x) ◇ x) ◇ (y ◇ z)) (y ◇ z)\n  have e41 : t24 = t12 := by\n    exact e40.symm\n  have e42 : t4 = t12 := by\n    exact h z y ((y ◇ z) ◇ z)\n  have e43 : t12 = t4 := by\n    exact e42.symm\n  have e44 : t4 = t9 := by\n    exact h z y y\n  have e45 : t1 = t9 := by\n    exact by\n      calc\n        (x ◇ x) = ((((y ◇ x) ◇ x) ◇ x) ◇ (y ◇ x)) := e1\n        _ = ((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) := e7\n        _ = (((((y ◇ x) ◇ x) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (y ◇ x)) := e11\n        _ = ((y ◇ x) ◇ (y ◇ x)) := e13\n        _ = ((((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (y ◇ z)) := e14\n        _ = ((((((y ◇ x) ◇ x) ◇ (y ◇ z)) ◇ ((y ◇ z) ◇ z)) ◇ ((y ◇ z) ◇ z)) ◇ (y ◇ z)) := e39\n        _ = (((y ◇ z) ◇ z) ◇ ((y ◇ z) ◇ z)) := e41\n        _ = (z ◇ z) := e43\n        _ = (((y ◇ z) ◇ z) ◇ y) := e44\n  exact e45\n',
+    },
+    {
+        "name": "z3_true_1738_1258_min",
+        "eq1_id": 1738,
+        "eq2_id": 1258,
+        "eq1_canonical": "v0=((v1◇v1)◇((v2◇v0)◇v0))",
+        "eq2_canonical": "v0=(v0◇(((v1◇v2)◇v0)◇v0))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  let t1 : G := (y ◇ z)\n  let t2 : G := (t1 ◇ x)\n  let t3 : G := (t2 ◇ x)\n  let t4 : G := (y ◇ t2)\n  let t5 : G := (t2 ◇ t2)\n  let t6 : G := (x ◇ t3)\n  let t7 : G := (t4 ◇ t2)\n  let t8 : G := (t5 ◇ t3)\n  let t9 : G := (t6 ◇ t6)\n  let t10 : G := (t5 ◇ t7)\n  let t11 : G := (t8 ◇ t3)\n  let t12 : G := (t9 ◇ t6)\n  let t13 : G := (t2 ◇ t10)\n  let t14 : G := (t10 ◇ t10)\n  let t15 : G := (t14 ◇ t3)\n  let t16 : G := (t14 ◇ t11)\n  let t17 : G := (t14 ◇ t12)\n  let t18 : G := (x ◇ t16)\n  let t19 : G := (t5 ◇ t16)\n  let t20 : G := (t14 ◇ t16)\n  let t21 : G := (t19 ◇ t16)\n  let t22 : G := (t9 ◇ t21)\n  have e1 : x = t15 := by\n    exact h x (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) t1\n  have e2 : t2 = t10 := by\n    exact h (t1 ◇ x) (t1 ◇ x) y\n  have e3 : t10 = t2 := by\n    exact e2.symm\n  have e4 : t14 = t5 := by\n    exact by\n      calc\n        ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) = ((t1 ◇ x) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) := congrArg (fun q => q ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) (e3)\n        _ = ((t1 ◇ x) ◇ (t1 ◇ x)) := congrArg (fun q => (t1 ◇ x) ◇ q) (e3)\n  have e5 : t5 = t14 := by\n    exact e4.symm\n  have e6 : t3 = t16 := by\n    exact h ((t1 ◇ x) ◇ x) (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ((t1 ◇ x) ◇ (t1 ◇ x))\n  have e7 : t16 = t3 := by\n    exact e6.symm\n  have e8 : t19 = t15 := by\n    exact by\n      calc\n        (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) := congrArg (fun q => q ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) (e5)\n        _ = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((t1 ◇ x) ◇ x)) := congrArg (fun q => ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ q) (e7)\n  have e9 : t15 = x := by\n    exact e1.symm\n  have e10 : t19 = x := by\n    exact by\n      calc\n        (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((t1 ◇ x) ◇ x)) := e8\n        _ = x := e9\n  have e11 : t21 = t6 := by\n    exact by\n      calc\n        ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) = (x ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) := congrArg (fun q => q ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) (e10)\n        _ = (x ◇ ((t1 ◇ x) ◇ x)) := congrArg (fun q => x ◇ q) (e7)\n  have e12 : t6 = t21 := by\n    exact e11.symm\n  have e13 : t12 = t22 := by\n    exact congrArg (fun q => ((x ◇ ((t1 ◇ x) ◇ x)) ◇ (x ◇ ((t1 ◇ x) ◇ x))) ◇ q) (e12)\n  have e14 : t16 = t22 := by\n    exact h (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x))) (x ◇ ((t1 ◇ x) ◇ x)) ((t1 ◇ x) ◇ (t1 ◇ x))\n  have e15 : t22 = t16 := by\n    exact e14.symm\n  have e16 : t12 = t3 := by\n    exact by\n      calc\n        (((x ◇ ((t1 ◇ x) ◇ x)) ◇ (x ◇ ((t1 ◇ x) ◇ x))) ◇ (x ◇ ((t1 ◇ x) ◇ x))) = (((x ◇ ((t1 ◇ x) ◇ x)) ◇ (x ◇ ((t1 ◇ x) ◇ x))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x)))) ◇ (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x))))) := e13\n        _ = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((t1 ◇ x) ◇ x)) ◇ ((t1 ◇ x) ◇ x))) := e15\n        _ = ((t1 ◇ x) ◇ x) := e7\n  have e17 : t17 = t15 := by\n    exact congrArg (fun q => ((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ q) (e16)\n  have e18 : t15 = t17 := by\n    exact e17.symm\n  have e19 : t6 = t17 := by\n    exact h (x ◇ ((t1 ◇ x) ◇ x)) (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) (x ◇ ((t1 ◇ x) ◇ x))\n  have e20 : t17 = t6 := by\n    exact e19.symm\n  have e21 : x = t6 := by\n    exact by\n      calc\n        x = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ ((t1 ◇ x) ◇ x)) := e1\n        _ = (((((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x))) ◇ (((t1 ◇ x) ◇ (t1 ◇ x)) ◇ ((y ◇ (t1 ◇ x)) ◇ (t1 ◇ x)))) ◇ (((x ◇ ((t1 ◇ x) ◇ x)) ◇ (x ◇ ((t1 ◇ x) ◇ x))) ◇ (x ◇ ((t1 ◇ x) ◇ x)))) := e18\n        _ = (x ◇ ((t1 ◇ x) ◇ x)) := e20\n  exact e21\n',
+    },
+    {
+        "name": "z3_true_1500_498_min",
+        "eq1_id": 1500,
+        "eq2_id": 498,
+        "eq1_canonical": "v0=((v1◇v0)◇(v2◇(v0◇v2)))",
+        "eq2_canonical": "v0=(v1◇(v0◇(v2◇(v3◇v3))))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  intro w\n  let t1 : G := w ◇ w\n  let t2 : G := z ◇ t1\n  let t3 : G := x ◇ t2\n  let t4 : G := y ◇ t3\n  let t5 : G := w ◇ t1\n  let t6 : G := t1 ◇ t5\n  let t7 : G := t6 ◇ x\n  let t8 : G := t2 ◇ t6\n  let t9 : G := t6 ◇ t8\n  let t10 : G := t3 ◇ t9\n  let t11 : G := x ◇ t10\n  let t12 : G := t10 ◇ t11\n  let t13 : G := t7 ◇ t12\n  let t14 : G := t3 ◇ t3\n  let t15 : G := t13 ◇ t7\n  let t16 : G := t7 ◇ t6\n  let t17 : G := t6 ◇ t16\n  let t18 : G := t15 ◇ t17\n  let t19 : G := x ◇ t7\n  let t20 : G := t6 ◇ t19\n  let t21 : G := t19 ◇ t7\n  let t22 : G := t7 ◇ t21\n  let t23 : G := t20 ◇ t22\n  let t24 : G := t13 ◇ t19\n  let t25 : G := t1 ◇ t3\n  let t26 : G := t3 ◇ t14\n  let t27 : G := t25 ◇ t26\n  let t28 : G := t19 ◇ t27\n  let t29 : G := t27 ◇ t28\n  let t30 : G := t24 ◇ t29\n  let t31 : G := t6 ◇ t13\n  let t32 : G := t13 ◇ t31\n  let t33 : G := t16 ◇ t32\n  let t34 : G := t13 ◇ t27\n  let t35 : G := t27 ◇ t34\n  let t36 : G := t31 ◇ t35\n  let t37 : G := t10 ◇ t6\n  let t38 : G := t6 ◇ t27\n  let t39 : G := t27 ◇ t38\n  let t40 : G := t37 ◇ t39\n  let t41 : G := t10 ◇ t39\n  let t42 : G := t39 ◇ t27\n  let t43 : G := t27 ◇ t42\n  let t44 : G := t41 ◇ t43\n  let t45 : G := z ◇ t6\n  let t46 : G := t45 ◇ t39\n  let t47 : G := t1 ◇ t6\n  let t48 : G := t6 ◇ t1\n  let t49 : G := t1 ◇ t48\n  let t50 : G := t47 ◇ t49\n  let t51 : G := t6 ◇ t6\n  let t52 : G := t51 ◇ t49\n  let t53 : G := t6 ◇ t47\n  let t54 : G := t2 ◇ t53\n  let t55 : G := w ◇ t2\n  let t56 : G := t2 ◇ t55\n  let t57 : G := t27 ◇ t56\n  let t58 : G := t56 ◇ t27\n  let t59 : G := t27 ◇ t58\n  let t60 : G := t57 ◇ t59\n  let t61 : G := t6 ◇ t56\n  let t62 : G := t61 ◇ t59\n  let t63 : G := t1 ◇ t56\n  let t64 : G := t4 ◇ t27\n  let t65 : G := t27 ◇ t14\n  let t66 : G := t14 ◇ t65\n  let t67 : G := t64 ◇ t66\n  let t68 : G := y ◇ t27\n  let t69 : G := t68 ◇ t66\n  let t70 : G := t27 ◇ t27\n  let t71 : G := t27 ◇ t70\n  let t72 : G := t70 ◇ t71\n  let t73 : G := t10 ◇ t55\n  let t74 : G := t55 ◇ t6\n  let t75 : G := t6 ◇ t74\n  let t76 : G := t73 ◇ t75\n  let t77 : G := t27 ◇ t6\n  let t78 : G := t6 ◇ t77\n  let t79 : G := t70 ◇ t78\n  let t80 : G := t4 ◇ t55\n  let t81 : G := t80 ◇ t75\n  let t82 : G := t68 ◇ t78\n  let t83 : G := t6 ◇ t2\n  let t84 : G := t83 ◇ t9\n  let t85 : G := t7 ◇ t56\n  let t86 : G := t85 ◇ t59\n  let t87 : G := t13 ◇ t10\n  let t88 : G := t10 ◇ t56\n  let t89 : G := t56 ◇ t88\n  let t90 : G := t87 ◇ t89\n  let t91 : G := t56 ◇ t57\n  let t92 : G := t70 ◇ t91\n  let t93 : G := t2 ◇ t83\n  let t94 : G := t45 ◇ t93\n  let t95 : G := t27 ◇ t4\n  let t96 : G := t4 ◇ t95\n  let t97 : G := t95 ◇ t27\n  let t98 : G := t27 ◇ t97\n  let t99 : G := t96 ◇ t98\n  let t100 : G := t99 ◇ t99\n  let t101 : G := t99 ◇ t19\n  let t102 : G := t19 ◇ t101\n  let t103 : G := t100 ◇ t102\n  let t104 : G := t7 ◇ z\n  let t105 : G := z ◇ t10\n  let t106 : G := t10 ◇ t105\n  let t107 : G := t104 ◇ t106\n  let t108 : G := t107 ◇ t96\n  let t109 : G := t96 ◇ t99\n  let t110 : G := t99 ◇ t109\n  let t111 : G := t108 ◇ t110\n  let t112 : G := t27 ◇ t111\n  let t113 : G := t111 ◇ t112\n  let t114 : G := t70 ◇ t113\n  let t115 : G := t27 ◇ t64\n  let t116 : G := t95 ◇ t115\n  let t117 : G := t99 ◇ t111\n  let t118 : G := t111 ◇ t117\n  let t119 : G := t111 ◇ t118\n  let t120 : G := t118 ◇ t27\n  let t121 : G := t27 ◇ t120\n  let t122 : G := t119 ◇ t121\n  let t123 : G := t4 ◇ t99\n  let t124 : G := t123 ◇ t118\n  let t125 : G := t117 ◇ t99\n  let t126 : G := t99 ◇ t125\n  let t127 : G := t118 ◇ t126\n  let t128 : G := t27 ◇ t99\n  let t129 : G := t99 ◇ t128\n  let t130 : G := t68 ◇ t129\n  let t131 : G := t99 ◇ t117\n  let t132 : G := t131 ◇ t126\n  let t133 : G := t99 ◇ t123\n  let t134 : G := t95 ◇ t133\n  let t135 : G := t111 ◇ t99\n  let t136 : G := t99 ◇ t135\n  let t137 : G := t117 ◇ t136\n  let t138 : G := t99 ◇ t27\n  let t139 : G := t27 ◇ t138\n  let t140 : G := t109 ◇ t139\n  let t141 : G := t27 ◇ z\n  let t142 : G := t141 ◇ t27\n  let t143 : G := t142 ◇ t96\n  let t144 : G := t27 ◇ t107\n  let t145 : G := t107 ◇ t6\n  let t146 : G := t6 ◇ t145\n  let t147 : G := t144 ◇ t146\n  let t148 : G := t70 ◇ t96\n  let t149 : G := t27 ◇ t13\n  let t150 : G := t13 ◇ t149\n  let t151 : G := t68 ◇ t150\n  let t152 : G := t100 ◇ t118\n  let t153 : G := t4 ◇ t111\n  let t154 : G := t111 ◇ t153\n  let t155 : G := t95 ◇ t154\n  let t156 : G := t68 ◇ t96\n  let t157 : G := t37 ◇ t19\n  let t158 : G := t21 ◇ t17\n  have e2 : x = t13 := by\n    exact h x t6 t10\n  have e5 : t7 = t18 := by\n    exact h t7 t13 t6\n  have e9 : t13 = x := by\n    exact e2.symm\n  have e8 : t15 = t19 := by\n    exact congrArg (fun q => q ◇ t7) (e9)\n  have e10 : t19 = t30 := by\n    exact h t19 t13 t27\n  have e15 : t13 = t36 := by\n    exact h t13 t6 t27\n  have e19 : t31 = t7 := by\n    exact congrArg (fun q => t6 ◇ q) (e9)\n  have e18 : t7 = t31 := by\n    exact e19.symm\n  have e21 : t6 = t40 := by\n    exact h t6 t10 t27\n  have e28 : t2 = t10 := by\n    exact h t2 x t6\n  have e27 : t10 = t2 := by\n    exact e28.symm\n  have e32 : t6 = t50 := by\n    exact h t6 t1 t1\n  have e39 : w = t6 := by\n    exact h w w w\n  have e38 : t6 = w := by\n    exact e39.symm\n  have e37 : t51 = t1 := by\n    calc\n      t51 = (w ◇ t6) := congrArg (fun q => q ◇ t6) (e38)\n      _ = t1 := congrArg (fun q => w ◇ q) (e38)\n  have e36 : t1 = t51 := by\n    exact e37.symm\n  have e42 : t48 = t5 := by\n    exact congrArg (fun q => q ◇ t1) (e38)\n  have e41 : t49 = t6 := by\n    exact congrArg (fun q => t1 ◇ q) (e42)\n  have e40 : t6 = t49 := by\n    exact e41.symm\n  have e35 : t47 = t52 := by\n    calc\n      t47 = (t51 ◇ t6) := congrArg (fun q => q ◇ t6) (e36)\n      _ = t52 := congrArg (fun q => t51 ◇ q) (e40)\n  have e44 : t6 = t52 := by\n    exact h t6 t6 t1\n  have e43 : t52 = t6 := by\n    exact e44.symm\n  have e34 : t47 = w := by\n    calc\n      t47 = t52 := e35\n      _ = t6 := e43\n      _ = w := e38\n  have e45 : t49 = w := by\n    calc\n      t49 = t6 := e41\n      _ = w := e38\n  have e33 : t50 = t1 := by\n    calc\n      t50 = (w ◇ t49) := congrArg (fun q => q ◇ t49) (e34)\n      _ = t1 := congrArg (fun q => w ◇ q) (e45)\n  have e31 : t6 = t1 := by\n    calc\n      t6 = t50 := e32\n      _ = t1 := e33\n  have e30 : t45 = t2 := by\n    exact congrArg (fun q => z ◇ q) (e31)\n  have e29 : t2 = t45 := by\n    exact e30.symm\n  have e26 : t10 = t45 := by\n    calc\n      t10 = t2 := e27\n      _ = t45 := e29\n  have e25 : t41 = t46 := by\n    exact congrArg (fun q => q ◇ t39) (e26)\n  have e47 : t6 = t46 := by\n    exact h t6 z t27\n  have e46 : t46 = t6 := by\n    exact e47.symm\n  have e48 : t1 = t54 := by\n    exact h t1 z t6\n  have e53 : t53 = t1 := by\n    calc\n      t53 = (w ◇ t47) := congrArg (fun q => q ◇ t47) (e38)\n      _ = t1 := congrArg (fun q => w ◇ q) (e34)\n  have e52 : t1 = t53 := by\n    exact e53.symm\n  have e51 : t6 = t53 := by\n    calc\n      t6 = t50 := e32\n      _ = t1 := e33\n      _ = t53 := e52\n  have e50 : t37 = t54 := by\n    calc\n      t37 = (t2 ◇ t6) := congrArg (fun q => q ◇ t6) (e27)\n      _ = t54 := congrArg (fun q => t2 ◇ q) (e51)\n  have e49 : t54 = t37 := by\n    exact e50.symm\n  have e24 : t41 = t37 := by\n    calc\n      t41 = t46 := e25\n      _ = t6 := e46\n      _ = t50 := e32\n      _ = t1 := e33\n      _ = t54 := e48\n      _ = t37 := e49\n  have e60 : t56 = t62 := by\n    exact h t56 t6 t27\n  have e64 : t1 = t50 := by\n    exact e33.symm\n  have e65 : t50 = t6 := by\n    exact e32.symm\n  have e66 : w = t63 := by\n    exact h w w t2\n  have e68 : t61 = t63 := by\n    exact congrArg (fun q => q ◇ t56) (e31)\n  have e67 : t63 = t61 := by\n    exact e68.symm\n  have e63 : t1 = t61 := by\n    calc\n      t1 = t50 := e64\n      _ = t6 := e65\n      _ = w := e38\n      _ = t63 := e66\n      _ = t61 := e67\n  have e70 : t3 = t27 := by\n    exact h t3 t1 t3\n  have e71 : t27 = t67 := by\n    exact h t27 t4 t14\n  have e75 : t27 = t69 := by\n    exact h t27 y t14\n  have e80 : t27 = t3 := by\n    exact e70.symm\n  have e79 : t68 = t4 := by\n    exact congrArg (fun q => y ◇ q) (e80)\n  have e78 : t4 = t68 := by\n    exact e79.symm\n  have e82 : t27 = t72 := by\n    exact h t27 t27 t27\n  have e86 : t70 = t14 := by\n    calc\n      t70 = (t3 ◇ t27) := congrArg (fun q => q ◇ t27) (e80)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e80)\n  have e85 : t14 = t70 := by\n    exact e86.symm\n  have e88 : t65 = t26 := by\n    exact congrArg (fun q => q ◇ t14) (e80)\n  have e90 : t71 = t26 := by\n    calc\n      t71 = (t3 ◇ t70) := congrArg (fun q => q ◇ t70) (e80)\n      _ = t26 := congrArg (fun q => t3 ◇ q) (e86)\n  have e89 : t26 = t71 := by\n    exact e90.symm\n  have e87 : t65 = t71 := by\n    calc\n      t65 = t26 := e88\n      _ = t71 := e89\n  have e84 : t66 = t72 := by\n    calc\n      t66 = (t70 ◇ t65) := congrArg (fun q => q ◇ t65) (e85)\n      _ = t72 := congrArg (fun q => t70 ◇ q) (e87)\n  have e83 : t72 = t66 := by\n    exact e84.symm\n  have e81 : t27 = t66 := by\n    calc\n      t27 = t72 := e82\n      _ = t66 := e83\n  have e77 : t64 = t69 := by\n    calc\n      t64 = (t68 ◇ t27) := congrArg (fun q => q ◇ t27) (e78)\n      _ = t69 := congrArg (fun q => t68 ◇ q) (e81)\n  have e76 : t69 = t64 := by\n    exact e77.symm\n  have e74 : t3 = t64 := by\n    calc\n      t3 = t27 := e70\n      _ = t69 := e75\n      _ = t64 := e76\n  have e91 : t3 = t66 := by\n    calc\n      t3 = t27 := e70\n      _ = t72 := e82\n      _ = t66 := e83\n  have e73 : t14 = t67 := by\n    calc\n      t14 = (t64 ◇ t3) := congrArg (fun q => q ◇ t3) (e74)\n      _ = t67 := congrArg (fun q => t64 ◇ q) (e91)\n  have e72 : t67 = t14 := by\n    exact e73.symm\n  have e97 : t73 = t56 := by\n    exact congrArg (fun q => q ◇ t55) (e27)\n  have e96 : t56 = t73 := by\n    exact e97.symm\n  have e99 : t27 = t79 := by\n    exact h t27 t27 t6\n  have e112 : t8 = t54 := by\n    exact congrArg (fun q => t2 ◇ q) (e51)\n  have e113 : t54 = t1 := by\n    exact e48.symm\n  have e111 : t8 = w := by\n    calc\n      t8 = t54 := e112\n      _ = t1 := e113\n      _ = t50 := e64\n      _ = t6 := e65\n      _ = w := e38\n  have e110 : t9 = t1 := by\n    calc\n      t9 = (w ◇ t8) := congrArg (fun q => q ◇ t8) (e38)\n      _ = t1 := congrArg (fun q => w ◇ q) (e111)\n  have e109 : t1 = t9 := by\n    exact e110.symm\n  have e108 : t6 = t9 := by\n    calc\n      t6 = t50 := e32\n      _ = t1 := e33\n      _ = t9 := e109\n  have e107 : t77 = t10 := by\n    calc\n      t77 = (t3 ◇ t6) := congrArg (fun q => q ◇ t6) (e80)\n      _ = t10 := congrArg (fun q => t3 ◇ q) (e108)\n  have e106 : t77 = t2 := by\n    calc\n      t77 = t10 := e107\n      _ = t2 := e27\n  have e105 : t78 = t55 := by\n    calc\n      t78 = (w ◇ t77) := congrArg (fun q => q ◇ t77) (e38)\n      _ = t55 := congrArg (fun q => w ◇ q) (e106)\n  have e104 : t55 = t78 := by\n    exact e105.symm\n  have e103 : t80 = t82 := by\n    calc\n      t80 = (t68 ◇ t55) := congrArg (fun q => q ◇ t55) (e78)\n      _ = t82 := congrArg (fun q => t68 ◇ q) (e104)\n  have e115 : t27 = t82 := by\n    exact h t27 y t6\n  have e114 : t82 = t27 := by\n    exact e115.symm\n  have e102 : t80 = t70 := by\n    calc\n      t80 = t82 := e103\n      _ = t27 := e114\n      _ = t67 := e71\n      _ = t14 := e72\n      _ = t70 := e85\n  have e121 : t83 = t55 := by\n    exact congrArg (fun q => q ◇ t2) (e38)\n  have e120 : t55 = t83 := by\n    exact e121.symm\n  have e119 : t74 = t84 := by\n    calc\n      t74 = (t83 ◇ t6) := congrArg (fun q => q ◇ t6) (e120)\n      _ = t84 := congrArg (fun q => t83 ◇ q) (e108)\n  have e123 : t2 = t84 := by\n    exact h t2 t6 t6\n  have e122 : t84 = t2 := by\n    exact e123.symm\n  have e118 : t74 = t2 := by\n    calc\n      t74 = t84 := e119\n      _ = t2 := e122\n  have e117 : t75 = t55 := by\n    calc\n      t75 = (w ◇ t74) := congrArg (fun q => q ◇ t74) (e38)\n      _ = t55 := congrArg (fun q => w ◇ q) (e118)\n  have e116 : t75 = t78 := by\n    calc\n      t75 = t55 := e117\n      _ = t78 := e104\n  have e101 : t81 = t79 := by\n    calc\n      t81 = (t70 ◇ t75) := congrArg (fun q => q ◇ t75) (e102)\n      _ = t79 := congrArg (fun q => t70 ◇ q) (e116)\n  have e100 : t79 = t81 := by\n    exact e101.symm\n  have e125 : t55 = t81 := by\n    exact h t55 t4 t6\n  have e124 : t81 = t55 := by\n    exact e125.symm\n  have e126 : t55 = t75 := by\n    exact e117.symm\n  have e98 : t27 = t75 := by\n    calc\n      t27 = t79 := e99\n      _ = t81 := e100\n      _ = t55 := e124\n      _ = t75 := e126\n  have e95 : t58 = t76 := by\n    calc\n      t58 = (t73 ◇ t27) := congrArg (fun q => q ◇ t27) (e96)\n      _ = t76 := congrArg (fun q => t73 ◇ q) (e98)\n  have e128 : t55 = t76 := by\n    exact h t55 t10 t6\n  have e127 : t76 = t55 := by\n    exact e128.symm\n  have e129 : t79 = t27 := by\n    exact e99.symm\n  have e94 : t58 = t3 := by\n    calc\n      t58 = t76 := e95\n      _ = t55 := e127\n      _ = t81 := e125\n      _ = t79 := e101\n      _ = t27 := e129\n      _ = t3 := e80\n  have e93 : t59 = t14 := by\n    calc\n      t59 = (t3 ◇ t58) := congrArg (fun q => q ◇ t58) (e80)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e94)\n  have e92 : t14 = t59 := by\n    exact e93.symm\n  have e69 : t3 = t59 := by\n    calc\n      t3 = t27 := e70\n      _ = t67 := e71\n      _ = t14 := e72\n      _ = t59 := e92\n  have e62 : t25 = t62 := by\n    calc\n      t25 = (t61 ◇ t3) := congrArg (fun q => q ◇ t3) (e63)\n      _ = t62 := congrArg (fun q => t61 ◇ q) (e69)\n  have e61 : t62 = t25 := by\n    exact e62.symm\n  have e131 : t38 = t25 := by\n    calc\n      t38 = (t1 ◇ t27) := congrArg (fun q => q ◇ t27) (e31)\n      _ = t25 := congrArg (fun q => t1 ◇ q) (e80)\n  have e130 : t25 = t38 := by\n    exact e131.symm\n  have e59 : t56 = t38 := by\n    calc\n      t56 = t62 := e60\n      _ = t25 := e61\n      _ = t38 := e130\n  have e58 : t57 = t39 := by\n    exact congrArg (fun q => t27 ◇ q) (e59)\n  have e57 : t39 = t57 := by\n    exact e58.symm\n  have e132 : t27 = t59 := by\n    calc\n      t27 = t67 := e71\n      _ = t14 := e72\n      _ = t59 := e92\n  have e56 : t42 = t60 := by\n    calc\n      t42 = (t57 ◇ t27) := congrArg (fun q => q ◇ t27) (e57)\n      _ = t60 := congrArg (fun q => t57 ◇ q) (e132)\n  have e134 : t56 = t60 := by\n    exact h t56 t27 t27\n  have e133 : t60 = t56 := by\n    exact e134.symm\n  have e55 : t42 = t38 := by\n    calc\n      t42 = t60 := e56\n      _ = t56 := e133\n      _ = t62 := e60\n      _ = t25 := e61\n      _ = t38 := e130\n  have e54 : t43 = t39 := by\n    exact congrArg (fun q => t27 ◇ q) (e55)\n  have e23 : t44 = t40 := by\n    calc\n      t44 = (t37 ◇ t43) := congrArg (fun q => q ◇ t43) (e24)\n      _ = t40 := congrArg (fun q => t37 ◇ q) (e54)\n  have e22 : t40 = t44 := by\n    exact e23.symm\n  have e136 : t39 = t44 := by\n    exact h t39 t10 t27\n  have e135 : t44 = t39 := by\n    exact e136.symm\n  have e146 : t11 = t3 := by\n    exact congrArg (fun q => x ◇ q) (e27)\n  have e145 : t11 = t55 := by\n    calc\n      t11 = t3 := e146\n      _ = t27 := e70\n      _ = t79 := e99\n      _ = t81 := e100\n      _ = t55 := e124\n  have e144 : t12 = t56 := by\n    calc\n      t12 = (t2 ◇ t11) := congrArg (fun q => q ◇ t11) (e27)\n      _ = t56 := congrArg (fun q => t2 ◇ q) (e145)\n  have e143 : t56 = t12 := by\n    exact e144.symm\n  have e142 : t85 = t13 := by\n    exact congrArg (fun q => t7 ◇ q) (e143)\n  have e141 : t13 = t85 := by\n    exact e142.symm\n  have e140 : t34 = t86 := by\n    calc\n      t34 = (t85 ◇ t27) := congrArg (fun q => q ◇ t27) (e141)\n      _ = t86 := congrArg (fun q => t85 ◇ q) (e132)\n  have e148 : t56 = t86 := by\n    exact h t56 t7 t27\n  have e147 : t86 = t56 := by\n    exact e148.symm\n  have e139 : t34 = t38 := by\n    calc\n      t34 = t86 := e140\n      _ = t56 := e147\n      _ = t62 := e60\n      _ = t25 := e61\n      _ = t38 := e130\n  have e138 : t35 = t39 := by\n    exact congrArg (fun q => t27 ◇ q) (e139)\n  have e137 : t39 = t35 := by\n    exact e138.symm\n  have e20 : t6 = t35 := by\n    calc\n      t6 = t40 := e21\n      _ = t44 := e22\n      _ = t39 := e135\n      _ = t35 := e137\n  have e17 : t16 = t36 := by\n    calc\n      t16 = (t31 ◇ t6) := congrArg (fun q => q ◇ t6) (e18)\n      _ = t36 := congrArg (fun q => t31 ◇ q) (e20)\n  have e16 : t36 = t16 := by\n    exact e17.symm\n  have e14 : t13 = t16 := by\n    calc\n      t13 = t36 := e15\n      _ = t16 := e16\n  have e150 : t32 = t19 := by\n    calc\n      t32 = (x ◇ t31) := congrArg (fun q => q ◇ t31) (e9)\n      _ = t19 := congrArg (fun q => x ◇ q) (e19)\n  have e149 : t19 = t32 := by\n    exact e150.symm\n  have e13 : t24 = t33 := by\n    calc\n      t24 = (t16 ◇ t19) := congrArg (fun q => q ◇ t19) (e14)\n      _ = t33 := congrArg (fun q => t16 ◇ q) (e149)\n  have e152 : t6 = t33 := by\n    exact h t6 t7 t13\n  have e151 : t33 = t6 := by\n    exact e152.symm\n  have e155 : t10 = t90 := by\n    exact h t10 t13 t56\n  have e158 : t87 = t3 := by\n    calc\n      t87 = (x ◇ t10) := congrArg (fun q => q ◇ t10) (e9)\n      _ = t3 := congrArg (fun q => x ◇ q) (e27)\n  have e157 : t87 = t70 := by\n    calc\n      t87 = t3 := e158\n      _ = t27 := e70\n      _ = t67 := e71\n      _ = t14 := e72\n      _ = t70 := e85\n  have e163 : t93 = t56 := by\n    exact congrArg (fun q => t2 ◇ q) (e121)\n  have e162 : t56 = t93 := by\n    exact e163.symm\n  have e161 : t88 = t94 := by\n    calc\n      t88 = (t45 ◇ t56) := congrArg (fun q => q ◇ t56) (e26)\n      _ = t94 := congrArg (fun q => t45 ◇ q) (e162)\n  have e165 : t6 = t94 := by\n    exact h t6 z t2\n  have e164 : t94 = t6 := by\n    exact e165.symm\n  have e160 : t88 = t57 := by\n    calc\n      t88 = t94 := e161\n      _ = t6 := e164\n      _ = t40 := e21\n      _ = t44 := e22\n      _ = t39 := e135\n      _ = t57 := e57\n  have e159 : t89 = t91 := by\n    exact congrArg (fun q => t56 ◇ q) (e160)\n  have e156 : t90 = t92 := by\n    calc\n      t90 = (t70 ◇ t89) := congrArg (fun q => q ◇ t89) (e157)\n      _ = t92 := congrArg (fun q => t70 ◇ q) (e159)\n  have e167 : t27 = t92 := by\n    exact h t27 t27 t56\n  have e166 : t92 = t27 := by\n    exact e167.symm\n  have e154 : t2 = t3 := by\n    calc\n      t2 = t10 := e28\n      _ = t90 := e155\n      _ = t92 := e156\n      _ = t27 := e166\n      _ = t3 := e80\n  have e168 : t53 = t9 := by\n    calc\n      t53 = t1 := e53\n      _ = t9 := e109\n  have e153 : t54 = t10 := by\n    calc\n      t54 = (t3 ◇ t53) := congrArg (fun q => q ◇ t53) (e154)\n      _ = t10 := congrArg (fun q => t3 ◇ q) (e168)\n  have e12 : t24 = t3 := by\n    calc\n      t24 = t33 := e13\n      _ = t6 := e151\n      _ = t50 := e32\n      _ = t1 := e33\n      _ = t54 := e48\n      _ = t10 := e153\n      _ = t90 := e155\n      _ = t92 := e156\n      _ = t27 := e166\n      _ = t3 := e80\n  have e172 : t27 = t114 := by\n    exact h t27 t27 t111\n  have e175 : t27 = t70 := by\n    calc\n      t27 = t67 := e71\n      _ = t14 := e72\n      _ = t70 := e85\n  have e177 : t4 = t116 := by\n    exact h t4 t27 t27\n  have e184 : t96 = t111 := by\n    exact h t96 t107 t99\n  have e183 : t111 = t96 := by\n    exact e184.symm\n  have e188 : t95 = t99 := by\n    exact h t95 t4 t27\n  have e187 : t99 = t95 := by\n    exact e188.symm\n  have e186 : t123 = t96 := by\n    exact congrArg (fun q => t4 ◇ q) (e187)\n  have e185 : t96 = t123 := by\n    exact e186.symm\n  have e182 : t111 = t123 := by\n    calc\n      t111 = t96 := e183\n      _ = t123 := e185\n  have e181 : t119 = t124 := by\n    exact congrArg (fun q => q ◇ t118) (e182)\n  have e190 : t99 = t124 := by\n    exact h t99 t4 t111\n  have e189 : t124 = t99 := by\n    exact e190.symm\n  have e180 : t119 = t95 := by\n    calc\n      t119 = t124 := e181\n      _ = t99 := e189\n      _ = t95 := e187\n  have e196 : t27 = t130 := by\n    exact h t27 y t99\n  have e203 : t123 = t111 := by\n    calc\n      t123 = t96 := e186\n      _ = t111 := e184\n  have e202 : t133 = t117 := by\n    exact congrArg (fun q => t99 ◇ q) (e203)\n  have e201 : t117 = t133 := by\n    exact e202.symm\n  have e200 : t131 = t134 := by\n    calc\n      t131 = (t95 ◇ t117) := congrArg (fun q => q ◇ t117) (e187)\n      _ = t134 := congrArg (fun q => t95 ◇ q) (e201)\n  have e205 : t4 = t134 := by\n    exact h t4 t27 t99\n  have e204 : t134 = t4 := by\n    exact e205.symm\n  have e199 : t131 = t68 := by\n    calc\n      t131 = t134 := e200\n      _ = t4 := e204\n      _ = t68 := e78\n  have e211 : t99 = t140 := by\n    exact h t99 t96 t27\n  have e225 : t69 = t27 := by\n    exact e75.symm\n  have e224 : t64 = t3 := by\n    calc\n      t64 = t69 := e77\n      _ = t27 := e225\n      _ = t3 := e80\n  have e223 : t115 = t14 := by\n    calc\n      t115 = (t3 ◇ t64) := congrArg (fun q => q ◇ t64) (e80)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e224)\n  have e222 : t14 = t115 := by\n    exact e223.symm\n  have e221 : t27 = t115 := by\n    calc\n      t27 = t67 := e71\n      _ = t14 := e72\n      _ = t115 := e222\n  have e220 : t97 = t116 := by\n    exact congrArg (fun q => t95 ◇ q) (e221)\n  have e226 : t116 = t4 := by\n    exact e177.symm\n  have e219 : t97 = t4 := by\n    calc\n      t97 = t116 := e220\n      _ = t4 := e226\n  have e218 : t98 = t95 := by\n    exact congrArg (fun q => t27 ◇ q) (e219)\n  have e217 : t95 = t98 := by\n    exact e218.symm\n  have e216 : t99 = t98 := by\n    calc\n      t99 = t95 := e187\n      _ = t98 := e217\n  have e215 : t109 = t99 := by\n    exact congrArg (fun q => t96 ◇ q) (e216)\n  have e214 : t99 = t109 := by\n    exact e215.symm\n  have e228 : t135 = t99 := by\n    calc\n      t135 = (t96 ◇ t99) := congrArg (fun q => q ◇ t99) (e183)\n      _ = t99 := congrArg (fun q => t96 ◇ q) (e216)\n  have e232 : t138 = t116 := by\n    calc\n      t138 = (t95 ◇ t27) := congrArg (fun q => q ◇ t27) (e187)\n      _ = t116 := congrArg (fun q => t95 ◇ q) (e221)\n  have e231 : t138 = t4 := by\n    calc\n      t138 = t116 := e232\n      _ = t4 := e226\n  have e230 : t139 = t95 := by\n    exact congrArg (fun q => t27 ◇ q) (e231)\n  have e229 : t95 = t139 := by\n    exact e230.symm\n  have e227 : t135 = t139 := by\n    calc\n      t135 = t99 := e228\n      _ = t95 := e187\n      _ = t139 := e229\n  have e213 : t136 = t140 := by\n    calc\n      t136 = (t109 ◇ t135) := congrArg (fun q => q ◇ t135) (e214)\n      _ = t140 := congrArg (fun q => t109 ◇ q) (e227)\n  have e212 : t140 = t136 := by\n    exact e213.symm\n  have e210 : t99 = t136 := by\n    calc\n      t99 = t140 := e211\n      _ = t136 := e212\n  have e209 : t125 = t137 := by\n    exact congrArg (fun q => t117 ◇ q) (e210)\n  have e234 : t111 = t137 := by\n    exact h t111 t99 t99\n  have e233 : t137 = t111 := by\n    exact e234.symm\n  have e208 : t125 = t111 := by\n    calc\n      t125 = t137 := e209\n      _ = t111 := e233\n  have e207 : t126 = t117 := by\n    exact congrArg (fun q => t99 ◇ q) (e208)\n  have e239 : t27 = t143 := by\n    exact h t27 t141 t4\n  have e243 : t107 = t147 := by\n    exact h t107 t27 t6\n  have e249 : z = t107 := by\n    exact h z t7 t10\n  have e248 : t107 = z := by\n    exact e249.symm\n  have e247 : t144 = t141 := by\n    exact congrArg (fun q => t27 ◇ q) (e248)\n  have e246 : t141 = t144 := by\n    exact e247.symm\n  have e253 : t145 = t2 := by\n    calc\n      t145 = (z ◇ t6) := congrArg (fun q => q ◇ t6) (e248)\n      _ = t2 := congrArg (fun q => z ◇ q) (e31)\n  have e252 : t146 = t55 := by\n    calc\n      t146 = (w ◇ t145) := congrArg (fun q => q ◇ t145) (e38)\n      _ = t55 := congrArg (fun q => w ◇ q) (e253)\n  have e251 : t55 = t146 := by\n    exact e252.symm\n  have e250 : t27 = t146 := by\n    calc\n      t27 = t79 := e99\n      _ = t81 := e100\n      _ = t55 := e124\n      _ = t146 := e251\n  have e245 : t142 = t147 := by\n    calc\n      t142 = (t144 ◇ t27) := congrArg (fun q => q ◇ t27) (e246)\n      _ = t147 := congrArg (fun q => t144 ◇ q) (e250)\n  have e244 : t147 = t142 := by\n    exact e245.symm\n  have e242 : t107 = t142 := by\n    calc\n      t107 = t147 := e243\n      _ = t142 := e244\n  have e241 : t108 = t143 := by\n    exact congrArg (fun q => q ◇ t96) (e242)\n  have e240 : t143 = t108 := by\n    exact e241.symm\n  have e238 : t27 = t108 := by\n    calc\n      t27 = t143 := e239\n      _ = t108 := e240\n  have e257 : t109 = t139 := by\n    calc\n      t109 = t99 := e215\n      _ = t95 := e187\n      _ = t139 := e229\n  have e256 : t110 = t140 := by\n    calc\n      t110 = (t109 ◇ t109) := congrArg (fun q => q ◇ t109) (e214)\n      _ = t140 := congrArg (fun q => t109 ◇ q) (e257)\n  have e255 : t140 = t110 := by\n    exact e256.symm\n  have e254 : t99 = t110 := by\n    calc\n      t99 = t140 := e211\n      _ = t110 := e255\n  have e237 : t128 = t111 := by\n    calc\n      t128 = (t108 ◇ t99) := congrArg (fun q => q ◇ t99) (e238)\n      _ = t111 := congrArg (fun q => t108 ◇ q) (e254)\n  have e236 : t129 = t117 := by\n    exact congrArg (fun q => t99 ◇ q) (e237)\n  have e235 : t117 = t129 := by\n    exact e236.symm\n  have e206 : t126 = t129 := by\n    calc\n      t126 = t117 := e207\n      _ = t129 := e235\n  have e198 : t132 = t130 := by\n    calc\n      t132 = (t68 ◇ t126) := congrArg (fun q => q ◇ t126) (e199)\n      _ = t130 := congrArg (fun q => t68 ◇ q) (e206)\n  have e197 : t130 = t132 := by\n    exact e198.symm\n  have e259 : t117 = t132 := by\n    exact h t117 t99 t99\n  have e258 : t132 = t117 := by\n    exact e259.symm\n  have e260 : t117 = t126 := by\n    exact e207.symm\n  have e195 : t27 = t126 := by\n    calc\n      t27 = t130 := e196\n      _ = t132 := e197\n      _ = t117 := e258\n      _ = t126 := e260\n  have e194 : t120 = t127 := by\n    exact congrArg (fun q => t118 ◇ q) (e195)\n  have e262 : t117 = t127 := by\n    exact h t117 t111 t99\n  have e261 : t127 = t117 := by\n    exact e262.symm\n  have e263 : t130 = t27 := by\n    exact e196.symm\n  have e193 : t120 = t3 := by\n    calc\n      t120 = t127 := e194\n      _ = t117 := e261\n      _ = t132 := e259\n      _ = t130 := e198\n      _ = t27 := e263\n      _ = t3 := e80\n  have e192 : t121 = t14 := by\n    calc\n      t121 = (t3 ◇ t120) := congrArg (fun q => q ◇ t120) (e80)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e193)\n  have e191 : t121 = t115 := by\n    calc\n      t121 = t14 := e192\n      _ = t115 := e222\n  have e179 : t122 = t116 := by\n    calc\n      t122 = (t95 ◇ t121) := congrArg (fun q => q ◇ t121) (e180)\n      _ = t116 := congrArg (fun q => t95 ◇ q) (e191)\n  have e178 : t116 = t122 := by\n    exact e179.symm\n  have e265 : t118 = t122 := by\n    exact h t118 t111 t27\n  have e264 : t122 = t118 := by\n    exact e265.symm\n  have e269 : t112 = t148 := by\n    calc\n      t112 = (t70 ◇ t111) := congrArg (fun q => q ◇ t111) (e175)\n      _ = t148 := congrArg (fun q => t70 ◇ q) (e183)\n  have e271 : t27 = t148 := by\n    exact h t27 t27 t4\n  have e270 : t148 = t27 := by\n    exact e271.symm\n  have e268 : t112 = t117 := by\n    calc\n      t112 = t148 := e269\n      _ = t27 := e270\n      _ = t130 := e196\n      _ = t132 := e197\n      _ = t117 := e258\n  have e267 : t113 = t118 := by\n    exact congrArg (fun q => t111 ◇ q) (e268)\n  have e266 : t118 = t113 := by\n    exact e267.symm\n  have e176 : t4 = t113 := by\n    calc\n      t4 = t116 := e177\n      _ = t122 := e178\n      _ = t118 := e264\n      _ = t113 := e266\n  have e174 : t95 = t114 := by\n    calc\n      t95 = (t70 ◇ t4) := congrArg (fun q => q ◇ t4) (e175)\n      _ = t114 := congrArg (fun q => t70 ◇ q) (e176)\n  have e173 : t114 = t95 := by\n    exact e174.symm\n  have e274 : t99 = t139 := by\n    calc\n      t99 = t95 := e187\n      _ = t139 := e229\n  have e273 : t100 = t140 := by\n    calc\n      t100 = (t109 ◇ t99) := congrArg (fun q => q ◇ t99) (e214)\n      _ = t140 := congrArg (fun q => t109 ◇ q) (e274)\n  have e272 : t140 = t100 := by\n    exact e273.symm\n  have e171 : t27 = t100 := by\n    calc\n      t27 = t114 := e172\n      _ = t95 := e173\n      _ = t99 := e188\n      _ = t140 := e211\n      _ = t100 := e272\n  have e277 : t27 = t151 := by\n    exact h t27 y t13\n  have e281 : t99 = t152 := by\n    exact h t99 t99 t111\n  have e284 : t95 = t100 := by\n    calc\n      t95 = t99 := e188\n      _ = t140 := e211\n      _ = t100 := e272\n  have e287 : t153 = t156 := by\n    calc\n      t153 = (t68 ◇ t111) := congrArg (fun q => q ◇ t111) (e78)\n      _ = t156 := congrArg (fun q => t68 ◇ q) (e183)\n  have e289 : t27 = t156 := by\n    exact h t27 y t4\n  have e288 : t156 = t27 := by\n    exact e289.symm\n  have e286 : t153 = t117 := by\n    calc\n      t153 = t156 := e287\n      _ = t27 := e288\n      _ = t130 := e196\n      _ = t132 := e197\n      _ = t117 := e258\n  have e285 : t154 = t118 := by\n    exact congrArg (fun q => t111 ◇ q) (e286)\n  have e283 : t155 = t152 := by\n    calc\n      t155 = (t100 ◇ t154) := congrArg (fun q => q ◇ t154) (e284)\n      _ = t152 := congrArg (fun q => t100 ◇ q) (e285)\n  have e282 : t152 = t155 := by\n    exact e283.symm\n  have e291 : t4 = t155 := by\n    exact h t4 t27 t111\n  have e290 : t155 = t4 := by\n    exact e291.symm\n  have e280 : t99 = t68 := by\n    calc\n      t99 = t152 := e281\n      _ = t155 := e282\n      _ = t4 := e290\n      _ = t68 := e78\n  have e296 : t92 = t90 := by\n    exact e156.symm\n  have e297 : t90 = t10 := by\n    exact e155.symm\n  have e298 : t10 = t54 := by\n    exact e153.symm\n  have e295 : t27 = t6 := by\n    calc\n      t27 = t92 := e167\n      _ = t90 := e296\n      _ = t10 := e297\n      _ = t54 := e298\n      _ = t1 := e113\n      _ = t50 := e64\n      _ = t6 := e65\n  have e294 : t149 = t7 := by\n    calc\n      t149 = (t6 ◇ t13) := congrArg (fun q => q ◇ t13) (e295)\n      _ = t7 := congrArg (fun q => t6 ◇ q) (e9)\n  have e293 : t150 = t19 := by\n    calc\n      t150 = (x ◇ t149) := congrArg (fun q => q ◇ t149) (e9)\n      _ = t19 := congrArg (fun q => x ◇ q) (e294)\n  have e292 : t19 = t150 := by\n    exact e293.symm\n  have e279 : t101 = t151 := by\n    calc\n      t101 = (t68 ◇ t19) := congrArg (fun q => q ◇ t19) (e280)\n      _ = t151 := congrArg (fun q => t68 ◇ q) (e292)\n  have e278 : t151 = t101 := by\n    exact e279.symm\n  have e276 : t27 = t101 := by\n    calc\n      t27 = t151 := e277\n      _ = t101 := e278\n  have e275 : t28 = t102 := by\n    exact congrArg (fun q => t19 ◇ q) (e276)\n  have e170 : t29 = t103 := by\n    calc\n      t29 = (t100 ◇ t28) := congrArg (fun q => q ◇ t28) (e171)\n      _ = t103 := congrArg (fun q => t100 ◇ q) (e275)\n  have e300 : t99 = t103 := by\n    exact h t99 t99 t19\n  have e299 : t103 = t99 := by\n    exact e300.symm\n  have e301 : t114 = t27 := by\n    exact e172.symm\n  have e169 : t29 = t3 := by\n    calc\n      t29 = t103 := e170\n      _ = t99 := e299\n      _ = t95 := e187\n      _ = t114 := e174\n      _ = t27 := e301\n      _ = t3 := e80\n  have e11 : t30 = t14 := by\n    calc\n      t30 = (t3 ◇ t29) := congrArg (fun q => q ◇ t29) (e12)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e169)\n  have e302 : t67 = t27 := by\n    exact e71.symm\n  have e303 : t6 = t157 := by\n    exact h t6 t10 x\n  have e306 : t6 = t37 := by\n    calc\n      t6 = t50 := e32\n      _ = t1 := e33\n      _ = t54 := e48\n      _ = t37 := e49\n  have e305 : t20 = t157 := by\n    exact congrArg (fun q => q ◇ t19) (e306)\n  have e304 : t157 = t20 := by\n    exact e305.symm\n  have e7 : t15 = t20 := by\n    calc\n      t15 = t19 := e8\n      _ = t30 := e10\n      _ = t14 := e11\n      _ = t67 := e73\n      _ = t27 := e302\n      _ = t92 := e167\n      _ = t90 := e296\n      _ = t10 := e297\n      _ = t54 := e298\n      _ = t1 := e113\n      _ = t50 := e64\n      _ = t6 := e65\n      _ = t157 := e303\n      _ = t20 := e304\n  have e310 : t36 = t13 := by\n    exact e15.symm\n  have e309 : t16 = x := by\n    calc\n      t16 = t36 := e17\n      _ = t13 := e310\n      _ = x := e9\n  have e308 : t17 = t7 := by\n    exact congrArg (fun q => t6 ◇ q) (e309)\n  have e311 : t7 = t158 := by\n    exact h t7 t19 t6\n  have e317 : t19 = t15 := by\n    exact e8.symm\n  have e318 : t7 = t17 := by\n    exact e308.symm\n  have e316 : t21 = t18 := by\n    calc\n      t21 = (t15 ◇ t7) := congrArg (fun q => q ◇ t7) (e317)\n      _ = t18 := congrArg (fun q => t15 ◇ q) (e318)\n  have e315 : t18 = t21 := by\n    exact e316.symm\n  have e314 : t7 = t21 := by\n    calc\n      t7 = t18 := e5\n      _ = t21 := e315\n  have e320 : t18 = t7 := by\n    exact e5.symm\n  have e319 : t21 = t17 := by\n    calc\n      t21 = t18 := e316\n      _ = t7 := e320\n      _ = t17 := e318\n  have e313 : t22 = t158 := by\n    calc\n      t22 = (t21 ◇ t21) := congrArg (fun q => q ◇ t21) (e314)\n      _ = t158 := congrArg (fun q => t21 ◇ q) (e319)\n  have e312 : t158 = t22 := by\n    exact e313.symm\n  have e307 : t17 = t22 := by\n    calc\n      t17 = t7 := e308\n      _ = t158 := e311\n      _ = t22 := e312\n  have e6 : t18 = t23 := by\n    calc\n      t18 = (t20 ◇ t17) := congrArg (fun q => q ◇ t17) (e7)\n      _ = t23 := congrArg (fun q => t20 ◇ q) (e307)\n  have e322 : t19 = t23 := by\n    exact h t19 t6 t7\n  have e321 : t23 = t19 := by\n    exact e322.symm\n  have e4 : t7 = t3 := by\n    calc\n      t7 = t18 := e5\n      _ = t23 := e6\n      _ = t19 := e321\n      _ = t30 := e10\n      _ = t14 := e11\n      _ = t67 := e73\n      _ = t27 := e302\n      _ = t3 := e80\n  have e325 : t85 = x := by\n    calc\n      t85 = t13 := e142\n      _ = x := e9\n  have e326 : t59 = t2 := by\n    calc\n      t59 = t14 := e93\n      _ = t67 := e73\n      _ = t27 := e302\n      _ = t92 := e167\n      _ = t90 := e296\n      _ = t10 := e297\n      _ = t2 := e27\n  have e324 : t86 = t3 := by\n    calc\n      t86 = (x ◇ t59) := congrArg (fun q => q ◇ t59) (e325)\n      _ = t3 := congrArg (fun q => x ◇ q) (e326)\n  have e323 : t12 = t3 := by\n    calc\n      t12 = t56 := e144\n      _ = t86 := e148\n      _ = t3 := e324\n  have e3 : t13 = t14 := by\n    calc\n      t13 = (t3 ◇ t12) := congrArg (fun q => q ◇ t12) (e4)\n      _ = t14 := congrArg (fun q => t3 ◇ q) (e323)\n  have e1 : x = t4 := by\n    calc\n      x = t13 := e2\n      _ = t14 := e3\n      _ = t67 := e73\n      _ = t27 := e302\n      _ = t114 := e172\n      _ = t95 := e173\n      _ = t99 := e188\n      _ = t152 := e281\n      _ = t155 := e282\n      _ = t4 := e290\n  exact e1\n',
+    },
+    {
+        "name": "z3_true_1698_555_min",
+        "eq1_id": 1698,
+        "eq2_id": 555,
+        "eq1_canonical": "v0=((v1◇v0)◇((v1◇v2)◇v1))",
+        "eq2_canonical": "v0=(v1◇(v2◇(v1◇(v0◇v1))))",
+        "code": 'import JudgeProblem\n\ndef submission : Goal := by\n  intro G _ h\n  intro x\n  intro y\n  intro z\n  let t1 : G := x ◇ y\n  let t2 : G := y ◇ t1\n  let t3 : G := z ◇ t2\n  let t4 : G := y ◇ t3\n  let t5 : G := t1 ◇ x\n  let t6 : G := t1 ◇ t5\n  let t7 : G := t6 ◇ t1\n  let t8 : G := t5 ◇ t7\n  let t9 : G := t3 ◇ z\n  let t10 : G := t3 ◇ t9\n  let t11 : G := t6 ◇ t10\n  let t12 : G := t3 ◇ t6\n  let t13 : G := t12 ◇ t3\n  let t14 : G := t12 ◇ t13\n  let t15 : G := t14 ◇ t12\n  let t16 : G := t13 ◇ t15\n  let t17 : G := t6 ◇ t16\n  let t18 : G := t17 ◇ t6\n  let t19 : G := t11 ◇ t18\n  let t20 : G := t6 ◇ t7\n  let t21 : G := x ◇ z\n  let t22 : G := t21 ◇ t5\n  let t23 : G := t3 ◇ t22\n  let t24 : G := t23 ◇ t3\n  let t25 : G := t12 ◇ t24\n  let t26 : G := t25 ◇ t15\n  let t27 : G := t26 ◇ t10\n  let t28 : G := t26 ◇ t15\n  let t29 : G := t28 ◇ t26\n  let t30 : G := t27 ◇ t29\n  let t31 : G := t27 ◇ t15\n  let t32 : G := t14 ◇ t15\n  let t33 : G := t16 ◇ t29\n  let t34 : G := t16 ◇ t6\n  let t35 : G := t34 ◇ t16\n  let t36 : G := t33 ◇ t35\n  let t37 : G := t28 ◇ t29\n  let t38 : G := t15 ◇ t6\n  let t39 : G := t15 ◇ t4\n  let t40 : G := t39 ◇ t15\n  let t41 : G := t38 ◇ t40\n  let t42 : G := t16 ◇ t22\n  let t43 : G := t42 ◇ t16\n  let t44 : G := t33 ◇ t43\n  let t45 : G := t15 ◇ t44\n  let t46 : G := t45 ◇ t40\n  let t47 : G := t6 ◇ t12\n  let t48 : G := t47 ◇ t6\n  let t49 : G := t26 ◇ t48\n  let t50 : G := t49 ◇ t26\n  let t51 : G := t49 ◇ t50\n  let t52 : G := t26 ◇ t18\n  let t53 : G := t52 ◇ t50\n  let t54 : G := t6 ◇ t15\n  let t55 : G := t54 ◇ t48\n  let t56 : G := t54 ◇ t18\n  let t57 : G := t52 ◇ t29\n  let t58 : G := t27 ◇ t26\n  let t59 : G := t16 ◇ t58\n  let t60 : G := t59 ◇ t43\n  let t61 : G := t28 ◇ t58\n  have e2 : x = t8 := by\n    exact h x t1 t5\n  have e5 : t5 = t20 := by\n    exact h t5 t1 t5\n  have e10 : t2 = t10 := by\n    exact h t2 z t2\n  have e9 : t10 = t2 := by\n    exact e10.symm\n  have e14 : y = t6 := by\n    exact h y x y\n  have e13 : t6 = y := by\n    exact e14.symm\n  have e12 : t7 = t2 := by\n    exact congrArg (fun q => q ◇ t1) (e13)\n  have e11 : t2 = t7 := by\n    exact e12.symm\n  have e8 : t10 = t7 := by\n    calc\n      t10 = t2 := e9\n      _ = t7 := e11\n  have e7 : t11 = t20 := by\n    exact congrArg (fun q => t6 ◇ q) (e8)\n  have e6 : t20 = t11 := by\n    exact e7.symm\n  have e4 : t5 = t11 := by\n    calc\n      t5 = t20 := e5\n      _ = t11 := e6\n  have e16 : t10 = t30 := by\n    exact h t10 t26 t15\n  have e27 : t6 = t14 := by\n    exact h t6 t3 t6\n  have e26 : t14 = t6 := by\n    exact e27.symm\n  have e28 : t6 = t25 := by\n    exact h t6 t3 t22\n  have e25 : t14 = t25 := by\n    calc\n      t14 = t6 := e26\n      _ = t25 := e28\n  have e24 : t32 = t26 := by\n    exact congrArg (fun q => q ◇ t15) (e25)\n  have e23 : t26 = t32 := by\n    exact e24.symm\n  have e30 : t13 = t32 := by\n    exact h t13 t12 t13\n  have e29 : t32 = t13 := by\n    exact e30.symm\n  have e22 : t26 = t13 := by\n    calc\n      t26 = t32 := e23\n      _ = t13 := e29\n  have e21 : t28 = t16 := by\n    exact congrArg (fun q => q ◇ t15) (e22)\n  have e35 : t25 = t6 := by\n    exact e28.symm\n  have e34 : t25 = t14 := by\n    calc\n      t25 = t6 := e35\n      _ = t14 := e27\n  have e37 : t15 = t37 := by\n    exact h t15 t26 t15\n  have e41 : t3 = t16 := by\n    exact h t3 t12 t13\n  have e42 : t16 = t28 := by\n    exact e21.symm\n  have e40 : t3 = t28 := by\n    calc\n      t3 = t16 := e41\n      _ = t28 := e42\n  have e44 : t6 = t41 := by\n    exact h t6 t15 t4\n  have e49 : t47 = t15 := by\n    exact congrArg (fun q => q ◇ t12) (e27)\n  have e48 : t15 = t47 := by\n    exact e49.symm\n  have e47 : t38 = t48 := by\n    exact congrArg (fun q => q ◇ t6) (e48)\n  have e50 : t48 = t51 := by\n    exact h t48 t26 t48\n  have e55 : t54 = t26 := by\n    exact congrArg (fun q => q ◇ t15) (e28)\n  have e54 : t26 = t54 := by\n    exact e55.symm\n  have e53 : t49 = t55 := by\n    exact congrArg (fun q => q ◇ t48) (e54)\n  have e57 : t15 = t55 := by\n    exact h t15 t6 t12\n  have e56 : t55 = t15 := by\n    exact e57.symm\n  have e58 : t15 = t56 := by\n    exact h t15 t6 t16\n  have e60 : t52 = t56 := by\n    exact congrArg (fun q => q ◇ t18) (e54)\n  have e59 : t56 = t52 := by\n    exact e60.symm\n  have e52 : t49 = t52 := by\n    calc\n      t49 = t55 := e53\n      _ = t15 := e56\n      _ = t56 := e58\n      _ = t52 := e59\n  have e51 : t51 = t53 := by\n    exact congrArg (fun q => q ◇ t50) (e52)\n  have e62 : t18 = t53 := by\n    exact h t18 t26 t48\n  have e61 : t53 = t18 := by\n    exact e62.symm\n  have e63 : t18 = t57 := by\n    exact h t18 t26 t15\n  have e66 : t15 = t52 := by\n    calc\n      t15 = t56 := e58\n      _ = t52 := e59\n  have e68 : t29 = t44 := by\n    exact h t29 t16 t22\n  have e67 : t44 = t29 := by\n    exact e68.symm\n  have e65 : t45 = t57 := by\n    calc\n      t45 = (t52 ◇ t44) := congrArg (fun q => q ◇ t44) (e66)\n      _ = t57 := congrArg (fun q => t52 ◇ q) (e67)\n  have e64 : t57 = t45 := by\n    exact e65.symm\n  have e46 : t38 = t45 := by\n    calc\n      t38 = t48 := e47\n      _ = t51 := e50\n      _ = t53 := e51\n      _ = t18 := e61\n      _ = t57 := e63\n      _ = t45 := e64\n  have e45 : t41 = t46 := by\n    exact congrArg (fun q => q ◇ t40) (e46)\n  have e70 : t44 = t46 := by\n    exact h t44 t15 t4\n  have e69 : t46 = t44 := by\n    exact e70.symm\n  have e43 : t6 = t29 := by\n    calc\n      t6 = t41 := e44\n      _ = t46 := e45\n      _ = t44 := e69\n      _ = t29 := e67\n  have e39 : t12 = t37 := by\n    calc\n      t12 = (t28 ◇ t6) := congrArg (fun q => q ◇ t6) (e40)\n      _ = t37 := congrArg (fun q => t28 ◇ q) (e43)\n  have e38 : t37 = t12 := by\n    exact e39.symm\n  have e36 : t15 = t12 := by\n    calc\n      t15 = t37 := e37\n      _ = t12 := e38\n  have e33 : t26 = t15 := by\n    calc\n      t26 = (t14 ◇ t15) := congrArg (fun q => q ◇ t15) (e34)\n      _ = t15 := congrArg (fun q => t14 ◇ q) (e36)\n  have e72 : t33 = t37 := by\n    exact congrArg (fun q => q ◇ t29) (e42)\n  have e71 : t37 = t33 := by\n    exact e72.symm\n  have e32 : t13 = t33 := by\n    calc\n      t13 = t32 := e30\n      _ = t26 := e24\n      _ = t15 := e33\n      _ = t37 := e37\n      _ = t33 := e71\n  have e74 : t15 = t26 := by\n    exact e33.symm\n  have e78 : t16 = t3 := by\n    exact e41.symm\n  have e77 : t34 = t12 := by\n    exact congrArg (fun q => q ◇ t6) (e78)\n  have e76 : t35 = t13 := by\n    calc\n      t35 = (t12 ◇ t16) := congrArg (fun q => q ◇ t16) (e77)\n      _ = t13 := congrArg (fun q => t12 ◇ q) (e78)\n  have e75 : t13 = t35 := by\n    exact e76.symm\n  have e73 : t15 = t35 := by\n    calc\n      t15 = t26 := e74\n      _ = t32 := e23\n      _ = t13 := e29\n      _ = t35 := e75\n  have e31 : t16 = t36 := by\n    calc\n      t16 = (t33 ◇ t15) := congrArg (fun q => q ◇ t15) (e32)\n      _ = t36 := congrArg (fun q => t33 ◇ q) (e73)\n  have e80 : t29 = t36 := by\n    exact h t29 t16 t6\n  have e79 : t36 = t29 := by\n    exact e80.symm\n  have e81 : t46 = t41 := by\n    exact e45.symm\n  have e82 : t41 = t6 := by\n    exact e44.symm\n  have e20 : t28 = t25 := by\n    calc\n      t28 = t16 := e21\n      _ = t36 := e31\n      _ = t29 := e79\n      _ = t44 := e68\n      _ = t46 := e70\n      _ = t41 := e81\n      _ = t6 := e82\n      _ = t25 := e28\n  have e19 : t29 = t26 := by\n    calc\n      t29 = (t25 ◇ t26) := congrArg (fun q => q ◇ t26) (e20)\n      _ = t26 := congrArg (fun q => t25 ◇ q) (e33)\n  have e18 : t29 = t15 := by\n    calc\n      t29 = t26 := e19\n      _ = t15 := e33\n  have e17 : t30 = t31 := by\n    exact congrArg (fun q => t27 ◇ q) (e18)\n  have e83 : t31 = t58 := by\n    exact congrArg (fun q => t27 ◇ q) (e74)\n  have e84 : t58 = t60 := by\n    exact h t58 t16 t22\n  have e87 : t59 = t61 := by\n    exact congrArg (fun q => q ◇ t58) (e42)\n  have e89 : t15 = t61 := by\n    exact h t15 t26 t10\n  have e88 : t61 = t15 := by\n    exact e89.symm\n  have e86 : t59 = t33 := by\n    calc\n      t59 = t61 := e87\n      _ = t15 := e88\n      _ = t37 := e37\n      _ = t33 := e71\n  have e85 : t60 = t44 := by\n    exact congrArg (fun q => q ◇ t43) (e86)\n  have e93 : t56 = t15 := by\n    exact e58.symm\n  have e92 : t52 = t12 := by\n    calc\n      t52 = t56 := e60\n      _ = t15 := e93\n      _ = t37 := e37\n      _ = t12 := e38\n  have e95 : t36 = t16 := by\n    exact e31.symm\n  have e94 : t29 = t3 := by\n    calc\n      t29 = t36 := e80\n      _ = t16 := e95\n      _ = t3 := e78\n  have e91 : t57 = t13 := by\n    calc\n      t57 = (t12 ◇ t29) := congrArg (fun q => q ◇ t29) (e92)\n      _ = t13 := congrArg (fun q => t12 ◇ q) (e94)\n  have e90 : t13 = t57 := by\n    exact e91.symm\n  have e96 : t57 = t18 := by\n    exact e63.symm\n  have e15 : t7 = t18 := by\n    calc\n      t7 = t2 := e12\n      _ = t10 := e10\n      _ = t30 := e16\n      _ = t31 := e17\n      _ = t58 := e83\n      _ = t60 := e84\n      _ = t44 := e85\n      _ = t29 := e67\n      _ = t26 := e19\n      _ = t32 := e23\n      _ = t13 := e29\n      _ = t57 := e90\n      _ = t18 := e96\n  have e3 : t8 = t19 := by\n    calc\n      t8 = (t11 ◇ t7) := congrArg (fun q => q ◇ t7) (e4)\n      _ = t19 := congrArg (fun q => t11 ◇ q) (e15)\n  have e98 : t10 = t19 := by\n    exact h t10 t6 t16\n  have e97 : t19 = t10 := by\n    exact e98.symm\n  have e101 : y = t28 := by\n    calc\n      y = t6 := e14\n      _ = t41 := e44\n      _ = t46 := e45\n      _ = t44 := e69\n      _ = t29 := e67\n      _ = t36 := e80\n      _ = t16 := e95\n      _ = t28 := e42\n  have e102 : t3 = t29 := by\n    calc\n      t3 = t16 := e41\n      _ = t36 := e31\n      _ = t29 := e79\n  have e100 : t4 = t37 := by\n    calc\n      t4 = (t28 ◇ t3) := congrArg (fun q => q ◇ t3) (e101)\n      _ = t37 := congrArg (fun q => t28 ◇ q) (e102)\n  have e99 : t37 = t4 := by\n    exact e100.symm\n  have e1 : x = t4 := by\n    calc\n      x = t8 := e2\n      _ = t19 := e3\n      _ = t10 := e97\n      _ = t30 := e16\n      _ = t31 := e17\n      _ = t58 := e83\n      _ = t60 := e84\n      _ = t44 := e85\n      _ = t29 := e67\n      _ = t26 := e19\n      _ = t15 := e33\n      _ = t37 := e37\n      _ = t4 := e99\n  exact e1\n',
+    },
+    {
+        "name": "z3_true_689_1350_min",
+        "eq1_id": 689,
+        "eq2_id": 1350,
+        "eq1_canonical": "v0=(v1◇(v0◇((v2◇v0)◇v3)))",
+        "eq2_canonical": "v0=(v1◇(((v2◇v0)◇v0)◇v1))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x
+  intro y
+  intro z
+  let t1 : G := z ◇ x
+  let t2 : G := t1 ◇ x
+  let t3 : G := t2 ◇ y
+  let t4 : G := y ◇ t3
+  let t5 : G := y ◇ y
+  let t6 : G := t5 ◇ y
+  let t7 : G := y ◇ t6
+  let t8 : G := x ◇ t2
+  let t9 : G := t8 ◇ x
+  let t10 : G := t2 ◇ t9
+  let t11 : G := y ◇ t10
+  let t12 : G := t11 ◇ t7
+  let t13 : G := t12 ◇ t6
+  let t14 : G := t7 ◇ t13
+  let t15 : G := t1 ◇ t14
+  let t16 : G := t15 ◇ t8
+  let t17 : G := t1 ◇ y
+  let t18 : G := t17 ◇ y
+  let t19 : G := y ◇ t18
+  let t20 : G := t8 ◇ t19
+  let t21 : G := t20 ◇ t20
+  let t22 : G := t21 ◇ t20
+  let t23 : G := t20 ◇ t22
+  let t24 : G := x ◇ t23
+  let t25 : G := x ◇ t11
+  let t26 : G := t25 ◇ t19
+  let t27 : G := t11 ◇ t26
+  let t28 : G := t20 ◇ t27
+  let t29 : G := t15 ◇ t15
+  let t30 : G := t29 ◇ t6
+  let t31 : G := t15 ◇ t30
+  let t32 : G := t11 ◇ t31
+  let t33 : G := t15 ◇ t23
+  let t34 : G := t15 ◇ t31
+  let t35 : G := t8 ◇ t23
+  let t36 : G := t11 ◇ t1
+  let t37 : G := t36 ◇ t7
+  let t38 : G := t1 ◇ t37
+  let t39 : G := t8 ◇ t38
+  let t40 : G := t36 ◇ t23
+  let t41 : G := t20 ◇ t23
+  have e2 : x = t16 := by
+    exact h x t15 z x
+  have e5 : t7 = t15 := by
+    exact h t7 t1 t11 t6
+  have e4 : t15 = t7 := by
+    exact e5.symm
+  have e9 : t2 = t11 := by
+    exact h t2 y x x
+  have e10 : t11 = t28 := by
+    exact h t11 t20 x t19
+  have e13 : y = t20 := by
+    exact h y t8 t1 y
+  have e12 : t20 = y := by
+    exact e13.symm
+  have e15 : t11 = t2 := by
+    exact e9.symm
+  have e18 : t25 = t8 := by
+    exact congrArg (fun q => x ◇ q) (e15)
+  have e17 : t26 = t20 := by
+    exact congrArg (fun q => q ◇ t19) (e18)
+  have e16 : t26 = y := by
+    calc
+      t26 = t20 := e17
+      _ = y := e12
+  have e14 : t27 = t3 := by
+    calc
+      t27 = (t2 ◇ t26) := congrArg (fun q => q ◇ t26) (e15)
+      _ = t3 := congrArg (fun q => t2 ◇ q) (e16)
+  have e11 : t28 = t4 := by
+    calc
+      t28 = (y ◇ t27) := congrArg (fun q => q ◇ t27) (e12)
+      _ = t4 := congrArg (fun q => y ◇ q) (e14)
+  have e23 : t20 = t33 := by
+    exact h t20 t15 t20 t20
+  have e29 : y = t12 := by
+    exact h y t11 y y
+  have e28 : t12 = y := by
+    exact e29.symm
+  have e27 : t13 = t7 := by
+    exact congrArg (fun q => q ◇ t6) (e28)
+  have e33 : t21 = t5 := by
+    calc
+      t21 = (y ◇ t20) := congrArg (fun q => q ◇ t20) (e12)
+      _ = t5 := congrArg (fun q => y ◇ q) (e12)
+  have e32 : t22 = t6 := by
+    calc
+      t22 = (t5 ◇ t20) := congrArg (fun q => q ◇ t20) (e33)
+      _ = t6 := congrArg (fun q => t5 ◇ q) (e12)
+  have e31 : t23 = t7 := by
+    calc
+      t23 = (y ◇ t22) := congrArg (fun q => q ◇ t22) (e12)
+      _ = t7 := congrArg (fun q => y ◇ q) (e32)
+  have e30 : t7 = t23 := by
+    exact e31.symm
+  have e26 : t13 = t23 := by
+    calc
+      t13 = t7 := e27
+      _ = t23 := e30
+  have e25 : t14 = t33 := by
+    calc
+      t14 = (t15 ◇ t13) := congrArg (fun q => q ◇ t13) (e5)
+      _ = t33 := congrArg (fun q => t15 ◇ q) (e26)
+  have e24 : t33 = t14 := by
+    exact e25.symm
+  have e41 : t7 = t13 := by
+    exact e27.symm
+  have e40 : t15 = t13 := by
+    calc
+      t15 = t7 := e4
+      _ = t13 := e41
+  have e39 : t29 = t14 := by
+    calc
+      t29 = (t7 ◇ t15) := congrArg (fun q => q ◇ t15) (e4)
+      _ = t14 := congrArg (fun q => t7 ◇ q) (e40)
+  have e42 : t33 = t20 := by
+    exact e23.symm
+  have e38 : t29 = y := by
+    calc
+      t29 = t14 := e39
+      _ = t33 := e25
+      _ = t20 := e42
+      _ = y := e12
+  have e37 : t30 = t7 := by
+    exact congrArg (fun q => q ◇ t6) (e38)
+  have e36 : t30 = t13 := by
+    calc
+      t30 = t7 := e37
+      _ = t13 := e41
+  have e35 : t31 = t14 := by
+    calc
+      t31 = (t7 ◇ t30) := congrArg (fun q => q ◇ t30) (e4)
+      _ = t14 := congrArg (fun q => t7 ◇ q) (e36)
+  have e34 : t14 = t31 := by
+    exact e35.symm
+  have e22 : y = t31 := by
+    calc
+      y = t20 := e13
+      _ = t33 := e23
+      _ = t14 := e24
+      _ = t31 := e34
+  have e21 : t3 = t32 := by
+    calc
+      t3 = (t11 ◇ y) := congrArg (fun q => q ◇ y) (e9)
+      _ = t32 := congrArg (fun q => t11 ◇ q) (e22)
+  have e44 : t15 = t32 := by
+    exact h t15 t11 t15 t6
+  have e43 : t32 = t15 := by
+    exact e44.symm
+  have e45 : t15 = t34 := by
+    exact h t15 t15 t15 t6
+  have e49 : y = t14 := by
+    calc
+      y = t20 := e13
+      _ = t33 := e23
+      _ = t14 := e24
+  have e48 : t17 = t15 := by
+    exact congrArg (fun q => t1 ◇ q) (e49)
+  have e47 : t18 = t34 := by
+    calc
+      t18 = (t15 ◇ y) := congrArg (fun q => q ◇ y) (e48)
+      _ = t34 := congrArg (fun q => t15 ◇ q) (e22)
+  have e46 : t34 = t18 := by
+    exact e47.symm
+  have e54 : t20 = t35 := by
+    exact h t20 t8 t20 t20
+  have e60 : t37 = t40 := by
+    exact congrArg (fun q => t36 ◇ q) (e30)
+  have e62 : t20 = t40 := by
+    exact h t20 t36 t20 t20
+  have e61 : t40 = t20 := by
+    exact e62.symm
+  have e59 : t37 = y := by
+    calc
+      t37 = t40 := e60
+      _ = t20 := e61
+      _ = y := e12
+  have e58 : t38 = t17 := by
+    exact congrArg (fun q => t1 ◇ q) (e59)
+  have e57 : t38 = t23 := by
+    calc
+      t38 = t17 := e58
+      _ = t15 := e48
+      _ = t7 := e4
+      _ = t23 := e30
+  have e56 : t39 = t35 := by
+    exact congrArg (fun q => t8 ◇ q) (e57)
+  have e55 : t35 = t39 := by
+    exact e56.symm
+  have e64 : t1 = t39 := by
+    exact h t1 t8 t11 t7
+  have e63 : t39 = t1 := by
+    exact e64.symm
+  have e53 : y = t1 := by
+    calc
+      y = t20 := e13
+      _ = t35 := e54
+      _ = t39 := e55
+      _ = t1 := e63
+  have e52 : t5 = t17 := by
+    exact congrArg (fun q => q ◇ y) (e53)
+  have e51 : t6 = t18 := by
+    exact congrArg (fun q => q ◇ y) (e52)
+  have e50 : t18 = t6 := by
+    exact e51.symm
+  have e20 : t3 = t6 := by
+    calc
+      t3 = t32 := e21
+      _ = t15 := e43
+      _ = t34 := e45
+      _ = t18 := e46
+      _ = t6 := e50
+  have e19 : t4 = t7 := by
+    exact congrArg (fun q => y ◇ q) (e20)
+  have e8 : t2 = t23 := by
+    calc
+      t2 = t11 := e9
+      _ = t28 := e10
+      _ = t4 := e11
+      _ = t7 := e19
+      _ = t23 := e30
+  have e7 : t8 = t24 := by
+    exact congrArg (fun q => x ◇ q) (e8)
+  have e66 : t20 = t24 := by
+    exact h t20 x t20 t20
+  have e65 : t24 = t20 := by
+    exact e66.symm
+  have e67 : t20 = t41 := by
+    exact h t20 t20 t20 t20
+  have e70 : t32 = t3 := by
+    exact e21.symm
+  have e69 : t23 = t3 := by
+    calc
+      t23 = t7 := e31
+      _ = t15 := e5
+      _ = t32 := e44
+      _ = t3 := e70
+  have e68 : t41 = t4 := by
+    calc
+      t41 = (y ◇ t23) := congrArg (fun q => q ◇ t23) (e12)
+      _ = t4 := congrArg (fun q => y ◇ q) (e69)
+  have e6 : t8 = t13 := by
+    calc
+      t8 = t24 := e7
+      _ = t20 := e65
+      _ = t41 := e67
+      _ = t4 := e68
+      _ = t7 := e19
+      _ = t13 := e41
+  have e3 : t16 = t14 := by
+    calc
+      t16 = (t7 ◇ t8) := congrArg (fun q => q ◇ t8) (e4)
+      _ = t14 := congrArg (fun q => t7 ◇ q) (e6)
+  have e1 : x = t4 := by
+    calc
+      x = t16 := e2
+      _ = t14 := e3
+      _ = t33 := e25
+      _ = t20 := e42
+      _ = t41 := e67
+      _ = t4 := e68
+  exact e1
+""",
+    },
+    {
+        "name": "z3_true_691_1976_min",
+        "eq1_id": 691,
+        "eq2_id": 1976,
+        "eq1_canonical": "v0=(v1◇(v0◇((v2◇v1)◇v1)))",
+        "eq2_canonical": "v0=((v1◇(v2◇v1))◇(v0◇v1))",
+        "code": """import JudgeProblem
+
+def submission : Goal := by
+  intro G _ h
+  intro x
+  intro y
+  intro z
+  let t1 : G := z ◇ y
+  let t2 : G := y ◇ t1
+  let t3 : G := x ◇ y
+  let t4 : G := t2 ◇ t3
+  let t5 : G := t3 ◇ y
+  let t6 : G := z ◇ t5
+  let t7 : G := y ◇ t6
+  let t8 : G := t7 ◇ t5
+  let t9 : G := t8 ◇ t5
+  let t10 : G := y ◇ t9
+  let t11 : G := t5 ◇ t10
+  let t12 : G := t11 ◇ t6
+  let t13 : G := t12 ◇ t6
+  let t14 : G := x ◇ t13
+  let t15 : G := t6 ◇ t14
+  let t16 : G := t1 ◇ t2
+  let t17 : G := t16 ◇ t2
+  let t18 : G := t15 ◇ t17
+  let t19 : G := t2 ◇ t18
+  let t20 : G := t2 ◇ t1
+  let t21 : G := t20 ◇ t1
+  let t22 : G := t1 ◇ t21
+  let t23 : G := t1 ◇ t22
+  let t24 : G := t23 ◇ t22
+  let t25 : G := t11 ◇ t24
+  let t26 : G := t22 ◇ t25
+  let t27 : G := t11 ◇ t1
+  let t28 : G := t27 ◇ t1
+  let t29 : G := t22 ◇ t28
+  let t30 : G := t1 ◇ t29
+  let t31 : G := t2 ◇ t24
+  let t32 : G := t22 ◇ t31
+  have e2 : x = t15 := by
+    exact h x t6 t11
+  have e3 : t15 = t19 := by
+    exact h t15 t2 t1
+  have e8 : t15 = x := by
+    exact e2.symm
+  have e14 : t2 = t32 := by
+    exact h t2 t22 t1
+  have e22 : y = t11 := by
+    exact h y t5 t7
+  have e21 : t11 = y := by
+    exact e22.symm
+  have e20 : t27 = t2 := by
+    exact congrArg (fun q => q ◇ t1) (e21)
+  have e19 : t2 = t27 := by
+    exact e20.symm
+  have e26 : t1 = t23 := by
+    exact h t1 t1 t2
+  have e25 : t23 = t1 := by
+    exact e26.symm
+  have e24 : t24 = t23 := by
+    exact congrArg (fun q => q ◇ t22) (e25)
+  have e23 : t24 = t1 := by
+    calc
+      t24 = t23 := e24
+      _ = t1 := e25
+  have e18 : t31 = t28 := by
+    calc
+      t31 = (t27 ◇ t24) := congrArg (fun q => q ◇ t24) (e19)
+      _ = t28 := congrArg (fun q => t27 ◇ q) (e23)
+  have e17 : t28 = t31 := by
+    exact e18.symm
+  have e16 : t29 = t32 := by
+    exact congrArg (fun q => t22 ◇ q) (e17)
+  have e15 : t32 = t29 := by
+    exact e16.symm
+  have e13 : t2 = t29 := by
+    calc
+      t2 = t32 := e14
+      _ = t29 := e15
+  have e12 : t16 = t30 := by
+    exact congrArg (fun q => t1 ◇ q) (e13)
+  have e28 : t22 = t30 := by
+    exact h t22 t1 t11
+  have e27 : t30 = t22 := by
+    exact e28.symm
+  have e11 : t16 = t22 := by
+    calc
+      t16 = t30 := e12
+      _ = t22 := e27
+  have e30 : t25 = t2 := by
+    calc
+      t25 = (y ◇ t24) := congrArg (fun q => q ◇ t24) (e21)
+      _ = t2 := congrArg (fun q => y ◇ q) (e23)
+  have e29 : t2 = t25 := by
+    exact e30.symm
+  have e10 : t17 = t26 := by
+    calc
+      t17 = (t22 ◇ t2) := congrArg (fun q => q ◇ t2) (e11)
+      _ = t26 := congrArg (fun q => t22 ◇ q) (e29)
+  have e32 : t11 = t26 := by
+    exact h t11 t22 t1
+  have e31 : t26 = t11 := by
+    exact e32.symm
+  have e9 : t17 = y := by
+    calc
+      t17 = t26 := e10
+      _ = t11 := e31
+      _ = y := e21
+  have e7 : t18 = t3 := by
+    calc
+      t18 = (x ◇ t17) := congrArg (fun q => q ◇ t17) (e8)
+      _ = t3 := congrArg (fun q => x ◇ q) (e9)
+  have e6 : t3 = t18 := by
+    exact e7.symm
+  have e5 : t4 = t19 := by
+    exact congrArg (fun q => t2 ◇ q) (e6)
+  have e4 : t19 = t4 := by
+    exact e5.symm
+  have e1 : x = t4 := by
+    calc
+      x = t15 := e2
+      _ = t19 := e3
+      _ = t4 := e4
+  exact e1
+""",
+    },
     {
         "name": "z3_true_2789_898_min",
         "eq1_id": 2789,

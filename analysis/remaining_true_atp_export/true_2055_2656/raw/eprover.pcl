@@ -1,0 +1,86 @@
+% Preprocessing class: FSSSSMSSSSSNFFN.
+% Configuration: G-E--_302_C18_F1_URBAN_RG_S04BN
+% (lift_lambdas = 1, lambda_to_forall = 1,unroll_only_formulas = 1, sine = Auto)
+% No SInE strategy applied
+% Search class: FUUPF-FFSF22-MFFFFFNN
+% Configuration: G-E--_209_C18_F1_AE_CS_SP_PI_S0Y
+% Initializing proof state
+% Scanning for AC axioms
+%
+%cnf(i_0_1, plain, (f(f(f(X1,X2),X1),f(X2,X3))=X1)).
+%
+%cnf(i_0_2, negated_conjecture, (f(f(f(esk1_0,esk1_0),f(esk2_0,esk3_0)),esk2_0)!=esk1_0)).
+%
+%cnf(i_0_5, plain, (f(X1,f(X1,X2))=f(X1,X1))).
+%
+%cnf(i_0_4, plain, (f(f(f(X1,f(f(X2,X3),X2)),X1),X2)=X1)).
+%
+%cnf(i_0_6, plain, (f(f(f(X1,X1),X1),f(f(X1,X2),X3))=X1)).
+%
+%cnf(i_0_22, plain, (f(f(f(X1,X1),X1),X1)=X1)).
+%
+%cnf(i_0_27, plain, (f(f(X1,f(f(X1,X1),X1)),X1)=f(f(X1,X1),X1))).
+%
+%cnf(i_0_44, plain, (f(X1,f(f(X1,X1),X1))=f(X1,X1))).
+%
+%cnf(i_0_23, plain, (f(f(X1,X1),f(X1,X4))=f(f(X1,X1),X1))).
+%
+%cnf(i_0_62, plain, (f(X1,f(f(X1,X2),X3))=f(X1,X1))).
+%
+%cnf(i_0_72, plain, (f(f(X1,X2),f(X1,X2))=f(f(X1,X2),X1))).
+%%
+%cnf(i_0_64, plain, (f(X1,f(f(f(X1,X1),X1),X3))=f(X1,X1))).
+%
+%cnf(i_0_68, plain, (f(X1,f(f(f(X1,X1),X2),X3))=f(X1,X1))).
+%%
+%cnf(i_0_83, plain, (f(f(f(X1,X1),X1),f(f(f(X1,X2),X3),X4))=X1)).
+%
+%cnf(i_0_180, plain, (f(f(X1,X1),f(f(X1,X5),X6))=f(f(X1,X1),X1))).
+%
+%cnf(i_0_219, plain, (f(X1,f(f(f(X1,X2),X3),X4))=f(X1,X1))).
+%
+%cnf(i_0_294, plain, (f(f(X1,X2),f(X1,X4))=f(f(X1,X2),X1))).
+%%%
+%cnf(i_0_226, plain, (f(X1,f(f(f(f(X1,X1),X1),X4),X5))=f(X1,X1))).
+%%
+%cnf(i_0_253, plain, (f(f(f(X1,X2),X1),f(X1,X2))=f(f(f(X1,X2),X1),X1))).
+%
+%cnf(i_0_400, plain, (f(f(f(f(X1,X2),X1),X1),f(X1,X3))=f(X1,X2))).
+%%%
+%cnf(i_0_19, plain, (f(f(f(f(X1,X2),X1),X1),X1)=f(X1,X2))).
+%
+%cnf(i_0_488, plain, (f(f(f(X1,X2),X1),f(X1,X3))=f(f(f(X1,X2),X1),X1))).
+%
+%cnf(i_0_576, plain, (f(f(X1,X1),f(f(f(X1,X2),X1),X4))=f(f(X1,X1),X1))).
+%
+%cnf(i_0_588, plain, (f(X1,f(f(f(f(X1,X2),X1),X3),X4))=f(X1,X1))).
+%%%%
+%cnf(i_0_437, plain, (f(f(f(f(X1,X2),X1),X1),f(f(X1,X2),X1))=f(X1,X2))).
+%%%%%%%%
+%cnf(i_0_548, plain, (f(f(f(f(X1,X2),X1),X1),f(f(X1,X2),X3))=f(X1,X2))).
+%%%%%
+%cnf(i_0_18, plain, (f(f(X1,f(X2,X3)),X1)=f(f(X1,X1),X2))).
+%
+%cnf(i_0_4, plain, (f(f(f(X1,X1),f(X2,X3)),X2)=X1)).
+
+% Proof found!
+% SZS status Theorem
+% SZS output start CNFRefutation
+     0 :  : ![X1, X2, X3]:(X1=f(f(f(X1,X2),X1),f(X2,X3))) : initial("analysis/remaining_true_atp_export/true_2055_2656/true_2055_2656.p", hypothesis)
+     1 : conj : ![X1, X2, X3]:(X1=f(f(f(X1,X1),f(X2,X3)),X2)) : initial("analysis/remaining_true_atp_export/true_2055_2656/true_2055_2656.p", goal)
+     2 :  : ![X4, X5, X6]:(X4=f(f(f(X4,X5),X4),f(X5,X6))) : variable_rename(0)
+     3 :  : [++equal(X1, f(f(f(X1,X2),X1),f(X2,X3)))] : split_conjunct(2)
+     4 :  : [++equal(f(X1,f(X1,X2)), f(X1,X1))] : spm(3, 3)
+     5 :  : [++equal(f(f(f(X1,f(f(X2,X3),X2)),X1),X2), X1)] : spm(3, 3)
+     6 :  : [++equal(f(f(f(X1,X1),X1),f(f(X1,X2),X3)), X1)] : spm(3, 4)
+     7 :  : [++equal(f(f(X1,f(f(X1,X1),X1)),X1), f(f(X1,X1),X1))] : spm(5, 6)
+     8 :  : [++equal(f(X1,f(f(X1,X1),X1)), f(X1,X1))] : rw(rw(spm(3, 7), 3), 4)
+     9 :  : [++equal(f(f(X1,X1),f(X1,X2)), f(f(X1,X1),X1))] : rw(rw(spm(6, 6), 6), 8)
+    10 : neg : ~(![X1, X2, X3]:(X1=f(f(f(X1,X1),f(X2,X3)),X2))) : assume_negation(1)
+    11 :  : [++equal(f(X1,f(f(X1,X2),X3)), f(X1,X1))] : rw(spm(3, 9), 3)
+    12 : neg : esk1_0!=f(f(f(esk1_0,esk1_0),f(esk2_0,esk3_0)),esk2_0) : fof_nnf(skolemize(variable_rename(fof_nnf(10))))
+    13 :  : [++equal(f(f(X1,f(X2,X3)),X1), f(f(X1,X1),X2))] : rw(spm(5, 3), 11)
+    14 : neg : [--equal(esk1_0, f(f(f(esk1_0,esk1_0),f(esk2_0,esk3_0)),esk2_0))] : split_conjunct(12)
+    15 :  : [++equal(f(f(f(X1,X1),f(X2,X3)),X2), X1)] : rw(5, 13)
+    16 : neg : [] : cn(rw(14, 15)) : 'proof'
+% SZS output end CNFRefutation

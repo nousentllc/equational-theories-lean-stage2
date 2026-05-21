@@ -1,0 +1,275 @@
+[
+  {
+    "case": "true_2860_3458",
+    "seed": 0,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 1,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 2,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed2_candidate_compact.lean",
+    "size": 273047
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 3,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 4,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 5,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 6,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed6_candidate_compact.lean",
+    "size": 152254
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 7,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 8,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 9,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 10,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed10_candidate_compact.lean",
+    "size": 219401
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 11,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 12,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 13,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed13_candidate_compact.lean",
+    "size": 307093
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 14,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 15,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed15_candidate_compact.lean",
+    "size": 102419
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 16,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 17,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 18,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 19,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 20,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 21,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 22,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed22_candidate_compact.lean",
+    "size": 242818
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 23,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 24,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed24_candidate_compact.lean",
+    "size": 138416
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 25,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 26,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 27,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 28,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed28_candidate_compact.lean",
+    "size": 967484
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 29,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2860_3458",
+    "seed": 30,
+    "status": "unsat",
+    "candidate": "analysis/true_2860_3458_z3_seed30_candidate_compact.lean",
+    "size": 95309
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 0,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 1,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 2,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 3,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 4,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 5,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 6,
+    "status": "unknown",
+    "candidate": null,
+    "size": null
+  },
+  {
+    "case": "true_2135_2128",
+    "seed": 7,
+    "status": "unsat",
+    "candidate": "analysis/true_2135_2128_z3_seed7_candidate_compact.lean",
+    "size": 23358
+  }
+]
