@@ -1,0 +1,644 @@
+{
+  "family_summary": {
+    "tail_shift_repeated_tail_corridor": {
+      "accepted": 1,
+      "candidates": 2,
+      "errors": 0,
+      "no_attempt": 11,
+      "recommendation": "do not implement",
+      "rejected": 1
+    },
+    "two_local_edge_local_theory_bridge": {
+      "accepted": 0,
+      "candidates": 0,
+      "errors": 0,
+      "no_attempt": 4,
+      "recommendation": "keep analysis-only",
+      "rejected": 0
+    }
+  },
+  "loaded_inputs": {
+    "private_overall": {
+      "accepted_count": 66,
+      "accepted_false_countermodels": 42,
+      "accepted_true_proofs": 24,
+      "generated_count": 100,
+      "judge_errors": 0,
+      "no_attempt_count": 34,
+      "primary_mode": "public_exact_disabled"
+    },
+    "robustness_input_summary": {
+      "accepted_false": 36,
+      "accepted_true": 47,
+      "expected_accept_failures": [
+        "mfuzz_true_2771_2775_alpha_rename_0_016",
+        "mfuzz_true_689_1350_alpha_rename_0_072"
+      ],
+      "family_summary": {
+        "generalized_argument_erasure_context_bridge": {
+          "accepted": 14,
+          "accepted_false": 4,
+          "accepted_true": 10,
+          "generated": 21,
+          "judge_errors": 0,
+          "no_attempt": 7
+        },
+        "generalized_seed_collapse_contextual_lift": {
+          "accepted": 18,
+          "accepted_false": 9,
+          "accepted_true": 9,
+          "generated": 21,
+          "judge_errors": 0,
+          "no_attempt": 3
+        },
+        "generalized_square_anchor_anchored_erasure_bridge": {
+          "accepted": 19,
+          "accepted_false": 9,
+          "accepted_true": 10,
+          "generated": 21,
+          "judge_errors": 0,
+          "no_attempt": 2
+        },
+        "generalized_tail_shift_repeated_tail_corridor": {
+          "accepted": 25,
+          "accepted_false": 10,
+          "accepted_true": 15,
+          "generated": 35,
+          "judge_errors": 0,
+          "no_attempt": 10
+        },
+        "generalized_two_local_edge_local_theory_bridge": {
+          "accepted": 7,
+          "accepted_false": 4,
+          "accepted_true": 3,
+          "generated": 7,
+          "judge_errors": 0,
+          "no_attempt": 0
+        }
+      },
+      "guard_probe_accepted": [
+        "mfuzz_true_2074_2082_repeated_anchor_substitution_004",
+        "mfuzz_true_2074_2082_operand_side_swap_probe_005",
+        "mfuzz_true_2074_2082_small_depth_anchor_perturbation_probe_007",
+        "mfuzz_true_674_668_repeated_anchor_substitution_011",
+        "mfuzz_true_674_668_small_depth_anchor_perturbation_probe_014",
+        "mfuzz_true_2771_2775_repeated_anchor_substitution_018",
+        "mfuzz_true_2942_5_repeated_anchor_substitution_025",
+        "mfuzz_true_2942_5_operand_side_swap_probe_026",
+        "mfuzz_true_2942_5_shallow_left_context_wrap_probe_027",
+        "mfuzz_true_2942_5_small_depth_anchor_perturbation_probe_028",
+        "mfuzz_true_130_1759_repeated_anchor_substitution_032",
+        "mfuzz_true_130_1759_operand_side_swap_probe_033",
+        "mfuzz_true_2061_307_repeated_anchor_substitution_039",
+        "mfuzz_true_2061_307_operand_side_swap_probe_040",
+        "mfuzz_true_2061_307_shallow_left_context_wrap_probe_041",
+        "mfuzz_true_2860_3458_repeated_anchor_substitution_046",
+        "mfuzz_true_2860_3458_operand_side_swap_probe_047",
+        "mfuzz_true_2860_3458_small_depth_anchor_perturbation_probe_049",
+        "mfuzz_true_1738_1258_repeated_anchor_substitution_053",
+        "mfuzz_true_1738_1258_operand_side_swap_probe_054",
+        "mfuzz_true_1738_1258_shallow_left_context_wrap_probe_055",
+        "mfuzz_true_1738_1258_small_depth_anchor_perturbation_probe_056",
+        "mfuzz_true_1636_1839_repeated_anchor_substitution_060",
+        "mfuzz_true_1636_1839_operand_side_swap_probe_061",
+        "mfuzz_true_1636_1839_shallow_left_context_wrap_probe_062",
+        "mfuzz_true_691_1976_repeated_anchor_substitution_067",
+        "mfuzz_true_691_1976_small_depth_anchor_perturbation_probe_070",
+        "mfuzz_true_689_1350_repeated_anchor_substitution_074",
+        "mfuzz_true_689_1350_small_depth_anchor_perturbation_probe_077",
+        "mfuzz_true_4082_4109_repeated_anchor_substitution_081",
+        "mfuzz_true_4082_4109_operand_side_swap_probe_082",
+        "mfuzz_true_4082_4109_small_depth_anchor_perturbation_probe_084",
+        "mfuzz_true_2135_2128_repeated_anchor_substitution_088",
+        "mfuzz_true_2135_2128_operand_side_swap_probe_089",
+        "mfuzz_true_1698_555_repeated_anchor_substitution_095",
+        "mfuzz_true_1698_555_small_depth_anchor_perturbation_probe_098",
+        "mfuzz_true_2055_2656_repeated_anchor_substitution_102",
+        "mfuzz_true_2055_2656_operand_side_swap_probe_103",
+        "mfuzz_true_2055_2656_shallow_left_context_wrap_probe_104",
+        "mfuzz_true_2055_2656_small_depth_anchor_perturbation_probe_105"
+      ],
+      "judge_errors": 0,
+      "no_attempt": 22,
+      "recommendations": [
+        "Inspect accept_true alpha/permutation failures before route widening; they indicate schema guards are narrower than the recovered public motif.",
+        "Add per-route certificate-size telemetry and alias compression checks for generated certificates over 12 KB.",
+        "Do not change normal production ordering until guard gaps are classified by family.",
+        "Review guard-probe accepted cases manually; some may be valid motif generalizations, but they should not trigger broad guard widening automatically.",
+        "Keep exact public certificates ahead of generalized routes in normal mode and use this harness as the private-readiness regression gate."
+      ],
+      "route_failure_modes": {
+        "generalized_argument_erasure_context_bridge": {
+          "no_attempt": 7
+        },
+        "generalized_seed_collapse_contextual_lift": {
+          "no_attempt": 3
+        },
+        "generalized_square_anchor_anchored_erasure_bridge": {
+          "no_attempt": 2
+        },
+        "generalized_tail_shift_repeated_tail_corridor": {
+          "no_attempt": 10
+        }
+      },
+      "route_hits": {
+        "gae_seed_square_outer_context_erasure": 2,
+        "gae_square_context_erasure": 3,
+        "gltb_l4_l15_local_theory_bridge": 3,
+        "gsae_double_tail_expansion": 3,
+        "gsae_self_square_extension": 3,
+        "gsae_square_anchor_right_context": 3,
+        "gsc_repeated_anchor_collapse": 3,
+        "gsc_self_square_replacement": 3,
+        "gsc_two_h_contextual_lift": 3,
+        "gtsrtc_diagonal_tail_shift": 3,
+        "gtsrtc_outer_y_nested_x_tail": 2,
+        "gtsrtc_right_nested_repeated_y_corridor": 3,
+        "gtsrtc_y_square_corridor": 3,
+        "gtsrtc_y_tail_context_shift": 3
+      },
+      "seed_summary": {
+        "true_130_1759": {
+          "accepted": 5,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_1636_1839": {
+          "accepted": 6,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "shallow_left_context_wrap_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_1698_555": {
+          "accepted": 5,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_1738_1258": {
+          "accepted": 7,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "shallow_left_context_wrap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2055_2656": {
+          "accepted": 7,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "shallow_left_context_wrap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2061_307": {
+          "accepted": 6,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "shallow_left_context_wrap_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2074_2082": {
+          "accepted": 6,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2135_2128": {
+          "accepted": 5,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2771_2775": {
+          "accepted": 3,
+          "accepted_variants": [
+            "baseline_seed",
+            "variable_permutation",
+            "repeated_anchor_substitution"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2860_3458": {
+          "accepted": 6,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_2942_5": {
+          "accepted": 7,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "shallow_left_context_wrap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_4082_4109": {
+          "accepted": 6,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "operand_side_swap_probe",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_674_668": {
+          "accepted": 5,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_689_1350": {
+          "accepted": 4,
+          "accepted_variants": [
+            "baseline_seed",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        },
+        "true_691_1976": {
+          "accepted": 5,
+          "accepted_variants": [
+            "baseline_seed",
+            "alpha_rename_0",
+            "variable_permutation",
+            "repeated_anchor_substitution",
+            "small_depth_anchor_perturbation_probe"
+          ],
+          "generated": 7,
+          "judge_errors": 0
+        }
+      },
+      "total_accepted": 83,
+      "total_generated": 105
+    }
+  },
+  "overall_recommendation": "do not implement guard widening; rejected/error candidates remain under relaxed analysis",
+  "records": [
+    {
+      "analysis_reason": "relaxed binder-safe template matched",
+      "attempts": [
+        {
+          "candidate": {
+            "cap_margin": 11944,
+            "certificate_cap": 15000,
+            "code_bytes": 3360,
+            "proof_body_bytes": 3056,
+            "relaxations": [
+              "alpha/permutation normalization via safe hypothesis binder",
+              "route cap +25% for analysis",
+              "post-proof judge validation"
+            ],
+            "route_marker": "gtsrtc_y_tail_context_shift",
+            "verdict": "true"
+          },
+          "judge": {
+            "elapsed_seconds": 2.37,
+            "status": "incorrect",
+            "stderr_excerpt": "Submission.lean:9:16: error: Application type mismatch: The argument\n  hyp\nhas type\n  EquationLHS G\nof sort `Prop` but is expected to have type\n  G\nof sort `Type` in the application\n  Magma.op hyp\nSubmission.lean:20:17: error: Application type mismatch: The argument\n  hyp\nhas type\n  EquationLHS G\nof sort `Prop` but is expected to have type\n  G\nof sort `Type` in the application\n  Magma.op hyp\nSubmission.lean:40:4: error: Type mismatch\n  hyp h t6 t11\nhas type\n  h = t6 ◇ (h ◇ ((t11 ◇ t6) ◇ t6))\nbut is expected to have type\n  h = t15\nSubmission.lean:111:16: error: Type mismatch\n  congrArg (fun hole => h ◇ hole) e9\nhas type\n  h ◇ t17 = h ◇ e\nbut is expected to have type\n  ?m.408 ◇ t17 = t3\nSubmission.lean:123:2: error: Type mismatch\n  e1\nhas type\n  h = t4\nbut is expected to have type\n  h = (e ◇ (g ◇ e)) ◇ (h ◇ e)"
+          }
+        }
+      ],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_positive_0062",
+      "classification": "likely true motif-preserving positive",
+      "expected_label": "known_true",
+      "goal": "h = (e ◇ (g ◇ e)) ◇ (h ◇ e)",
+      "hypothesis": "h = e ◇ (h ◇ ((g ◇ e) ◇ e))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "do not implement",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "positive",
+      "variant_kind": "variable_permutation_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "a ◇ x = a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))",
+      "hypothesis": "a ◇ x = a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))))))",
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))))))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0"
+    },
+    {
+      "analysis_reason": "no relaxed exact schema matched",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "x = (x ◇ y) ◇ (y ◇ (z ◇ y))",
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "boundary",
+      "variant_kind": "swapped_tail_position_0"
+    },
+    {
+      "analysis_reason": "true-route relaxation intentionally skipped likely false/adversarial case",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069",
+      "classification": "likely false/adversarial",
+      "expected_label": "likely_false",
+      "goal": "x = ((y ◇ (z ◇ y)) ◇ (x ◇ y)) ◇ a",
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "negative",
+      "variant_kind": "anti_goal_rhs_perturbation_0"
+    },
+    {
+      "analysis_reason": "true-route relaxation intentionally skipped likely false/adversarial case",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071",
+      "classification": "likely false/adversarial",
+      "expected_label": "likely_false",
+      "goal": "(y ◇ (z ◇ y)) ◇ (x ◇ y) = x",
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_mixed_0072",
+      "classification": "unsupported mixed motif",
+      "expected_label": "unknown",
+      "goal": "a ◇ k = a ◇ ((m ◇ (c ◇ m)) ◇ (k ◇ m))",
+      "hypothesis": "a ◇ k = a ◇ (m ◇ (k ◇ ((c ◇ m) ◇ m)))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "mixed",
+      "variant_kind": "alpha_plus_outer_context_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_mixed_0073",
+      "classification": "unsupported mixed motif",
+      "expected_label": "unknown",
+      "goal": "(a ◇ x) = (y ◇ (z ◇ y)) ◇ ((a ◇ x) ◇ y)",
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "mixed",
+      "variant_kind": "nested_motif_unrelated_context_0"
+    },
+    {
+      "analysis_reason": "relaxed binder-safe template matched",
+      "attempts": [
+        {
+          "candidate": {
+            "cap_margin": 8147,
+            "certificate_cap": 15000,
+            "code_bytes": 7447,
+            "proof_body_bytes": 6853,
+            "relaxations": [
+              "alpha/permutation normalization via safe hypothesis binder",
+              "route cap +25% for analysis",
+              "post-proof judge validation"
+            ],
+            "route_marker": "gtsrtc_outer_y_nested_x_tail",
+            "verdict": "true"
+          },
+          "judge": {
+            "elapsed_seconds": 1.45,
+            "status": "accepted",
+            "stderr_excerpt": "certificate accepted"
+          }
+        }
+      ],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_positive_0076",
+      "classification": "likely true motif-preserving positive",
+      "expected_label": "known_true",
+      "goal": "s = p ◇ (((q ◇ s) ◇ s) ◇ p)",
+      "hypothesis": "s = p ◇ (s ◇ ((q ◇ s) ◇ h))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "safe to implement after production binder-safe emitter review",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "positive",
+      "variant_kind": "variable_permutation_1"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "b ◇ x = b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))",
+      "hypothesis": "b ◇ x = b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_1"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))))))",
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))))))",
+      "motif_family": "tail_shift_repeated_tail_corridor",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_tail_shift_repeated_tail_corridor",
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+      "motif_family": "two_local_edge_local_theory_bridge",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0"
+    },
+    {
+      "analysis_reason": "true-route relaxation intentionally skipped likely false/adversarial case",
+      "attempts": [],
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091",
+      "classification": "likely false/adversarial",
+      "expected_label": "likely_false",
+      "goal": "((x ◇ x) ◇ (y ◇ z)) ◇ y = x",
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "motif_family": "two_local_edge_local_theory_bridge",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_mixed_0093",
+      "classification": "unsupported mixed motif",
+      "expected_label": "unknown",
+      "goal": "(a ◇ x) = (((a ◇ x) ◇ (a ◇ x)) ◇ (y ◇ z)) ◇ y",
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "motif_family": "two_local_edge_local_theory_bridge",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "variant_class": "mixed",
+      "variant_kind": "nested_motif_unrelated_context_0"
+    },
+    {
+      "analysis_reason": "context-depth relaxation has no sound analysis emitter for changed hypothesis context",
+      "attempts": [],
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100",
+      "classification": "boundary unknown",
+      "expected_label": "unknown",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+      "motif_family": "two_local_edge_local_theory_bridge",
+      "production_status": false,
+      "recommendation": "keep analysis-only",
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1"
+    }
+  ],
+  "run_config": {
+    "analysis_cap_multiplier": 1.25,
+    "private_report": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/private_adversarial_report.json",
+    "private_results": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/private_adversarial_results_public_exact_disabled.json",
+    "robustness_report": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/motif_robustness_report.json",
+    "target_families": [
+      "tail_shift_repeated_tail_corridor",
+      "two_local_edge_local_theory_bridge"
+    ]
+  },
+  "summary": {
+    "accepted_false_countermodel": 0,
+    "accepted_true": 1,
+    "cases_with_generated_candidates": 2,
+    "judge_errors": 0,
+    "judge_rejected": 1,
+    "no_candidate": 13,
+    "over_analysis_cap": 0,
+    "target_no_attempt_cases": 15
+  }
+}

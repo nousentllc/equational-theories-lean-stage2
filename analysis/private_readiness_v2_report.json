@@ -1,0 +1,671 @@
+{
+  "adversarial": {
+    "exists": true,
+    "final_private_readiness_recommendation": "freeze production solver",
+    "mode_summaries": {
+      "normal": {
+        "accepted": 69,
+        "accepted_false": 42,
+        "accepted_true": 27,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "no_attempt": 31,
+        "total": 100
+      },
+      "public_exact_disabled": {
+        "accepted": 66,
+        "accepted_false": 42,
+        "accepted_true": 24,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "no_attempt": 34,
+        "total": 100
+      },
+      "telemetry_enabled": {
+        "accepted": 66,
+        "accepted_false": 42,
+        "accepted_true": 24,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "no_attempt": 34,
+        "total": 100
+      }
+    },
+    "overall": {
+      "accepted_count": 66,
+      "accepted_false_countermodels": 42,
+      "accepted_true_proofs": 24,
+      "generated_count": 100,
+      "judge_errors": 0,
+      "no_attempt_count": 34,
+      "primary_mode": "public_exact_disabled"
+    },
+    "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/private_adversarial_report.json",
+    "recommendations": [
+      {
+        "category": "A. safe production change",
+        "recommendation": "Keep public exact certificates ahead of generalized routes; no ordering change is indicated by this pass."
+      },
+      {
+        "category": "B. debug-only / analysis-only",
+        "recommendation": "Keep ARCF_ROUTE_TELEMETRY and this adversarial harness as the private-readiness regression gate."
+      },
+      {
+        "category": "E. requires countermodel strengthening",
+        "recommendation": "Consider countermodel-first routing for tail_shift_repeated_tail_corridor; most negative variants abstained rather than producing finite witnesses."
+      },
+      {
+        "category": "A. safe production change",
+        "recommendation": "No fragile-route widening block was observed in this run, but preserve current caps until larger fuzz batches agree."
+      }
+    ],
+    "route_family_scores": {
+      "argument_erasure_context_bridge": {
+        "accepted_false": 5,
+        "accepted_true": 5,
+        "average_cap_margin": 8230.6,
+        "average_proof_size": 3769.4,
+        "boundary_abstention_rate": 0.556,
+        "classification": "private-promising",
+        "correctly_countermodeled_negatives": 2,
+        "false_negative_positive_cases": 1,
+        "fragility_score": 3.0,
+        "generated": 20,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "minimum_cap_margin": 4921,
+        "negative_rejection_or_countermodel_rate": 1.0,
+        "over_cap_abstentions": 3,
+        "positive_acceptance_rate": 0.8,
+        "worst_proof_size": 7079
+      },
+      "seed_collapse_contextual_lift": {
+        "accepted_false": 10,
+        "accepted_true": 5,
+        "average_cap_margin": 4260.4,
+        "average_proof_size": 739.6,
+        "boundary_abstention_rate": 0.333,
+        "classification": "production-robust",
+        "correctly_countermodeled_negatives": 2,
+        "false_negative_positive_cases": 0,
+        "fragility_score": 1.0,
+        "generated": 20,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "minimum_cap_margin": 4076,
+        "negative_rejection_or_countermodel_rate": 1.0,
+        "over_cap_abstentions": 2,
+        "positive_acceptance_rate": 1.0,
+        "worst_proof_size": 924
+      },
+      "square_anchor_anchored_erasure": {
+        "accepted_false": 10,
+        "accepted_true": 6,
+        "average_cap_margin": 4198.5,
+        "average_proof_size": 7801.5,
+        "boundary_abstention_rate": 0.222,
+        "classification": "production-robust",
+        "correctly_countermodeled_negatives": 2,
+        "false_negative_positive_cases": 0,
+        "fragility_score": 1.0,
+        "generated": 20,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "minimum_cap_margin": 1324,
+        "negative_rejection_or_countermodel_rate": 1.0,
+        "over_cap_abstentions": 2,
+        "positive_acceptance_rate": 1.0,
+        "worst_proof_size": 10676
+      },
+      "tail_shift_repeated_tail_corridor": {
+        "accepted_false": 6,
+        "accepted_true": 3,
+        "average_cap_margin": 7426.33,
+        "average_proof_size": 4573.67,
+        "boundary_abstention_rate": 0.556,
+        "classification": "fragile-do-not-widen",
+        "correctly_countermodeled_negatives": 1,
+        "false_negative_positive_cases": 2,
+        "fragility_score": 4.5,
+        "generated": 20,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "minimum_cap_margin": 4799,
+        "negative_rejection_or_countermodel_rate": 1.0,
+        "over_cap_abstentions": 3,
+        "positive_acceptance_rate": 0.6,
+        "worst_proof_size": 7201
+      },
+      "two_local_edge_local_theory_bridge": {
+        "accepted_false": 11,
+        "accepted_true": 5,
+        "average_cap_margin": 7446.0,
+        "average_proof_size": 4554.0,
+        "boundary_abstention_rate": 0.222,
+        "classification": "production-robust",
+        "correctly_countermodeled_negatives": 2,
+        "false_negative_positive_cases": 0,
+        "fragility_score": 2.0,
+        "generated": 20,
+        "judge_errors": 0,
+        "judge_rejected_candidates": 0,
+        "minimum_cap_margin": 7446,
+        "negative_rejection_or_countermodel_rate": 1.0,
+        "over_cap_abstentions": 3,
+        "positive_acceptance_rate": 1.0,
+        "worst_proof_size": 4554
+      }
+    }
+  },
+  "benchmark": {
+    "case_count": 100,
+    "families": [
+      "argument_erasure_context_bridge",
+      "seed_collapse_contextual_lift",
+      "square_anchor_anchored_erasure",
+      "tail_shift_repeated_tail_corridor",
+      "two_local_edge_local_theory_bridge"
+    ],
+    "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/private_readiness_benchmark_v2.json"
+  },
+  "countermodel_diagnostics": {
+    "accidental_true_on_negative": [],
+    "countermodel_first_opportunities": [
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0004",
+        "expected_label": "unknown",
+        "goal": "l = ((l ◇ b) ◇ h) ◇ (l ◇ l)",
+        "hypothesis": "l = ((l ◇ b) ◇ h) ◇ (b ◇ l)",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "repeated_variable_count_changed_0"
+      },
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0006",
+        "expected_label": "unknown",
+        "goal": "a ◇ x = a ◇ (((x ◇ y) ◇ z) ◇ (w ◇ x))",
+        "hypothesis": "a ◇ x = a ◇ (((x ◇ y) ◇ z) ◇ (y ◇ x))",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_0"
+      },
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0007",
+        "expected_label": "unknown",
+        "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ z) ◇ (w ◇ x))))))",
+        "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ z) ◇ (y ◇ x))))))",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_0"
+      },
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_negative_0011",
+        "expected_label": "likely_false",
+        "goal": "((x ◇ y) ◇ z) ◇ (w ◇ x) = x",
+        "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "reversed_erasure_without_support_0"
+      },
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0019",
+        "expected_label": "unknown",
+        "goal": "b ◇ x = b ◇ (y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+        "hypothesis": "b ◇ x = b ◇ (y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_1"
+      },
+      {
+        "case_id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0020",
+        "expected_label": "unknown",
+        "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((x ◇ x) ◇ z)))))))",
+        "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((x ◇ z) ◇ z)))))))",
+        "motif_family": "argument_erasure_context_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_1"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079",
+        "expected_label": "unknown",
+        "goal": "b ◇ x = b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))",
+        "hypothesis": "b ◇ x = b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_1"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080",
+        "expected_label": "unknown",
+        "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))))))",
+        "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))))))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_1"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066",
+        "expected_label": "unknown",
+        "goal": "a ◇ x = a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))",
+        "hypothesis": "a ◇ x = a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_0"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067",
+        "expected_label": "unknown",
+        "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))))))",
+        "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))))))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_0"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068",
+        "expected_label": "unknown",
+        "goal": "x = (x ◇ y) ◇ (y ◇ (z ◇ y))",
+        "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "swapped_tail_position_0"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069",
+        "expected_label": "likely_false",
+        "goal": "x = ((y ◇ (z ◇ y)) ◇ (x ◇ y)) ◇ a",
+        "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "anti_goal_rhs_perturbation_0"
+      },
+      {
+        "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071",
+        "expected_label": "likely_false",
+        "goal": "(y ◇ (z ◇ y)) ◇ (x ◇ y) = x",
+        "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+        "motif_family": "tail_shift_repeated_tail_corridor",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "reversed_erasure_without_support_0"
+      },
+      {
+        "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0038",
+        "expected_label": "unknown",
+        "goal": "(e ◇ e) = (b ◇ l) ◇ (((e ◇ e) ◇ b) ◇ (e ◇ e))",
+        "hypothesis": "(e ◇ e) = b ◇ ((b ◇ l) ◇ (e ◇ e))",
+        "motif_family": "seed_collapse_contextual_lift",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "expanded_let_like_subterm_1"
+      },
+      {
+        "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0039",
+        "expected_label": "unknown",
+        "goal": "b ◇ x = b ◇ ((y ◇ z) ◇ ((x ◇ y) ◇ x))",
+        "hypothesis": "b ◇ x = b ◇ (y ◇ ((y ◇ z) ◇ x))",
+        "motif_family": "seed_collapse_contextual_lift",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_1"
+      },
+      {
+        "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0040",
+        "expected_label": "unknown",
+        "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ ((y ◇ z) ◇ ((x ◇ y) ◇ x))))))",
+        "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ ((y ◇ z) ◇ x))))))",
+        "motif_family": "seed_collapse_contextual_lift",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_1"
+      },
+      {
+        "case_id": "padv_seed_collapse_contextual_lift_true_2942_5_negative_0031",
+        "expected_label": "likely_false",
+        "goal": "y ◇ x = x",
+        "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+        "motif_family": "seed_collapse_contextual_lift",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "reversed_erasure_without_support_0"
+      },
+      {
+        "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0046",
+        "expected_label": "unknown",
+        "goal": "a ◇ (x ◇ x) = a ◇ (x ◇ ((x ◇ y) ◇ x))",
+        "hypothesis": "a ◇ x = a ◇ (((x ◇ (x ◇ y)) ◇ z) ◇ z)",
+        "motif_family": "square_anchor_anchored_erasure",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "shallow_context_wrap_left_0"
+      },
+      {
+        "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0047",
+        "expected_label": "unknown",
+        "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (x ◇ x))))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (x ◇ ((x ◇ y) ◇ x))))))",
+        "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ (x ◇ y)) ◇ z) ◇ z)))))",
+        "motif_family": "square_anchor_anchored_erasure",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_0"
+      },
+      {
+        "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0051",
+        "expected_label": "likely_false",
+        "goal": "x ◇ ((x ◇ y) ◇ x) = x ◇ x",
+        "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+        "motif_family": "square_anchor_anchored_erasure",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "reversed_erasure_without_support_0"
+      },
+      {
+        "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087",
+        "expected_label": "unknown",
+        "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+        "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+        "motif_family": "two_local_edge_local_theory_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_0"
+      },
+      {
+        "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100",
+        "expected_label": "unknown",
+        "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+        "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+        "motif_family": "two_local_edge_local_theory_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "boundary",
+        "variant_kind": "deeper_context_than_route_cap_1"
+      },
+      {
+        "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091",
+        "expected_label": "likely_false",
+        "goal": "((x ◇ x) ◇ (y ◇ z)) ◇ y = x",
+        "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+        "motif_family": "two_local_edge_local_theory_bridge",
+        "reason": "negative/boundary case abstained; candidate for countermodel-first strengthening",
+        "variant_class": "negative",
+        "variant_kind": "reversed_erasure_without_support_0"
+      }
+    ],
+    "exists": true,
+    "family_summary": {
+      "argument_erasure_context_bridge": {
+        "boundary": {
+          "accepted_false": 3,
+          "accepted_true": 1,
+          "no_attempt": 5,
+          "total": 9
+        },
+        "mixed": {
+          "no_attempt": 3,
+          "total": 3
+        },
+        "negative": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "positive": {
+          "accepted_true": 4,
+          "no_attempt": 1,
+          "total": 5
+        }
+      },
+      "seed_collapse_contextual_lift": {
+        "boundary": {
+          "accepted_false": 6,
+          "no_attempt": 3,
+          "total": 9
+        },
+        "mixed": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "negative": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "positive": {
+          "accepted_true": 5,
+          "total": 5
+        }
+      },
+      "square_anchor_anchored_erasure": {
+        "boundary": {
+          "accepted_false": 6,
+          "accepted_true": 1,
+          "no_attempt": 2,
+          "total": 9
+        },
+        "mixed": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "negative": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "positive": {
+          "accepted_true": 5,
+          "total": 5
+        }
+      },
+      "tail_shift_repeated_tail_corridor": {
+        "boundary": {
+          "accepted_false": 4,
+          "no_attempt": 5,
+          "total": 9
+        },
+        "mixed": {
+          "accepted_false": 1,
+          "no_attempt": 2,
+          "total": 3
+        },
+        "negative": {
+          "accepted_false": 1,
+          "no_attempt": 2,
+          "total": 3
+        },
+        "positive": {
+          "accepted_true": 3,
+          "no_attempt": 2,
+          "total": 5
+        }
+      },
+      "two_local_edge_local_theory_bridge": {
+        "boundary": {
+          "accepted_false": 7,
+          "no_attempt": 2,
+          "total": 9
+        },
+        "mixed": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "negative": {
+          "accepted_false": 2,
+          "no_attempt": 1,
+          "total": 3
+        },
+        "positive": {
+          "accepted_true": 5,
+          "total": 5
+        }
+      }
+    },
+    "fragile_family_opportunity_count": 13
+  },
+  "gate_checks": [
+    {
+      "detail": "accepted=20 judge_errors=0",
+      "name": "sample_20_closed",
+      "passed": true
+    },
+    {
+      "detail": "accepted=200 judge_errors=0",
+      "name": "sample_200_closed",
+      "passed": true
+    },
+    {
+      "detail": "accepted=198 judge_errors=0 misses=['true_2789_898', 'true_1500_498']",
+      "name": "public_exact_disabled_floor",
+      "passed": true
+    },
+    {
+      "detail": "primary_mode=public_exact_disabled summary={'accepted': 66, 'accepted_false': 42, 'accepted_true': 24, 'judge_errors': 0, 'judge_rejected_candidates': 0, 'no_attempt': 34, 'total': 100}",
+      "name": "private_adversarial_no_rejections",
+      "passed": true
+    },
+    {
+      "detail": "summary={'accepted_false_countermodel': 0, 'accepted_true': 1, 'cases_with_generated_candidates': 2, 'judge_errors': 0, 'judge_rejected': 1, 'no_candidate': 13, 'over_analysis_cap': 0, 'target_no_attempt_cases': 15} unsafe_recommendations=[]",
+      "name": "widening_rejections_blocked",
+      "passed": true
+    },
+    {
+      "detail": "entries=['solver.py']",
+      "name": "single_file_submission",
+      "passed": true
+    },
+    {
+      "detail": "bytes=382810 cap=500000",
+      "name": "solver_size_under_cap",
+      "passed": true
+    }
+  ],
+  "overall_status": "pass",
+  "public_runs": {
+    "sample_20": {
+      "accepted": 20,
+      "accepted_false": 10,
+      "accepted_true": 10,
+      "elapsed_seconds_total": 45.45,
+      "exists": true,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "misses": [],
+      "no_attempt": 0,
+      "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample20_private_readiness_v2.json",
+      "total": 20
+    },
+    "sample_200": {
+      "accepted": 200,
+      "accepted_false": 100,
+      "accepted_true": 100,
+      "elapsed_seconds_total": 424.4,
+      "exists": true,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "misses": [],
+      "no_attempt": 0,
+      "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample200_private_readiness_v2.json",
+      "total": 200
+    },
+    "sample_200_no_public_exact": {
+      "accepted": 198,
+      "accepted_false": 100,
+      "accepted_true": 98,
+      "elapsed_seconds_total": 551.68,
+      "exists": true,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "misses": [
+        "true_2789_898",
+        "true_1500_498"
+      ],
+      "no_attempt": 2,
+      "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample200_private_readiness_v2_no_public_exact.json",
+      "total": 200
+    }
+  },
+  "recommendations": [
+    {
+      "category": "A. safe production change",
+      "recommendation": "Keep public exact certificates ahead of generalized routes; no production ordering change is indicated."
+    },
+    {
+      "category": "B. debug-only / analysis-only",
+      "recommendation": "Keep this harness, ARCF_ROUTE_COVERAGE, and adversarial generation as mandatory gates before future solver edits."
+    },
+    {
+      "category": "E. requires countermodel strengthening",
+      "recommendation": "Focus next on finite countermodel diagnostics for negative/boundary variants in tail-shift and argument-erasure families."
+    },
+    {
+      "category": "C. do not implement",
+      "recommendation": "Do not implement tail-shift guard widening while the analysis-only relaxed candidate remains judge-rejected."
+    }
+  ],
+  "route_widening": {
+    "exists": true,
+    "family_summary": {
+      "tail_shift_repeated_tail_corridor": {
+        "accepted": 1,
+        "candidates": 2,
+        "errors": 0,
+        "no_attempt": 11,
+        "recommendation": "do not implement",
+        "rejected": 1
+      },
+      "two_local_edge_local_theory_bridge": {
+        "accepted": 0,
+        "candidates": 0,
+        "errors": 0,
+        "no_attempt": 4,
+        "recommendation": "keep analysis-only",
+        "rejected": 0
+      }
+    },
+    "overall_recommendation": "do not implement guard widening; rejected/error candidates remain under relaxed analysis",
+    "path": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/route_widening_experiment_report.json",
+    "summary": {
+      "accepted_false_countermodel": 0,
+      "accepted_true": 1,
+      "cases_with_generated_candidates": 2,
+      "judge_errors": 0,
+      "judge_rejected": 1,
+      "no_candidate": 13,
+      "over_analysis_cap": 0,
+      "target_no_attempt_cases": 15
+    },
+    "unsafe_recommendations": []
+  },
+  "run_config": {
+    "private_adversarial_report": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/private_adversarial_report.json",
+    "repo_root": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2",
+    "route_widening_report": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/route_widening_experiment_report.json",
+    "sample200_no_public_exact_result": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample200_private_readiness_v2_no_public_exact.json",
+    "sample200_result": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample200_private_readiness_v2.json",
+    "sample20_result": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/pipeline/results/arcf_sample20_private_readiness_v2.json"
+  },
+  "submission": {
+    "entries": [
+      "solver.py"
+    ],
+    "single_file_only": true,
+    "solver_bytes": 382810,
+    "solver_exists": true,
+    "solver_max_bytes": 500000,
+    "solver_under_cap": true,
+    "submission_dir": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/submissions/arcf_prover"
+  }
+}

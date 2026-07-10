@@ -1,0 +1,280 @@
+{
+  "generated_at": "2026-05-22",
+  "inputs": {
+    "full_sample_20": "pipeline/results/arcf_sample20_tail_shift_cap_guard.json",
+    "full_sample_200": "pipeline/results/arcf_sample200_tail_shift_cap_guard.json",
+    "public_exact_disabled_sample_200": "pipeline/results/arcf_sample200_tail_shift_cap_no_public_exact.json",
+    "problem_file": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py",
+    "prior_report": "analysis/fifth_stage_private_motif_distillation_report.json"
+  },
+  "summary": {
+    "full_solver": {
+      "sample_20": {
+        "accepted": 20,
+        "total": 20,
+        "true": 10,
+        "false": 10,
+        "no_attempt": 0,
+        "judge_errors": 0
+      },
+      "sample_200": {
+        "accepted": 200,
+        "total": 200,
+        "true": 100,
+        "false": 100,
+        "no_attempt": 0,
+        "judge_errors": 0
+      }
+    },
+    "public_exact_disabled": {
+      "sample_200": {
+        "accepted": 196,
+        "total": 200,
+        "true": 96,
+        "false": 100,
+        "no_attempt": 4,
+        "judge_errors": 0
+      }
+    },
+    "recovered_by_generalized_routes": {
+      "generalized_argument_erasure_context_bridge": [
+        "true_2074_2082",
+        "true_674_668",
+        "true_2771_2775"
+      ],
+      "generalized_seed_collapse_contextual_lift": [
+        "true_2942_5",
+        "true_130_1759",
+        "true_2061_307"
+      ],
+      "generalized_square_anchor_anchored_erasure_bridge": [
+        "true_2860_3458",
+        "true_1738_1258",
+        "true_1636_1839"
+      ],
+      "generalized_tail_shift_repeated_tail_corridor": [
+        "true_691_1976",
+        "true_689_1350",
+        "true_4082_4109",
+        "true_2135_2128"
+      ]
+    },
+    "remaining_loss_count": 4,
+    "remaining_loss_ids": [
+      "true_1698_555",
+      "true_2789_898",
+      "true_1500_498",
+      "true_2055_2656"
+    ],
+    "remaining_losses_fail_by_abstention": true,
+    "remaining_loss_judge_calls": 0
+  },
+  "remaining_losses": [
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "exact_certificate": {
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "name": "z3_true_1698_555_min",
+        "size_bytes": 10003,
+        "let_count": 61,
+        "have_count": 102,
+        "h_instantiation_mentions": 23
+      },
+      "proof_structure_if_known": "Long repeated-y corridor chain with direct h seeds, symmetric h collapses, congrArg lifts, and a final x-to-target equality.",
+      "route_family_similarity": [
+        "tail-shift / repeated-tail corridor",
+        "context-shift / local collapse"
+      ],
+      "reason_current_generalized_routes_fail": "No current tail-corridor schema matches the right-nested target y ◇ (z ◇ (y ◇ _)); erasure and square-anchor routes do not find supported inner edges.",
+      "recoverability": {
+        "narrow_cap_increase": "not needed",
+        "stronger_alias_compression": "optional, not required by size",
+        "existing_route_extension": "yes, add a right-nested repeated-y corridor subcase",
+        "new_small_motif_route": "yes, if implemented as a schema-specific tail-corridor template",
+        "expected_public_exact_disabled_gain": 1,
+        "judge_error_risk": "low if exact schema guarded"
+      },
+      "recommended_action": "Implement gtsrtc_right_nested_repeated_y_corridor under generalized_tail_shift_repeated_tail_corridor."
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "exact_certificate": {
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "name": "z3_true_2789_898_min",
+        "size_bytes": 31995,
+        "let_count": 169,
+        "have_count": 306,
+        "h_instantiation_mentions": 56
+      },
+      "proof_structure_if_known": "Rotation/context bridge with a compact ATP skeleton but a large Lean reconstruction after aliasing.",
+      "route_family_similarity": [
+        "context-shift / local-theory movement",
+        "ATP exact only"
+      ],
+      "reason_current_generalized_routes_fail": "The missing edge is a local rotation/context bridge, not a supported argument-erasure, square-anchor, or tail-corridor edge.",
+      "recoverability": {
+        "narrow_cap_increase": "not recommended",
+        "stronger_alias_compression": "possible but unlikely to become a compact generalized route alone",
+        "existing_route_extension": "no clear narrow extension",
+        "new_small_motif_route": "possible but high implementation risk",
+        "expected_public_exact_disabled_gain": 0,
+        "judge_error_risk": "medium-high"
+      },
+      "recommended_action": "Defer and keep as public exact certificate unless a shorter rotation proof skeleton is found."
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "exact_certificate": {
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "name": "z3_true_1500_498_min",
+        "size_bytes": 33893,
+        "let_count": 158,
+        "have_count": 326,
+        "h_instantiation_mentions": 54
+      },
+      "proof_structure_if_known": "Broad projection/extension proof that introduces and controls a fresh square term w◇w.",
+      "route_family_similarity": [
+        "local-theory normalization",
+        "ATP exact only"
+      ],
+      "reason_current_generalized_routes_fail": "No narrow generalized route covers the extra free-variable square target w◇w; the likely route would be broad projection/extension normalization.",
+      "recoverability": {
+        "narrow_cap_increase": "not recommended",
+        "stronger_alias_compression": "unlikely to create a reusable compact route",
+        "existing_route_extension": "no",
+        "new_small_motif_route": "not currently recommended",
+        "expected_public_exact_disabled_gain": 0,
+        "judge_error_risk": "high if generalized broadly"
+      },
+      "recommended_action": "Leave as public exact memo for now."
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "exact_certificate": {
+        "type": "ATP exact certificate",
+        "prover": "E prover",
+        "name": "eprover_true_2055_2656_l4_l15",
+        "size_bytes": 4177,
+        "let_count": 8,
+        "have_count": 24,
+        "h_instantiation_mentions": 10
+      },
+      "proof_structure_if_known": "Compact local-theory package: derive l4 : forall a b, a ◇ (a ◇ b) = a ◇ a; derive collapse/lift lemmas; close with l15 : forall a b c, (((a ◇ a) ◇ (b ◇ c)) ◇ b) = a.",
+      "route_family_similarity": [
+        "local-theory normalization",
+        "context-shift / local collapse"
+      ],
+      "reason_current_generalized_routes_fail": "Existing local-theory routes do not derive the l4/l15-style local package, and the case is not a tail-shift, square-anchor, or erasure schema hit.",
+      "recoverability": {
+        "narrow_cap_increase": "not needed",
+        "stronger_alias_compression": "not needed",
+        "existing_route_extension": "no current route covers it",
+        "new_small_motif_route": "yes, generalized_two_local_edge_local_theory_bridge",
+        "expected_public_exact_disabled_gain": 1,
+        "judge_error_risk": "low-medium"
+      },
+      "recommended_action": "Use as backup target after true_1698_555; implement a schema-specific two-local-edge local-theory bridge."
+    }
+  ],
+  "clusters": {
+    "tail_shift_repeated_tail_corridor": {
+      "cases": [
+        "true_1698_555"
+      ],
+      "recommended": true,
+      "private_set_value": "moderate",
+      "implementation_difficulty": "low-medium",
+      "certificate_size_risk": "low",
+      "judge_error_risk": "low"
+    },
+    "local_theory_normalization": {
+      "cases": [
+        "true_2055_2656"
+      ],
+      "recommended_backup": true,
+      "private_set_value": "high",
+      "implementation_difficulty": "medium",
+      "certificate_size_risk": "low",
+      "judge_error_risk": "low-medium"
+    },
+    "argument_erasure_context_bridge": {
+      "cases": [],
+      "status": "exhausted for remaining public exact losses"
+    },
+    "atp_exact_only": {
+      "cases": [
+        "true_2789_898",
+        "true_1500_498"
+      ],
+      "recommended": false,
+      "private_set_value": "unclear",
+      "implementation_difficulty": "high",
+      "certificate_size_risk": "high",
+      "judge_error_risk": "medium-high"
+    },
+    "unknown": {
+      "cases": []
+    }
+  },
+  "recommendation": {
+    "decision": "implement_one_more_generalized_route",
+    "selected_next_route": {
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "subcase": "gtsrtc_right_nested_repeated_y_corridor",
+      "target_public_case": "true_1698_555",
+      "schema": {
+        "hypothesis": "a = (b ◇ a) ◇ ((b ◇ c) ◇ b)",
+        "goal": "a = b ◇ (c ◇ (b ◇ (a ◇ b)))"
+      },
+      "expected_public_exact_disabled_score_after_success": {
+        "accepted": 197,
+        "total": 200
+      },
+      "cap_change_needed": false,
+      "guard_requirements": [
+        "exact alpha-normalized schema match",
+        "existing 12000-byte generated-route cap",
+        "no broad tail rewriting",
+        "no proof graph expansion",
+        "public exact certificates remain ahead in normal production order"
+      ]
+    },
+    "backup_next_route": {
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "target_public_case": "true_2055_2656",
+      "reason": "Compact 4177-byte E-prover proof exposes reusable l4/l15-style local-theory lemmas."
+    },
+    "defer": [
+      {
+        "case": "true_2789_898",
+        "reason": "large rotation/context ATP exact certificate; no compact generalized skeleton yet"
+      },
+      {
+        "case": "true_1500_498",
+        "reason": "large fresh-variable projection/extension proof; high risk of broad normalization"
+      }
+    ],
+    "stop_distillation_now": false,
+    "stop_distillation_rationale": "Stopping would be defensible for code-size discipline, but true_1698_555 offers one more low-risk, schema-specific generalization opportunity."
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-05-22",
+  "inputs": {
+    "full_sample_20": "pipeline/results/arcf_sample20_gtsrtc_right_nested_guard.json",
+    "full_sample_200": "pipeline/results/arcf_sample200_gtsrtc_right_nested_guard.json",
+    "public_exact_disabled_sample_200": "pipeline/results/arcf_sample200_gtsrtc_right_nested_no_public_exact.json",
+    "problem_file": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "summary": {
+    "full_solver": {
+      "sample_20": {
+        "accepted": 20,
+        "true": 10,
+        "false": 10,
+        "no_attempt": 0,
+        "judge_errors": 0
+      },
+      "sample_200": {
+        "accepted": 200,
+        "true": 100,
+        "false": 100,
+        "no_attempt": 0,
+        "judge_errors": 0
+      }
+    },
+    "public_exact_disabled": {
+      "sample_200": {
+        "accepted": 197,
+        "true": 97,
+        "false": 100,
+        "no_attempt": 3,
+        "judge_errors": 0
+      }
+    },
+    "remaining_losses": [
+      "true_2789_898",
+      "true_1500_498",
+      "true_2055_2656"
+    ],
+    "remaining_losses_fail_by_abstention": true
+  },
+  "recovered_by_generalized_routes": {
+    "generalized_argument_erasure_context_bridge": [
+      "true_2074_2082",
+      "true_674_668",
+      "true_2771_2775"
+    ],
+    "generalized_seed_collapse_contextual_lift": [
+      "true_2942_5",
+      "true_130_1759",
+      "true_2061_307"
+    ],
+    "generalized_square_anchor_anchored_erasure_bridge": [
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_1636_1839"
+    ],
+    "generalized_tail_shift_repeated_tail_corridor": [
+      "true_691_1976",
+      "true_689_1350",
+      "true_4082_4109",
+      "true_2135_2128",
+      "true_1698_555"
+    ]
+  },
+  "final_losses": [
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "exact_certificate": {
+        "name": "z3_true_2789_898_min",
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "size_bytes": 31995,
+        "let_count": 169,
+        "have_count": 306,
+        "h_instantiation_mentions": 56
+      },
+      "known_proof_skeleton": "Large Z3-derived rotation/context equality chain. Final chain proves x = t4 through x = t12 = t20 = t26 = t23 = t4 after many alias rewrites.",
+      "motif_assessment": "mostly proof-chain-specific",
+      "route_family_comparison": {
+        "argument_erasure_context_bridge": "weak partial similarity; missing edge is rotation/context movement, not supported erasure",
+        "seed_collapse_contextual_lift": "not compact enough for one-seed/one-collapse lift",
+        "square_anchor_anchored_erasure": "no match",
+        "tail_shift_repeated_tail_corridor": "no match after current corridor schemas",
+        "local_theory_normalization": "too rotation-heavy and large"
+      },
+      "distillation_decision": "maybe distillable but high risk",
+      "recommended_action": "Keep as exact public certificate unless a much shorter rotation/context proof skeleton is found."
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "exact_certificate": {
+        "name": "z3_true_1500_498_min",
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "size_bytes": 33893,
+        "let_count": 158,
+        "have_count": 326,
+        "h_instantiation_mentions": 54
+      },
+      "known_proof_skeleton": "Large Z3-derived projection/extension chain with explicit fresh-square handling, including h w w w, and a long final rewrite path to the target.",
+      "motif_assessment": "proof-chain-specific",
+      "route_family_comparison": {
+        "argument_erasure_context_bridge": "poor fit; no supported extracted erasure edge",
+        "seed_collapse_contextual_lift": "too broad and fresh-variable-heavy",
+        "square_anchor_anchored_erasure": "contains a square but not as a narrow anchored-square schema",
+        "tail_shift_repeated_tail_corridor": "no match",
+        "local_theory_normalization": "possible only with broad projection/extension normalization"
+      },
+      "distillation_decision": "exact-certificate only",
+      "recommended_action": "Preserve as exact public certificate; do not generalize from current proof."
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "exact_certificate": {
+        "name": "eprover_true_2055_2656_l4_l15",
+        "type": "ATP exact certificate",
+        "prover": "E prover",
+        "size_bytes": 4177,
+        "let_count": 8,
+        "have_count": 24,
+        "h_instantiation_mentions": 10
+      },
+      "known_proof_skeleton": "Compact local-theory package deriving l4 : forall a b, a ◇ (a ◇ b) = a ◇ a, intermediate collapse/lift lemmas, and l15 : forall a b c, (((a ◇ a) ◇ (b ◇ c)) ◇ b) = a; final exact is (l15 x y z).symm.",
+      "motif_assessment": "motif-like",
+      "route_family_comparison": {
+        "argument_erasure_context_bridge": "poor fit",
+        "seed_collapse_contextual_lift": "shares local collapse but needs deeper lemma package",
+        "square_anchor_anchored_erasure": "goal contains x◇x but does not fit existing square-tail/anchored-right schemas",
+        "tail_shift_repeated_tail_corridor": "no match",
+        "local_theory_normalization": "strong fit; existing routes lack the l4/l15 package"
+      },
+      "distillation_decision": "worth distilling narrowly",
+      "recommended_action": "Implement generalized_two_local_edge_local_theory_bridge only under exact alpha-normalized schema."
+    }
+  ],
+  "recommended_optional_route": {
+    "implement": true,
+    "route_name": "generalized_two_local_edge_local_theory_bridge",
+    "target_case": "true_2055_2656",
+    "schema_guard": {
+      "hypothesis": "a = ((a ◇ b) ◇ a) ◇ (b ◇ c)",
+      "goal": "a = ((a ◇ a) ◇ (b ◇ c)) ◇ b",
+      "requirements": [
+        "exact alpha-normalized schema match",
+        "schema variables must be variables, not arbitrary large terms",
+        "public exact certificates remain ahead in normal production order",
+        "abstain on all guard failures"
+      ]
+    },
+    "proof_emitter": {
+      "source_template": "eprover_true_2055_2656_l4_l15",
+      "marker": "gltb_l4_l15_local_theory_bridge",
+      "preferred_cap_bytes": 8000,
+      "hard_cap_bytes": 12000,
+      "allowed_mechanisms": [
+        "stored-template alpha replacement",
+        "intro",
+        "let",
+        "have",
+        "exact",
+        "Eq.trans/.trans",
+        ".symm",
+        "congrArg",
+        "calc"
+      ],
+      "forbidden_mechanisms": [
+        "broad proof graph search",
+        "arbitrary local-theory normalization",
+        "LLM/API/network calls",
+        "sorry",
+        "admit",
+        "simp",
+        "aesop",
+        "omega",
+        "linarith",
+        "tauto"
+      ]
+    },
+    "expected_public_exact_disabled_after_success": {
+      "accepted": 198,
+      "total": 200,
+      "true": 98,
+      "false": 100
+    },
+    "judge_error_risk": "low-medium"
+  },
+  "stop_distillation_option": {
+    "acceptable": true,
+    "recommendation_if_stopping": "Stop at 197/200 reusable core and preserve true_2789_898, true_1500_498, and true_2055_2656 as exact public certificates.",
+    "rationale": "Only true_2055_2656 has a compact motif-like proof. The other two are large, proof-chain-specific Z3 certificates."
+  },
+  "final_policy": {
+    "continue_for": [
+      "true_2055_2656"
+    ],
+    "keep_exact_only": [
+      "true_2789_898",
+      "true_1500_498"
+    ],
+    "stop_after_true_2055_2656_unless": "a shorter proof skeleton is discovered for true_2789_898 or true_1500_498"
+  }
+}

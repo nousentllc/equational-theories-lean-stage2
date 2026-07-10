@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-05-22",
+  "inputs": {
+    "full_sample_20": "pipeline/results/arcf_sample20_gltb_guard.json",
+    "full_sample_200": "pipeline/results/arcf_sample200_gltb_guard.json",
+    "public_exact_disabled_sample_200": "pipeline/results/arcf_sample200_gltb_no_public_exact.json",
+    "problem_file": "examples/problems/sample_200.json",
+    "solver": "submissions/arcf_prover/solver.py"
+  },
+  "current_state": {
+    "full_sample_20": {
+      "accepted": 20,
+      "true": 10,
+      "false": 10,
+      "no_attempt": 0,
+      "judge_errors": 0
+    },
+    "full_sample_200": {
+      "accepted": 200,
+      "true": 100,
+      "false": 100,
+      "no_attempt": 0,
+      "judge_errors": 0
+    },
+    "public_exact_disabled_sample_200": {
+      "accepted": 198,
+      "true": 98,
+      "false": 100,
+      "no_attempt": 2,
+      "judge_errors": 0
+    },
+    "remaining_public_exact_disabled_losses": [
+      "true_2789_898",
+      "true_1500_498"
+    ]
+  },
+  "cases": [
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "exact_certificate": {
+        "name": "z3_true_2789_898_min",
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "size_bytes": 31995,
+        "let_count": 169,
+        "have_count": 306,
+        "h_instantiation_mentions": 56
+      },
+      "atp_summary": {
+        "raw_proof_length": 10362,
+        "quant_inst_count": 2,
+        "trans_count": 1,
+        "monotonicity_count": 0,
+        "rewrite_count": 3
+      },
+      "proof_skeleton": "Large Z3-derived equality chain. Final chain proves x = t4, where t4 is y ◇ ((x ◇ z) ◇ (z ◇ y)), through x = t12 = t20 = t26 = t23 = t4.",
+      "route_comparison": {
+        "argument_erasure_context_bridge": "weak partial similarity; target requires rotation/context movement, not supported erasure",
+        "seed_collapse_contextual_lift": "weak; no compact seed-collapse proof exists from current certificate",
+        "square_anchor_anchored_erasure": "no match",
+        "tail_shift_repeated_tail_corridor": "no match",
+        "two_local_edge_local_theory_bridge": "no match"
+      },
+      "reusable_structural_motif": {
+        "exists": false,
+        "candidate_if_forced": {
+          "hypothesis_schema": "a = ((b ◇ c) ◇ (b ◇ a)) ◇ c",
+          "goal_schema": "a = b ◇ ((a ◇ c) ◇ (c ◇ b))",
+          "reason_not_recommended": "Current proof is about 32 KB and proof-chain-specific; a safe route would need a new compact local rotation bridge under 12 KB."
+        }
+      },
+      "decision": "maybe distillable but high risk",
+      "recommendation": "Leave as exact public certificate unless a much shorter local rotation/context proof skeleton is discovered."
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "exact_certificate": {
+        "name": "z3_true_1500_498_min",
+        "type": "ATP exact certificate",
+        "prover": "Z3",
+        "size_bytes": 33893,
+        "let_count": 158,
+        "have_count": 326,
+        "h_instantiation_mentions": 54
+      },
+      "atp_summary": {
+        "raw_proof_length": 10499,
+        "quant_inst_count": 2,
+        "trans_count": 1,
+        "monotonicity_count": 0,
+        "rewrite_count": 4
+      },
+      "proof_skeleton": "Large Z3-derived projection/extension chain. It introduces w◇w explicitly, including h w w w, and rewrites through many aliases to prove x = y ◇ (x ◇ (z ◇ (w ◇ w))).",
+      "route_comparison": {
+        "argument_erasure_context_bridge": "poor fit; no supported exact-context erasure edge",
+        "seed_collapse_contextual_lift": "poor fit; too many local equalities and fresh-square control",
+        "square_anchor_anchored_erasure": "misleading partial fit; w◇w is a fresh target, not anchored square erasure",
+        "tail_shift_repeated_tail_corridor": "no match",
+        "two_local_edge_local_theory_bridge": "no match"
+      },
+      "reusable_structural_motif": {
+        "exists": false,
+        "candidate_if_forced": {
+          "hypothesis_schema": "a = (b ◇ a) ◇ (c ◇ (a ◇ c))",
+          "goal_schema": "a = b ◇ (a ◇ (c ◇ (d ◇ d)))",
+          "reason_not_recommended": "Fresh variable d and broad projection/extension behavior make this unsafe to guard narrowly."
+        }
+      },
+      "decision": "exact-certificate only",
+      "recommendation": "Leave as exact public certificate."
+    }
+  ],
+  "overall_decision": {
+    "convert_remaining_cases_to_generalized_routes": false,
+    "recommended_public_exact_disabled_stopping_point": {
+      "accepted": 198,
+      "total": 200
+    },
+    "keep_exact_certificates": [
+      "z3_true_2789_898_min",
+      "z3_true_1500_498_min"
+    ],
+    "rationale": "Both remaining certificates are large Z3-derived proof chains. Neither exposes a compact safe motif comparable to the generalized routes already distilled."
+  },
+  "next_solver_strengthening": [
+    {
+      "rank": 1,
+      "workstream": "generated_synthetic_regression_suite",
+      "priority": "highest",
+      "description": "Generate alpha-renamed and size-preserving variants for every generalized route schema and assert public-exact-disabled recovery.",
+      "expected_value": "Validates that private routes are genuinely structural and not public-case-shaped."
+    },
+    {
+      "rank": 2,
+      "workstream": "motif_fuzzing_alpha_variants",
+      "priority": "high",
+      "description": "Fuzz alpha-renamings, near-misses, compound substitutions, and mirrored nonmatching cases to test guard abstention and route stability.",
+      "expected_value": "Improves hidden-set confidence and reduces judge-error risk."
+    },
+    {
+      "rank": 3,
+      "workstream": "route_telemetry_ordering_optimization",
+      "priority": "high",
+      "description": "Use debug-only telemetry for attempted routes, guard failures, proof failures, emitted size, and latency; tune route order on private-like synthetic workloads.",
+      "expected_value": "Improves runtime and avoids expensive late-route misses."
+    },
+    {
+      "rank": 4,
+      "workstream": "certificate_size_budgeting",
+      "priority": "medium",
+      "description": "Add route-level size accounting to ablation reports: proof body bytes, full Lean bytes, judge time, and route marker.",
+      "expected_value": "Prevents generalized routes from drifting into exact-certificate replay."
+    },
+    {
+      "rank": 5,
+      "workstream": "stronger_finite_countermodel_search",
+      "priority": "medium-low for current public sample, higher for hidden false cases",
+      "description": "Develop constraint-guided finite magma search, randomized repair, SAT/SMT encodings, and witness-bank augmentation.",
+      "expected_value": "Strengthens hidden false-case performance; should remain separate from true-route motif distillation."
+    }
+  ]
+}

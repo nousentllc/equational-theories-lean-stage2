@@ -1,0 +1,341 @@
+{
+  "source_results": {
+    "public_exact_disabled_result": "pipeline/results/arcf_sample200_private_motif_no_public_exact_v3.json",
+    "accepted": 186,
+    "true": 86,
+    "false": 100,
+    "no_attempt": 14,
+    "judge_errors": 0
+  },
+  "already_recovered_argument_erasure_cases": [
+    "true_2074_2082",
+    "true_2771_2775",
+    "true_674_668"
+  ],
+  "remaining_lost_cases": [
+    {
+      "id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+      "goal": "x = y \u25c7 x",
+      "motif_group": "seed-collapse / short hand motifs",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "repeated-anchor collapse via expansion, tail collapse, and final congrArg",
+      "code_size_bytes": 849,
+      "have_count": 6,
+      "let_count": 0,
+      "h_instantiation_text_count": 3
+    },
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+      "goal": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+      "motif_group": "tail-shift corridor",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "deep repeated-y tail shift",
+      "code_size_bytes": 10003,
+      "have_count": 102,
+      "let_count": 61,
+      "h_instantiation_text_count": 22
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+      "goal": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "motif_group": "square-anchor / anchored erasure",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "square-anchor / anchored erasure",
+      "code_size_bytes": 10646,
+      "have_count": 123,
+      "let_count": 72,
+      "h_instantiation_text_count": 22
+    },
+    {
+      "id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y \u25c7 ((y \u25c7 z) \u25c7 x)",
+      "goal": "x = (y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x)",
+      "motif_group": "seed-collapse / short hand motifs",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "two-h contextual lift",
+      "code_size_bytes": 420,
+      "have_count": 2,
+      "let_count": 0,
+      "h_instantiation_text_count": 2
+    },
+    {
+      "id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal": "x \u25c7 x = x \u25c7 (x \u25c7 x)",
+      "motif_group": "seed-collapse / short hand motifs",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "multi-local-edge calc with self-square replacement",
+      "code_size_bytes": 867,
+      "have_count": 5,
+      "let_count": 0,
+      "h_instantiation_text_count": 4
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+      "goal": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+      "motif_group": "square-anchor / anchored erasure",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "right-anchored expansion through double x tail",
+      "code_size_bytes": 7324,
+      "have_count": 21,
+      "let_count": 22,
+      "h_instantiation_text_count": 5
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y \u25c7 z) \u25c7 (y \u25c7 x)) \u25c7 z",
+      "goal": "x = y \u25c7 ((x \u25c7 z) \u25c7 (z \u25c7 y))",
+      "motif_group": "large ATP exact certificate only",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "two-instantiation rotation/context bridge",
+      "code_size_bytes": 31995,
+      "have_count": 306,
+      "let_count": 169,
+      "h_instantiation_text_count": 55
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+      "goal": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+      "motif_group": "tail-shift corridor",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "tail-shift among y\u25c7y blocks",
+      "code_size_bytes": 17412,
+      "have_count": 54,
+      "let_count": 41,
+      "h_instantiation_text_count": 16
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y \u25c7 x) \u25c7 (z \u25c7 (x \u25c7 z))",
+      "goal": "x = y \u25c7 (x \u25c7 (z \u25c7 (w \u25c7 w)))",
+      "motif_group": "large ATP exact certificate only",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "broad projection/extension with extra free variable",
+      "code_size_bytes": 33893,
+      "have_count": 326,
+      "let_count": 158,
+      "h_instantiation_text_count": 53
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+      "goal": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+      "motif_group": "context-shift / local-theory movement",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "seed-collapse plus context shift",
+      "code_size_bytes": 3243,
+      "have_count": 32,
+      "let_count": 32,
+      "h_instantiation_text_count": 7
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+      "goal": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+      "motif_group": "context-shift / local-theory movement",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "rotation/context-shift with transitive congruence",
+      "code_size_bytes": 7398,
+      "have_count": 45,
+      "let_count": 26,
+      "h_instantiation_text_count": 12
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+      "goal": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+      "motif_group": "context-shift / local-theory movement",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "two-local-edge E-prover local theory bridge",
+      "code_size_bytes": 4177,
+      "have_count": 24,
+      "let_count": 8,
+      "h_instantiation_text_count": 9
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+      "goal": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+      "motif_group": "context-shift / local-theory movement",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "nested seed-collapse under y \u25c7 _ context",
+      "code_size_bytes": 7183,
+      "have_count": 70,
+      "let_count": 41,
+      "h_instantiation_text_count": 14
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+      "goal": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+      "motif_group": "square-anchor / anchored erasure",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "self-square extension and absorption alignment",
+      "code_size_bytes": 11847,
+      "have_count": 36,
+      "let_count": 29,
+      "h_instantiation_text_count": 8
+    }
+  ],
+  "groups": {
+    "seed-collapse / short hand motifs": {
+      "cases": [
+        "true_130_1759",
+        "true_2942_5",
+        "true_2061_307"
+      ],
+      "description": "Compact public hand certificates that use one or two h expansions, a local collapse/replacement, and one congrArg/calc closure.",
+      "structural_guard": "Require direct h seed expansion from goal lhs to a midpoint, exact one-hole context extraction from midpoint to goal rhs, and a local edge provable by a symmetric h collapse or self-square replacement. Use no eq-id guard.",
+      "candidate_local_lemmas": [
+        "two_h_contextual_lift edge",
+        "repeated_anchor_collapse",
+        "self_square_local_replacement"
+      ],
+      "expected_certificate_size": "~0.5-3 KB per hit; source exact certificates are 420-867 bytes.",
+      "judge_error_risk": "low if route is limited to exact seed/context/collapse shapes and judge-tested before emission.",
+      "private_value": "high: compact motifs are likely to recur and do not depend on large ATP chains."
+    },
+    "context-shift / local-theory movement": {
+      "cases": [
+        "true_691_1976",
+        "true_4082_4109",
+        "true_2055_2656",
+        "true_689_1350"
+      ],
+      "description": "Cases where a direct seed exists, but closure needs a small local movement/rotation or two-local-edge bridge rather than plain argument erasure.",
+      "structural_guard": "Require shared outer context or direct h seed midpoint, high subterm overlap, and a two-edge calc where both local edges are direct h/symm/congrArg over exact extracted contexts.",
+      "candidate_local_lemmas": [
+        "seed expansion of anchor",
+        "local tail replacement",
+        "two-local-edge bridge",
+        "context shift lift"
+      ],
+      "expected_certificate_size": "~3-8 KB for compact cases; source certs range 3.2-7.4 KB except some can expand if not alias-normalized.",
+      "judge_error_risk": "medium: more moving parts and context-shift matching can over-trigger unless exact-context gated.",
+      "private_value": "medium-high: several remaining cases are in this family and exact certs are moderate."
+    },
+    "square-anchor / anchored erasure": {
+      "cases": [
+        "true_2860_3458",
+        "true_1738_1258",
+        "true_1636_1839"
+      ],
+      "description": "Hypotheses expose self-square or right-anchor terms and goals require idempotence, absorption, extension, or anchored erasure before a context lift.",
+      "structural_guard": "Require x\u25c7x or (_\u25c7x)\u25c7x in the goal/extracted inner edge, repeated anchor in hypothesis, and derivable local idempotence/absorption before emitting anchored erasure.",
+      "candidate_local_lemmas": [
+        "idem-like square fact",
+        "absorbL/absorbR",
+        "anchoredRightErase",
+        "extension x = x\u25c7C[x]"
+      ],
+      "expected_certificate_size": "~7-12 KB if using local-theory packages; source certs range 7.3-11.8 KB.",
+      "judge_error_risk": "medium-high: local-theory normalizers can overgeneralize and grow certificates.",
+      "private_value": "medium: likely useful, but implementation has more safety surface than hand motifs."
+    },
+    "tail-shift corridor": {
+      "cases": [
+        "true_2135_2128",
+        "true_1698_555"
+      ],
+      "description": "Repeated y/tail blocks must be shifted through a corridor with nested congrArg and symmetric h collapse.",
+      "structural_guard": "Require repeated-tail term appearing in both hypothesis and goal, one shiftTail h instance, at most two nested congrArg lifts, and one symmetric h collapse.",
+      "candidate_local_lemmas": [
+        "shiftTail",
+        "lifted tail replacement",
+        "symmetric expanded-target collapse"
+      ],
+      "expected_certificate_size": "~10-18 KB from public cert precedents; risk of term expansion without alias normalization.",
+      "judge_error_risk": "medium-high: shape-sensitive and can emit bulky Lean.",
+      "private_value": "medium: recurring but narrower than seed-collapse and harder to keep compact."
+    },
+    "large ATP exact certificate only": {
+      "cases": [
+        "true_2789_898",
+        "true_1500_498"
+      ],
+      "description": "Cases with known accepted ATP certificates but large/idiosyncratic equality chains that do not isolate into a small reusable motif yet.",
+      "structural_guard": "Defer generalized route. If revisited, require an independent proof-mined motif with size estimate below route cap.",
+      "candidate_local_lemmas": [
+        "unknown or too broad from current data"
+      ],
+      "expected_certificate_size": "~32-34 KB for existing exact certificates; generalized proof may remain large.",
+      "judge_error_risk": "high for generalization; low only as exact memo, which is already present in normal mode.",
+      "private_value": "low-medium until a shorter motif is found."
+    },
+    "unclear": {
+      "cases": [],
+      "description": "No remaining case is completely unclassified after current reports.",
+      "structural_guard": "N/A",
+      "candidate_local_lemmas": [],
+      "expected_certificate_size": "N/A",
+      "judge_error_risk": "N/A",
+      "private_value": "N/A"
+    }
+  },
+  "recommendation": {
+    "next_route_name": "generalized_seed_collapse_contextual_lift",
+    "motif_family": "seed-collapse / short hand motifs",
+    "primary_targets": [
+      "true_130_1759",
+      "true_2942_5",
+      "true_2061_307"
+    ],
+    "reason": "This family has the smallest accepted public exact certificates, clear exact-context proof shapes, and the lowest judge-error risk. It can likely recover one or more public exact dependencies with compact route-specific Lean rather than embedding large ATP chains.",
+    "route_outline": {
+      "activation": [
+        "goal unsolved by current general routes",
+        "hypothesis has repeated-anchor or direct h expansion touching goal lhs",
+        "direct h seed midpoint exists",
+        "exact one-hole context from midpoint to goal rhs or direct local edge target exists"
+      ],
+      "proof_moves": [
+        "direct h seed expansion",
+        "symmetric h collapse",
+        "one congrArg over exact context",
+        "short calc length <= 3",
+        "optional local self-square replacement"
+      ],
+      "caps": {
+        "max_h_instances": 4,
+        "max_congrArg": 2,
+        "max_calc_steps": 3,
+        "max_certificate_bytes": 5000,
+        "max_candidates": 40
+      },
+      "fallback": "abstain if any guard/proof/size check fails; preserve public exact memos after generalized routes in normal mode."
+    }
+  }
+}

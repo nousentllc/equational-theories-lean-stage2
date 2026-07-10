@@ -1,0 +1,802 @@
+[
+  {
+    "answer": null,
+    "eq1_id": 970002,
+    "eq2_id": 970003,
+    "equation1": "s = ((s \u25c7 k) \u25c7 e) \u25c7 (k \u25c7 s)",
+    "equation2": "s = ((s \u25c7 k) \u25c7 e) \u25c7 (c \u25c7 s)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_positive_0001"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970004,
+    "eq2_id": 970005,
+    "equation1": "q = ((q \u25c7 k) \u25c7 f) \u25c7 (k \u25c7 q)",
+    "equation2": "q = ((q \u25c7 k) \u25c7 f) \u25c7 (g \u25c7 q)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_positive_0002"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970006,
+    "eq2_id": 970007,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_positive_0003"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970008,
+    "eq2_id": 970009,
+    "equation1": "l = ((l \u25c7 b) \u25c7 h) \u25c7 (b \u25c7 l)",
+    "equation2": "l = ((l \u25c7 b) \u25c7 h) \u25c7 (l \u25c7 l)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0004"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970010,
+    "eq2_id": 970011,
+    "equation1": "(h \u25c7 h) = (((h \u25c7 h) \u25c7 c) \u25c7 p) \u25c7 (c \u25c7 (h \u25c7 h))",
+    "equation2": "(h \u25c7 h) = (((h \u25c7 h) \u25c7 c) \u25c7 p) \u25c7 (m \u25c7 (h \u25c7 h))",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0005"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970012,
+    "eq2_id": 970013,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x))",
+    "equation2": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x))",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0006"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970014,
+    "eq2_id": 970015,
+    "equation1": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x))))))",
+    "equation2": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x))))))",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0007"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970016,
+    "eq2_id": 970017,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "x = (w \u25c7 x) \u25c7 ((x \u25c7 y) \u25c7 z)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0008"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970018,
+    "eq2_id": 970019,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "x = (((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)) \u25c7 a",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_negative_0009"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970020,
+    "eq2_id": 970021,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x))",
+    "equation2": "b \u25c7 x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_negative_0010"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970022,
+    "eq2_id": 970023,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x) = x",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_negative_0011"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970024,
+    "eq2_id": 970025,
+    "equation1": "a \u25c7 v = a \u25c7 (((v \u25c7 u) \u25c7 l) \u25c7 (u \u25c7 v))",
+    "equation2": "a \u25c7 v = a \u25c7 (((v \u25c7 u) \u25c7 l) \u25c7 (c \u25c7 v))",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_mixed_0012"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970026,
+    "eq2_id": 970027,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "(a \u25c7 x) = (((a \u25c7 x) \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 (a \u25c7 x))",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_mixed_0013"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970028,
+    "eq2_id": 970029,
+    "equation1": "(x \u25c7 x) = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "(x \u25c7 x) = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+    "id": "padv_argument_erasure_context_bridge_true_2074_2082_mixed_0014"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970030,
+    "eq2_id": 970031,
+    "equation1": "g = c \u25c7 (g \u25c7 ((g \u25c7 f) \u25c7 f))",
+    "equation2": "g = c \u25c7 (g \u25c7 ((g \u25c7 g) \u25c7 f))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_positive_0015"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970032,
+    "eq2_id": 970033,
+    "equation1": "o = s \u25c7 (o \u25c7 ((o \u25c7 e) \u25c7 e))",
+    "equation2": "o = s \u25c7 (o \u25c7 ((o \u25c7 o) \u25c7 e))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_positive_0016"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970034,
+    "eq2_id": 970035,
+    "equation1": "i = e \u25c7 (i \u25c7 ((i \u25c7 i) \u25c7 i))",
+    "equation2": "i = e \u25c7 (i \u25c7 ((i \u25c7 i) \u25c7 i))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0017"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970036,
+    "eq2_id": 970037,
+    "equation1": "(m \u25c7 m) = w \u25c7 ((m \u25c7 m) \u25c7 (((m \u25c7 m) \u25c7 c) \u25c7 c))",
+    "equation2": "(m \u25c7 m) = w \u25c7 ((m \u25c7 m) \u25c7 (((m \u25c7 m) \u25c7 (m \u25c7 m)) \u25c7 c))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0018"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970038,
+    "eq2_id": 970039,
+    "equation1": "b \u25c7 x = b \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z)))",
+    "equation2": "b \u25c7 x = b \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z)))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0019"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970040,
+    "eq2_id": 970041,
+    "equation1": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z)))))))",
+    "equation2": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z)))))))",
+    "id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0020"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970042,
+    "eq2_id": 970043,
+    "equation1": "f = ((c \u25c7 (c \u25c7 f)) \u25c7 e) \u25c7 f",
+    "equation2": "f = c \u25c7 f",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_positive_0021"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970044,
+    "eq2_id": 970045,
+    "equation1": "w = ((l \u25c7 (l \u25c7 w)) \u25c7 r) \u25c7 w",
+    "equation2": "w = l \u25c7 w",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_positive_0022"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970046,
+    "eq2_id": 970047,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "x = y \u25c7 x",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_positive_0023"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970048,
+    "eq2_id": 970049,
+    "equation1": "k = ((d \u25c7 (d \u25c7 k)) \u25c7 k) \u25c7 k",
+    "equation2": "k = d \u25c7 k",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_boundary_0024"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970050,
+    "eq2_id": 970051,
+    "equation1": "(d \u25c7 d) = ((e \u25c7 (e \u25c7 (d \u25c7 d))) \u25c7 s) \u25c7 (d \u25c7 d)",
+    "equation2": "(d \u25c7 d) = e \u25c7 (d \u25c7 d)",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_boundary_0025"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970052,
+    "eq2_id": 970053,
+    "equation1": "a \u25c7 x = a \u25c7 (((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x)",
+    "equation2": "a \u25c7 x = a \u25c7 (y \u25c7 x)",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_boundary_0026"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970054,
+    "eq2_id": 970055,
+    "equation1": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x)))))",
+    "equation2": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (y \u25c7 x)))))",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_boundary_0027"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970056,
+    "eq2_id": 970057,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "x = x \u25c7 y",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_boundary_0028"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970058,
+    "eq2_id": 970059,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "x = (y \u25c7 x) \u25c7 a",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_negative_0029"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970060,
+    "eq2_id": 970061,
+    "equation1": "a \u25c7 x = a \u25c7 (((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x)",
+    "equation2": "b \u25c7 x = y \u25c7 x",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_negative_0030"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970062,
+    "eq2_id": 970063,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "y \u25c7 x = x",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_negative_0031"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970064,
+    "eq2_id": 970065,
+    "equation1": "a \u25c7 i = a \u25c7 (((a \u25c7 (a \u25c7 i)) \u25c7 f) \u25c7 i)",
+    "equation2": "a \u25c7 i = a \u25c7 (a \u25c7 i)",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_mixed_0032"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970066,
+    "eq2_id": 970067,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "(a \u25c7 x) = y \u25c7 (a \u25c7 x)",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_mixed_0033"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970068,
+    "eq2_id": 970069,
+    "equation1": "(x \u25c7 x) = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "(x \u25c7 x) = y \u25c7 x",
+    "id": "padv_seed_collapse_contextual_lift_true_2942_5_mixed_0034"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970070,
+    "eq2_id": 970071,
+    "equation1": "m = j \u25c7 ((j \u25c7 o) \u25c7 m)",
+    "equation2": "m = (j \u25c7 o) \u25c7 ((m \u25c7 j) \u25c7 m)",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_positive_0035"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970072,
+    "eq2_id": 970073,
+    "equation1": "d = g \u25c7 ((g \u25c7 v) \u25c7 d)",
+    "equation2": "d = (g \u25c7 v) \u25c7 ((d \u25c7 g) \u25c7 d)",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_positive_0036"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970074,
+    "eq2_id": 970075,
+    "equation1": "r = p \u25c7 ((p \u25c7 r) \u25c7 r)",
+    "equation2": "r = (p \u25c7 r) \u25c7 ((r \u25c7 p) \u25c7 r)",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0037"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970076,
+    "eq2_id": 970077,
+    "equation1": "(e \u25c7 e) = b \u25c7 ((b \u25c7 l) \u25c7 (e \u25c7 e))",
+    "equation2": "(e \u25c7 e) = (b \u25c7 l) \u25c7 (((e \u25c7 e) \u25c7 b) \u25c7 (e \u25c7 e))",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0038"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970078,
+    "eq2_id": 970079,
+    "equation1": "b \u25c7 x = b \u25c7 (y \u25c7 ((y \u25c7 z) \u25c7 x))",
+    "equation2": "b \u25c7 x = b \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x))",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0039"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970080,
+    "eq2_id": 970081,
+    "equation1": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (y \u25c7 ((y \u25c7 z) \u25c7 x))))))",
+    "equation2": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x))))))",
+    "id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0040"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970082,
+    "eq2_id": 970083,
+    "equation1": "a = ((a \u25c7 (a \u25c7 j)) \u25c7 k) \u25c7 k",
+    "equation2": "a \u25c7 a = a \u25c7 ((a \u25c7 j) \u25c7 a)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_positive_0041"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970084,
+    "eq2_id": 970085,
+    "equation1": "p = ((p \u25c7 (p \u25c7 f)) \u25c7 o) \u25c7 o",
+    "equation2": "p \u25c7 p = p \u25c7 ((p \u25c7 f) \u25c7 p)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_positive_0042"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970086,
+    "eq2_id": 970087,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_positive_0043"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970088,
+    "eq2_id": 970089,
+    "equation1": "h = ((h \u25c7 (h \u25c7 u)) \u25c7 h) \u25c7 h",
+    "equation2": "h \u25c7 h = h \u25c7 ((h \u25c7 u) \u25c7 h)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0044"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970090,
+    "eq2_id": 970091,
+    "equation1": "(n \u25c7 n) = (((n \u25c7 n) \u25c7 ((n \u25c7 n) \u25c7 w)) \u25c7 e) \u25c7 e",
+    "equation2": "(n \u25c7 n) \u25c7 (n \u25c7 n) = (n \u25c7 n) \u25c7 (((n \u25c7 n) \u25c7 w) \u25c7 (n \u25c7 n))",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0045"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970092,
+    "eq2_id": 970093,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z)",
+    "equation2": "a \u25c7 (x \u25c7 x) = a \u25c7 (x \u25c7 ((x \u25c7 y) \u25c7 x))",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0046"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970094,
+    "eq2_id": 970095,
+    "equation1": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z)))))",
+    "equation2": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (x \u25c7 x))))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (x \u25c7 ((x \u25c7 y) \u25c7 x))))))",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0047"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970096,
+    "eq2_id": 970097,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 x = ((x \u25c7 y) \u25c7 x) \u25c7 x",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0048"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970098,
+    "eq2_id": 970099,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 x = (x \u25c7 ((x \u25c7 y) \u25c7 x)) \u25c7 a",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0049"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970100,
+    "eq2_id": 970101,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z)",
+    "equation2": "b \u25c7 (x \u25c7 x) = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0050"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970102,
+    "eq2_id": 970103,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 ((x \u25c7 y) \u25c7 x) = x \u25c7 x",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0051"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970104,
+    "eq2_id": 970105,
+    "equation1": "a \u25c7 a = a \u25c7 (((a \u25c7 (a \u25c7 w)) \u25c7 o) \u25c7 o)",
+    "equation2": "a \u25c7 (a \u25c7 a) = a \u25c7 (a \u25c7 ((a \u25c7 w) \u25c7 a))",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_mixed_0052"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970106,
+    "eq2_id": 970107,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "(a \u25c7 x) \u25c7 (a \u25c7 x) = (a \u25c7 x) \u25c7 (((a \u25c7 x) \u25c7 y) \u25c7 (a \u25c7 x))",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_mixed_0053"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970108,
+    "eq2_id": 970109,
+    "equation1": "(x \u25c7 x) = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "(x \u25c7 x) \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+    "id": "padv_square_anchor_anchored_erasure_true_2860_3458_mixed_0054"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970110,
+    "eq2_id": 970111,
+    "equation1": "v = (a \u25c7 a) \u25c7 ((e \u25c7 v) \u25c7 v)",
+    "equation2": "v = v \u25c7 (((a \u25c7 e) \u25c7 v) \u25c7 v)",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_positive_0055"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970112,
+    "eq2_id": 970113,
+    "equation1": "i = (u \u25c7 u) \u25c7 ((m \u25c7 i) \u25c7 i)",
+    "equation2": "i = i \u25c7 (((u \u25c7 m) \u25c7 i) \u25c7 i)",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_positive_0056"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970114,
+    "eq2_id": 970115,
+    "equation1": "q = (b \u25c7 b) \u25c7 ((q \u25c7 q) \u25c7 q)",
+    "equation2": "q = q \u25c7 (((b \u25c7 q) \u25c7 q) \u25c7 q)",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_boundary_0057"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970116,
+    "eq2_id": 970117,
+    "equation1": "(u \u25c7 u) = (e \u25c7 e) \u25c7 ((w \u25c7 (u \u25c7 u)) \u25c7 (u \u25c7 u))",
+    "equation2": "(u \u25c7 u) = (u \u25c7 u) \u25c7 (((e \u25c7 w) \u25c7 (u \u25c7 u)) \u25c7 (u \u25c7 u))",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_boundary_0058"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970118,
+    "eq2_id": 970119,
+    "equation1": "b \u25c7 x = b \u25c7 ((y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x))",
+    "equation2": "b \u25c7 x = b \u25c7 (x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x))",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_boundary_0059"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970120,
+    "eq2_id": 970121,
+    "equation1": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 ((y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x))))))",
+    "equation2": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x))))))",
+    "id": "padv_square_anchor_anchored_erasure_true_1738_1258_boundary_0060"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970122,
+    "eq2_id": 970123,
+    "equation1": "g = c \u25c7 (g \u25c7 ((f \u25c7 c) \u25c7 c))",
+    "equation2": "g = (c \u25c7 (f \u25c7 c)) \u25c7 (g \u25c7 c)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_positive_0061"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970124,
+    "eq2_id": 970125,
+    "equation1": "h = e \u25c7 (h \u25c7 ((g \u25c7 e) \u25c7 e))",
+    "equation2": "h = (e \u25c7 (g \u25c7 e)) \u25c7 (h \u25c7 e)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_positive_0062"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970126,
+    "eq2_id": 970127,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_positive_0063"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970128,
+    "eq2_id": 970129,
+    "equation1": "d = s \u25c7 (d \u25c7 ((d \u25c7 s) \u25c7 s))",
+    "equation2": "d = (s \u25c7 (d \u25c7 s)) \u25c7 (d \u25c7 s)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0064"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970130,
+    "eq2_id": 970131,
+    "equation1": "(j \u25c7 j) = p \u25c7 ((j \u25c7 j) \u25c7 ((u \u25c7 p) \u25c7 p))",
+    "equation2": "(j \u25c7 j) = (p \u25c7 (u \u25c7 p)) \u25c7 ((j \u25c7 j) \u25c7 p)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0065"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970132,
+    "eq2_id": 970133,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y)))",
+    "equation2": "a \u25c7 x = a \u25c7 ((y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970134,
+    "eq2_id": 970135,
+    "equation1": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y)))))))",
+    "equation2": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 ((y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y))))))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970136,
+    "eq2_id": 970137,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "x = (x \u25c7 y) \u25c7 (y \u25c7 (z \u25c7 y))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970138,
+    "eq2_id": 970139,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "x = ((y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)) \u25c7 a",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970140,
+    "eq2_id": 970141,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y)))",
+    "equation2": "b \u25c7 x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0070"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970142,
+    "eq2_id": 970143,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "(y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y) = x",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970144,
+    "eq2_id": 970145,
+    "equation1": "a \u25c7 k = a \u25c7 (m \u25c7 (k \u25c7 ((c \u25c7 m) \u25c7 m)))",
+    "equation2": "a \u25c7 k = a \u25c7 ((m \u25c7 (c \u25c7 m)) \u25c7 (k \u25c7 m))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_mixed_0072"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970146,
+    "eq2_id": 970147,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "(a \u25c7 x) = (y \u25c7 (z \u25c7 y)) \u25c7 ((a \u25c7 x) \u25c7 y)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_mixed_0073"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970148,
+    "eq2_id": 970149,
+    "equation1": "(x \u25c7 x) = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "(x \u25c7 x) = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_mixed_0074"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970150,
+    "eq2_id": 970151,
+    "equation1": "j = b \u25c7 (j \u25c7 ((c \u25c7 j) \u25c7 f))",
+    "equation2": "j = b \u25c7 (((c \u25c7 j) \u25c7 j) \u25c7 b)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_positive_0075"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970152,
+    "eq2_id": 970153,
+    "equation1": "s = p \u25c7 (s \u25c7 ((q \u25c7 s) \u25c7 h))",
+    "equation2": "s = p \u25c7 (((q \u25c7 s) \u25c7 s) \u25c7 p)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_positive_0076"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970154,
+    "eq2_id": 970155,
+    "equation1": "i = b \u25c7 (i \u25c7 ((m \u25c7 i) \u25c7 i))",
+    "equation2": "i = b \u25c7 (((m \u25c7 i) \u25c7 i) \u25c7 b)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0077"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970156,
+    "eq2_id": 970157,
+    "equation1": "(c \u25c7 c) = b \u25c7 ((c \u25c7 c) \u25c7 ((k \u25c7 (c \u25c7 c)) \u25c7 d))",
+    "equation2": "(c \u25c7 c) = b \u25c7 (((k \u25c7 (c \u25c7 c)) \u25c7 (c \u25c7 c)) \u25c7 b)",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0078"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970158,
+    "eq2_id": 970159,
+    "equation1": "b \u25c7 x = b \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w)))",
+    "equation2": "b \u25c7 x = b \u25c7 (y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970160,
+    "eq2_id": 970161,
+    "equation1": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w)))))))",
+    "equation2": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y))))))",
+    "id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970162,
+    "eq2_id": 970163,
+    "equation1": "b = ((b \u25c7 n) \u25c7 b) \u25c7 (n \u25c7 q)",
+    "equation2": "b = ((b \u25c7 b) \u25c7 (n \u25c7 q)) \u25c7 n",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_positive_0081"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970164,
+    "eq2_id": 970165,
+    "equation1": "k = ((k \u25c7 h) \u25c7 k) \u25c7 (h \u25c7 c)",
+    "equation2": "k = ((k \u25c7 k) \u25c7 (h \u25c7 c)) \u25c7 h",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_positive_0082"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970166,
+    "eq2_id": 970167,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_positive_0083"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970168,
+    "eq2_id": 970169,
+    "equation1": "q = ((q \u25c7 a) \u25c7 q) \u25c7 (a \u25c7 q)",
+    "equation2": "q = ((q \u25c7 q) \u25c7 (a \u25c7 q)) \u25c7 a",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0084"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970170,
+    "eq2_id": 970171,
+    "equation1": "(m \u25c7 m) = (((m \u25c7 m) \u25c7 a) \u25c7 (m \u25c7 m)) \u25c7 (a \u25c7 o)",
+    "equation2": "(m \u25c7 m) = (((m \u25c7 m) \u25c7 (m \u25c7 m)) \u25c7 (a \u25c7 o)) \u25c7 a",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0085"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970172,
+    "eq2_id": 970173,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))",
+    "equation2": "a \u25c7 x = a \u25c7 (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y)",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0086"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970174,
+    "eq2_id": 970175,
+    "equation1": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))))))",
+    "equation2": "a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 x)))) = a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (a \u25c7 (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y)))))",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970176,
+    "eq2_id": 970177,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "x = y \u25c7 ((x \u25c7 x) \u25c7 (y \u25c7 z))",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0088"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970178,
+    "eq2_id": 970179,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "x = (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y) \u25c7 a",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0089"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970180,
+    "eq2_id": 970181,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))",
+    "equation2": "b \u25c7 x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0090"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970182,
+    "eq2_id": 970183,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y = x",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970184,
+    "eq2_id": 970185,
+    "equation1": "a \u25c7 u = a \u25c7 (((u \u25c7 q) \u25c7 u) \u25c7 (q \u25c7 j))",
+    "equation2": "a \u25c7 u = a \u25c7 (((u \u25c7 u) \u25c7 (q \u25c7 j)) \u25c7 q)",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_mixed_0092"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970186,
+    "eq2_id": 970187,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "(a \u25c7 x) = (((a \u25c7 x) \u25c7 (a \u25c7 x)) \u25c7 (y \u25c7 z)) \u25c7 y",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_mixed_0093"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970188,
+    "eq2_id": 970189,
+    "equation1": "(x \u25c7 x) = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "(x \u25c7 x) = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_mixed_0094"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970190,
+    "eq2_id": 970191,
+    "equation1": "v = ((v \u25c7 l) \u25c7 v) \u25c7 (l \u25c7 g)",
+    "equation2": "v = ((v \u25c7 v) \u25c7 (l \u25c7 g)) \u25c7 l",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_positive_0095"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970192,
+    "eq2_id": 970193,
+    "equation1": "d = ((d \u25c7 h) \u25c7 d) \u25c7 (h \u25c7 c)",
+    "equation2": "d = ((d \u25c7 d) \u25c7 (h \u25c7 c)) \u25c7 h",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_positive_0096"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970194,
+    "eq2_id": 970195,
+    "equation1": "j = ((j \u25c7 m) \u25c7 j) \u25c7 (m \u25c7 j)",
+    "equation2": "j = ((j \u25c7 j) \u25c7 (m \u25c7 j)) \u25c7 m",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0097"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970196,
+    "eq2_id": 970197,
+    "equation1": "(q \u25c7 q) = (((q \u25c7 q) \u25c7 o) \u25c7 (q \u25c7 q)) \u25c7 (o \u25c7 f)",
+    "equation2": "(q \u25c7 q) = (((q \u25c7 q) \u25c7 (q \u25c7 q)) \u25c7 (o \u25c7 f)) \u25c7 o",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0098"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970198,
+    "eq2_id": 970199,
+    "equation1": "b \u25c7 x = b \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))",
+    "equation2": "b \u25c7 x = b \u25c7 (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y)",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0099"
+  },
+  {
+    "answer": null,
+    "eq1_id": 970200,
+    "eq2_id": 970201,
+    "equation1": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))))))",
+    "equation2": "b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 x)))) = b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (b \u25c7 (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y)))))",
+    "id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100"
+  }
+]

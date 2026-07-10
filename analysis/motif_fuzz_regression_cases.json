@@ -1,0 +1,842 @@
+[
+  {
+    "answer": true,
+    "eq1_id": 900002,
+    "eq2_id": 900003,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x)",
+    "id": "mfuzz_true_2074_2082_baseline_seed_001"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900004,
+    "eq2_id": 900005,
+    "equation1": "c = ((c \u25c7 f) \u25c7 p) \u25c7 (f \u25c7 c)",
+    "equation2": "c = ((c \u25c7 f) \u25c7 p) \u25c7 (m \u25c7 c)",
+    "id": "mfuzz_true_2074_2082_alpha_rename_0_002"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900006,
+    "eq2_id": 900007,
+    "equation1": "r = ((r \u25c7 e) \u25c7 q) \u25c7 (e \u25c7 r)",
+    "equation2": "r = ((r \u25c7 e) \u25c7 q) \u25c7 (i \u25c7 r)",
+    "id": "mfuzz_true_2074_2082_variable_permutation_003"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900008,
+    "eq2_id": 900009,
+    "equation1": "v = ((v \u25c7 a) \u25c7 o) \u25c7 (a \u25c7 v)",
+    "equation2": "v = ((v \u25c7 a) \u25c7 o) \u25c7 (v \u25c7 v)",
+    "id": "mfuzz_true_2074_2082_repeated_anchor_substitution_004"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900010,
+    "eq2_id": 900011,
+    "equation1": "x = ((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x)",
+    "equation2": "x = (w \u25c7 x) \u25c7 ((x \u25c7 y) \u25c7 z)",
+    "id": "mfuzz_true_2074_2082_operand_side_swap_probe_005"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900012,
+    "eq2_id": 900013,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (y \u25c7 x))",
+    "equation2": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 z) \u25c7 (w \u25c7 x))",
+    "id": "mfuzz_true_2074_2082_shallow_left_context_wrap_probe_006"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900014,
+    "eq2_id": 900015,
+    "equation1": "(o \u25c7 o) = (((o \u25c7 o) \u25c7 v) \u25c7 j) \u25c7 (v \u25c7 (o \u25c7 o))",
+    "equation2": "(o \u25c7 o) = (((o \u25c7 o) \u25c7 v) \u25c7 j) \u25c7 (s \u25c7 (o \u25c7 o))",
+    "id": "mfuzz_true_2074_2082_small_depth_anchor_perturbation_probe_007"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900016,
+    "eq2_id": 900017,
+    "equation1": "x = y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z))",
+    "equation2": "x = y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z))",
+    "id": "mfuzz_true_674_668_baseline_seed_008"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900018,
+    "eq2_id": 900019,
+    "equation1": "g = l \u25c7 (g \u25c7 ((g \u25c7 c) \u25c7 c))",
+    "equation2": "g = l \u25c7 (g \u25c7 ((g \u25c7 g) \u25c7 c))",
+    "id": "mfuzz_true_674_668_alpha_rename_0_009"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900020,
+    "eq2_id": 900021,
+    "equation1": "c = o \u25c7 (c \u25c7 ((c \u25c7 g) \u25c7 g))",
+    "equation2": "c = o \u25c7 (c \u25c7 ((c \u25c7 c) \u25c7 g))",
+    "id": "mfuzz_true_674_668_variable_permutation_010"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900022,
+    "eq2_id": 900023,
+    "equation1": "p = a \u25c7 (p \u25c7 ((p \u25c7 p) \u25c7 p))",
+    "equation2": "p = a \u25c7 (p \u25c7 ((p \u25c7 p) \u25c7 p))",
+    "id": "mfuzz_true_674_668_repeated_anchor_substitution_011"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900024,
+    "eq2_id": 900025,
+    "equation1": "x = y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z))",
+    "equation2": "x = (x \u25c7 ((x \u25c7 x) \u25c7 z)) \u25c7 y",
+    "id": "mfuzz_true_674_668_operand_side_swap_probe_012"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900026,
+    "eq2_id": 900027,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 z) \u25c7 z)))",
+    "equation2": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((x \u25c7 x) \u25c7 z)))",
+    "id": "mfuzz_true_674_668_shallow_left_context_wrap_probe_013"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900028,
+    "eq2_id": 900029,
+    "equation1": "(a \u25c7 a) = h \u25c7 ((a \u25c7 a) \u25c7 (((a \u25c7 a) \u25c7 n) \u25c7 n))",
+    "equation2": "(a \u25c7 a) = h \u25c7 ((a \u25c7 a) \u25c7 (((a \u25c7 a) \u25c7 (a \u25c7 a)) \u25c7 n))",
+    "id": "mfuzz_true_674_668_small_depth_anchor_perturbation_probe_014"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900030,
+    "eq2_id": 900031,
+    "equation1": "x = ((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y",
+    "equation2": "x = ((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y",
+    "id": "mfuzz_true_2771_2775_baseline_seed_015"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900032,
+    "eq2_id": 900033,
+    "equation1": "q = ((w \u25c7 f) \u25c7 (q \u25c7 q)) \u25c7 w",
+    "equation2": "q = ((w \u25c7 f) \u25c7 (q \u25c7 w)) \u25c7 w",
+    "id": "mfuzz_true_2771_2775_alpha_rename_0_016"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900034,
+    "eq2_id": 900035,
+    "equation1": "i = ((n \u25c7 a) \u25c7 (i \u25c7 i)) \u25c7 n",
+    "equation2": "i = ((n \u25c7 a) \u25c7 (i \u25c7 n)) \u25c7 n",
+    "id": "mfuzz_true_2771_2775_variable_permutation_017"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900036,
+    "eq2_id": 900037,
+    "equation1": "a = ((h \u25c7 a) \u25c7 (a \u25c7 a)) \u25c7 h",
+    "equation2": "a = ((h \u25c7 a) \u25c7 (a \u25c7 h)) \u25c7 h",
+    "id": "mfuzz_true_2771_2775_repeated_anchor_substitution_018"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900038,
+    "eq2_id": 900039,
+    "equation1": "x = ((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y",
+    "equation2": "x = y \u25c7 ((y \u25c7 z) \u25c7 (x \u25c7 y))",
+    "id": "mfuzz_true_2771_2775_operand_side_swap_probe_019"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900040,
+    "eq2_id": 900041,
+    "equation1": "a \u25c7 x = a \u25c7 (((y \u25c7 z) \u25c7 (x \u25c7 x)) \u25c7 y)",
+    "equation2": "a \u25c7 x = a \u25c7 (((y \u25c7 z) \u25c7 (x \u25c7 y)) \u25c7 y)",
+    "id": "mfuzz_true_2771_2775_shallow_left_context_wrap_probe_020"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900042,
+    "eq2_id": 900043,
+    "equation1": "(g \u25c7 g) = ((c \u25c7 v) \u25c7 ((g \u25c7 g) \u25c7 (g \u25c7 g))) \u25c7 c",
+    "equation2": "(g \u25c7 g) = ((c \u25c7 v) \u25c7 ((g \u25c7 g) \u25c7 c)) \u25c7 c",
+    "id": "mfuzz_true_2771_2775_small_depth_anchor_perturbation_probe_021"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900044,
+    "eq2_id": 900045,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "x = y \u25c7 x",
+    "id": "mfuzz_true_2942_5_baseline_seed_022"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900046,
+    "eq2_id": 900047,
+    "equation1": "n = ((a \u25c7 (a \u25c7 n)) \u25c7 g) \u25c7 n",
+    "equation2": "n = a \u25c7 n",
+    "id": "mfuzz_true_2942_5_alpha_rename_0_023"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900048,
+    "eq2_id": 900049,
+    "equation1": "e = ((a \u25c7 (a \u25c7 e)) \u25c7 f) \u25c7 e",
+    "equation2": "e = a \u25c7 e",
+    "id": "mfuzz_true_2942_5_variable_permutation_024"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900050,
+    "eq2_id": 900051,
+    "equation1": "o = ((r \u25c7 (r \u25c7 o)) \u25c7 o) \u25c7 o",
+    "equation2": "o = r \u25c7 o",
+    "id": "mfuzz_true_2942_5_repeated_anchor_substitution_025"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900052,
+    "eq2_id": 900053,
+    "equation1": "x = ((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x",
+    "equation2": "x = x \u25c7 y",
+    "id": "mfuzz_true_2942_5_operand_side_swap_probe_026"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900054,
+    "eq2_id": 900055,
+    "equation1": "a \u25c7 x = a \u25c7 (((y \u25c7 (y \u25c7 x)) \u25c7 z) \u25c7 x)",
+    "equation2": "a \u25c7 x = a \u25c7 (y \u25c7 x)",
+    "id": "mfuzz_true_2942_5_shallow_left_context_wrap_probe_027"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900056,
+    "eq2_id": 900057,
+    "equation1": "(h \u25c7 h) = ((o \u25c7 (o \u25c7 (h \u25c7 h))) \u25c7 j) \u25c7 (h \u25c7 h)",
+    "equation2": "(h \u25c7 h) = o \u25c7 (h \u25c7 h)",
+    "id": "mfuzz_true_2942_5_small_depth_anchor_perturbation_probe_028"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900058,
+    "eq2_id": 900059,
+    "equation1": "x = y \u25c7 ((y \u25c7 z) \u25c7 x)",
+    "equation2": "x = (y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x)",
+    "id": "mfuzz_true_130_1759_baseline_seed_029"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900060,
+    "eq2_id": 900061,
+    "equation1": "k = j \u25c7 ((j \u25c7 v) \u25c7 k)",
+    "equation2": "k = (j \u25c7 v) \u25c7 ((k \u25c7 j) \u25c7 k)",
+    "id": "mfuzz_true_130_1759_alpha_rename_0_030"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900062,
+    "eq2_id": 900063,
+    "equation1": "b = d \u25c7 ((d \u25c7 q) \u25c7 b)",
+    "equation2": "b = (d \u25c7 q) \u25c7 ((b \u25c7 d) \u25c7 b)",
+    "id": "mfuzz_true_130_1759_variable_permutation_031"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900064,
+    "eq2_id": 900065,
+    "equation1": "v = r \u25c7 ((r \u25c7 v) \u25c7 v)",
+    "equation2": "v = (r \u25c7 v) \u25c7 ((v \u25c7 r) \u25c7 v)",
+    "id": "mfuzz_true_130_1759_repeated_anchor_substitution_032"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900066,
+    "eq2_id": 900067,
+    "equation1": "x = y \u25c7 ((y \u25c7 z) \u25c7 x)",
+    "equation2": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "id": "mfuzz_true_130_1759_operand_side_swap_probe_033"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900068,
+    "eq2_id": 900069,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 ((y \u25c7 z) \u25c7 x))",
+    "equation2": "a \u25c7 x = a \u25c7 ((y \u25c7 z) \u25c7 ((x \u25c7 y) \u25c7 x))",
+    "id": "mfuzz_true_130_1759_shallow_left_context_wrap_probe_034"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900070,
+    "eq2_id": 900071,
+    "equation1": "(j \u25c7 j) = p \u25c7 ((p \u25c7 c) \u25c7 (j \u25c7 j))",
+    "equation2": "(j \u25c7 j) = (p \u25c7 c) \u25c7 (((j \u25c7 j) \u25c7 p) \u25c7 (j \u25c7 j))",
+    "id": "mfuzz_true_130_1759_small_depth_anchor_perturbation_probe_035"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900072,
+    "eq2_id": 900073,
+    "equation1": "x = ((x \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+    "equation2": "x \u25c7 x = x \u25c7 (x \u25c7 x)",
+    "id": "mfuzz_true_2061_307_baseline_seed_036"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900074,
+    "eq2_id": 900075,
+    "equation1": "d = ((d \u25c7 q) \u25c7 q) \u25c7 (d \u25c7 q)",
+    "equation2": "d \u25c7 d = d \u25c7 (d \u25c7 d)",
+    "id": "mfuzz_true_2061_307_alpha_rename_0_037"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900076,
+    "eq2_id": 900077,
+    "equation1": "q = ((q \u25c7 w) \u25c7 w) \u25c7 (q \u25c7 w)",
+    "equation2": "q \u25c7 q = q \u25c7 (q \u25c7 q)",
+    "id": "mfuzz_true_2061_307_variable_permutation_038"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900078,
+    "eq2_id": 900079,
+    "equation1": "d = ((d \u25c7 d) \u25c7 d) \u25c7 (d \u25c7 d)",
+    "equation2": "d \u25c7 d = d \u25c7 (d \u25c7 d)",
+    "id": "mfuzz_true_2061_307_repeated_anchor_substitution_039"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900080,
+    "eq2_id": 900081,
+    "equation1": "x = ((x \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+    "equation2": "x \u25c7 x = (x \u25c7 x) \u25c7 x",
+    "id": "mfuzz_true_2061_307_operand_side_swap_probe_040"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900082,
+    "eq2_id": 900083,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y))",
+    "equation2": "a \u25c7 (x \u25c7 x) = a \u25c7 (x \u25c7 (x \u25c7 x))",
+    "id": "mfuzz_true_2061_307_shallow_left_context_wrap_probe_041"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900084,
+    "eq2_id": 900085,
+    "equation1": "(c \u25c7 c) = (((c \u25c7 c) \u25c7 p) \u25c7 p) \u25c7 ((c \u25c7 c) \u25c7 p)",
+    "equation2": "(c \u25c7 c) \u25c7 (c \u25c7 c) = (c \u25c7 c) \u25c7 ((c \u25c7 c) \u25c7 (c \u25c7 c))",
+    "id": "mfuzz_true_2061_307_small_depth_anchor_perturbation_probe_042"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900086,
+    "eq2_id": 900087,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 x = x \u25c7 ((x \u25c7 y) \u25c7 x)",
+    "id": "mfuzz_true_2860_3458_baseline_seed_043"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900088,
+    "eq2_id": 900089,
+    "equation1": "l = ((l \u25c7 (l \u25c7 b)) \u25c7 f) \u25c7 f",
+    "equation2": "l \u25c7 l = l \u25c7 ((l \u25c7 b) \u25c7 l)",
+    "id": "mfuzz_true_2860_3458_alpha_rename_0_044"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900090,
+    "eq2_id": 900091,
+    "equation1": "g = ((g \u25c7 (g \u25c7 b)) \u25c7 d) \u25c7 d",
+    "equation2": "g \u25c7 g = g \u25c7 ((g \u25c7 b) \u25c7 g)",
+    "id": "mfuzz_true_2860_3458_variable_permutation_045"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900092,
+    "eq2_id": 900093,
+    "equation1": "u = ((u \u25c7 (u \u25c7 v)) \u25c7 u) \u25c7 u",
+    "equation2": "u \u25c7 u = u \u25c7 ((u \u25c7 v) \u25c7 u)",
+    "id": "mfuzz_true_2860_3458_repeated_anchor_substitution_046"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900094,
+    "eq2_id": 900095,
+    "equation1": "x = ((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z",
+    "equation2": "x \u25c7 x = ((x \u25c7 y) \u25c7 x) \u25c7 x",
+    "id": "mfuzz_true_2860_3458_operand_side_swap_probe_047"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900096,
+    "eq2_id": 900097,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 (x \u25c7 y)) \u25c7 z) \u25c7 z)",
+    "equation2": "a \u25c7 (x \u25c7 x) = a \u25c7 (x \u25c7 ((x \u25c7 y) \u25c7 x))",
+    "id": "mfuzz_true_2860_3458_shallow_left_context_wrap_probe_048"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900098,
+    "eq2_id": 900099,
+    "equation1": "(k \u25c7 k) = (((k \u25c7 k) \u25c7 ((k \u25c7 k) \u25c7 d)) \u25c7 b) \u25c7 b",
+    "equation2": "(k \u25c7 k) \u25c7 (k \u25c7 k) = (k \u25c7 k) \u25c7 (((k \u25c7 k) \u25c7 d) \u25c7 (k \u25c7 k))",
+    "id": "mfuzz_true_2860_3458_small_depth_anchor_perturbation_probe_049"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900100,
+    "eq2_id": 900101,
+    "equation1": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+    "equation2": "x = x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x)",
+    "id": "mfuzz_true_1738_1258_baseline_seed_050"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900102,
+    "eq2_id": 900103,
+    "equation1": "c = (j \u25c7 j) \u25c7 ((d \u25c7 c) \u25c7 c)",
+    "equation2": "c = c \u25c7 (((j \u25c7 d) \u25c7 c) \u25c7 c)",
+    "id": "mfuzz_true_1738_1258_alpha_rename_0_051"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900104,
+    "eq2_id": 900105,
+    "equation1": "k = (p \u25c7 p) \u25c7 ((o \u25c7 k) \u25c7 k)",
+    "equation2": "k = k \u25c7 (((p \u25c7 o) \u25c7 k) \u25c7 k)",
+    "id": "mfuzz_true_1738_1258_variable_permutation_052"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900106,
+    "eq2_id": 900107,
+    "equation1": "a = (f \u25c7 f) \u25c7 ((a \u25c7 a) \u25c7 a)",
+    "equation2": "a = a \u25c7 (((f \u25c7 a) \u25c7 a) \u25c7 a)",
+    "id": "mfuzz_true_1738_1258_repeated_anchor_substitution_053"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900108,
+    "eq2_id": 900109,
+    "equation1": "x = (y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x)",
+    "equation2": "x = (((y \u25c7 z) \u25c7 x) \u25c7 x) \u25c7 x",
+    "id": "mfuzz_true_1738_1258_operand_side_swap_probe_054"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900110,
+    "eq2_id": 900111,
+    "equation1": "a \u25c7 x = a \u25c7 ((y \u25c7 y) \u25c7 ((z \u25c7 x) \u25c7 x))",
+    "equation2": "a \u25c7 x = a \u25c7 (x \u25c7 (((y \u25c7 z) \u25c7 x) \u25c7 x))",
+    "id": "mfuzz_true_1738_1258_shallow_left_context_wrap_probe_055"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900112,
+    "eq2_id": 900113,
+    "equation1": "(b \u25c7 b) = (r \u25c7 r) \u25c7 ((g \u25c7 (b \u25c7 b)) \u25c7 (b \u25c7 b))",
+    "equation2": "(b \u25c7 b) = (b \u25c7 b) \u25c7 (((r \u25c7 g) \u25c7 (b \u25c7 b)) \u25c7 (b \u25c7 b))",
+    "id": "mfuzz_true_1738_1258_small_depth_anchor_perturbation_probe_056"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900114,
+    "eq2_id": 900115,
+    "equation1": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+    "equation2": "x = (x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z)",
+    "id": "mfuzz_true_1636_1839_baseline_seed_057"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900116,
+    "eq2_id": 900117,
+    "equation1": "k = (k \u25c7 k) \u25c7 ((n \u25c7 k) \u25c7 m)",
+    "equation2": "k = (k \u25c7 (k \u25c7 n)) \u25c7 (k \u25c7 m)",
+    "id": "mfuzz_true_1636_1839_alpha_rename_0_058"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900118,
+    "eq2_id": 900119,
+    "equation1": "e = (e \u25c7 e) \u25c7 ((g \u25c7 e) \u25c7 u)",
+    "equation2": "e = (e \u25c7 (e \u25c7 g)) \u25c7 (e \u25c7 u)",
+    "id": "mfuzz_true_1636_1839_variable_permutation_059"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900120,
+    "eq2_id": 900121,
+    "equation1": "e = (e \u25c7 e) \u25c7 ((i \u25c7 e) \u25c7 e)",
+    "equation2": "e = (e \u25c7 (e \u25c7 i)) \u25c7 (e \u25c7 e)",
+    "id": "mfuzz_true_1636_1839_repeated_anchor_substitution_060"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900122,
+    "eq2_id": 900123,
+    "equation1": "x = (x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z)",
+    "equation2": "x = (x \u25c7 z) \u25c7 (x \u25c7 (x \u25c7 y))",
+    "id": "mfuzz_true_1636_1839_operand_side_swap_probe_061"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900124,
+    "eq2_id": 900125,
+    "equation1": "a \u25c7 x = a \u25c7 ((x \u25c7 x) \u25c7 ((y \u25c7 x) \u25c7 z))",
+    "equation2": "a \u25c7 x = a \u25c7 ((x \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 z))",
+    "id": "mfuzz_true_1636_1839_shallow_left_context_wrap_probe_062"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900126,
+    "eq2_id": 900127,
+    "equation1": "(o \u25c7 o) = ((o \u25c7 o) \u25c7 (o \u25c7 o)) \u25c7 ((h \u25c7 (o \u25c7 o)) \u25c7 l)",
+    "equation2": "(o \u25c7 o) = ((o \u25c7 o) \u25c7 ((o \u25c7 o) \u25c7 h)) \u25c7 ((o \u25c7 o) \u25c7 l)",
+    "id": "mfuzz_true_1636_1839_small_depth_anchor_perturbation_probe_063"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900128,
+    "eq2_id": 900129,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "x = (y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y)",
+    "id": "mfuzz_true_691_1976_baseline_seed_064"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900130,
+    "eq2_id": 900131,
+    "equation1": "p = a \u25c7 (p \u25c7 ((f \u25c7 a) \u25c7 a))",
+    "equation2": "p = (a \u25c7 (f \u25c7 a)) \u25c7 (p \u25c7 a)",
+    "id": "mfuzz_true_691_1976_alpha_rename_0_065"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900132,
+    "eq2_id": 900133,
+    "equation1": "g = s \u25c7 (g \u25c7 ((r \u25c7 s) \u25c7 s))",
+    "equation2": "g = (s \u25c7 (r \u25c7 s)) \u25c7 (g \u25c7 s)",
+    "id": "mfuzz_true_691_1976_variable_permutation_066"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900134,
+    "eq2_id": 900135,
+    "equation1": "e = j \u25c7 (e \u25c7 ((e \u25c7 j) \u25c7 j))",
+    "equation2": "e = (j \u25c7 (e \u25c7 j)) \u25c7 (e \u25c7 j)",
+    "id": "mfuzz_true_691_1976_repeated_anchor_substitution_067"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900136,
+    "eq2_id": 900137,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y))",
+    "equation2": "x = (x \u25c7 y) \u25c7 (y \u25c7 (z \u25c7 y))",
+    "id": "mfuzz_true_691_1976_operand_side_swap_probe_068"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900138,
+    "eq2_id": 900139,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 y) \u25c7 y)))",
+    "equation2": "a \u25c7 x = a \u25c7 ((y \u25c7 (z \u25c7 y)) \u25c7 (x \u25c7 y))",
+    "id": "mfuzz_true_691_1976_shallow_left_context_wrap_probe_069"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900140,
+    "eq2_id": 900141,
+    "equation1": "(f \u25c7 f) = n \u25c7 ((f \u25c7 f) \u25c7 ((k \u25c7 n) \u25c7 n))",
+    "equation2": "(f \u25c7 f) = (n \u25c7 (k \u25c7 n)) \u25c7 ((f \u25c7 f) \u25c7 n)",
+    "id": "mfuzz_true_691_1976_small_depth_anchor_perturbation_probe_070"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900142,
+    "eq2_id": 900143,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+    "equation2": "x = y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y)",
+    "id": "mfuzz_true_689_1350_baseline_seed_071"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900144,
+    "eq2_id": 900145,
+    "equation1": "h = s \u25c7 (h \u25c7 ((b \u25c7 h) \u25c7 u))",
+    "equation2": "h = s \u25c7 (((b \u25c7 h) \u25c7 h) \u25c7 s)",
+    "id": "mfuzz_true_689_1350_alpha_rename_0_072"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900146,
+    "eq2_id": 900147,
+    "equation1": "c = p \u25c7 (c \u25c7 ((m \u25c7 c) \u25c7 r))",
+    "equation2": "c = p \u25c7 (((m \u25c7 c) \u25c7 c) \u25c7 p)",
+    "id": "mfuzz_true_689_1350_variable_permutation_073"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900148,
+    "eq2_id": 900149,
+    "equation1": "s = r \u25c7 (s \u25c7 ((j \u25c7 s) \u25c7 s))",
+    "equation2": "s = r \u25c7 (((j \u25c7 s) \u25c7 s) \u25c7 r)",
+    "id": "mfuzz_true_689_1350_repeated_anchor_substitution_074"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900150,
+    "eq2_id": 900151,
+    "equation1": "x = y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w))",
+    "equation2": "x = (((z \u25c7 x) \u25c7 x) \u25c7 y) \u25c7 y",
+    "id": "mfuzz_true_689_1350_operand_side_swap_probe_075"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900152,
+    "eq2_id": 900153,
+    "equation1": "a \u25c7 x = a \u25c7 (y \u25c7 (x \u25c7 ((z \u25c7 x) \u25c7 w)))",
+    "equation2": "a \u25c7 x = a \u25c7 (y \u25c7 (((z \u25c7 x) \u25c7 x) \u25c7 y))",
+    "id": "mfuzz_true_689_1350_shallow_left_context_wrap_probe_076"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900154,
+    "eq2_id": 900155,
+    "equation1": "(s \u25c7 s) = u \u25c7 ((s \u25c7 s) \u25c7 ((q \u25c7 (s \u25c7 s)) \u25c7 r))",
+    "equation2": "(s \u25c7 s) = u \u25c7 (((q \u25c7 (s \u25c7 s)) \u25c7 (s \u25c7 s)) \u25c7 u)",
+    "id": "mfuzz_true_689_1350_small_depth_anchor_perturbation_probe_077"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900156,
+    "eq2_id": 900157,
+    "equation1": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+    "equation2": "x \u25c7 x = ((y \u25c7 z) \u25c7 z) \u25c7 y",
+    "id": "mfuzz_true_4082_4109_baseline_seed_078"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900158,
+    "eq2_id": 900159,
+    "equation1": "k \u25c7 k = ((l \u25c7 k) \u25c7 k) \u25c7 n",
+    "equation2": "k \u25c7 k = ((l \u25c7 n) \u25c7 n) \u25c7 l",
+    "id": "mfuzz_true_4082_4109_alpha_rename_0_079"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900160,
+    "eq2_id": 900161,
+    "equation1": "m \u25c7 m = ((b \u25c7 m) \u25c7 m) \u25c7 p",
+    "equation2": "m \u25c7 m = ((b \u25c7 p) \u25c7 p) \u25c7 b",
+    "id": "mfuzz_true_4082_4109_variable_permutation_080"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900162,
+    "eq2_id": 900163,
+    "equation1": "d \u25c7 d = ((n \u25c7 d) \u25c7 d) \u25c7 d",
+    "equation2": "d \u25c7 d = ((n \u25c7 d) \u25c7 d) \u25c7 n",
+    "id": "mfuzz_true_4082_4109_repeated_anchor_substitution_081"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900164,
+    "eq2_id": 900165,
+    "equation1": "x \u25c7 x = ((y \u25c7 x) \u25c7 x) \u25c7 z",
+    "equation2": "x \u25c7 x = y \u25c7 ((y \u25c7 z) \u25c7 z)",
+    "id": "mfuzz_true_4082_4109_operand_side_swap_probe_082"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900166,
+    "eq2_id": 900167,
+    "equation1": "a \u25c7 (x \u25c7 x) = a \u25c7 (((y \u25c7 x) \u25c7 x) \u25c7 z)",
+    "equation2": "a \u25c7 (x \u25c7 x) = a \u25c7 (((y \u25c7 z) \u25c7 z) \u25c7 y)",
+    "id": "mfuzz_true_4082_4109_shallow_left_context_wrap_probe_083"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900168,
+    "eq2_id": 900169,
+    "equation1": "(p \u25c7 p) \u25c7 (p \u25c7 p) = ((h \u25c7 (p \u25c7 p)) \u25c7 (p \u25c7 p)) \u25c7 a",
+    "equation2": "(p \u25c7 p) \u25c7 (p \u25c7 p) = ((h \u25c7 a) \u25c7 a) \u25c7 h",
+    "id": "mfuzz_true_4082_4109_small_depth_anchor_perturbation_probe_084"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900170,
+    "eq2_id": 900171,
+    "equation1": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+    "equation2": "x = ((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y)",
+    "id": "mfuzz_true_2135_2128_baseline_seed_085"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900172,
+    "eq2_id": 900173,
+    "equation1": "r = ((a \u25c7 a) \u25c7 a) \u25c7 (r \u25c7 a)",
+    "equation2": "r = ((a \u25c7 a) \u25c7 r) \u25c7 (a \u25c7 a)",
+    "id": "mfuzz_true_2135_2128_alpha_rename_0_086"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900174,
+    "eq2_id": 900175,
+    "equation1": "l = ((e \u25c7 e) \u25c7 e) \u25c7 (l \u25c7 e)",
+    "equation2": "l = ((e \u25c7 e) \u25c7 l) \u25c7 (e \u25c7 e)",
+    "id": "mfuzz_true_2135_2128_variable_permutation_087"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900176,
+    "eq2_id": 900177,
+    "equation1": "c = ((c \u25c7 c) \u25c7 c) \u25c7 (c \u25c7 c)",
+    "equation2": "c = ((c \u25c7 c) \u25c7 c) \u25c7 (c \u25c7 c)",
+    "id": "mfuzz_true_2135_2128_repeated_anchor_substitution_088"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900178,
+    "eq2_id": 900179,
+    "equation1": "x = ((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y)",
+    "equation2": "x = (y \u25c7 y) \u25c7 ((y \u25c7 y) \u25c7 x)",
+    "id": "mfuzz_true_2135_2128_operand_side_swap_probe_089"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900180,
+    "eq2_id": 900181,
+    "equation1": "a \u25c7 x = a \u25c7 (((y \u25c7 y) \u25c7 y) \u25c7 (x \u25c7 y))",
+    "equation2": "a \u25c7 x = a \u25c7 (((y \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 y))",
+    "id": "mfuzz_true_2135_2128_shallow_left_context_wrap_probe_090"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900182,
+    "eq2_id": 900183,
+    "equation1": "(a \u25c7 a) = ((l \u25c7 l) \u25c7 l) \u25c7 ((a \u25c7 a) \u25c7 l)",
+    "equation2": "(a \u25c7 a) = ((l \u25c7 l) \u25c7 (a \u25c7 a)) \u25c7 (l \u25c7 l)",
+    "id": "mfuzz_true_2135_2128_small_depth_anchor_perturbation_probe_091"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900184,
+    "eq2_id": 900185,
+    "equation1": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+    "equation2": "x = y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y)))",
+    "id": "mfuzz_true_1698_555_baseline_seed_092"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900186,
+    "eq2_id": 900187,
+    "equation1": "c = (s \u25c7 c) \u25c7 ((s \u25c7 i) \u25c7 s)",
+    "equation2": "c = s \u25c7 (i \u25c7 (s \u25c7 (c \u25c7 s)))",
+    "id": "mfuzz_true_1698_555_alpha_rename_0_093"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900188,
+    "eq2_id": 900189,
+    "equation1": "o = (a \u25c7 o) \u25c7 ((a \u25c7 n) \u25c7 a)",
+    "equation2": "o = a \u25c7 (n \u25c7 (a \u25c7 (o \u25c7 a)))",
+    "id": "mfuzz_true_1698_555_variable_permutation_094"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900190,
+    "eq2_id": 900191,
+    "equation1": "q = (h \u25c7 q) \u25c7 ((h \u25c7 q) \u25c7 h)",
+    "equation2": "q = h \u25c7 (q \u25c7 (h \u25c7 (q \u25c7 h)))",
+    "id": "mfuzz_true_1698_555_repeated_anchor_substitution_095"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900192,
+    "eq2_id": 900193,
+    "equation1": "x = (y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y)",
+    "equation2": "x = (z \u25c7 (y \u25c7 (x \u25c7 y))) \u25c7 y",
+    "id": "mfuzz_true_1698_555_operand_side_swap_probe_096"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900194,
+    "eq2_id": 900195,
+    "equation1": "a \u25c7 x = a \u25c7 ((y \u25c7 x) \u25c7 ((y \u25c7 z) \u25c7 y))",
+    "equation2": "a \u25c7 x = a \u25c7 (y \u25c7 (z \u25c7 (y \u25c7 (x \u25c7 y))))",
+    "id": "mfuzz_true_1698_555_shallow_left_context_wrap_probe_097"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900196,
+    "eq2_id": 900197,
+    "equation1": "(b \u25c7 b) = (d \u25c7 (b \u25c7 b)) \u25c7 ((d \u25c7 h) \u25c7 d)",
+    "equation2": "(b \u25c7 b) = d \u25c7 (h \u25c7 (d \u25c7 ((b \u25c7 b) \u25c7 d)))",
+    "id": "mfuzz_true_1698_555_small_depth_anchor_perturbation_probe_098"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900198,
+    "eq2_id": 900199,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "x = ((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y",
+    "id": "mfuzz_true_2055_2656_baseline_seed_099"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900200,
+    "eq2_id": 900201,
+    "equation1": "v = ((v \u25c7 f) \u25c7 v) \u25c7 (f \u25c7 l)",
+    "equation2": "v = ((v \u25c7 v) \u25c7 (f \u25c7 l)) \u25c7 f",
+    "id": "mfuzz_true_2055_2656_alpha_rename_0_100"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900202,
+    "eq2_id": 900203,
+    "equation1": "d = ((d \u25c7 e) \u25c7 d) \u25c7 (e \u25c7 n)",
+    "equation2": "d = ((d \u25c7 d) \u25c7 (e \u25c7 n)) \u25c7 e",
+    "id": "mfuzz_true_2055_2656_variable_permutation_101"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900204,
+    "eq2_id": 900205,
+    "equation1": "u = ((u \u25c7 m) \u25c7 u) \u25c7 (m \u25c7 u)",
+    "equation2": "u = ((u \u25c7 u) \u25c7 (m \u25c7 u)) \u25c7 m",
+    "id": "mfuzz_true_2055_2656_repeated_anchor_substitution_102"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900206,
+    "eq2_id": 900207,
+    "equation1": "x = ((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z)",
+    "equation2": "x = y \u25c7 ((x \u25c7 x) \u25c7 (y \u25c7 z))",
+    "id": "mfuzz_true_2055_2656_operand_side_swap_probe_103"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900208,
+    "eq2_id": 900209,
+    "equation1": "a \u25c7 x = a \u25c7 (((x \u25c7 y) \u25c7 x) \u25c7 (y \u25c7 z))",
+    "equation2": "a \u25c7 x = a \u25c7 (((x \u25c7 x) \u25c7 (y \u25c7 z)) \u25c7 y)",
+    "id": "mfuzz_true_2055_2656_shallow_left_context_wrap_probe_104"
+  },
+  {
+    "answer": true,
+    "eq1_id": 900210,
+    "eq2_id": 900211,
+    "equation1": "(a \u25c7 a) = (((a \u25c7 a) \u25c7 v) \u25c7 (a \u25c7 a)) \u25c7 (v \u25c7 j)",
+    "equation2": "(a \u25c7 a) = (((a \u25c7 a) \u25c7 (a \u25c7 a)) \u25c7 (v \u25c7 j)) \u25c7 v",
+    "id": "mfuzz_true_2055_2656_small_depth_anchor_perturbation_probe_105"
+  }
+]

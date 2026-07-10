@@ -1,0 +1,227 @@
+{
+  "generated_at": "2026-05-22",
+  "summary": {
+    "full_solver": {
+      "sample_20": {
+        "accepted": 20,
+        "total": 20,
+        "judge_errors": 0
+      },
+      "sample_200": {
+        "accepted": 200,
+        "total": 200,
+        "judge_errors": 0
+      }
+    },
+    "public_exact_disabled": {
+      "sample_200": {
+        "accepted": 195,
+        "total": 200,
+        "true": 95,
+        "false": 100,
+        "no_attempt": 5,
+        "judge_errors": 0
+      }
+    },
+    "recovered_by_generalized_routes": {
+      "generalized_argument_erasure_context_bridge": [
+        "true_2074_2082",
+        "true_674_668",
+        "true_2771_2775"
+      ],
+      "generalized_seed_collapse_contextual_lift": [
+        "true_2942_5",
+        "true_130_1759",
+        "true_2061_307"
+      ],
+      "generalized_square_anchor_anchored_erasure_bridge": [
+        "true_2860_3458",
+        "true_1738_1258",
+        "true_1636_1839"
+      ],
+      "generalized_tail_shift_repeated_tail_corridor": [
+        "true_691_1976",
+        "true_689_1350",
+        "true_4082_4109"
+      ]
+    },
+    "remaining_loss_count": 5,
+    "remaining_loss_ids": [
+      "true_1698_555",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_2055_2656"
+    ],
+    "source_results": "pipeline/results/arcf_sample200_tail_shift_no_public_exact.json"
+  },
+  "remaining_losses": [
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1698_555_min",
+      "certificate_size_bytes": 10003,
+      "known_motif_label": "deep repeated-y tail shift",
+      "public_exact_disabled_failure": {
+        "solved": false,
+        "judge_calls": 0,
+        "elapsed_seconds": 6.12
+      },
+      "why_generalized_routes_fail_or_abstain": "No current tail-corridor schema matches this right-nested y ◇ (z ◇ (y ◇ _)) target. It remains outside argument erasure, seed-collapse, square-anchor, and the implemented repeated-tail schemas.",
+      "cluster": "pure exact memo"
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2789_898_min",
+      "certificate_size_bytes": 31995,
+      "known_motif_label": "two-instantiation rotation/context bridge",
+      "public_exact_disabled_failure": {
+        "solved": false,
+        "judge_calls": 0,
+        "elapsed_seconds": 5.96
+      },
+      "why_generalized_routes_fail_or_abstain": "Not a repeated-tail corridor. Existing generalized routes do not synthesize the required rotation/context bridge, and the exact proof remains too large for a safe cap tweak.",
+      "cluster": "ATP exact certificate requiring compression"
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2135_2128_seed7_min_alias",
+      "certificate_size_bytes": 17412,
+      "known_motif_label": "tail-shift among y◇y blocks",
+      "public_exact_disabled_failure": {
+        "solved": false,
+        "judge_calls": 0,
+        "elapsed_seconds": 5.82
+      },
+      "why_generalized_routes_fail_or_abstain": "The generalized_tail_shift_repeated_tail_corridor route matches gtsrtc_y_square_corridor, but abstains because the generated proof body is 16960 bytes, exceeding the 12000 byte route cap.",
+      "cluster": "cap-limited tail-shift case",
+      "cap_analysis": {
+        "matching_schema": "gtsrtc_y_square_corridor",
+        "generated_proof_body_bytes": 16960,
+        "generated_full_lean_bytes": 17434,
+        "current_route_cap_bytes": 12000,
+        "proposed_narrow_route_cap_bytes": 20000,
+        "let_count": 41,
+        "have_count": 54,
+        "h_instantiations": 16,
+        "alias_compression_assessment": "Already min_alias; reducing below 12000 would require substantial proof restructuring rather than simple alias compression.",
+        "cap_increase_judge_safety": "Likely safe: same proof family is accepted as a public exact certificate, generated full Lean is below 20KB and below the 50KB true-certificate limit, and schema guard is exact.",
+        "structural_generalization_value": "Moderate: exact repeated-square corridor schema over variables a,b, not a problem-id memo."
+      }
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1500_498_min",
+      "certificate_size_bytes": 33893,
+      "known_motif_label": "broad projection/extension with extra free variable",
+      "public_exact_disabled_failure": {
+        "solved": false,
+        "judge_calls": 0,
+        "elapsed_seconds": 16.83
+      },
+      "why_generalized_routes_fail_or_abstain": "The extra free variable and w◇w goal tail are not covered by current motifs. Current proof is large and should not be admitted by a generic cap increase.",
+      "cluster": "ATP exact certificate requiring compression"
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "eprover_true_2055_2656_l4_l15",
+      "certificate_size_bytes": 4177,
+      "known_motif_label": "two-local-edge E-prover local theory bridge",
+      "public_exact_disabled_failure": {
+        "solved": false,
+        "judge_calls": 0,
+        "elapsed_seconds": 17.53
+      },
+      "why_generalized_routes_fail_or_abstain": "Existing local-theory routes do not derive the specific l4/l15 package needed for the final bridge. It is not covered by tail-shift, square-anchor, seed-collapse, or argument-erasure schemas.",
+      "cluster": "local-theory motif candidate"
+    }
+  ],
+  "clusters": {
+    "cap-limited tail-shift case": {
+      "cases": [
+        "true_2135_2128"
+      ],
+      "next_action": "Raise cap narrowly for gtsrtc_y_square_corridor from 12000 to 20000 proof-body bytes.",
+      "expected_public_exact_disabled_gain": "+1 accepted",
+      "risk": "low if guard remains exact"
+    },
+    "ATP exact certificate requiring compression": {
+      "cases": [
+        "true_2789_898",
+        "true_1500_498"
+      ],
+      "next_action": "Do not cap-lift. Require new proof compression or a separate motif.",
+      "risk": "high"
+    },
+    "local-theory motif candidate": {
+      "cases": [
+        "true_2055_2656"
+      ],
+      "next_action": "After cap-limited tail case, implement a narrow two-local-edge local-theory bridge from l4/l15-style proof.",
+      "risk": "low-medium"
+    },
+    "pure exact memo": {
+      "cases": [
+        "true_1698_555"
+      ],
+      "next_action": "Keep memoized until a clearer right-nested tail-shift schema is found.",
+      "risk": "n/a"
+    },
+    "unknown": {
+      "cases": [],
+      "next_action": "none",
+      "risk": "n/a"
+    }
+  },
+  "recommendation": {
+    "selected_next_implementation": "raise_cap_narrowly_for_tail_shift_only",
+    "route": "generalized_tail_shift_repeated_tail_corridor",
+    "subcase": "gtsrtc_y_square_corridor",
+    "change": {
+      "current_cap_bytes": 12000,
+      "recommended_cap_bytes": 20000,
+      "scope": "Only the gtsrtc_y_square_corridor stored-template call; leave other subcases at 12000."
+    },
+    "why": [
+      "It recovers a structurally matched generalized-route case rather than adding a new memo.",
+      "It requires no new broad proof graph search and no public exact route changes.",
+      "Generated full Lean code is 17434 bytes, well below the true-certificate limit.",
+      "The proof is already accepted in full public mode as an ATP exact certificate.",
+      "Expected public-exact-disabled score improvement is 195/200 to 196/200 with low judge-error risk."
+    ],
+    "backup_next_route": {
+      "route_name": "generalized_two_local_edge_local_theory_bridge",
+      "target": "true_2055_2656",
+      "reason": "Compact 4177-byte E-prover proof exposes reusable l4/l15-style local lemmas."
+    },
+    "avoid_next": [
+      "Broad local-theory normalization",
+      "Cap increases for true_2789_898 or true_1500_498",
+      "Arbitrary tail-shift rewriting"
+    ]
+  }
+}

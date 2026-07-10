@@ -1,0 +1,816 @@
+{
+  "analysis_only": true,
+  "benchmark_result_counts": {
+    "accepted": 66,
+    "accepted_false": 42,
+    "accepted_true": 24,
+    "judge_errors": 0,
+    "judge_rejected_candidates": 0,
+    "no_attempt": 34,
+    "total_cases": 100
+  },
+  "candidate_finite_witnesses": [],
+  "candidate_promotable_default": false,
+  "diagnostic_mode": "ARCF_COUNTERMODEL_DIAGNOSTICS",
+  "event_count": 23,
+  "parse_failures": [],
+  "recommendation": "do not promote automatically; explicitly judge-test selected finite witnesses and rerun larger fuzzing before production use",
+  "searched_max_n": 5,
+  "summary_by_family": {
+    "argument_erasure_context_bridge": {
+      "candidate_cases": [],
+      "finite_countermodel_found_count": 0,
+      "no_attempt_count": 6,
+      "promotion_recommendation": "needs larger fuzzing or stronger search",
+      "smallest_model_size_distribution": {},
+      "suitable_for_production_promotion_later": false,
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0004",
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0006",
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0007",
+        "padv_argument_erasure_context_bridge_true_674_668_boundary_0019",
+        "padv_argument_erasure_context_bridge_true_674_668_boundary_0020",
+        "padv_argument_erasure_context_bridge_true_2074_2082_negative_0011"
+      ],
+      "unresolved_count": 6
+    },
+    "seed_collapse_contextual_lift": {
+      "candidate_cases": [],
+      "finite_countermodel_found_count": 0,
+      "no_attempt_count": 4,
+      "promotion_recommendation": "needs larger fuzzing or stronger search",
+      "smallest_model_size_distribution": {},
+      "suitable_for_production_promotion_later": false,
+      "unresolved_cases": [
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0038",
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0039",
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0040",
+        "padv_seed_collapse_contextual_lift_true_2942_5_negative_0031"
+      ],
+      "unresolved_count": 4
+    },
+    "square_anchor_anchored_erasure": {
+      "candidate_cases": [],
+      "finite_countermodel_found_count": 0,
+      "no_attempt_count": 3,
+      "promotion_recommendation": "needs larger fuzzing or stronger search",
+      "smallest_model_size_distribution": {},
+      "suitable_for_production_promotion_later": false,
+      "unresolved_cases": [
+        "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0046",
+        "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0047",
+        "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0051"
+      ],
+      "unresolved_count": 3
+    },
+    "tail_shift_repeated_tail_corridor": {
+      "candidate_cases": [],
+      "finite_countermodel_found_count": 0,
+      "no_attempt_count": 7,
+      "promotion_recommendation": "needs larger fuzzing or stronger search",
+      "smallest_model_size_distribution": {},
+      "suitable_for_production_promotion_later": false,
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079",
+        "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080",
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066",
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067",
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068",
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069",
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071"
+      ],
+      "unresolved_count": 7
+    },
+    "two_local_edge_local_theory_bridge": {
+      "candidate_cases": [],
+      "finite_countermodel_found_count": 0,
+      "no_attempt_count": 3,
+      "promotion_recommendation": "needs larger fuzzing or stronger search",
+      "smallest_model_size_distribution": {},
+      "suitable_for_production_promotion_later": false,
+      "unresolved_cases": [
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087",
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100",
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091"
+      ],
+      "unresolved_count": 3
+    }
+  },
+  "summary_by_variant": {
+    "argument_erasure_context_bridge::deeper_context_than_route_cap_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0007"
+      ]
+    },
+    "argument_erasure_context_bridge::deeper_context_than_route_cap_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_674_668_boundary_0020"
+      ]
+    },
+    "argument_erasure_context_bridge::repeated_variable_count_changed_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0004"
+      ]
+    },
+    "argument_erasure_context_bridge::reversed_erasure_without_support_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_2074_2082_negative_0011"
+      ]
+    },
+    "argument_erasure_context_bridge::shallow_context_wrap_left_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0006"
+      ]
+    },
+    "argument_erasure_context_bridge::shallow_context_wrap_left_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_argument_erasure_context_bridge_true_674_668_boundary_0019"
+      ]
+    },
+    "seed_collapse_contextual_lift::deeper_context_than_route_cap_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0040"
+      ]
+    },
+    "seed_collapse_contextual_lift::expanded_let_like_subterm_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0038"
+      ]
+    },
+    "seed_collapse_contextual_lift::reversed_erasure_without_support_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_seed_collapse_contextual_lift_true_2942_5_negative_0031"
+      ]
+    },
+    "seed_collapse_contextual_lift::shallow_context_wrap_left_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0039"
+      ]
+    },
+    "square_anchor_anchored_erasure::deeper_context_than_route_cap_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0047"
+      ]
+    },
+    "square_anchor_anchored_erasure::reversed_erasure_without_support_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0051"
+      ]
+    },
+    "square_anchor_anchored_erasure::shallow_context_wrap_left_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0046"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::anti_goal_rhs_perturbation_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::deeper_context_than_route_cap_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::deeper_context_than_route_cap_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::reversed_erasure_without_support_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::shallow_context_wrap_left_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::shallow_context_wrap_left_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079"
+      ]
+    },
+    "tail_shift_repeated_tail_corridor::swapped_tail_position_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068"
+      ]
+    },
+    "two_local_edge_local_theory_bridge::deeper_context_than_route_cap_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087"
+      ]
+    },
+    "two_local_edge_local_theory_bridge::deeper_context_than_route_cap_1": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100"
+      ]
+    },
+    "two_local_edge_local_theory_bridge::reversed_erasure_without_support_0": {
+      "candidate_cases": [],
+      "count": 1,
+      "finite_countermodel_found_count": 0,
+      "model_sizes": {},
+      "unresolved_cases": [
+        "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091"
+      ]
+    }
+  },
+  "unresolved_cases": [
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0004",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "argument_erasure_context_bridge",
+      "goal": "l = ((l ◇ b) ◇ h) ◇ (l ◇ l)",
+      "goal_fails": null,
+      "hypothesis": "l = ((l ◇ b) ◇ h) ◇ (b ◇ l)",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_2074_2082",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "repeated_variable_count_changed_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0006",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "argument_erasure_context_bridge",
+      "goal": "a ◇ x = a ◇ (((x ◇ y) ◇ z) ◇ (w ◇ x))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ x = a ◇ (((x ◇ y) ◇ z) ◇ (y ◇ x))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_2074_2082",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_boundary_0007",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "argument_erasure_context_bridge",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ z) ◇ (w ◇ x))))))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ z) ◇ (y ◇ x))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_2074_2082",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0019",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "argument_erasure_context_bridge",
+      "goal": "b ◇ x = b ◇ (y ◇ (x ◇ ((x ◇ x) ◇ z)))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ x = b ◇ (y ◇ (x ◇ ((x ◇ z) ◇ z)))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_674_668",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_674_668_boundary_0020",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "argument_erasure_context_bridge",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((x ◇ x) ◇ z)))))))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((x ◇ z) ◇ z)))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_674_668",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_argument_erasure_context_bridge_true_2074_2082_negative_0011",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "argument_erasure_context_bridge",
+      "goal": "((x ◇ y) ◇ z) ◇ (w ◇ x) = x",
+      "goal_fails": null,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_argument_erasure_context_bridge",
+      "seed_case": "true_2074_2082",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0038",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "seed_collapse_contextual_lift",
+      "goal": "(e ◇ e) = (b ◇ l) ◇ (((e ◇ e) ◇ b) ◇ (e ◇ e))",
+      "goal_fails": null,
+      "hypothesis": "(e ◇ e) = b ◇ ((b ◇ l) ◇ (e ◇ e))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_seed_collapse_contextual_lift",
+      "seed_case": "true_130_1759",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "expanded_let_like_subterm_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0039",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "seed_collapse_contextual_lift",
+      "goal": "b ◇ x = b ◇ ((y ◇ z) ◇ ((x ◇ y) ◇ x))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ x = b ◇ (y ◇ ((y ◇ z) ◇ x))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_seed_collapse_contextual_lift",
+      "seed_case": "true_130_1759",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_seed_collapse_contextual_lift_true_130_1759_boundary_0040",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "seed_collapse_contextual_lift",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ ((y ◇ z) ◇ ((x ◇ y) ◇ x))))))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ ((y ◇ z) ◇ x))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_seed_collapse_contextual_lift",
+      "seed_case": "true_130_1759",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_seed_collapse_contextual_lift_true_2942_5_negative_0031",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "seed_collapse_contextual_lift",
+      "goal": "y ◇ x = x",
+      "goal_fails": null,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_seed_collapse_contextual_lift",
+      "seed_case": "true_2942_5",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0046",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "square_anchor_anchored_erasure",
+      "goal": "a ◇ (x ◇ x) = a ◇ (x ◇ ((x ◇ y) ◇ x))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ x = a ◇ (((x ◇ (x ◇ y)) ◇ z) ◇ z)",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_square_anchor_anchored_erasure_bridge",
+      "seed_case": "true_2860_3458",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_boundary_0047",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "square_anchor_anchored_erasure",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (x ◇ x))))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (x ◇ ((x ◇ y) ◇ x))))))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ (x ◇ y)) ◇ z) ◇ z)))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_square_anchor_anchored_erasure_bridge",
+      "seed_case": "true_2860_3458",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_square_anchor_anchored_erasure_true_2860_3458_negative_0051",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "square_anchor_anchored_erasure",
+      "goal": "x ◇ ((x ◇ y) ◇ x) = x ◇ x",
+      "goal_fails": null,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_square_anchor_anchored_erasure_bridge",
+      "seed_case": "true_2860_3458",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0079",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "b ◇ x = b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ x = b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_689_1350",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_689_1350_boundary_0080",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (((z ◇ x) ◇ x) ◇ y))))))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (y ◇ (x ◇ ((z ◇ x) ◇ w)))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_689_1350",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0066",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "a ◇ x = a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ x = a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_691_1976",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "shallow_context_wrap_left_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0067",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ ((y ◇ (z ◇ y)) ◇ (x ◇ y))))))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (y ◇ (x ◇ ((z ◇ y) ◇ y)))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_691_1976",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_boundary_0068",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "x = (x ◇ y) ◇ (y ◇ (z ◇ y))",
+      "goal_fails": null,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_691_1976",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "swapped_tail_position_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0069",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "x = ((y ◇ (z ◇ y)) ◇ (x ◇ y)) ◇ a",
+      "goal_fails": null,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_691_1976",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "anti_goal_rhs_perturbation_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_tail_shift_repeated_tail_corridor_true_691_1976_negative_0071",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "tail_shift_repeated_tail_corridor",
+      "goal": "(y ◇ (z ◇ y)) ◇ (x ◇ y) = x",
+      "goal_fails": null,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_tail_shift_repeated_tail_corridor",
+      "seed_case": "true_691_1976",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0087",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "two_local_edge_local_theory_bridge",
+      "goal": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+      "goal_fails": null,
+      "hypothesis": "a ◇ (a ◇ (a ◇ (a ◇ (a ◇ x)))) = a ◇ (a ◇ (a ◇ (a ◇ (a ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_two_local_edge_local_theory_bridge",
+      "seed_case": "true_2055_2656",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_boundary_0100",
+      "expected_behavior": "abstain_or_countermodel",
+      "expected_label": "unknown",
+      "family": "two_local_edge_local_theory_bridge",
+      "goal": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ x) ◇ (y ◇ z)) ◇ y)))))",
+      "goal_fails": null,
+      "hypothesis": "b ◇ (b ◇ (b ◇ (b ◇ (b ◇ x)))) = b ◇ (b ◇ (b ◇ (b ◇ (b ◇ (((x ◇ y) ◇ x) ◇ (y ◇ z))))))",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_two_local_edge_local_theory_bridge",
+      "seed_case": "true_2055_2656",
+      "tables_tested": 19892,
+      "variant_class": "boundary",
+      "variant_kind": "deeper_context_than_route_cap_1",
+      "witness_table": null,
+      "witness_table_hash": null
+    },
+    {
+      "candidate_promotable": false,
+      "case_id": "padv_two_local_edge_local_theory_bridge_true_2055_2656_negative_0091",
+      "expected_behavior": "countermodel_or_abstain",
+      "expected_label": "likely_false",
+      "family": "two_local_edge_local_theory_bridge",
+      "goal": "((x ◇ x) ◇ (y ◇ z)) ◇ y = x",
+      "goal_fails": null,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "hypothesis_holds": null,
+      "model_size": null,
+      "promotion_note": "analysis-only; requires separate judge validation before production promotion",
+      "public_exact_disabled_status": "no_attempt",
+      "reason": "no_countermodel_found_under_n_5",
+      "route_family": "generalized_two_local_edge_local_theory_bridge",
+      "seed_case": "true_2055_2656",
+      "tables_tested": 19892,
+      "variant_class": "negative",
+      "variant_kind": "reversed_erasure_without_support_0",
+      "witness_table": null,
+      "witness_table_hash": null
+    }
+  ]
+}

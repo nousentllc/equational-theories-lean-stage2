@@ -1,0 +1,117 @@
+Pipeline Runner
+  Submission:  submissions/arcf_prover
+  Problems:    105
+  Config:      timeout=3600s, max_output_tokens=65536
+  LLM:         openai/gpt-oss-120b (provider: deepinfra/bf16)
+  Output:      analysis/motif_fuzz_regression_results.json
+
+[1/105] mfuzz_true_2074_2082_baseline_seed_001: SKIP (already solved)
+[2/105] mfuzz_true_2074_2082_alpha_rename_0_002: SKIP (already solved)
+[3/105] mfuzz_true_2074_2082_variable_permutation_003: SKIP (already solved)
+[4/105] mfuzz_true_2074_2082_repeated_anchor_substitution_004: SKIP (already solved)
+[5/105] mfuzz_true_2074_2082_operand_side_swap_probe_005: SKIP (already solved)
+[6/105] mfuzz_true_2074_2082_shallow_left_context_wrap_probe_006: Equation900012 -> Equation900013 -> FAILED in 4.5s [llm:0, judge:0]
+[7/105] mfuzz_true_2074_2082_small_depth_anchor_perturbation_probe_007: SKIP (already solved)
+[8/105] mfuzz_true_674_668_baseline_seed_008: SKIP (already solved)
+[9/105] mfuzz_true_674_668_alpha_rename_0_009: SKIP (already solved)
+[10/105] mfuzz_true_674_668_variable_permutation_010: SKIP (already solved)
+[11/105] mfuzz_true_674_668_repeated_anchor_substitution_011: SKIP (already solved)
+[12/105] mfuzz_true_674_668_operand_side_swap_probe_012: Equation900024 -> Equation900025 -> FAILED in 5.7s [llm:0, judge:0]
+[13/105] mfuzz_true_674_668_shallow_left_context_wrap_probe_013: Equation900026 -> Equation900027 -> FAILED in 6.1s [llm:0, judge:0]
+[14/105] mfuzz_true_674_668_small_depth_anchor_perturbation_probe_014: SKIP (already solved)
+[15/105] mfuzz_true_2771_2775_baseline_seed_015: SKIP (already solved)
+[16/105] mfuzz_true_2771_2775_alpha_rename_0_016: Equation900032 -> Equation900033 -> FAILED in 14.2s [llm:0, judge:0]
+[17/105] mfuzz_true_2771_2775_variable_permutation_017: SKIP (already solved)
+[18/105] mfuzz_true_2771_2775_repeated_anchor_substitution_018: SKIP (already solved)
+[19/105] mfuzz_true_2771_2775_operand_side_swap_probe_019: Equation900038 -> Equation900039 -> FAILED in 5.3s [llm:0, judge:0]
+[20/105] mfuzz_true_2771_2775_shallow_left_context_wrap_probe_020: Equation900040 -> Equation900041 -> FAILED in 4.6s [llm:0, judge:0]
+[21/105] mfuzz_true_2771_2775_small_depth_anchor_perturbation_probe_021: Equation900042 -> Equation900043 -> FAILED in 10.6s [llm:0, judge:0]
+[22/105] mfuzz_true_2942_5_baseline_seed_022: SKIP (already solved)
+[23/105] mfuzz_true_2942_5_alpha_rename_0_023: SKIP (already solved)
+[24/105] mfuzz_true_2942_5_variable_permutation_024: SKIP (already solved)
+[25/105] mfuzz_true_2942_5_repeated_anchor_substitution_025: SKIP (already solved)
+[26/105] mfuzz_true_2942_5_operand_side_swap_probe_026: SKIP (already solved)
+[27/105] mfuzz_true_2942_5_shallow_left_context_wrap_probe_027: SKIP (already solved)
+[28/105] mfuzz_true_2942_5_small_depth_anchor_perturbation_probe_028: SKIP (already solved)
+[29/105] mfuzz_true_130_1759_baseline_seed_029: SKIP (already solved)
+[30/105] mfuzz_true_130_1759_alpha_rename_0_030: SKIP (already solved)
+[31/105] mfuzz_true_130_1759_variable_permutation_031: SKIP (already solved)
+[32/105] mfuzz_true_130_1759_repeated_anchor_substitution_032: SKIP (already solved)
+[33/105] mfuzz_true_130_1759_operand_side_swap_probe_033: SKIP (already solved)
+[34/105] mfuzz_true_130_1759_shallow_left_context_wrap_probe_034: Equation900068 -> Equation900069 -> FAILED in 1.9s [llm:0, judge:0]
+[35/105] mfuzz_true_130_1759_small_depth_anchor_perturbation_probe_035: Equation900070 -> Equation900071 -> FAILED in 2.4s [llm:0, judge:0]
+[36/105] mfuzz_true_2061_307_baseline_seed_036: SKIP (already solved)
+[37/105] mfuzz_true_2061_307_alpha_rename_0_037: SKIP (already solved)
+[38/105] mfuzz_true_2061_307_variable_permutation_038: SKIP (already solved)
+[39/105] mfuzz_true_2061_307_repeated_anchor_substitution_039: SKIP (already solved)
+[40/105] mfuzz_true_2061_307_operand_side_swap_probe_040: SKIP (already solved)
+[41/105] mfuzz_true_2061_307_shallow_left_context_wrap_probe_041: SKIP (already solved)
+[42/105] mfuzz_true_2061_307_small_depth_anchor_perturbation_probe_042: Equation900084 -> Equation900085 -> FAILED in 1.1s [llm:0, judge:0]
+[43/105] mfuzz_true_2860_3458_baseline_seed_043: SKIP (already solved)
+[44/105] mfuzz_true_2860_3458_alpha_rename_0_044: SKIP (already solved)
+[45/105] mfuzz_true_2860_3458_variable_permutation_045: SKIP (already solved)
+[46/105] mfuzz_true_2860_3458_repeated_anchor_substitution_046: SKIP (already solved)
+[47/105] mfuzz_true_2860_3458_operand_side_swap_probe_047: SKIP (already solved)
+[48/105] mfuzz_true_2860_3458_shallow_left_context_wrap_probe_048: Equation900096 -> Equation900097 -> FAILED in 6.6s [llm:0, judge:0]
+[49/105] mfuzz_true_2860_3458_small_depth_anchor_perturbation_probe_049: SKIP (already solved)
+[50/105] mfuzz_true_1738_1258_baseline_seed_050: SKIP (already solved)
+[51/105] mfuzz_true_1738_1258_alpha_rename_0_051: SKIP (already solved)
+[52/105] mfuzz_true_1738_1258_variable_permutation_052: SKIP (already solved)
+[53/105] mfuzz_true_1738_1258_repeated_anchor_substitution_053: SKIP (already solved)
+[54/105] mfuzz_true_1738_1258_operand_side_swap_probe_054: SKIP (already solved)
+[55/105] mfuzz_true_1738_1258_shallow_left_context_wrap_probe_055: SKIP (already solved)
+[56/105] mfuzz_true_1738_1258_small_depth_anchor_perturbation_probe_056: SKIP (already solved)
+[57/105] mfuzz_true_1636_1839_baseline_seed_057: SKIP (already solved)
+[58/105] mfuzz_true_1636_1839_alpha_rename_0_058: SKIP (already solved)
+[59/105] mfuzz_true_1636_1839_variable_permutation_059: SKIP (already solved)
+[60/105] mfuzz_true_1636_1839_repeated_anchor_substitution_060: SKIP (already solved)
+[61/105] mfuzz_true_1636_1839_operand_side_swap_probe_061: SKIP (already solved)
+[62/105] mfuzz_true_1636_1839_shallow_left_context_wrap_probe_062: SKIP (already solved)
+[63/105] mfuzz_true_1636_1839_small_depth_anchor_perturbation_probe_063: Equation900126 -> Equation900127 -> FAILED in 5.4s [llm:0, judge:0]
+[64/105] mfuzz_true_691_1976_baseline_seed_064: SKIP (already solved)
+[65/105] mfuzz_true_691_1976_alpha_rename_0_065: SKIP (already solved)
+[66/105] mfuzz_true_691_1976_variable_permutation_066: SKIP (already solved)
+[67/105] mfuzz_true_691_1976_repeated_anchor_substitution_067: SKIP (already solved)
+[68/105] mfuzz_true_691_1976_operand_side_swap_probe_068: Equation900136 -> Equation900137 -> FAILED in 7.8s [llm:0, judge:0]
+[69/105] mfuzz_true_691_1976_shallow_left_context_wrap_probe_069: Equation900138 -> Equation900139 -> FAILED in 3.8s [llm:0, judge:0]
+[70/105] mfuzz_true_691_1976_small_depth_anchor_perturbation_probe_070: SKIP (already solved)
+[71/105] mfuzz_true_689_1350_baseline_seed_071: SKIP (already solved)
+[72/105] mfuzz_true_689_1350_alpha_rename_0_072: Equation900144 -> Equation900145 -> FAILED in 1.0s [llm:0, judge:0]
+[73/105] mfuzz_true_689_1350_variable_permutation_073: SKIP (already solved)
+[74/105] mfuzz_true_689_1350_repeated_anchor_substitution_074: SKIP (already solved)
+[75/105] mfuzz_true_689_1350_operand_side_swap_probe_075: Equation900150 -> Equation900151 -> FAILED in 1.1s [llm:0, judge:0]
+[76/105] mfuzz_true_689_1350_shallow_left_context_wrap_probe_076: Equation900152 -> Equation900153 -> FAILED in 3.6s [llm:0, judge:0]
+[77/105] mfuzz_true_689_1350_small_depth_anchor_perturbation_probe_077: SKIP (already solved)
+[78/105] mfuzz_true_4082_4109_baseline_seed_078: SKIP (already solved)
+[79/105] mfuzz_true_4082_4109_alpha_rename_0_079: SKIP (already solved)
+[80/105] mfuzz_true_4082_4109_variable_permutation_080: SKIP (already solved)
+[81/105] mfuzz_true_4082_4109_repeated_anchor_substitution_081: SKIP (already solved)
+[82/105] mfuzz_true_4082_4109_operand_side_swap_probe_082: SKIP (already solved)
+[83/105] mfuzz_true_4082_4109_shallow_left_context_wrap_probe_083: Equation900166 -> Equation900167 -> FAILED in 6.3s [llm:0, judge:0]
+[84/105] mfuzz_true_4082_4109_small_depth_anchor_perturbation_probe_084: SKIP (already solved)
+[85/105] mfuzz_true_2135_2128_baseline_seed_085: SKIP (already solved)
+[86/105] mfuzz_true_2135_2128_alpha_rename_0_086: SKIP (already solved)
+[87/105] mfuzz_true_2135_2128_variable_permutation_087: SKIP (already solved)
+[88/105] mfuzz_true_2135_2128_repeated_anchor_substitution_088: SKIP (already solved)
+[89/105] mfuzz_true_2135_2128_operand_side_swap_probe_089: SKIP (already solved)
+[90/105] mfuzz_true_2135_2128_shallow_left_context_wrap_probe_090: Equation900180 -> Equation900181 -> FAILED in 5.3s [llm:0, judge:0]
+[91/105] mfuzz_true_2135_2128_small_depth_anchor_perturbation_probe_091: Equation900182 -> Equation900183 -> FAILED in 1.0s [llm:0, judge:0]
+[92/105] mfuzz_true_1698_555_baseline_seed_092: SKIP (already solved)
+[93/105] mfuzz_true_1698_555_alpha_rename_0_093: SKIP (already solved)
+[94/105] mfuzz_true_1698_555_variable_permutation_094: SKIP (already solved)
+[95/105] mfuzz_true_1698_555_repeated_anchor_substitution_095: SKIP (already solved)
+[96/105] mfuzz_true_1698_555_operand_side_swap_probe_096: Equation900192 -> Equation900193 -> FAILED in 5.5s [llm:0, judge:0]
+[97/105] mfuzz_true_1698_555_shallow_left_context_wrap_probe_097: Equation900194 -> Equation900195 -> FAILED in 4.1s [llm:0, judge:0]
+[98/105] mfuzz_true_1698_555_small_depth_anchor_perturbation_probe_098: SKIP (already solved)
+[99/105] mfuzz_true_2055_2656_baseline_seed_099: SKIP (already solved)
+[100/105] mfuzz_true_2055_2656_alpha_rename_0_100: SKIP (already solved)
+[101/105] mfuzz_true_2055_2656_variable_permutation_101: SKIP (already solved)
+[102/105] mfuzz_true_2055_2656_repeated_anchor_substitution_102: SKIP (already solved)
+[103/105] mfuzz_true_2055_2656_operand_side_swap_probe_103: SKIP (already solved)
+[104/105] mfuzz_true_2055_2656_shallow_left_context_wrap_probe_104: SKIP (already solved)
+[105/105] mfuzz_true_2055_2656_small_depth_anchor_perturbation_probe_105: SKIP (already solved)
+
+============================================================
+Results: 83/105 solved, 22 failed
+Total time: 108.1s
+Output: analysis/motif_fuzz_regression_results.json

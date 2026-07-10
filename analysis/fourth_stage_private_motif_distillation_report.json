@@ -1,0 +1,332 @@
+{
+  "generated_at": "2026-05-22",
+  "summary": {
+    "full_solver": {
+      "sample_20": {
+        "accepted": 20,
+        "total": 20,
+        "judge_errors": 0
+      },
+      "sample_200": {
+        "accepted": 200,
+        "total": 200,
+        "judge_errors": 0
+      }
+    },
+    "public_exact_disabled": {
+      "sample_200": {
+        "accepted": 192,
+        "total": 200,
+        "true": 92,
+        "false": 100,
+        "no_attempt": 8,
+        "judge_errors": 0
+      }
+    },
+    "already_recovered": {
+      "generalized_argument_erasure_context_bridge": [
+        "true_2074_2082",
+        "true_674_668",
+        "true_2771_2775"
+      ],
+      "generalized_seed_collapse_contextual_lift": [
+        "true_2942_5",
+        "true_130_1759",
+        "true_2061_307"
+      ],
+      "generalized_square_anchor_anchored_erasure_bridge": [
+        "true_2860_3458",
+        "true_1738_1258",
+        "true_1636_1839"
+      ]
+    },
+    "remaining_lost_count": 8,
+    "remaining_lost_ids": [
+      "true_1698_555",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_4082_4109",
+      "true_2055_2656",
+      "true_689_1350"
+    ],
+    "source_results": "pipeline/results/arcf_sample200_square_anchor_no_public_exact.json"
+  },
+  "remaining_lost_cases": [
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1698_555_min",
+      "certificate_size_bytes": 10003,
+      "proof_motif_label": "deep repeated-y tail shift",
+      "primary_cluster": "tail-shift / repeated-tail corridor",
+      "distillation_notes": "Likely direct h seed plus repeated-y right-nested tail movement; useful but deeper than the first tail-corridor target."
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2789_898_min",
+      "certificate_size_bytes": 31995,
+      "proof_motif_label": "two-instantiation rotation/context bridge",
+      "primary_cluster": "context-shift / local collapse",
+      "distillation_notes": "Rotation/context bridge is identifiable, but exact certificate remains large; defer until smaller corridor schemas are exhausted."
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2135_2128_seed7_min_alias",
+      "certificate_size_bytes": 17412,
+      "proof_motif_label": "tail-shift among y◇y blocks",
+      "primary_cluster": "tail-shift / repeated-tail corridor",
+      "distillation_notes": "Good repeated-square/tail corridor target, but likely larger than true_691_1976 and true_689_1350."
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1500_498_min",
+      "certificate_size_bytes": 33893,
+      "proof_motif_label": "broad projection/extension with extra free variable",
+      "primary_cluster": "ATP exact certificate only",
+      "distillation_notes": "Large exact proof and extra free variable make this a low-priority private-route target."
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_691_1976_min",
+      "certificate_size_bytes": 3243,
+      "proof_motif_label": "seed-collapse plus context shift",
+      "primary_cluster": "tail-shift / repeated-tail corridor",
+      "distillation_notes": "Best next target: compact certificate, visible y/right-anchor tail corridor, and likely short seed-collapse/context-shift proof."
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_4082_4109_min",
+      "certificate_size_bytes": 7398,
+      "proof_motif_label": "rotation/context-shift with transitive congruence",
+      "primary_cluster": "context-shift / local collapse",
+      "distillation_notes": "Potential secondary route target if tail-shift corridor naturally supports diagonal/square-rooted movement."
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "eprover_true_2055_2656_l4_l15",
+      "certificate_size_bytes": 4177,
+      "proof_motif_label": "two-local-edge E-prover local theory bridge",
+      "primary_cluster": "local-theory normalization",
+      "distillation_notes": "Very attractive backup target: compact final certificate and named local lemmas suggest a narrow two-local-edge bridge."
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_689_1350_min",
+      "certificate_size_bytes": 7183,
+      "proof_motif_label": "nested seed-collapse under y ◇ _ context",
+      "primary_cluster": "tail-shift / repeated-tail corridor",
+      "distillation_notes": "Strong route target after true_691_1976: exact outer y ◇ _ context and inner tail replacement are visible."
+    }
+  ],
+  "clusters": {
+    "tail-shift / repeated-tail corridor": {
+      "cases": [
+        "true_1698_555",
+        "true_2135_2128",
+        "true_691_1976",
+        "true_689_1350"
+      ],
+      "structural_guard": "Require repeated tail or right-anchor corridor in the hypothesis plus a moved-tail target under exact context; no arbitrary tail rewriting.",
+      "candidate_local_lemmas": [
+        "repeated_tail_shift",
+        "anchored_tail_collapse",
+        "seed_collapse_under_outer_context"
+      ],
+      "expected_certificate_size": "3-12 KB for first two targets; true_2135_2128 may exceed this unless the schema is tight.",
+      "judge_error_risk": "medium, low-medium with exact schema guards",
+      "likely_private_set_value": "high"
+    },
+    "local-theory normalization": {
+      "cases": [
+        "true_2055_2656"
+      ],
+      "secondary_cases": [
+        "true_1500_498",
+        "true_2789_898"
+      ],
+      "structural_guard": "Require exact local-theory package evidence from h plus one or two named local edges; avoid broad normalization.",
+      "candidate_local_lemmas": [
+        "l4 style a ◇ (a ◇ b) = a ◇ a",
+        "l15 style (((a ◇ a) ◇ (b ◇ c)) ◇ b) = a",
+        "anchored absorption replacement"
+      ],
+      "expected_certificate_size": "4-8 KB for true_2055_2656 style; high for broad variants.",
+      "judge_error_risk": "low-medium if schema-specific; high if generalized broadly",
+      "likely_private_set_value": "medium-high"
+    },
+    "context-shift / local collapse": {
+      "cases": [
+        "true_2789_898",
+        "true_4082_4109"
+      ],
+      "structural_guard": "Require compact rotation/local-collapse target and transitive congruence shape with exact h-instantiated midpoints.",
+      "candidate_local_lemmas": [
+        "rotation_context_shift",
+        "diagonal_tail_collapse",
+        "transitive_congruence_bridge"
+      ],
+      "expected_certificate_size": "7-32 KB from current exact certificates; size risk is uneven.",
+      "judge_error_risk": "medium",
+      "likely_private_set_value": "medium"
+    },
+    "ATP exact certificate only": {
+      "cases": [
+        "true_1500_498"
+      ],
+      "structural_guard": "Do not generalize yet; keep as exact certificate unless a compact local package is discovered.",
+      "candidate_local_lemmas": [],
+      "expected_certificate_size": "high: current exact certificate is 33893 bytes.",
+      "judge_error_risk": "low as memo route; high if generalized without a clearer motif",
+      "likely_private_set_value": "low"
+    },
+    "hand exact certificate only": {
+      "cases": [],
+      "structural_guard": null,
+      "candidate_local_lemmas": [],
+      "expected_certificate_size": "n/a",
+      "judge_error_risk": "n/a",
+      "likely_private_set_value": "n/a"
+    },
+    "unknown": {
+      "cases": [],
+      "structural_guard": null,
+      "candidate_local_lemmas": [],
+      "expected_certificate_size": "n/a",
+      "judge_error_risk": "n/a",
+      "likely_private_set_value": "n/a"
+    }
+  },
+  "ranked_motif_families": [
+    {
+      "rank": 1,
+      "motif_family": "tail-shift / repeated-tail corridor",
+      "cases_covered": [
+        "true_1698_555",
+        "true_2135_2128",
+        "true_691_1976",
+        "true_689_1350"
+      ],
+      "likely_private_set_value": "high",
+      "implementation_difficulty": "medium",
+      "certificate_size_risk": "medium",
+      "judge_error_risk": "medium, lower with exact corridor schemas",
+      "notes": "Best next family by coverage and compact first targets."
+    },
+    {
+      "rank": 2,
+      "motif_family": "local-theory normalization, narrow two-local-edge bridge",
+      "cases_covered": [
+        "true_2055_2656"
+      ],
+      "secondary_cases": [
+        "true_1500_498",
+        "true_2789_898"
+      ],
+      "likely_private_set_value": "medium-high",
+      "implementation_difficulty": "medium",
+      "certificate_size_risk": "low for true_2055_2656; high if broadened",
+      "judge_error_risk": "low-medium with exact local-lemma guards",
+      "notes": "Best backup if tail-shift schemas stall."
+    },
+    {
+      "rank": 3,
+      "motif_family": "context-shift / local collapse",
+      "cases_covered": [
+        "true_2789_898",
+        "true_4082_4109"
+      ],
+      "likely_private_set_value": "medium",
+      "implementation_difficulty": "medium-high",
+      "certificate_size_risk": "medium-high",
+      "judge_error_risk": "medium",
+      "notes": "Potentially useful but less uniform than tail corridor."
+    },
+    {
+      "rank": 4,
+      "motif_family": "ATP exact certificate only",
+      "cases_covered": [
+        "true_1500_498"
+      ],
+      "likely_private_set_value": "low",
+      "implementation_difficulty": "n/a",
+      "certificate_size_risk": "high",
+      "judge_error_risk": "low as memo only",
+      "notes": "Keep as public exact certificate for now."
+    },
+    {
+      "rank": 5,
+      "motif_family": "hand exact certificate only",
+      "cases_covered": [],
+      "likely_private_set_value": "n/a",
+      "implementation_difficulty": "n/a",
+      "certificate_size_risk": "n/a",
+      "judge_error_risk": "n/a",
+      "notes": "No remaining lost public-exact-disabled case is hand-exact-only."
+    }
+  ],
+  "recommendation": {
+    "route_name": "generalized_tail_shift_repeated_tail_corridor",
+    "target_family": "tail-shift / repeated-tail corridor",
+    "primary_targets": [
+      "true_691_1976",
+      "true_689_1350",
+      "true_2135_2128"
+    ],
+    "secondary_targets": [
+      "true_1698_555",
+      "true_4082_4109"
+    ],
+    "why": "This family covers the most remaining public-exact dependencies and has compact first targets. It is the natural next private-set route after argument erasure, seed-collapse, and square-anchor motifs.",
+    "guard_sketch": [
+      "hypothesis contains a repeated tail or right-anchor corridor such as x = y ◇ (x ◇ ((z ◇ y) ◇ y)), x = y ◇ (x ◇ ((z ◇ x) ◇ w)), or x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal contains a moved-tail form under exact context, such as (y ◇ (z ◇ y)) ◇ (x ◇ y), y ◇ (((z ◇ x) ◇ x) ◇ y), or ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "extract exact one-hole context when possible, depth <= 4",
+      "local edge must be repeated-tail shift, anchored tail collapse, seed-collapse under outer context, or a diagonal/square-rooted tail shift secondary case",
+      "emit at most two local lemmas, at most three h-instantiations, at most two congrArg lifts, and calc length <= 3",
+      "generated proof bytes <= 12000",
+      "abstain on any failed guard, proof failure, or size-gate failure"
+    ],
+    "fallback_behavior": "Leave public exact certificates intact and ahead in normal mode; in public-exact-disabled mode, abstain rather than emit fragile broad tail rewrites."
+  }
+}

@@ -1,0 +1,744 @@
+{
+  "debug_telemetry_fields": [
+    "route_name",
+    "route_marker",
+    "guard_exactness_score",
+    "context_depth",
+    "proof_size",
+    "local_lemma_count",
+    "congrArg_count",
+    "certificate_cap",
+    "certificate_margin_to_cap",
+    "outcome"
+  ],
+  "family_scores": {
+    "generalized_argument_erasure_context_bridge": {
+      "accepted_false": 4,
+      "accepted_false_countermodels": [
+        "mfuzz_true_2074_2082_operand_side_swap_probe_005",
+        "mfuzz_true_2074_2082_small_depth_anchor_perturbation_probe_007",
+        "mfuzz_true_674_668_small_depth_anchor_perturbation_probe_014",
+        "mfuzz_true_2771_2775_repeated_anchor_substitution_018"
+      ],
+      "accepted_synthetic_variants": [
+        "mfuzz_true_2074_2082_baseline_seed_001",
+        "mfuzz_true_2074_2082_alpha_rename_0_002",
+        "mfuzz_true_2074_2082_variable_permutation_003",
+        "mfuzz_true_2074_2082_repeated_anchor_substitution_004",
+        "mfuzz_true_674_668_baseline_seed_008",
+        "mfuzz_true_674_668_alpha_rename_0_009",
+        "mfuzz_true_674_668_variable_permutation_010",
+        "mfuzz_true_674_668_repeated_anchor_substitution_011",
+        "mfuzz_true_2771_2775_baseline_seed_015",
+        "mfuzz_true_2771_2775_variable_permutation_017"
+      ],
+      "accepted_true": 10,
+      "average_certificate_margin": 7264.6,
+      "average_context_depth": 3.4,
+      "average_proof_size_accepted_false": 275.0,
+      "average_proof_size_accepted_true": 6735.4,
+      "expected_accept_failures": [
+        "mfuzz_true_2771_2775_alpha_rename_0_016"
+      ],
+      "expected_accept_ok": 8,
+      "expected_accept_rate": 0.889,
+      "expected_accept_total": 9,
+      "generated": 21,
+      "judge_error_variants": [],
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "judge_rejected_variants": [],
+      "minimum_certificate_margin": 3585,
+      "no_attempt": 7,
+      "recommendation": "keep frozen; inspect no-attempt and expected-accept failures first",
+      "robustness_tier": "fragile under perturbation",
+      "status_counts": {
+        "accepted_false": 4,
+        "accepted_true": 10,
+        "no_attempt": 7
+      }
+    },
+    "generalized_seed_collapse_contextual_lift": {
+      "accepted_false": 9,
+      "accepted_false_countermodels": [
+        "mfuzz_true_2942_5_repeated_anchor_substitution_025",
+        "mfuzz_true_2942_5_operand_side_swap_probe_026",
+        "mfuzz_true_2942_5_shallow_left_context_wrap_probe_027",
+        "mfuzz_true_2942_5_small_depth_anchor_perturbation_probe_028",
+        "mfuzz_true_130_1759_repeated_anchor_substitution_032",
+        "mfuzz_true_130_1759_operand_side_swap_probe_033",
+        "mfuzz_true_2061_307_repeated_anchor_substitution_039",
+        "mfuzz_true_2061_307_operand_side_swap_probe_040",
+        "mfuzz_true_2061_307_shallow_left_context_wrap_probe_041"
+      ],
+      "accepted_synthetic_variants": [
+        "mfuzz_true_2942_5_baseline_seed_022",
+        "mfuzz_true_2942_5_alpha_rename_0_023",
+        "mfuzz_true_2942_5_variable_permutation_024",
+        "mfuzz_true_130_1759_baseline_seed_029",
+        "mfuzz_true_130_1759_alpha_rename_0_030",
+        "mfuzz_true_130_1759_variable_permutation_031",
+        "mfuzz_true_2061_307_baseline_seed_036",
+        "mfuzz_true_2061_307_alpha_rename_0_037",
+        "mfuzz_true_2061_307_variable_permutation_038"
+      ],
+      "accepted_true": 9,
+      "average_certificate_margin": 4220.33,
+      "average_context_depth": 1.67,
+      "average_proof_size_accepted_false": 274.33,
+      "average_proof_size_accepted_true": 779.67,
+      "expected_accept_failures": [],
+      "expected_accept_ok": 9,
+      "expected_accept_rate": 1.0,
+      "expected_accept_total": 9,
+      "generated": 21,
+      "judge_error_variants": [],
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "judge_rejected_variants": [],
+      "minimum_certificate_margin": 4048,
+      "no_attempt": 3,
+      "recommendation": "keep frozen; safe candidate for future narrow alpha/permutation widening after more fuzzing",
+      "robustness_tier": "highly robust",
+      "status_counts": {
+        "accepted_false": 9,
+        "accepted_true": 9,
+        "no_attempt": 3
+      }
+    },
+    "generalized_square_anchor_anchored_erasure_bridge": {
+      "accepted_false": 9,
+      "accepted_false_countermodels": [
+        "mfuzz_true_2860_3458_repeated_anchor_substitution_046",
+        "mfuzz_true_2860_3458_operand_side_swap_probe_047",
+        "mfuzz_true_2860_3458_small_depth_anchor_perturbation_probe_049",
+        "mfuzz_true_1738_1258_repeated_anchor_substitution_053",
+        "mfuzz_true_1738_1258_operand_side_swap_probe_054",
+        "mfuzz_true_1738_1258_shallow_left_context_wrap_probe_055",
+        "mfuzz_true_1636_1839_repeated_anchor_substitution_060",
+        "mfuzz_true_1636_1839_operand_side_swap_probe_061",
+        "mfuzz_true_1636_1839_shallow_left_context_wrap_probe_062"
+      ],
+      "accepted_synthetic_variants": [
+        "mfuzz_true_2860_3458_baseline_seed_043",
+        "mfuzz_true_2860_3458_alpha_rename_0_044",
+        "mfuzz_true_2860_3458_variable_permutation_045",
+        "mfuzz_true_1738_1258_baseline_seed_050",
+        "mfuzz_true_1738_1258_alpha_rename_0_051",
+        "mfuzz_true_1738_1258_variable_permutation_052",
+        "mfuzz_true_1738_1258_small_depth_anchor_perturbation_probe_056",
+        "mfuzz_true_1636_1839_baseline_seed_057",
+        "mfuzz_true_1636_1839_alpha_rename_0_058",
+        "mfuzz_true_1636_1839_variable_permutation_059"
+      ],
+      "accepted_true": 10,
+      "average_certificate_margin": 3026.2,
+      "average_context_depth": 2.67,
+      "average_proof_size_accepted_false": 277.44,
+      "average_proof_size_accepted_true": 8973.8,
+      "expected_accept_failures": [],
+      "expected_accept_ok": 9,
+      "expected_accept_rate": 1.0,
+      "expected_accept_total": 9,
+      "generated": 21,
+      "judge_error_variants": [],
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "judge_rejected_variants": [],
+      "minimum_certificate_margin": 137,
+      "no_attempt": 2,
+      "recommendation": "keep frozen; safe candidate for future narrow alpha/permutation widening after more fuzzing",
+      "robustness_tier": "highly robust",
+      "status_counts": {
+        "accepted_false": 9,
+        "accepted_true": 10,
+        "no_attempt": 2
+      }
+    },
+    "generalized_tail_shift_repeated_tail_corridor": {
+      "accepted_false": 10,
+      "accepted_false_countermodels": [
+        "mfuzz_true_691_1976_repeated_anchor_substitution_067",
+        "mfuzz_true_691_1976_small_depth_anchor_perturbation_probe_070",
+        "mfuzz_true_689_1350_repeated_anchor_substitution_074",
+        "mfuzz_true_689_1350_small_depth_anchor_perturbation_probe_077",
+        "mfuzz_true_4082_4109_repeated_anchor_substitution_081",
+        "mfuzz_true_4082_4109_operand_side_swap_probe_082",
+        "mfuzz_true_4082_4109_small_depth_anchor_perturbation_probe_084",
+        "mfuzz_true_2135_2128_operand_side_swap_probe_089",
+        "mfuzz_true_1698_555_repeated_anchor_substitution_095",
+        "mfuzz_true_1698_555_small_depth_anchor_perturbation_probe_098"
+      ],
+      "accepted_synthetic_variants": [
+        "mfuzz_true_691_1976_baseline_seed_064",
+        "mfuzz_true_691_1976_alpha_rename_0_065",
+        "mfuzz_true_691_1976_variable_permutation_066",
+        "mfuzz_true_689_1350_baseline_seed_071",
+        "mfuzz_true_689_1350_variable_permutation_073",
+        "mfuzz_true_4082_4109_baseline_seed_078",
+        "mfuzz_true_4082_4109_alpha_rename_0_079",
+        "mfuzz_true_4082_4109_variable_permutation_080",
+        "mfuzz_true_2135_2128_baseline_seed_085",
+        "mfuzz_true_2135_2128_alpha_rename_0_086",
+        "mfuzz_true_2135_2128_variable_permutation_087",
+        "mfuzz_true_2135_2128_repeated_anchor_substitution_088",
+        "mfuzz_true_1698_555_baseline_seed_092",
+        "mfuzz_true_1698_555_alpha_rename_0_093",
+        "mfuzz_true_1698_555_variable_permutation_094"
+      ],
+      "accepted_true": 15,
+      "average_certificate_margin": 5006.2,
+      "average_context_depth": 3.14,
+      "average_proof_size_accepted_false": 283.4,
+      "average_proof_size_accepted_true": 8593.8,
+      "expected_accept_failures": [
+        "mfuzz_true_689_1350_alpha_rename_0_072"
+      ],
+      "expected_accept_ok": 14,
+      "expected_accept_rate": 0.933,
+      "expected_accept_total": 15,
+      "generated": 35,
+      "judge_error_variants": [],
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "judge_rejected_variants": [],
+      "minimum_certificate_margin": 1968,
+      "no_attempt": 10,
+      "recommendation": "keep frozen; inspect no-attempt and expected-accept failures first",
+      "robustness_tier": "fragile under perturbation",
+      "status_counts": {
+        "accepted_false": 10,
+        "accepted_true": 15,
+        "no_attempt": 10
+      }
+    },
+    "generalized_two_local_edge_local_theory_bridge": {
+      "accepted_false": 4,
+      "accepted_false_countermodels": [
+        "mfuzz_true_2055_2656_repeated_anchor_substitution_102",
+        "mfuzz_true_2055_2656_operand_side_swap_probe_103",
+        "mfuzz_true_2055_2656_shallow_left_context_wrap_probe_104",
+        "mfuzz_true_2055_2656_small_depth_anchor_perturbation_probe_105"
+      ],
+      "accepted_synthetic_variants": [
+        "mfuzz_true_2055_2656_baseline_seed_099",
+        "mfuzz_true_2055_2656_alpha_rename_0_100",
+        "mfuzz_true_2055_2656_variable_permutation_101"
+      ],
+      "accepted_true": 3,
+      "average_certificate_margin": 7786.0,
+      "average_context_depth": 2.0,
+      "average_proof_size_accepted_false": 271.0,
+      "average_proof_size_accepted_true": 4214.0,
+      "expected_accept_failures": [],
+      "expected_accept_ok": 3,
+      "expected_accept_rate": 1.0,
+      "expected_accept_total": 3,
+      "generated": 7,
+      "judge_error_variants": [],
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "judge_rejected_variants": [],
+      "minimum_certificate_margin": 7786,
+      "no_attempt": 0,
+      "recommendation": "keep frozen; promising but low synthetic sample size",
+      "robustness_tier": "highly robust",
+      "status_counts": {
+        "accepted_false": 4,
+        "accepted_true": 3
+      }
+    }
+  },
+  "global_recommendations": [
+    "Keep production route order frozen; public exact certificates should remain ahead of generalized routes.",
+    "Do not widen generalized_argument_erasure_context_bridge or generalized_tail_shift_repeated_tail_corridor until their alpha-renamed rejected variants are diagnosed.",
+    "Use the debug-only ARCF_ROUTE_TELEMETRY path for future route experiments; normal runs remain silent.",
+    "Add alias-normalization checks before raising route caps or accepting larger generated certificates.",
+    "Use motif_fuzz_regression plus this robustness report as the pre-private regression gate."
+  ],
+  "input_summary": {
+    "accepted_false": 36,
+    "accepted_true": 47,
+    "expected_accept_failures": [
+      "mfuzz_true_2771_2775_alpha_rename_0_016",
+      "mfuzz_true_689_1350_alpha_rename_0_072"
+    ],
+    "family_summary": {
+      "generalized_argument_erasure_context_bridge": {
+        "accepted": 14,
+        "accepted_false": 4,
+        "accepted_true": 10,
+        "generated": 21,
+        "judge_errors": 0,
+        "no_attempt": 7
+      },
+      "generalized_seed_collapse_contextual_lift": {
+        "accepted": 18,
+        "accepted_false": 9,
+        "accepted_true": 9,
+        "generated": 21,
+        "judge_errors": 0,
+        "no_attempt": 3
+      },
+      "generalized_square_anchor_anchored_erasure_bridge": {
+        "accepted": 19,
+        "accepted_false": 9,
+        "accepted_true": 10,
+        "generated": 21,
+        "judge_errors": 0,
+        "no_attempt": 2
+      },
+      "generalized_tail_shift_repeated_tail_corridor": {
+        "accepted": 25,
+        "accepted_false": 10,
+        "accepted_true": 15,
+        "generated": 35,
+        "judge_errors": 0,
+        "no_attempt": 10
+      },
+      "generalized_two_local_edge_local_theory_bridge": {
+        "accepted": 7,
+        "accepted_false": 4,
+        "accepted_true": 3,
+        "generated": 7,
+        "judge_errors": 0,
+        "no_attempt": 0
+      }
+    },
+    "guard_probe_accepted": [
+      "mfuzz_true_2074_2082_repeated_anchor_substitution_004",
+      "mfuzz_true_2074_2082_operand_side_swap_probe_005",
+      "mfuzz_true_2074_2082_small_depth_anchor_perturbation_probe_007",
+      "mfuzz_true_674_668_repeated_anchor_substitution_011",
+      "mfuzz_true_674_668_small_depth_anchor_perturbation_probe_014",
+      "mfuzz_true_2771_2775_repeated_anchor_substitution_018",
+      "mfuzz_true_2942_5_repeated_anchor_substitution_025",
+      "mfuzz_true_2942_5_operand_side_swap_probe_026",
+      "mfuzz_true_2942_5_shallow_left_context_wrap_probe_027",
+      "mfuzz_true_2942_5_small_depth_anchor_perturbation_probe_028",
+      "mfuzz_true_130_1759_repeated_anchor_substitution_032",
+      "mfuzz_true_130_1759_operand_side_swap_probe_033",
+      "mfuzz_true_2061_307_repeated_anchor_substitution_039",
+      "mfuzz_true_2061_307_operand_side_swap_probe_040",
+      "mfuzz_true_2061_307_shallow_left_context_wrap_probe_041",
+      "mfuzz_true_2860_3458_repeated_anchor_substitution_046",
+      "mfuzz_true_2860_3458_operand_side_swap_probe_047",
+      "mfuzz_true_2860_3458_small_depth_anchor_perturbation_probe_049",
+      "mfuzz_true_1738_1258_repeated_anchor_substitution_053",
+      "mfuzz_true_1738_1258_operand_side_swap_probe_054",
+      "mfuzz_true_1738_1258_shallow_left_context_wrap_probe_055",
+      "mfuzz_true_1738_1258_small_depth_anchor_perturbation_probe_056",
+      "mfuzz_true_1636_1839_repeated_anchor_substitution_060",
+      "mfuzz_true_1636_1839_operand_side_swap_probe_061",
+      "mfuzz_true_1636_1839_shallow_left_context_wrap_probe_062",
+      "mfuzz_true_691_1976_repeated_anchor_substitution_067",
+      "mfuzz_true_691_1976_small_depth_anchor_perturbation_probe_070",
+      "mfuzz_true_689_1350_repeated_anchor_substitution_074",
+      "mfuzz_true_689_1350_small_depth_anchor_perturbation_probe_077",
+      "mfuzz_true_4082_4109_repeated_anchor_substitution_081",
+      "mfuzz_true_4082_4109_operand_side_swap_probe_082",
+      "mfuzz_true_4082_4109_small_depth_anchor_perturbation_probe_084",
+      "mfuzz_true_2135_2128_repeated_anchor_substitution_088",
+      "mfuzz_true_2135_2128_operand_side_swap_probe_089",
+      "mfuzz_true_1698_555_repeated_anchor_substitution_095",
+      "mfuzz_true_1698_555_small_depth_anchor_perturbation_probe_098",
+      "mfuzz_true_2055_2656_repeated_anchor_substitution_102",
+      "mfuzz_true_2055_2656_operand_side_swap_probe_103",
+      "mfuzz_true_2055_2656_shallow_left_context_wrap_probe_104",
+      "mfuzz_true_2055_2656_small_depth_anchor_perturbation_probe_105"
+    ],
+    "judge_errors": 0,
+    "no_attempt": 22,
+    "recommendations": [
+      "Inspect accept_true alpha/permutation failures before route widening; they indicate schema guards are narrower than the recovered public motif.",
+      "Add per-route certificate-size telemetry and alias compression checks for generated certificates over 12 KB.",
+      "Do not change normal production ordering until guard gaps are classified by family.",
+      "Review guard-probe accepted cases manually; some may be valid motif generalizations, but they should not trigger broad guard widening automatically.",
+      "Keep exact public certificates ahead of generalized routes in normal mode and use this harness as the private-readiness regression gate."
+    ],
+    "route_failure_modes": {
+      "generalized_argument_erasure_context_bridge": {
+        "no_attempt": 7
+      },
+      "generalized_seed_collapse_contextual_lift": {
+        "no_attempt": 3
+      },
+      "generalized_square_anchor_anchored_erasure_bridge": {
+        "no_attempt": 2
+      },
+      "generalized_tail_shift_repeated_tail_corridor": {
+        "no_attempt": 10
+      }
+    },
+    "route_hits": {
+      "gae_seed_square_outer_context_erasure": 2,
+      "gae_square_context_erasure": 3,
+      "gltb_l4_l15_local_theory_bridge": 3,
+      "gsae_double_tail_expansion": 3,
+      "gsae_self_square_extension": 3,
+      "gsae_square_anchor_right_context": 3,
+      "gsc_repeated_anchor_collapse": 3,
+      "gsc_self_square_replacement": 3,
+      "gsc_two_h_contextual_lift": 3,
+      "gtsrtc_diagonal_tail_shift": 3,
+      "gtsrtc_outer_y_nested_x_tail": 2,
+      "gtsrtc_right_nested_repeated_y_corridor": 3,
+      "gtsrtc_y_square_corridor": 3,
+      "gtsrtc_y_tail_context_shift": 3
+    },
+    "seed_summary": {
+      "true_130_1759": {
+        "accepted": 5,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_1636_1839": {
+        "accepted": 6,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "shallow_left_context_wrap_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_1698_555": {
+        "accepted": 5,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_1738_1258": {
+        "accepted": 7,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "shallow_left_context_wrap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2055_2656": {
+        "accepted": 7,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "shallow_left_context_wrap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2061_307": {
+        "accepted": 6,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "shallow_left_context_wrap_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2074_2082": {
+        "accepted": 6,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2135_2128": {
+        "accepted": 5,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2771_2775": {
+        "accepted": 3,
+        "accepted_variants": [
+          "baseline_seed",
+          "variable_permutation",
+          "repeated_anchor_substitution"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2860_3458": {
+        "accepted": 6,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_2942_5": {
+        "accepted": 7,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "shallow_left_context_wrap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_4082_4109": {
+        "accepted": 6,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "operand_side_swap_probe",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_674_668": {
+        "accepted": 5,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_689_1350": {
+        "accepted": 4,
+        "accepted_variants": [
+          "baseline_seed",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      },
+      "true_691_1976": {
+        "accepted": 5,
+        "accepted_variants": [
+          "baseline_seed",
+          "alpha_rename_0",
+          "variable_permutation",
+          "repeated_anchor_substitution",
+          "small_depth_anchor_perturbation_probe"
+        ],
+        "generated": 7,
+        "judge_errors": 0
+      }
+    },
+    "total_accepted": 83,
+    "total_generated": 105
+  },
+  "ranked_families": [
+    {
+      "average_certificate_margin": 4220.33,
+      "expected_accept_rate": 1.0,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "motif_family": "generalized_seed_collapse_contextual_lift",
+      "recommendation": "keep frozen; safe candidate for future narrow alpha/permutation widening after more fuzzing",
+      "robustness_tier": "highly robust"
+    },
+    {
+      "average_certificate_margin": 3026.2,
+      "expected_accept_rate": 1.0,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "motif_family": "generalized_square_anchor_anchored_erasure_bridge",
+      "recommendation": "keep frozen; safe candidate for future narrow alpha/permutation widening after more fuzzing",
+      "robustness_tier": "highly robust"
+    },
+    {
+      "average_certificate_margin": 7786.0,
+      "expected_accept_rate": 1.0,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "motif_family": "generalized_two_local_edge_local_theory_bridge",
+      "recommendation": "keep frozen; promising but low synthetic sample size",
+      "robustness_tier": "highly robust"
+    },
+    {
+      "average_certificate_margin": 5006.2,
+      "expected_accept_rate": 0.933,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "motif_family": "generalized_tail_shift_repeated_tail_corridor",
+      "recommendation": "keep frozen; inspect no-attempt and expected-accept failures first",
+      "robustness_tier": "fragile under perturbation"
+    },
+    {
+      "average_certificate_margin": 7264.6,
+      "expected_accept_rate": 0.889,
+      "judge_errors": 0,
+      "judge_rejected": 0,
+      "motif_family": "generalized_argument_erasure_context_bridge",
+      "recommendation": "keep frozen; inspect no-attempt and expected-accept failures first",
+      "robustness_tier": "fragile under perturbation"
+    }
+  ],
+  "route_marker_scores": {
+    "gae_seed_square_outer_context_erasure": {
+      "accepted_true": 2,
+      "average_certificate_margin": 3585.0,
+      "average_proof_size": 18415.0,
+      "context_depth": 4,
+      "hits": 2,
+      "minimum_certificate_margin": 3585
+    },
+    "gae_square_context_erasure": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4921.0,
+      "average_proof_size": 7079.0,
+      "context_depth": 3,
+      "hits": 3,
+      "minimum_certificate_margin": 4921
+    },
+    "gltb_l4_l15_local_theory_bridge": {
+      "accepted_true": 3,
+      "average_certificate_margin": 7786.0,
+      "average_proof_size": 4214.0,
+      "context_depth": 2,
+      "hits": 3,
+      "minimum_certificate_margin": 7786
+    },
+    "gsae_double_tail_expansion": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4660.0,
+      "average_proof_size": 7340.0,
+      "context_depth": 3,
+      "hits": 3,
+      "minimum_certificate_margin": 4660
+    },
+    "gsae_self_square_extension": {
+      "accepted_true": 3,
+      "average_certificate_margin": 137.0,
+      "average_proof_size": 11863.0,
+      "context_depth": 2,
+      "hits": 3,
+      "minimum_certificate_margin": 137
+    },
+    "gsae_square_anchor_right_context": {
+      "accepted_true": 3,
+      "average_certificate_margin": 1324.0,
+      "average_proof_size": 10676.0,
+      "context_depth": 3,
+      "hits": 3,
+      "minimum_certificate_margin": 1324
+    },
+    "gsc_repeated_anchor_collapse": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4076.0,
+      "average_proof_size": 924.0,
+      "context_depth": 2,
+      "hits": 3,
+      "minimum_certificate_margin": 4076
+    },
+    "gsc_self_square_replacement": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4048.0,
+      "average_proof_size": 952.0,
+      "context_depth": 1,
+      "hits": 3,
+      "minimum_certificate_margin": 4048
+    },
+    "gsc_two_h_contextual_lift": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4537.0,
+      "average_proof_size": 463.0,
+      "context_depth": 2,
+      "hits": 3,
+      "minimum_certificate_margin": 4537
+    },
+    "gtsrtc_diagonal_tail_shift": {
+      "accepted_true": 3,
+      "average_certificate_margin": 4586.0,
+      "average_proof_size": 7414.0,
+      "context_depth": 2,
+      "hits": 3,
+      "minimum_certificate_margin": 4586
+    },
+    "gtsrtc_outer_y_nested_x_tail": {
+      "accepted_true": 2,
+      "average_certificate_margin": 4799.0,
+      "average_proof_size": 7201.0,
+      "context_depth": 4,
+      "hits": 2,
+      "minimum_certificate_margin": 4799
+    },
+    "gtsrtc_right_nested_repeated_y_corridor": {
+      "accepted_true": 3,
+      "average_certificate_margin": 1968.0,
+      "average_proof_size": 10032.0,
+      "context_depth": 4,
+      "hits": 3,
+      "minimum_certificate_margin": 1968
+    },
+    "gtsrtc_y_square_corridor": {
+      "accepted_true": 3,
+      "average_certificate_margin": 2566.0,
+      "average_proof_size": 17434.0,
+      "context_depth": 3,
+      "hits": 3,
+      "minimum_certificate_margin": 2566
+    },
+    "gtsrtc_y_tail_context_shift": {
+      "accepted_true": 3,
+      "average_certificate_margin": 8740.0,
+      "average_proof_size": 3260.0,
+      "context_depth": 3,
+      "hits": 3,
+      "minimum_certificate_margin": 8740
+    }
+  },
+  "source_report": "/Users/jc/Downloads/LandDesk/equational-theories-lean-stage2/analysis/motif_fuzz_regression_results.json"
+}

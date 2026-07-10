@@ -1,0 +1,547 @@
+{
+  "summary": {
+    "atp_exact_lost_count": 14,
+    "all_public_exact_lost_count": 17,
+    "additional_hand_exact_lost_count": 3,
+    "finite_witness_bank_lost_count": 2,
+    "atp_exact_lost_ids": [
+      "true_1698_555",
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_2074_2082",
+      "true_4082_4109",
+      "true_2771_2775",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_674_668",
+      "true_1636_1839"
+    ],
+    "additional_hand_exact_lost_ids": [
+      "true_2942_5",
+      "true_130_1759",
+      "true_2061_307"
+    ],
+    "finite_witness_lost_ids": [
+      "false_1682_411",
+      "false_3145_3481"
+    ]
+  },
+  "cases": [
+    {
+      "problem_id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "deep repeated-y tail shift",
+      "classification": "pure exact certificate / memo route",
+      "route_guard": "If distilled, require exact repeated y anchor and goal y ◇ (z ◇ (y ◇ _)) context.",
+      "local_lemmas_needed": [
+        "unknown without further proof-mining"
+      ],
+      "likely_proof_skeleton": "large Z3 chain; likely h-instantiations plus nested congrArg.",
+      "expected_private_generalization_value": "low-medium: exact proof is 10 KB with many aliases; motif is less isolated.",
+      "certificate_name": "z3_true_1698_555_min",
+      "code_size_bytes": 10003,
+      "have_count": 102,
+      "let_count": 61,
+      "h_instantiation_text_count": 22
+    },
+    {
+      "problem_id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "square-anchor / anchored erasure",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis expands x through ((x ◇ (x ◇ y)) ◇ z) ◇ z and goal compares x◇x to x◇((x◇y)◇x).",
+      "local_lemmas_needed": [
+        "idempotence-like square fact",
+        "anchored right erasure/local absorption"
+      ],
+      "likely_proof_skeleton": "derive square anchor facts, replace inner right argument, close by congrArg under x ◇ _.",
+      "expected_private_generalization_value": "medium: resembles existing square/anchored erasure work but still not covered.",
+      "certificate_name": "z3_true_2860_3458_seed24_partial_alias_keep2",
+      "code_size_bytes": 10646,
+      "have_count": 123,
+      "let_count": 72,
+      "h_instantiation_text_count": 22
+    },
+    {
+      "problem_id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "right-anchored expansion through double x tail",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis has (z ◇ x) ◇ x repeated tail and goal adds x ◇ (_ ◇ x) wrapper.",
+      "local_lemmas_needed": [
+        "right-anchor constancy",
+        "extension x = x ◇ C[x]"
+      ],
+      "likely_proof_skeleton": "prove tail collapse/extension by h; lift into x ◇ _ context.",
+      "expected_private_generalization_value": "medium: clean equation shape, modest 7.3 KB certificate.",
+      "certificate_name": "z3_true_1738_1258_min",
+      "code_size_bytes": 7324,
+      "have_count": 21,
+      "let_count": 22,
+      "h_instantiation_text_count": 5
+    },
+    {
+      "problem_id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "two-instantiation rotation/context bridge",
+      "classification": "pure exact certificate / memo route",
+      "route_guard": "Could require exact H x = ((y◇z)◇(y◇x))◇z and goal y◇((x◇z)◇(z◇y)).",
+      "local_lemmas_needed": [
+        "specific rotation midpoint"
+      ],
+      "likely_proof_skeleton": "Z3-derived chain with many aliases after translation; likely transitive h-chain.",
+      "expected_private_generalization_value": "low-medium: useful precedent but current Lean certificate is large and idiosyncratic.",
+      "certificate_name": "z3_true_2789_898_min",
+      "code_size_bytes": 31995,
+      "have_count": 306,
+      "let_count": 169,
+      "h_instantiation_text_count": 55
+    },
+    {
+      "problem_id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "tail-shift among y◇y blocks",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis/goal both contain repeated y-square/y-triple products around x.",
+      "local_lemmas_needed": [
+        "y-square/y-triple collapse",
+        "tail shift into x position"
+      ],
+      "likely_proof_skeleton": "derive repeated-y local facts; calc to move x between repeated y blocks.",
+      "expected_private_generalization_value": "medium: recurring tail-shift shape, but proof is moderately large.",
+      "certificate_name": "z3_true_2135_2128_seed7_min_alias",
+      "code_size_bytes": 17412,
+      "have_count": 54,
+      "let_count": 41,
+      "h_instantiation_text_count": 16
+    },
+    {
+      "problem_id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "broad projection/extension with extra free variable",
+      "classification": "pure exact certificate / memo route",
+      "route_guard": "Only attempt if exact alpha-equivalent; current proof is large.",
+      "local_lemmas_needed": [
+        "likely extension/projection chain"
+      ],
+      "likely_proof_skeleton": "large Z3 equality chain with many h-instantiations and aliases.",
+      "expected_private_generalization_value": "low: 33.9 KB exact proof, less attractive for private generalization.",
+      "certificate_name": "z3_true_1500_498_min",
+      "code_size_bytes": 33893,
+      "have_count": 326,
+      "let_count": 158,
+      "h_instantiation_text_count": 53
+    },
+    {
+      "problem_id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "seed-collapse plus context shift",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis and goal share y/right-anchor products and differ by moving y-anchored block across one node.",
+      "local_lemmas_needed": [
+        "seed expansion of x",
+        "local replacement of anchored tail",
+        "context shift lift"
+      ],
+      "likely_proof_skeleton": "expand with h; prove local tail equality; close with trans/congrArg.",
+      "expected_private_generalization_value": "medium-high: compact 3.2 KB certificate.",
+      "certificate_name": "z3_true_691_1976_min",
+      "code_size_bytes": 3243,
+      "have_count": 32,
+      "let_count": 32,
+      "h_instantiation_text_count": 7
+    },
+    {
+      "problem_id": "true_2074_2082",
+      "eq1_id": 2074,
+      "eq2_id": 2082,
+      "hypothesis": "x = ((x ◇ y) ◇ z) ◇ (y ◇ x)",
+      "goal": "x = ((x ◇ y) ◇ z) ◇ (w ◇ x)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "right argument erasure under fixed left context",
+      "classification": "reusable motif candidate",
+      "route_guard": "Goal differs only in a right argument under exact context ((x ◇ y) ◇ z) ◇ _.",
+      "local_lemmas_needed": [
+        "local eraseL/eraseR edge for y ◇ x = w ◇ x under anchor x",
+        "one congrArg/context lift"
+      ],
+      "likely_proof_skeleton": "derive compact local edge between inner arguments, then exact congrArg (fun q => prefix ◇ q) edge.",
+      "expected_private_generalization_value": "very high: 1.8 KB exact certificate suggests a compact generic route is plausible.",
+      "certificate_name": "z3_true_2074_2082_seed2_compact",
+      "code_size_bytes": 1808,
+      "have_count": 13,
+      "let_count": 11,
+      "h_instantiation_text_count": 6
+    },
+    {
+      "problem_id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "rotation/context-shift with transitive congruence",
+      "classification": "reusable motif candidate",
+      "route_guard": "Both sides are square-rooted forms x◇x = C[_] with small rotation of repeated y/z blocks.",
+      "local_lemmas_needed": [
+        "transitive equality chain",
+        "one or more congrArg lifts"
+      ],
+      "likely_proof_skeleton": "use h-instantiated local equalities, then calc through rotated midpoint.",
+      "expected_private_generalization_value": "medium: useful because it previously exposed translator gap, but shape is narrower.",
+      "certificate_name": "z3_true_4082_4109_min",
+      "code_size_bytes": 7398,
+      "have_count": 45,
+      "let_count": 26,
+      "h_instantiation_text_count": 12
+    },
+    {
+      "problem_id": "true_2771_2775",
+      "eq1_id": 2771,
+      "eq2_id": 2775,
+      "hypothesis": "x = ((y ◇ z) ◇ (x ◇ x)) ◇ y",
+      "goal": "x = ((y ◇ z) ◇ (x ◇ y)) ◇ y",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "argument erasure under exact outer context",
+      "classification": "reusable motif candidate",
+      "route_guard": "Goal shares ((y ◇ z) ◇ _) ◇ y and inner edge is x ◇ x = x ◇ y.",
+      "local_lemmas_needed": [
+        "right argument erasure a ◇ a = a ◇ b",
+        "outer context lift"
+      ],
+      "likely_proof_skeleton": "prove local inner erasure, then congrArg (fun q => ((y ◇ z) ◇ q) ◇ y).",
+      "expected_private_generalization_value": "high: was size-hard as exact cert; a real route would be valuable.",
+      "certificate_name": "z3_true_2771_2775_alias4",
+      "code_size_bytes": 18388,
+      "have_count": 156,
+      "let_count": 104,
+      "h_instantiation_text_count": 28
+    },
+    {
+      "problem_id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "two-local-edge E-prover local theory bridge",
+      "classification": "reusable motif candidate",
+      "route_guard": "H has x = ((x ◇ y) ◇ x) ◇ (y ◇ z); goal swaps one x/y anchor inside adjacent factors.",
+      "local_lemmas_needed": [
+        "local l4/l15-style bridge",
+        "anchored absorption/replacement",
+        "short calc closure"
+      ],
+      "likely_proof_skeleton": "derive two local h-instantiated edges; compose by calc and congrArg to align ((x◇x)◇(y◇z))◇y.",
+      "expected_private_generalization_value": "high: final residue proof was only 4.2 KB and likely distillable.",
+      "certificate_name": "eprover_true_2055_2656_l4_l15",
+      "code_size_bytes": 4177,
+      "have_count": 24,
+      "let_count": 8,
+      "h_instantiation_text_count": 9
+    },
+    {
+      "problem_id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "nested seed-collapse under y ◇ _ context",
+      "classification": "reusable motif candidate",
+      "route_guard": "Goal and hypothesis share y ◇ _; inner tail changes from x◇((z◇x)◇w) to ((z◇x)◇x)◇y.",
+      "local_lemmas_needed": [
+        "seed expansion",
+        "tail replacement",
+        "outer y-context lift"
+      ],
+      "likely_proof_skeleton": "prove inner tail shift with h instances; lift by congrArg (fun q => y ◇ q).",
+      "expected_private_generalization_value": "medium-high: recurring context-lift form.",
+      "certificate_name": "z3_true_689_1350_min",
+      "code_size_bytes": 7183,
+      "have_count": 70,
+      "let_count": 41,
+      "h_instantiation_text_count": 14
+    },
+    {
+      "problem_id": "true_674_668",
+      "eq1_id": 674,
+      "eq2_id": 668,
+      "hypothesis": "x = y ◇ (x ◇ ((x ◇ z) ◇ z))",
+      "goal": "x = y ◇ (x ◇ ((x ◇ x) ◇ z))",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "argument erasure under nested right context",
+      "classification": "reusable motif candidate",
+      "route_guard": "Goal shares y ◇ (x ◇ _) context and inner edge has ((x ◇ z) ◇ z) = ((x ◇ x) ◇ z).",
+      "local_lemmas_needed": [
+        "right-context erasure (a ◇ b) ◇ b = (a ◇ a) ◇ b or local instance",
+        "outer congrArg through y ◇ (x ◇ _)"
+      ],
+      "likely_proof_skeleton": "prove inner edge from h instances; lift with congrArg (fun q => y ◇ (x ◇ q)).",
+      "expected_private_generalization_value": "high: recurring exact-context argument erasure pattern.",
+      "certificate_name": "z3_true_674_668_min",
+      "code_size_bytes": 7063,
+      "have_count": 70,
+      "let_count": 35,
+      "h_instantiation_text_count": 10
+    },
+    {
+      "problem_id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "certificate_type": "ATP exact certificate",
+      "proof_motif": "self-square extension and absorption alignment",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis begins with x = (x◇x)◇_; goal replaces first right factor by x◇(x◇y).",
+      "local_lemmas_needed": [
+        "idempotence/self-square extension",
+        "anchored tail replacement"
+      ],
+      "likely_proof_skeleton": "derive self-square local facts; calc through expanded square-tail midpoint.",
+      "expected_private_generalization_value": "medium: seed-sensitive ATP proof, but motif matches local theory normalizer family.",
+      "certificate_name": "z3_true_1636_1839_seed7_min_alias",
+      "code_size_bytes": 11847,
+      "have_count": 36,
+      "let_count": 29,
+      "h_instantiation_text_count": 8
+    },
+    {
+      "problem_id": "true_2942_5",
+      "eq1_id": 2942,
+      "eq2_id": 5,
+      "hypothesis": "x = ((y ◇ (y ◇ x)) ◇ z) ◇ x",
+      "goal": "x = y ◇ x",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "repeated-anchor collapse via expansion, tail collapse, and final congrArg",
+      "classification": "reusable motif candidate",
+      "route_guard": "Hypothesis has x = ((y ◇ (y ◇ x)) ◇ z) ◇ x-like repeated anchor and goal asks x = y ◇ x or C[x] = C[y ◇ x].",
+      "local_lemmas_needed": [
+        "local collapse of repeated y-tail to y",
+        "lifted replacement through (_ ◇ (y ◇ x)) ◇ y",
+        "final h-collapse"
+      ],
+      "likely_proof_skeleton": "derive hByyy; expand anchor; collapse repeated tail by congrArg; use h x y y; lift by congrArg.",
+      "expected_private_generalization_value": "high: compact hand proof and clear repeated-anchor schema.",
+      "certificate_name": "claude_hand_true_2942_5",
+      "code_size_bytes": 849,
+      "have_count": 6,
+      "let_count": 0,
+      "h_instantiation_text_count": 3
+    },
+    {
+      "problem_id": "true_130_1759",
+      "eq1_id": 130,
+      "eq2_id": 1759,
+      "hypothesis": "x = y ◇ ((y ◇ z) ◇ x)",
+      "goal": "x = (y ◇ z) ◇ ((x ◇ y) ◇ x)",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "two-h contextual lift",
+      "classification": "reusable motif candidate",
+      "route_guard": "Goal has x = C[x ◇ y] and h can expand both x and x ◇ y with the same leading prefix.",
+      "local_lemmas_needed": [
+        "step_xy expansion",
+        "step_x expansion",
+        "contextual lift via congrArg"
+      ],
+      "likely_proof_skeleton": "prove step_xy by h; prove step_x by h; exact step_x.trans (congrArg context step_xy.symm).",
+      "expected_private_generalization_value": "high: very small proof and exact-context guard.",
+      "certificate_name": "claude_hand_true_130_1759",
+      "code_size_bytes": 420,
+      "have_count": 2,
+      "let_count": 0,
+      "h_instantiation_text_count": 2
+    },
+    {
+      "problem_id": "true_2061_307",
+      "eq1_id": 2061,
+      "eq2_id": 307,
+      "hypothesis": "x = ((x ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x ◇ x = x ◇ (x ◇ x)",
+      "certificate_type": "hand exact certificate",
+      "proof_motif": "multi-local-edge calc with self-square replacement",
+      "classification": "reusable motif candidate",
+      "route_guard": "Unary/self-anchor goal where both sides are x ◇ x variants and h expands square/tail terms.",
+      "local_lemmas_needed": [
+        "A self expansion",
+        "L1 local replacement",
+        "C and E endpoint expansions"
+      ],
+      "likely_proof_skeleton": "derive L1 by h plus congrArg A.symm; calc lhs via C, replace inner term by congrArg L1, collapse by E.symm.",
+      "expected_private_generalization_value": "medium-high: reusable for self-square local theory, but more shape-specific.",
+      "certificate_name": "claude_hand_true_2061_307",
+      "code_size_bytes": 867,
+      "have_count": 5,
+      "let_count": 0,
+      "h_instantiation_text_count": 4
+    },
+    {
+      "problem_id": "false_1682_411",
+      "eq1_id": 1682,
+      "eq2_id": 411,
+      "hypothesis": "x = (y ◇ x) ◇ ((x ◇ x) ◇ y)",
+      "goal": "x = x ◇ (x ◇ (x ◇ (x ◇ x)))",
+      "certificate_type": "finite witness exact certificate",
+      "proof_motif": "finite Fin 5 countermodel witness",
+      "classification": "pure exact certificate / memo route",
+      "route_guard": "Exact alpha-normalized false_1682_411 equation pair.",
+      "local_lemmas_needed": [],
+      "likely_proof_skeleton": "Magma (Fin 5) table plus decideFin!.",
+      "expected_private_generalization_value": "low for true-proof generalization; useful for countermodel-search heuristics only.",
+      "certificate_name": "constraint_guided_false_1682_411_n5",
+      "domain_size": 5,
+      "table": [
+        [
+          4,
+          0,
+          3,
+          1,
+          2
+        ],
+        [
+          3,
+          1,
+          3,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          2,
+          4,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          3,
+          1,
+          1
+        ]
+      ],
+      "code_size_bytes": 313,
+      "have_count": 0,
+      "let_count": 1,
+      "h_instantiation_text_count": 0
+    },
+    {
+      "problem_id": "false_3145_3481",
+      "eq1_id": 3145,
+      "eq2_id": 3481,
+      "hypothesis": "x = (((y ◇ y) ◇ x) ◇ z) ◇ x",
+      "goal": "x ◇ x = y ◇ ((y ◇ x) ◇ x)",
+      "certificate_type": "finite witness exact certificate",
+      "proof_motif": "finite Fin 4 countermodel witness",
+      "classification": "pure exact certificate / memo route",
+      "route_guard": "Exact alpha-normalized false_3145_3481 equation pair.",
+      "local_lemmas_needed": [],
+      "likely_proof_skeleton": "Magma (Fin 4) table plus decideFin!.",
+      "expected_private_generalization_value": "low for true-proof generalization; useful for witness-bank coverage only.",
+      "certificate_name": "backtrack_false_3145_3481_n4",
+      "domain_size": 4,
+      "table": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          0
+        ]
+      ],
+      "code_size_bytes": 293,
+      "have_count": 0,
+      "let_count": 1,
+      "h_instantiation_text_count": 0
+    }
+  ],
+  "top_distillation_targets": [
+    {
+      "rank": 1,
+      "problem_id": "true_2074_2082",
+      "reason": "Smallest ATP exact true certificate; exact-context right-argument erasure is a clean private-set motif.",
+      "target_route": "generalized exact-context argument-erasure bridge"
+    },
+    {
+      "rank": 2,
+      "problem_id": "true_674_668",
+      "reason": "Classic nested argument-erasure under y ◇ (x ◇ _) context; route would also help similar residue shapes.",
+      "target_route": "nested right-context argument-erasure inner-edge prover"
+    },
+    {
+      "rank": 3,
+      "problem_id": "true_2055_2656",
+      "reason": "Final-residue proof is compact and E-prover named l4/l15 hints at distillable local theory edges.",
+      "target_route": "two-local-edge local-theory bridge"
+    },
+    {
+      "rank": 4,
+      "problem_id": "true_130_1759",
+      "reason": "Tiny hand proof with two h expansions and one contextual lift; high signal and low risk.",
+      "target_route": "two-h contextual lift generalized guard"
+    },
+    {
+      "rank": 5,
+      "problem_id": "true_2942_5",
+      "reason": "Compact repeated-anchor collapse hand proof; directly aligns with singleton/collapse route family.",
+      "target_route": "repeated-anchor collapse miner"
+    }
+  ]
+}

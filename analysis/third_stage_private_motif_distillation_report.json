@@ -1,0 +1,302 @@
+{
+  "generated_at": "2026-05-22",
+  "summary": {
+    "full_solver": "sample_20 20/20; sample_200 200/200; judge_errors=0",
+    "public_exact_disabled": {
+      "accepted": 189,
+      "true": 89,
+      "false": 100,
+      "no_attempt": 11,
+      "judge_errors": 0
+    },
+    "already_recovered": {
+      "generalized_argument_erasure_context_bridge": [
+        "true_2074_2082",
+        "true_674_668",
+        "true_2771_2775"
+      ],
+      "generalized_seed_collapse_contextual_lift": [
+        "true_2942_5",
+        "true_130_1759",
+        "true_2061_307"
+      ]
+    },
+    "remaining_lost_count": 11,
+    "remaining_lost_ids": [
+      "true_1698_555",
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_2789_898",
+      "true_2135_2128",
+      "true_1500_498",
+      "true_691_1976",
+      "true_4082_4109",
+      "true_2055_2656",
+      "true_689_1350",
+      "true_1636_1839"
+    ],
+    "source_results": "pipeline/results/arcf_sample200_seed_collapse_no_public_exact.json"
+  },
+  "remaining_lost_cases": [
+    {
+      "id": "true_1698_555",
+      "eq1_id": 1698,
+      "eq2_id": 555,
+      "hypothesis": "x = (y ◇ x) ◇ ((y ◇ z) ◇ y)",
+      "goal": "x = y ◇ (z ◇ (y ◇ (x ◇ y)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1698_555_min",
+      "proof_size_bytes": 10003,
+      "prior_motif_label": "deep repeated-y tail shift",
+      "prior_plan_family": "tail_shift_repeated_tail_corridor",
+      "cluster": "tail-shift / repeated-tail corridor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_2860_3458",
+      "eq1_id": 2860,
+      "eq2_id": 3458,
+      "hypothesis": "x = ((x ◇ (x ◇ y)) ◇ z) ◇ z",
+      "goal": "x ◇ x = x ◇ ((x ◇ y) ◇ x)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2860_3458_seed24_partial_alias_keep2",
+      "proof_size_bytes": 10646,
+      "prior_motif_label": "square-anchor / anchored erasure",
+      "prior_plan_family": "local_theory_normalizer_extensions",
+      "cluster": "anchored erasure / square-anchor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_1738_1258",
+      "eq1_id": 1738,
+      "eq2_id": 1258,
+      "hypothesis": "x = (y ◇ y) ◇ ((z ◇ x) ◇ x)",
+      "goal": "x = x ◇ (((y ◇ z) ◇ x) ◇ x)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1738_1258_min",
+      "proof_size_bytes": 7324,
+      "prior_motif_label": "right-anchored expansion through double x tail",
+      "prior_plan_family": "local_theory_normalizer_extensions",
+      "cluster": "anchored erasure / square-anchor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_2789_898",
+      "eq1_id": 2789,
+      "eq2_id": 898,
+      "hypothesis": "x = ((y ◇ z) ◇ (y ◇ x)) ◇ z",
+      "goal": "x = y ◇ ((x ◇ z) ◇ (z ◇ y))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2789_898_min",
+      "proof_size_bytes": 31995,
+      "prior_motif_label": "two-instantiation rotation/context bridge",
+      "prior_plan_family": null,
+      "cluster": "local-theory normalization",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_2135_2128",
+      "eq1_id": 2135,
+      "eq2_id": 2128,
+      "hypothesis": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)",
+      "goal": "x = ((y ◇ y) ◇ x) ◇ (y ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_2135_2128_seed7_min_alias",
+      "proof_size_bytes": 17412,
+      "prior_motif_label": "tail-shift among y◇y blocks",
+      "prior_plan_family": "tail_shift_repeated_tail_corridor",
+      "cluster": "tail-shift / repeated-tail corridor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_1500_498",
+      "eq1_id": 1500,
+      "eq2_id": 498,
+      "hypothesis": "x = (y ◇ x) ◇ (z ◇ (x ◇ z))",
+      "goal": "x = y ◇ (x ◇ (z ◇ (w ◇ w)))",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1500_498_min",
+      "proof_size_bytes": 33893,
+      "prior_motif_label": "broad projection/extension with extra free variable",
+      "prior_plan_family": null,
+      "cluster": "local-theory normalization",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_691_1976",
+      "eq1_id": 691,
+      "eq2_id": 1976,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ y) ◇ y))",
+      "goal": "x = (y ◇ (z ◇ y)) ◇ (x ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_691_1976_min",
+      "proof_size_bytes": 3243,
+      "prior_motif_label": "seed-collapse plus context shift",
+      "prior_plan_family": "tail_shift_repeated_tail_corridor",
+      "cluster": "tail-shift / repeated-tail corridor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_4082_4109",
+      "eq1_id": 4082,
+      "eq2_id": 4109,
+      "hypothesis": "x ◇ x = ((y ◇ x) ◇ x) ◇ z",
+      "goal": "x ◇ x = ((y ◇ z) ◇ z) ◇ y",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_4082_4109_min",
+      "proof_size_bytes": 7398,
+      "prior_motif_label": "rotation/context-shift with transitive congruence",
+      "prior_plan_family": "local_theory_normalizer_extensions",
+      "cluster": "tail-shift / repeated-tail corridor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_2055_2656",
+      "eq1_id": 2055,
+      "eq2_id": 2656,
+      "hypothesis": "x = ((x ◇ y) ◇ x) ◇ (y ◇ z)",
+      "goal": "x = ((x ◇ x) ◇ (y ◇ z)) ◇ y",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "eprover_true_2055_2656_l4_l15",
+      "proof_size_bytes": 4177,
+      "prior_motif_label": "two-local-edge E-prover local theory bridge",
+      "prior_plan_family": "local_theory_normalizer_extensions",
+      "cluster": "local-theory normalization",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_689_1350",
+      "eq1_id": 689,
+      "eq2_id": 1350,
+      "hypothesis": "x = y ◇ (x ◇ ((z ◇ x) ◇ w))",
+      "goal": "x = y ◇ (((z ◇ x) ◇ x) ◇ y)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_689_1350_min",
+      "proof_size_bytes": 7183,
+      "prior_motif_label": "nested seed-collapse under y ◇ _ context",
+      "prior_plan_family": "tail_shift_repeated_tail_corridor",
+      "cluster": "tail-shift / repeated-tail corridor",
+      "excluded_recovered": false
+    },
+    {
+      "id": "true_1636_1839",
+      "eq1_id": 1636,
+      "eq2_id": 1839,
+      "hypothesis": "x = (x ◇ x) ◇ ((y ◇ x) ◇ z)",
+      "goal": "x = (x ◇ (x ◇ y)) ◇ (x ◇ z)",
+      "current_exact_certificate_type": "ATP exact certificate",
+      "exact_certificate_name": "z3_true_1636_1839_seed7_min_alias",
+      "proof_size_bytes": 11847,
+      "prior_motif_label": "self-square extension and absorption alignment",
+      "prior_plan_family": "local_theory_normalizer_extensions",
+      "cluster": "anchored erasure / square-anchor",
+      "excluded_recovered": false
+    }
+  ],
+  "clusters": {
+    "tail-shift / repeated-tail corridor": [
+      "true_1698_555",
+      "true_2135_2128",
+      "true_691_1976",
+      "true_4082_4109",
+      "true_689_1350"
+    ],
+    "anchored erasure / square-anchor": [
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_1636_1839"
+    ],
+    "local-theory normalization": [
+      "true_2789_898",
+      "true_1500_498",
+      "true_2055_2656"
+    ],
+    "ATP exact certificate only": [],
+    "finite witness exact only": [],
+    "unknown": []
+  },
+  "ranked_motif_families": [
+    {
+      "rank": 1,
+      "motif_family": "anchored erasure / square-anchor",
+      "cases_covered": [
+        "true_2860_3458",
+        "true_1738_1258",
+        "true_1636_1839"
+      ],
+      "likely_private_set_value": "high",
+      "implementation_difficulty": "medium",
+      "certificate_size_risk": "medium: public exact certificates are 7.3-11.8 KB, so a compact schema should stay below the generated-route gate if local lemmas are reused.",
+      "judge_error_risk": "low-medium with exact structural guards; medium if generalized into broad normalization.",
+      "notes": "Best balance of recurrence, clear anchor structure, and compatibility with existing square/anchored local-theory helpers."
+    },
+    {
+      "rank": 2,
+      "motif_family": "tail-shift / repeated-tail corridor",
+      "cases_covered": [
+        "true_1698_555",
+        "true_2135_2128",
+        "true_4082_4109",
+        "true_689_1350",
+        "true_691_1976"
+      ],
+      "likely_private_set_value": "high",
+      "implementation_difficulty": "medium-high",
+      "certificate_size_risk": "medium-high: several certificates are compact, but tail movement tends to require nested congrArg/trans chains.",
+      "judge_error_risk": "medium because overly broad tail-shift guards can emit fragile congrArg contexts.",
+      "notes": "Covers more cases, but route design should wait until square-anchor has been distilled or be implemented as several exact corridor schemas."
+    },
+    {
+      "rank": 3,
+      "motif_family": "local-theory normalization",
+      "cases_covered": [
+        "true_2055_2656",
+        "true_2789_898",
+        "true_1500_498"
+      ],
+      "likely_private_set_value": "medium-high",
+      "implementation_difficulty": "high",
+      "certificate_size_risk": "high: two public certificates are over 30 KB, indicating risk of proof bloat unless a new local package is found.",
+      "judge_error_risk": "medium-high for broad normalizer extensions.",
+      "notes": "`true_2055_2656` is attractive as a one-case E-prover local-theory bridge, but the family is not yet a low-risk generalized route."
+    },
+    {
+      "rank": 4,
+      "motif_family": "ATP exact certificate only",
+      "cases_covered": [],
+      "likely_private_set_value": "low",
+      "implementation_difficulty": "n/a",
+      "certificate_size_risk": "n/a",
+      "judge_error_risk": "low for memo routes, no private generalization value.",
+      "notes": "All current remaining losses have at least a plausible motif label; none should be treated as pure memo-only at this stage."
+    },
+    {
+      "rank": 5,
+      "motif_family": "finite witness exact only",
+      "cases_covered": [],
+      "likely_private_set_value": "n/a for proof-side routing",
+      "implementation_difficulty": "n/a",
+      "certificate_size_risk": "n/a",
+      "judge_error_risk": "n/a",
+      "notes": "No remaining lost case in this public-exact-disabled run is finite-witness-only; false witness bank is still active and false side remains 100/100."
+    }
+  ],
+  "recommendation": {
+    "route_name": "generalized_square_anchor_anchored_erasure_bridge",
+    "target_family": "anchored erasure / square-anchor",
+    "primary_targets": [
+      "true_2860_3458",
+      "true_1738_1258",
+      "true_1636_1839"
+    ],
+    "why": "It covers three remaining exact dependencies, has concise public certificates, and can be guarded by exact square-anchor/right-tail structure without broad graph search.",
+    "guard_sketch": [
+      "hypothesis contains a self-square or right-anchored double-tail pattern such as x = C[(x◇u)◇x], x = C[(u◇x)◇x], or x = (x◇x)◇C[x]",
+      "goal contains x◇x, x◇((x◇y)◇x), x = x◇C[((y◇z)◇x)◇x], or a self-square extension/absorption alignment shape",
+      "extract exact context depth <= 4; inner edge must be square-anchor, anchored-right, or double-tail erasure",
+      "derive only local facts already used by existing local-theory routes: idem, absorbL/absorbR, anchoredRightErase, or one local square-tail edge",
+      "emit at most 2 local lemmas, <= 3 calc steps, and keep generated proof below the existing private-route byte gate"
+    ],
+    "fallback_behavior": "If any exact structural guard or local lemma proof fails, abstain and leave public exact certificates untouched."
+  }
+}
